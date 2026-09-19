@@ -1093,14 +1093,56 @@
         <dt>Day change %</dt><dd class="${fmt.cls(p.tv_change_pct)}">${fmt.pct(p.tv_change_pct)}</dd>
       </dl>
       ` : `<div class="na">No TradingView cross-check data loaded for this symbol this refresh — see Methodology tab.</div>`}
+      <h3>Analyst forecasts (TradingView, independent source)</h3>
+      ${(() => {
+        const tr = p.tv_research;
+        if (!tr) return `<div class="na">Not fetched for this symbol this refresh — currently sampled for the "Both" logic watchlist only (see Methodology tab). TradingView's get_forecasts confirmed working for India across cap sizes; not part of the automated pipeline (MCP-only, manual enrichment).</div>`;
+        const f = tr.forecast;
+        if (!f || f.recommendation === null || f.recommendation === undefined) return `<div class="na">TradingView returned no analyst coverage for this symbol (confirmed empty response, not an error).</div>`;
+        return `
+        <dl class="kv">
+          <dt>Consensus recommendation</dt><dd>${esc(f.recommendation)} ${f.total_analysts ? `(${f.total_analysts} analysts)` : ""}</dd>
+          <dt>Buy / Hold / Sell</dt><dd>${f.buy ?? "—"} / ${f.hold ?? "—"} / ${f.sell ?? "—"}${(f.overweight || f.underweight) ? ` (+${f.overweight ?? 0} overweight, ${f.underweight ?? 0} underweight)` : ""}</dd>
+          <dt>EPS (TTM) · EPS (next FY est.)</dt><dd>${fmt.num(f.eps_ttm)} · ${f.eps_next_year !== null && f.eps_next_year !== undefined ? fmt.num(f.eps_next_year) : "—"}</dd>
+          <dt>P/E (TradingView)</dt><dd>${f.pe_ratio ?? "—"}</dd>
+        </dl>`;
+      })()}
+      <h3>Recent results, filings &amp; corporate events (TradingView, independent source)</h3>
+      ${(() => {
+        const tr = p.tv_research;
+        if (!tr || !tr.recent_documents?.length) return `<div class="na">Not fetched for this symbol this refresh — see note above.</div>`;
+        const rows = tr.recent_documents.map(d => `<tr><td>${fmt.unixIst(d.reported_unix)}</td><td>${esc(d.title)}</td><td>${esc(d.category)}</td><td>${esc(d.fiscal_period || "—")}</td></tr>`).join("");
+        return `<table><tr><th>Date</th><th>Document</th><th>Type</th><th>Fiscal period</th></tr>${rows}</table>
+        <div class="stat-sub" style="margin-top:6px">${tr.total_documents} total documents on file at TradingView for this symbol; showing the ${tr.recent_documents.length} most recent. Source: Quartr via TradingView MCP.</div>`;
+      })()}
+      <h3>Ownership, insider activity &amp; promoter pledge (NSE official corporate filings, independent source)</h3>
+      ${(() => {
+        const own = p.ownership;
+        const ownBlock = own
+          ? `<dl class="kv">
+              <dt>Promoter / Public holding</dt><dd>${fmt.pct(own.promoter_pct)} / ${fmt.pct(own.public_pct)}</dd>
+              <dt>As of quarter end</dt><dd>${esc(own.as_of_quarter_end || "—")}</dd>
+              <dt>Filed with NSE on</dt><dd>${esc(own.submission_date || "—")}</dd>
+            </dl>`
+          : `<div class="na">No SEBI LODR Reg 31 shareholding-pattern filing matched for this symbol this refresh.</div>`;
+        const pledgeBlock = p.pledge_data_available
+          ? (p.pledge
+              ? `<div class="banner warn">Promoter pledge disclosed: ${JSON.stringify(p.pledge)}</div>`
+              : `<div class="banner info">No promoter-pledge disclosure on file for this symbol in the trailing 12 months (NSE SEBI LODR Reg 31(4) feed — market-wide, currently 0 companies have any disclosed pledge).</div>`)
+          : `<div class="na">Pledge-data fetch failed this refresh — not shown rather than guessed.</div>`;
+        const it = p.insider_transactions;
+        const itBlock = it && it.length
+          ? `<table><tr><th>Date</th><th>Person</th><th>Category</th><th>Type</th><th>Securities</th><th>Holding after</th></tr>${
+              it.map(r => `<tr><td>${esc(r.date || "—")}</td><td>${esc(r.acqName || "—")}</td><td>${esc(r.personCategory || "—")}</td><td>${esc(r.tdpTransactionType || "—")}</td><td>${esc(r.secAcq || "—")}</td><td>${fmt.pct(parseFloat(r.afterAcqSharesPer))}</td></tr>`).join("")
+            }</table><div class="stat-sub" style="margin-top:6px">Showing up to ${it.length} most recent SEBI PIT (insider trading) disclosures for this symbol.</div>`
+          : `<div class="na">No SEBI PIT insider-trading disclosures on file for this symbol.</div>`;
+        return `${ownBlock}<div style="margin-top:10px">${pledgeBlock}</div><div style="margin-top:10px">${itBlock}</div>
+        <div class="stat-sub" style="margin-top:8px">Source: nseindia.com official corporate-filings API (corporate-share-holdings-master, corporates-pit, corporate-pledgedata) — real regulatory disclosures, not derived from either connected MCP.</div>`;
+      })()}
       <h3>Bull case (factual, derived from figures above)</h3>
       <ul class="prose">${bulls.length ? bulls.map(b => `<li>${esc(b)}</li>`).join("") : '<li class="na">No supporting figures this session.</li>'}</ul>
       <h3>Bear case / key uncertainty</h3>
       <ul class="prose">${bears.length ? bears.map(b => `<li>${esc(b)}</li>`).join("") : '<li class="na">No contrary figures this session.</li>'}</ul>
-      <h3>Not available</h3>
-      <p class="prose">Ownership changes, promoter pledging, results/announcements calendar, corporate
-        actions, and analyst estimates require sources not connected to this project (NSE corporate
-        filings feed, BSE/NSE announcements API). Not shown rather than guessed.</p>
       ${p.business_summary ? `<h3>Business summary (source: Yahoo Finance company profile)</h3><p class="prose">${esc(p.business_summary)}</p>` : ""}
     `);
   }
@@ -1125,6 +1167,9 @@
           <tr><td>NSE index fuller technical rating (Stoch/ADX/MACD/Momentum)</td><td>TradingView MCP get_technicals_rating (this Claude session only)</td><td>Only for indices with a verified TradingView-symbol identity; 6 of 8 candidates returned data — NIFTY PHARMA and NIFTY MIDCAP 50 returned "no technicals" from TradingView itself</td></tr>
           <tr><td>NSE index fundamentals via Alpha Vantage</td><td><b>Checked, unavailable</b></td><td>Alpha Vantage's INDEX_CATALOG lists 200+ indices — zero are Indian; confirmed by direct query, not assumed</td></tr>
           <tr><td>Cross-check RSI/SMA20/SMA50/EMA20/EMA50/OHLC/Volume (Company Research)</td><td>TradingView MCP get_symbol_data_batch (this Claude session only)</td><td>Manually fetched, not part of the automated pipeline — same limitation as News (see below); shown as "no cross-check data" when absent, never silently omitted</td></tr>
+          <tr><td>Analyst forecasts (recommendation, buy/hold/sell, EPS/PE estimates)</td><td>TradingView MCP get_forecasts (this Claude session only)</td><td>Confirmed working for India across cap sizes (mega-cap and mid-cap tested); currently sampled for the "Both" logic watchlist only — manual enrichment, same limitation as News</td></tr>
+          <tr><td>Recent results, filings &amp; corporate events (earnings transcripts, slides, AGM/investor-day decks)</td><td>TradingView MCP get_documents (this Claude session only, provider: Quartr)</td><td>Confirmed working for India across cap sizes; sampled for the "Both" logic watchlist only — manual enrichment, same limitation as News</td></tr>
+          <tr><td>Ownership (promoter/public holding %), insider trading (SEBI PIT), promoter pledge (SEBI LODR Reg 31(4))</td><td>nseindia.com official corporate-filings API (corporate-share-holdings-master, corporates-pit, corporate-pledgedata) — plain HTTP, part of the automated pipeline</td><td>Not from either connected MCP (both confirmed unavailable there — Alpha Vantage INSIDER_TRANSACTIONS/INSTITUTIONAL_HOLDINGS, TradingView get_documents category="insider_transactions"), but genuinely available from NSE's own site, the same official source already used for holidays/allIndices. Shareholding pattern matched 497/501 universe symbols; insider disclosures found for most actively-traded symbols; promoter pledge is real-time-verified at 0 companies market-wide for the trailing 12 months (a real finding, not a gap)</td></tr>
           <tr><td>Options chain / OI / IV / Greeks / PCR</td><td><b>none connected</b></td><td>Not shown; explicitly marked unavailable everywhere</td></tr>
           <tr><td>Alpha Vantage MCP (India)</td><td>connected but unused for India</td><td>Equity search returns BSE-labeled tickers only; NEWS_SENTIMENT rejects NSE/BSE ticker syntax; options endpoints are US-only</td></tr>
         </table>
