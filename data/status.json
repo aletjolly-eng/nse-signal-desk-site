@@ -1,0 +1,53 @@
+{
+  "last_attempt": "2026-09-19T23:09:27.751244+05:30",
+  "last_success": "2026-09-19T23:09:27.751244+05:30",
+  "last_error": null,
+  "history": [
+    {
+      "at": "2026-09-19T18:45:33.850546+05:30",
+      "ok": true
+    },
+    {
+      "at": "2026-09-19T18:49:18.137508+05:30",
+      "ok": true
+    },
+    {
+      "at": "2026-09-19T18:55:47.717677+05:30",
+      "ok": true
+    },
+    {
+      "at": "2026-09-19T19:03:06.264747+05:30",
+      "ok": true
+    },
+    {
+      "at": "2026-09-19T20:05:43.157910+05:30",
+      "ok": true
+    },
+    {
+      "at": "2026-09-19T20:36:16.865697+05:30",
+      "ok": true
+    },
+    {
+      "at": "2026-09-19T22:42:43.259905+05:30",
+      "ok": true
+    },
+    {
+      "at": "2026-09-19T23:09:27.751244+05:30",
+      "ok": true
+    }
+  ],
+  "scheduling_configured": false,
+  "scheduling_note": "Manual refresh only. No unattended backend is wired up in this environment. The 9x/day IST schedule below is documentation of the target cadence, not an active job.",
+  "target_schedule_ist": [
+    "07:00",
+    "09:00",
+    "11:00",
+    "13:00",
+    "15:00",
+    "17:00",
+    "19:00",
+    "21:00",
+    "23:00"
+  ],
+  "next_scheduled_slot_if_active": "2026-09-20T07:00:00+05:30"
+}
