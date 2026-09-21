@@ -127,7 +127,7 @@
       ${isStale ? `<span class="pill stale">STALE — last refresh failed</span>` : ""}
       <span class="mono">Snapshot: ${fmt.iso(s.generated_at_ist)}</span>
       <span>· Screening close session: <span class="mono">${esc(s.screening_close_session)}</span></span>
-      <span>· Scheduling: <b style="color:var(--warn)">not configured</b></span>
+      <span>· Scheduling: <b style="color:var(--warn)">${st?.scheduling_configured ? "configured (cron)" : "not configured"}</b></span>
     `;
   }
 
@@ -137,19 +137,27 @@
       <button class="btn modal-close" onclick="closeModal()">Close</button>
       <h2>Refresh now</h2>
       <p class="prose">This site has no live backend — a "refresh" means re-running the Python data
-      pipeline and republishing this page, which requires an active Claude session (or your own
-      scheduler calling the same script). It cannot happen from a click on a static published page
-      without exposing API credentials client-side, which this project deliberately avoids.</p>
-      <h3>To refresh</h3>
-      <p class="prose">Ask Claude, in the project at <code>C:\\Users\\Admin\\Desktop\\Alet\\Trading</code>,
-      to run <code>scripts/refresh.py</code> and republish the site — or run it yourself:</p>
+      pipeline and republishing this page. It cannot happen from a click on a static published page
+      without exposing API credentials client-side, which this project deliberately avoids. There are
+      two real ways to trigger one:</p>
+      <h3>1. Run the GitHub Action (fastest, no Claude session needed)</h3>
+      <p class="prose">Requires being logged into GitHub with access to this repo. Opens the workflow's
+      own page — click the "Run workflow" dropdown there, branch <code>main</code>, then Run workflow.
+      Takes roughly 5–6 minutes; this public site updates automatically once it finishes.</p>
+      <p><a href="https://github.com/aletjolly-eng/nse-signal-desk/actions/workflows/refresh-and-deploy.yml" target="_blank" rel="noopener" class="btn primary" style="display:inline-block;text-decoration:none">Open the refresh workflow on GitHub →</a></p>
+      <p class="stat-sub">This also runs automatically on its own schedule (see below) on trading days — a
+      manual run is only for getting new data sooner than the next scheduled slot.</p>
+      <h3>2. Ask Claude directly</h3>
+      <p class="prose">In the project at <code>C:\\Users\\Admin\\Desktop\\Alet\\Trading</code>, ask Claude
+      to refresh — this also re-fetches anything that needs an active MCP session (TradingView analyst
+      forecasts, cross-check technicals), which the GitHub Action alone cannot do. Or run it yourself:</p>
       <div class="table-wrap" style="padding:10px 14px;font-family:'IBM Plex Mono';font-size:12.5px">venv/Scripts/python.exe scripts/refresh.py</div>
       <h3>Last attempts</h3>
       <dl class="kv">
         <dt>Last attempt</dt><dd>${fmt.iso(st.last_attempt)}</dd>
         <dt>Last success</dt><dd>${fmt.iso(st.last_success)}</dd>
         <dt>Last error</dt><dd>${st.last_error ? "see status.json — refresh failed, previous snapshot kept" : "none"}</dd>
-        <dt>Scheduling</dt><dd>not configured (manual only)</dd>
+        <dt>Scheduled cron (GitHub Actions)</dt><dd>configured — 07:00–23:00 IST, every 2h, Mon–Fri; not independently confirmed to have fired on schedule yet, see Methodology tab</dd>
       </dl>
     `);
   }
@@ -257,13 +265,15 @@
 
   /* ================= OVERVIEW ================= */
   function renderOverview() {
-    const s = STATE.snapshot, c = s.counts, sr = s.sector_rankings;
+    const s = STATE.snapshot, c = s.counts, sr = s.sector_rankings, st = STATE.status || {};
     const top3 = sr.ranked.slice(0, 3), bottom3 = sr.ranked.slice(-3).reverse();
     const leaders = [...s.watchlist].sort((a, b) => (b.volume?.volume_multiple || 0) - (a.volume?.volume_multiple || 0)).slice(0, 8);
     const deliveryNote = `Delivery-backed accumulation and turnover concentration require NSE bhavcopy delivery data,
       which no connected provider currently supplies — see Methodology tab for what's unavailable and why.`;
     return `
-      <div class="banner info">Manual-refresh snapshot. Scheduling is <b>not configured</b> — see the
+      <div class="banner info">${st.scheduling_configured
+        ? `A GitHub Actions cron is <b>configured</b> to refresh this automatically on trading days — not yet independently confirmed from here to have fired unattended. See the`
+        : `Manual-refresh snapshot. Scheduling is <b>not configured</b> — see the`}
         <a href="#" onclick="event.preventDefault();document.querySelector('[data-tab=methodology]').click()">Methodology tab</a> for what that means and how to trigger a refresh.</div>
       <div class="grid grid-4">
         <div class="card"><div class="stat-label">Scanned</div><div class="stat-value">${fmt.int(c.scanned)}</div><div class="stat-sub">Nifty 500 + F&O universe</div></div>
@@ -307,7 +317,9 @@
           <li>Snapshot reflects <b>${esc(s.screening_close_session)}</b>'s completed session; intraday "last price" fields may be more recent but are Yahoo-sourced and can lag true NSE ticks.</li>
           <li>Sector return figures use an equal-weighted aggregate of Nifty 500 constituents per NSE industry bucket, not a separately-traded NSE sector index — see Methodology.</li>
           <li>NSE Indices tab: RSI/trend/strategies are only computed for indices with a verified full historical price series (8 of 139) — the rest show real NSE snapshot stats with "insufficient data" rather than a guessed logic tag.</li>
-          <li>Scheduling is not configured — this snapshot only updates when someone manually triggers <code>scripts/refresh.py</code>.</li>
+          <li>${st.scheduling_configured
+            ? 'A GitHub Actions cron is configured to run <code>scripts/refresh.py</code> unattended on trading days — not yet independently confirmed from here to have fired on schedule; see Methodology.'
+            : 'Scheduling is not configured — this snapshot only updates when someone manually triggers <code>scripts/refresh.py</code>.'}</li>
         </ul>
       </div>
     `;
@@ -1195,11 +1207,17 @@
         </div>
 
         <h3>Scheduling</h3>
-        <p><b style="color:var(--warn)">Scheduling not configured.</b> No unattended backend runs in this
-        environment. Target cadence if a scheduler is ever wired up: ${(st.target_schedule_ist || []).join(", ")} IST,
-        Mon–Fri, respecting the NSE trading calendar (outside trading hours / on holidays, market data is
-        retained as last-completed-session and only news/filings would refresh). To refresh today, run
-        <code>scripts/refresh.py</code> from an active session — see the "Refresh now" button.</p>
+        <p><b style="color:var(--warn)">Configured, not independently confirmed to fire automatically yet.</b>
+        A GitHub Actions cron (<code>.github/workflows/refresh-and-deploy.yml</code>) is wired up to run
+        <code>scripts/refresh.py</code> and redeploy this site at ${(st.target_schedule_ist || []).join(", ")} IST,
+        Mon–Fri (respecting the NSE trading calendar — outside trading hours / on holidays, market data is
+        retained as last-completed-session). This satisfies the "your own scheduler" condition for a real
+        automatic run, but every success recorded below so far traces to either a manual "Run workflow"
+        click or a local run from an active Claude session, not a confirmed unattended cron firing — this
+        page doesn't have API access to GitHub's own Actions run history to verify that independently. The
+        MCP-derived fields (TradingView analyst forecasts/technicals) still can't refresh unattended either
+        way — those need an active Claude session regardless of the cron. To refresh sooner than the next
+        scheduled slot, use the "Refresh now" button.</p>
         <div class="kv" style="max-width:420px">
           <dt>Last attempt</dt><dd>${fmt.iso(st.last_attempt)}</dd>
           <dt>Last success</dt><dd>${fmt.iso(st.last_success)}</dd>

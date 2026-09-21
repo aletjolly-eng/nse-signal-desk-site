@@ -1,6 +1,6 @@
 {
-  "last_attempt": "2026-09-20T01:09:37.003240+05:30",
-  "last_success": "2026-09-20T01:09:37.003240+05:30",
+  "last_attempt": "2026-09-21T08:53:24.247001+05:30",
+  "last_success": "2026-09-21T08:53:24.247001+05:30",
   "last_error": null,
   "history": [
     {
@@ -44,12 +44,16 @@
       "ok": true
     },
     {
-      "at": "2026-09-20T01:09:37.003240+05:30",
+      "at": "2026-09-21T08:43:07.439814+05:30",
+      "ok": true
+    },
+    {
+      "at": "2026-09-21T08:53:24.247001+05:30",
       "ok": true
     }
   ],
-  "scheduling_configured": false,
-  "scheduling_note": "Manual refresh only. No unattended backend is wired up in this environment. The 9x/day IST schedule below is documentation of the target cadence, not an active job.",
+  "scheduling_configured": true,
+  "scheduling_note": "A GitHub Actions cron is configured to run this refresh unattended, 07:00-23:00 IST every 2h Mon-Fri (see .github/workflows/refresh-and-deploy.yml). Not independently confirmed from here to have fired on schedule yet \u2014 this pipeline has no API access to GitHub's own Actions run history. TradingView-derived fields (analyst forecasts, cross-check technicals) still require an active Claude session regardless of the cron.",
   "target_schedule_ist": [
     "07:00",
     "09:00",
@@ -61,5 +65,5 @@
     "21:00",
     "23:00"
   ],
-  "next_scheduled_slot_if_active": "2026-09-20T07:00:00+05:30"
+  "next_scheduled_slot_if_active": "2026-09-21T09:00:00+05:30"
 }
