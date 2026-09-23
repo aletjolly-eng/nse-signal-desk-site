@@ -1,10 +1,10 @@
 {
-  "generated_at_ist": "2026-09-24T01:35:51.976402+05:30",
+  "generated_at_ist": "2026-09-24T01:45:48.212374+05:30",
   "market_status": {
     "status": "PRE_OPEN",
     "is_trading_day": true,
     "holiday_reason": null,
-    "as_of_ist": "2026-09-24T01:35:51.976402+05:30",
+    "as_of_ist": "2026-09-24T01:45:48.212374+05:30",
     "last_completed_trading_day": "2026-09-23"
   },
   "screening_close_session": "2026-09-23",
@@ -20,9 +20,9 @@
   },
   "counts": {
     "scanned": 501,
-    "data_unavailable": 2,
-    "eligible_for_screening": 499,
-    "pe_filtered_out": 218,
+    "data_unavailable": 1,
+    "eligible_for_screening": 500,
+    "pe_filtered_out": 220,
     "matched_total": 132,
     "matched_price_volume": 7,
     "matched_rsi_based": 119,
@@ -5204,15 +5204,15 @@
       {
         "sector": "Information Technology",
         "score": 21.0,
-        "ret_1d": -0.27,
-        "ret_5d": -1.71,
-        "ret_20d": -5.22,
-        "rel_ret_1d": -0.56,
-        "rel_ret_5d": -1.78,
-        "rel_ret_20d": -1.76,
-        "pct_above_20dma": 7.7,
-        "pct_above_50dma": 15.4,
-        "constituents_scored": 26,
+        "ret_1d": -0.28,
+        "ret_5d": -1.51,
+        "ret_20d": -5.28,
+        "rel_ret_1d": -0.57,
+        "rel_ret_5d": -1.58,
+        "rel_ret_20d": -1.83,
+        "pct_above_20dma": 11.1,
+        "pct_above_50dma": 14.8,
+        "constituents_scored": 27,
         "constituents_total": 27,
         "rank": 19
       },
@@ -5292,7 +5292,7 @@
       },
       "Information Technology": {
         "constituents_total": 27,
-        "constituents_with_data": 26
+        "constituents_with_data": 27
       },
       "Consumer Durables": {
         "constituents_total": 16,
@@ -19119,7 +19119,7 @@
       "last_price": 1584.3,
       "last_price_time_unix": 1790157586,
       "daily_change_pct": -0.5,
-      "screening_close": null,
+      "screening_close": 1592.3,
       "pe_trailing": 46.71,
       "pe_forward": 31.98,
       "price_to_book": 6.09,
@@ -19142,7 +19142,7 @@
       "fifty_two_week_high": 2099.0,
       "fifty_two_week_low": 1251.3,
       "beta": 0.1,
-      "rsi_daily": null,
+      "rsi_daily": 49.5,
       "logic_matched": null,
       "data_note": "yfinance fields not returned by Yahoo for this ticker are shown as unavailable, not zero.",
       "tv_available": true,
@@ -19538,8 +19538,11 @@
         }
       ],
       "money_flow": {
-        "available": false,
-        "reason": "no OHLCV data"
+        "available": true,
+        "net_money_flow_volume": 1186368.0,
+        "pct_of_traded_volume": 15.55,
+        "classification": "Accumulation",
+        "sessions_used": 20
       }
     },
     "AIAENG": {
@@ -43232,7 +43235,7 @@
       "last_price_time_unix": 1790157598,
       "daily_change_pct": 4.39,
       "screening_close": 1211.3,
-      "pe_trailing": 111.02,
+      "pe_trailing": 114.75,
       "pe_forward": 41.88,
       "price_to_book": 6.18,
       "ev_to_ebitda": 39.9,
@@ -91239,35 +91242,35 @@
       "in_nifty500": true,
       "fo_eligible": false,
       "isin": "INE933S01016",
-      "long_name": "IndiaMART InterMESH Limited",
-      "business_summary": "IndiaMART InterMESH Limited operates an online business-to-business marketplace for business products and services in India and internationally. The company's e-marketplace acts as an interactive hub for domestic and international buyers and suppliers. Its platform serves small and medium enterprises, large enterprises, and individuals. The company also provides the Live Keeping Tally mobile app, which allows users to access their Tally data in real-time from anywhere. IndiaMART InterMESH Limited was incorporated in 1999 and is based in Noida, India.",
-      "website": "https://www.indiamart.com",
-      "last_price": 1652.4,
-      "last_price_time_unix": 1790157599,
-      "daily_change_pct": 1.05,
+      "long_name": null,
+      "business_summary": null,
+      "website": null,
+      "last_price": null,
+      "last_price_time_unix": null,
+      "daily_change_pct": null,
       "screening_close": 1635.2,
-      "pe_trailing": 20.21,
-      "pe_forward": 15.88,
-      "price_to_book": 4.48,
-      "ev_to_ebitda": 12.36,
-      "market_cap": 993797996544,
-      "roe_pct": 23.15,
-      "roa_pct": 7.25,
-      "debt_to_equity": 0.97,
-      "gross_margin_pct": 55.62,
-      "operating_margin_pct": 33.81,
-      "net_margin_pct": 30.62,
-      "revenue_growth_pct": 11.4,
-      "earnings_growth_pct": 11.9,
-      "dividend_yield_pct": 1.83,
-      "free_cashflow": 9051123712,
-      "total_debt": 216280000,
-      "total_cash": 33886580736,
-      "held_pct_insiders": 57.91,
-      "held_pct_institutions": 13.77,
-      "fifty_two_week_high": 2525.9,
-      "fifty_two_week_low": 1622.4,
-      "beta": 0.25,
+      "pe_trailing": null,
+      "pe_forward": null,
+      "price_to_book": null,
+      "ev_to_ebitda": null,
+      "market_cap": null,
+      "roe_pct": null,
+      "roa_pct": null,
+      "debt_to_equity": null,
+      "gross_margin_pct": null,
+      "operating_margin_pct": null,
+      "net_margin_pct": null,
+      "revenue_growth_pct": null,
+      "earnings_growth_pct": null,
+      "dividend_yield_pct": null,
+      "free_cashflow": null,
+      "total_debt": null,
+      "total_cash": null,
+      "held_pct_insiders": null,
+      "held_pct_institutions": null,
+      "fifty_two_week_high": null,
+      "fifty_two_week_low": null,
+      "beta": null,
       "rsi_daily": 35.4,
       "logic_matched": null,
       "data_note": "yfinance fields not returned by Yahoo for this ticker are shown as unavailable, not zero.",
@@ -186437,6 +186440,16 @@
           "sessions_used": 20
         },
         {
+          "symbol": "AFFLE",
+          "company": "Affle 3i Ltd.",
+          "sector": "Information Technology",
+          "available": true,
+          "net_money_flow_volume": 1186368.0,
+          "pct_of_traded_volume": 15.55,
+          "classification": "Accumulation",
+          "sessions_used": 20
+        },
+        {
           "symbol": "CRISIL",
           "company": "CRISIL Ltd.",
           "sector": "Financial Services",
@@ -188056,7 +188069,7 @@
     }
   },
   "global_markets": {
-    "as_of_ist": "2026-09-24T01:35:51.976402+05:30",
+    "as_of_ist": "2026-09-24T01:45:48.212374+05:30",
     "regional_indices": {
       "India": {
         "name": "NIFTY 50",
@@ -188129,22 +188142,22 @@
       "Gold": {
         "ticker": "GC=F",
         "available": true,
-        "last": 4320.7998046875,
+        "last": 4321.7001953125,
         "last_date": "2026-09-23",
-        "1d_change_pct": -1.2704528584436159,
-        "ret_1w_pct": -1.5202323717948718,
-        "ret_1m_pct": -8.02503332781075,
-        "ret_6m_pct": -1.8446205205020494
+        "1d_change_pct": -1.2498790844492014,
+        "ret_1w_pct": -1.4997106481481448,
+        "ret_1m_pct": -8.00586710825193,
+        "ret_6m_pct": -1.824166394536575
       },
       "Brent Crude Oil": {
         "ticker": "BZ=F",
         "available": true,
-        "last": 98.56999969482422,
+        "last": 98.55000305175781,
         "last_date": "2026-09-23",
-        "1d_change_pct": -0.6851388465247132,
-        "ret_1w_pct": -6.860060484379671,
-        "ret_1m_pct": 6.943692799198997,
-        "ret_6m_pct": -5.665612297804435
+        "1d_change_pct": -0.7052865977251299,
+        "ret_1w_pct": -6.878955545062304,
+        "ret_1m_pct": 6.9219974064859136,
+        "ret_6m_pct": -5.684749673127643
       },
       "USD/INR": {
         "ticker": "INR=X",
@@ -188169,12 +188182,12 @@
       "Copper": {
         "ticker": "HG=F",
         "available": true,
-        "last": 6.771999835968018,
+        "last": 6.778500080108643,
         "last_date": "2026-09-23",
-        "1d_change_pct": 0.18492209802141168,
-        "ret_1w_pct": 5.294252975996949,
-        "ret_1m_pct": 2.6216072049740857,
-        "ret_6m_pct": 24.887038621038847
+        "1d_change_pct": 0.28108666810715555,
+        "ret_1w_pct": 5.395321843026979,
+        "ret_1m_pct": 2.720110677669507,
+        "ret_6m_pct": 25.00691402870274
       }
     },
     "source": "yfinance \u2014 same provider as the Nifty 500 universe. 1D/1W/1M/6M are approximated as 1/5/21/126-session returns (trading-session counts, not calendar days) on each instrument's own close series."
