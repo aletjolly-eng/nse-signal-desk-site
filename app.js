@@ -556,6 +556,7 @@
             <th class="num" data-key="screening_close" data-numeric="1">Screen Close</th>
             <th class="num" data-key="breakout_pct" data-numeric="1">125d High</th><th class="num" data-key="breakout_pct2" data-numeric="1">Breakout %</th>
             <th class="num" data-key="vol_signal" data-numeric="1">Signal Vol</th><th class="num" data-key="vol_avg" data-numeric="1">125d Avg Vol</th><th class="num" data-key="vol_mult" data-numeric="1">Vol ×</th>
+            <th class="num" data-key="liquidity" data-numeric="1">Liquidity (Avg turnover)</th>
             <th class="num" data-key="rsi_daily" data-numeric="1">RSI(14) d</th><th class="num" data-key="rsi_1h" data-numeric="1">RSI(14) 1h</th>
             <th class="num" data-key="pe" data-numeric="1">P/E</th>
           </tr></thead>
@@ -571,6 +572,10 @@
   function screenerRow(w) {
     const v = w.volume || {}, b = w.breakout || {};
     const NA = -1e15; // sentinel so "n/a" rows sort to the bottom, never silently as zero
+    // Liquidity proxy: 125-session average volume x screening close = average rupee value traded on a
+    // typical day. Both inputs already computed elsewhere on this row — nothing new fetched or guessed.
+    const liqPrice = w.screening_close ?? w.last_price;
+    const liquidity = (v.available && liqPrice != null) ? v.prior_avg_volume * liqPrice : null;
     return `<tr data-sector="${esc(w.sector)}" data-open-symbol="${esc(w.symbol)}">
       <td class="txt" data-sort="${esc(w.symbol)}"><b>${esc(w.symbol)}</b></td>
       <td class="txt">${esc(w.company)}</td>
@@ -586,6 +591,7 @@
       <td class="num" data-sort="${v.available ? v.signal_session_volume : NA}">${v.available ? fmt.int(v.signal_session_volume) : '<span class="na">n/a</span>'}</td>
       <td class="num" data-sort="${v.available ? v.prior_avg_volume : NA}">${v.available ? fmt.int(Math.round(v.prior_avg_volume)) : '<span class="na">n/a</span>'}</td>
       <td class="num" data-sort="${v.available ? v.volume_multiple : NA}">${v.available ? fmt.num(v.volume_multiple) + "×" : '<span class="na">n/a</span>'}</td>
+      <td class="num" data-sort="${liquidity ?? NA}" title="Average 125-session volume × screening close — a standard proxy for how much rupee value trades in this name on a typical day, not a bid-ask spread or order-book depth measure">${liquidity != null ? fmt.money(liquidity) : '<span class="na">n/a</span>'}</td>
       <td class="num" data-sort="${w.rsi_daily ?? NA}">${w.rsi_daily ?? '<span class="na">n/a</span>'}</td>
       <td class="num" data-sort="${w.rsi_1h ?? NA}">${w.rsi_1h ?? '<span class="na">n/a</span>'}</td>
       <td class="num" data-sort="${w.pe ?? NA}">${w.pe ?? '<span class="na">n/a</span>'}</td>
