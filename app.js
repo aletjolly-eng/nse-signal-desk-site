@@ -12,13 +12,14 @@
     { id: "screen_rsi", label: "RSI_Based Screener" },
     { id: "screen_both", label: "Both Logics" },
     { id: "indices", label: "NSE Indices" },
+    { id: "fo", label: "F&O" },
     { id: "strategy", label: "Strategy Research" },
-    { id: "news", label: "News & Filings" },
+    { id: "news", label: "News" },
     { id: "company", label: "Company Research" },
     { id: "methodology", label: "Methodology & Data Status" },
   ];
 
-  let STATE = { tab: "overview", snapshot: null, status: null, news: null, loadError: null, company: null, expandedSector: null, expandedIndex: null, newsView: "view1" };
+  let STATE = { tab: "overview", snapshot: null, status: null, news: null, loadError: null, company: null, expandedSector: null, expandedIndex: null, expandedOptionChain: null };
 
   /* ---------------- formatting helpers ---------------- */
   const fmt = {
@@ -182,7 +183,7 @@
       screen_pv: () => renderScreener("Price_Volume", "Price_Volume Screener", r => r.logic_matched === "Price_Volume" || r.logic_matched === "Both"),
       screen_rsi: () => renderScreener("RSI_Based", "RSI_Based Screener", r => r.logic_matched === "RSI_Based" || r.logic_matched === "Both"),
       screen_both: () => renderScreener("Both", "Both Logics", r => r.logic_matched === "Both"),
-      indices: renderIndices, strategy: renderStrategy, news: renderNews, company: renderCompany, methodology: renderMethodology,
+      indices: renderIndices, fo: renderOptionsChain, strategy: renderStrategy, news: renderNews, company: renderCompany, methodology: renderMethodology,
     };
     el.innerHTML = `<div class="view active" id="view-inner"></div>`;
     document.getElementById("view-inner").innerHTML = renderers[STATE.tab] ? renderers[STATE.tab]() : "";
@@ -205,8 +206,13 @@
     if (secEl && secEl.dataset.openSector) { openSectorAccordion(secEl.dataset.openSector); return; }
     const idxEl = e.target.closest("[data-open-index]");
     if (idxEl && idxEl.dataset.openIndex) { toggleIndexExpand(idxEl.dataset.openIndex); return; }
-    const newsViewEl = e.target.closest("[data-news-view]");
-    if (newsViewEl && newsViewEl.dataset.newsView) { STATE.newsView = newsViewEl.dataset.newsView; renderView(); return; }
+    const ocEl = e.target.closest("[data-toggle-option-chain]");
+    if (ocEl && ocEl.dataset.toggleOptionChain) {
+      const sym = ocEl.dataset.toggleOptionChain;
+      STATE.expandedOptionChain = STATE.expandedOptionChain === sym ? null : sym;
+      renderView();
+      return;
+    }
   });
 
   /* generic client-side sort for any table[data-sortable] */
@@ -265,6 +271,29 @@
     document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
   }
 
+  /* ---- Global markets panel: LTP + 1D/1W/1M/6M for major regional benchmarks (yfinance). ---- */
+  function renderGlobalMarketsPanel() {
+    const gm = STATE.snapshot?.global_markets;
+    if (!gm) return "";
+    const rows = Object.entries(gm.regional_indices || {});
+    return `
+      <div class="section-title" style="margin-top:0"><h2>Global markets</h2><span class="hint">LTP and return over 1D / 1W / 1M / 6M</span></div>
+      <div class="table-wrap" style="margin-bottom:20px"><table>
+        <tr><th class="txt">Region</th><th class="txt">Index</th><th class="num">LTP</th><th class="num">1D</th><th class="num">1W</th><th class="num">1M</th><th class="num">6M</th></tr>
+        ${rows.map(([region, r]) => r.available ? `<tr>
+          <td class="txt"><b>${esc(region)}</b></td>
+          <td class="txt">${esc(r.name)}</td>
+          <td class="num">${fmt.num(r.last)}</td>
+          <td class="num ${fmt.cls(r["1d_change_pct"])}">${fmt.pct(r["1d_change_pct"])}</td>
+          <td class="num ${fmt.cls(r.ret_1w_pct)}">${fmt.pct(r.ret_1w_pct)}</td>
+          <td class="num ${fmt.cls(r.ret_1m_pct)}">${fmt.pct(r.ret_1m_pct)}</td>
+          <td class="num ${fmt.cls(r.ret_6m_pct)}">${fmt.pct(r.ret_6m_pct)}</td>
+        </tr>` : `<tr><td class="txt"><b>${esc(region)}</b></td><td colspan="6" class="na">Source unavailable this refresh</td></tr>`).join("")}
+      </table></div>
+      <div class="stat-sub" style="margin-top:-14px;margin-bottom:18px">${esc(gm.source)}</div>
+    `;
+  }
+
   /* ================= OVERVIEW ================= */
   function renderOverview() {
     const s = STATE.snapshot, c = s.counts, sr = s.sector_rankings, st = STATE.status || {};
@@ -273,6 +302,7 @@
     const deliveryNote = `Delivery-backed accumulation and turnover concentration require NSE bhavcopy delivery data,
       which no connected provider currently supplies — see Methodology tab for what's unavailable and why.`;
     return `
+      ${renderGlobalMarketsPanel()}
       <div class="banner info">${st.scheduling_configured
         ? `A GitHub Actions cron is <b>configured</b> to refresh this automatically on trading days — not yet independently confirmed from here to have fired unattended. See the`
         : `Manual-refresh snapshot. Scheduling is <b>not configured</b> — see the`}
@@ -888,6 +918,114 @@
     });
   }
 
+  /* ================= F&O (OPTIONS CHAIN) ================= */
+  /* NSE's own option-chain-v3 API — real OI/change-in-OI/IV/LTP/volume per strike. Max Pain and PCR
+     are computed here from that real OI data (see src/options_chain.py docstring for methodology). */
+  function renderOptionsChain() {
+    const oc = STATE.snapshot?.options_chain;
+    if (!oc) return `<div class="section-title"><h2>F&amp;O</h2></div><div class="banner warn">Not present in this snapshot — refresh to populate (this is a new section).</div>`;
+    const indexNames = Object.keys(oc.indices || {});
+    const stocks = Object.entries(oc.stocks || {}).filter(([, v]) => v.available);
+    return `
+      <div class="section-title"><h2>F&amp;O — Options Chain</h2><span class="hint">NSE official OI/IV data; Max Pain &amp; PCR computed from it</span></div>
+      <div class="banner info">${esc(oc.source)}</div>
+      <div class="grid grid-2" style="margin-bottom:18px">
+        ${indexNames.map(name => optionIndexCard(name, oc.indices[name])).join("")}
+      </div>
+      <div class="section-title"><h3 style="margin:0">F&amp;O stocks — summary</h3><span class="hint">${stocks.length} of ${Object.keys(oc.stocks || {}).length} F&amp;O-eligible symbols have data this refresh (expiry ${esc(oc.stocks_expiry_used || "—")})</span></div>
+      ${stockOptionsTable(stocks)}
+    `;
+  }
+
+  function optionIndexCard(name, r) {
+    if (!r || !r.available) {
+      return `<div class="card"><h3 style="margin-top:0">${esc(name)}</h3><div class="na">Source unavailable this refresh — not shown rather than guessed.</div></div>`;
+    }
+    const expanded = STATE.expandedOptionChain === name;
+    return `<div class="card">
+      <h3 style="margin-top:0">${esc(name)}</h3>
+      <div class="grid grid-4" style="margin-bottom:10px">
+        <div><div class="stat-label">Spot</div><div class="stat-value" style="font-size:16px">${fmt.num(r.underlying_value)}</div></div>
+        <div><div class="stat-label">PCR (OI)</div><div class="stat-value" style="font-size:16px">${r.pcr_oi ?? "—"}</div></div>
+        <div><div class="stat-label">Max Pain</div><div class="stat-value" style="font-size:16px">${fmt.num(r.max_pain_strike, 0)}</div></div>
+        <div><div class="stat-label">Expiry</div><div class="stat-value" style="font-size:13px">${esc(r.expiry || "—")}</div></div>
+      </div>
+      <div class="stat-sub">Total Call OI ${fmt.int(r.total_ce_oi)} · Total Put OI ${fmt.int(r.total_pe_oi)} · as of ${esc(r.timestamp || "—")}</div>
+      <button class="btn" style="margin-top:10px" data-toggle-option-chain="${esc(name)}">${expanded ? "Hide" : "Show"} full chain (${r.num_strikes} strikes)</button>
+      ${expanded ? optionChainStrikesTable(name, r.strikes || []) : ""}
+    </div>`;
+  }
+
+  function optionChainStrikesTable(name, strikes) {
+    const containerId = "tbl-oc-" + name;
+    const NA = -1e15;
+    return `<div id="${containerId}" style="margin-top:12px">
+      <div class="toolbar">
+        <input type="text" placeholder="Search strike…" data-filter-input="${containerId}">
+        <span class="spacer"></span>
+        <span class="count-note" data-visible-count>${strikes.length} shown</span>
+        <button class="btn" data-csv-export="table-${containerId}">Export CSV</button>
+      </div>
+      <div class="table-wrap"><table data-sortable id="table-${containerId}">
+        <thead><tr>
+          <th class="num" data-key="ce_oi" data-numeric="1">Call OI</th><th class="num" data-key="ce_oi_chg" data-numeric="1">Call Chg OI</th>
+          <th class="num" data-key="ce_iv" data-numeric="1">Call IV</th><th class="num" data-key="ce_ltp" data-numeric="1">Call LTP</th>
+          <th class="num" data-key="strike" data-numeric="1">Strike</th>
+          <th class="num" data-key="pe_ltp" data-numeric="1">Put LTP</th><th class="num" data-key="pe_iv" data-numeric="1">Put IV</th>
+          <th class="num" data-key="pe_oi_chg" data-numeric="1">Put Chg OI</th><th class="num" data-key="pe_oi" data-numeric="1">Put OI</th>
+        </tr></thead>
+        <tbody data-search-src>
+          ${strikes.map(s => `<tr data-search="${esc(String(s.strike))}">
+            <td class="num" data-sort="${s.ce_oi ?? NA}">${s.ce_oi != null ? fmt.int(s.ce_oi) : '<span class="na">—</span>'}</td>
+            <td class="num" data-sort="${s.ce_oi_change ?? NA}">${s.ce_oi_change != null ? fmt.int(s.ce_oi_change) : '<span class="na">—</span>'}</td>
+            <td class="num" data-sort="${s.ce_iv ?? NA}">${s.ce_iv ?? '<span class="na">—</span>'}</td>
+            <td class="num" data-sort="${s.ce_ltp ?? NA}">${s.ce_ltp != null ? fmt.num(s.ce_ltp) : '<span class="na">—</span>'}</td>
+            <td class="num mono"><b>${fmt.num(s.strike, 0)}</b></td>
+            <td class="num" data-sort="${s.pe_ltp ?? NA}">${s.pe_ltp != null ? fmt.num(s.pe_ltp) : '<span class="na">—</span>'}</td>
+            <td class="num" data-sort="${s.pe_iv ?? NA}">${s.pe_iv ?? '<span class="na">—</span>'}</td>
+            <td class="num" data-sort="${s.pe_oi_change ?? NA}">${s.pe_oi_change != null ? fmt.int(s.pe_oi_change) : '<span class="na">—</span>'}</td>
+            <td class="num" data-sort="${s.pe_oi ?? NA}">${s.pe_oi != null ? fmt.int(s.pe_oi) : '<span class="na">—</span>'}</td>
+          </tr>`).join("")}
+        </tbody>
+      </table></div>
+    </div>`;
+  }
+
+  function stockOptionsTable(stocks) {
+    if (!stocks.length) return `<div class="na">No F&amp;O stock option data this refresh.</div>`;
+    const s = STATE.snapshot;
+    const NA = -1e15;
+    const rows = stocks.map(([sym, r]) => ({ sym, company: s.company_profiles?.[sym]?.company || sym, ...r }));
+    return `<div id="tbl-fo-stocks">
+      <div class="toolbar">
+        <input type="text" placeholder="Search symbol/company…" data-filter-input="tbl-fo-stocks">
+        <span class="spacer"></span><span class="count-note" data-visible-count>${rows.length} shown</span>
+        <button class="btn" data-csv-export="table-tbl-fo-stocks">Export CSV</button>
+      </div>
+      <div class="table-wrap"><table data-sortable id="table-tbl-fo-stocks">
+        <thead><tr>
+          <th data-key="symbol">Symbol</th><th class="txt">Company</th>
+          <th class="num" data-key="spot" data-numeric="1">Spot</th>
+          <th class="num" data-key="pcr" data-numeric="1">PCR (OI)</th>
+          <th class="num" data-key="max_pain" data-numeric="1">Max Pain</th>
+          <th class="num" data-key="ce_oi" data-numeric="1">Total Call OI</th>
+          <th class="num" data-key="pe_oi" data-numeric="1">Total Put OI</th>
+        </tr></thead>
+        <tbody>
+          ${rows.map(r => `<tr data-open-symbol="${esc(r.sym)}" style="cursor:pointer">
+            <td class="txt" data-sort="${esc(r.sym)}"><b>${esc(r.sym)}</b></td>
+            <td class="txt">${esc(r.company)}</td>
+            <td class="num" data-sort="${r.underlying_value ?? NA}">${fmt.num(r.underlying_value)}</td>
+            <td class="num" data-sort="${r.pcr_oi ?? NA}">${r.pcr_oi ?? "—"}</td>
+            <td class="num" data-sort="${r.max_pain_strike ?? NA}">${fmt.num(r.max_pain_strike, 0)}</td>
+            <td class="num" data-sort="${r.total_ce_oi ?? NA}">${fmt.int(r.total_ce_oi)}</td>
+            <td class="num" data-sort="${r.total_pe_oi ?? NA}">${fmt.int(r.total_pe_oi)}</td>
+          </tr>`).join("")}
+        </tbody>
+      </table></div>
+    </div>`;
+  }
+
   /* ================= STRATEGY RESEARCH ================= */
   function renderStrategy() {
     const bt = computeBreakoutBacktest();
@@ -948,6 +1086,26 @@
           insufficientEvidence: "Insufficient evidence — no options-chain/IV data source is connected. Payoff structure and max loss/profit cannot be computed without live quotes.",
         })}
       </div>
+      ${renderFilingsDealsMoneyFlow()}
+    `;
+  }
+
+  /* ---- Filings, block deals & money rotating in/out — all NSE-sourced or computed from this
+     project's own OHLCV, all part of the automated pipeline (no MCP needed). Lives on Strategy
+     Research per explicit placement request. ---- */
+  function renderFilingsDealsMoneyFlow() {
+    const nf = STATE.snapshot?.news_filings_view1;
+    if (!nf) return `<div class="banner warn" style="margin-top:22px">Filings/deals/money-flow section not present in this snapshot — refresh to populate.</div>`;
+    return `
+      <div class="section-title" style="margin-top:26px"><h2>Filings, deals &amp; money flow</h2></div>
+      <div class="grid grid-2" style="margin-bottom:18px">
+        ${moneyRotatingCard("Money rotating in (accumulation)", nf.money_rotating_in, "pos")}
+        ${moneyRotatingCard("Money rotating out (distribution)", nf.money_rotating_out, "neg")}
+      </div>
+      <div class="section-title"><h3 style="margin:0">Company filings</h3><span class="hint">latest market-wide batch, filtered to this universe</span></div>
+      ${filingsTable(nf.company_filings)}
+      <div class="section-title" style="margin-top:22px"><h3 style="margin:0">Block deals</h3><span class="hint">trailing ${nf.block_deals.window_days} days</span></div>
+      ${blockDealsTable(nf.block_deals)}
     `;
   }
 
@@ -995,32 +1153,47 @@
   }
 
   /* ================= NEWS & FILINGS ================= */
+  /* Restructured per explicit request: filings/deals/money-flow moved to Strategy Research (see
+     renderFilingsDealsMoneyFlow above). This tab is now News only: stock news, India market news,
+     world financial news, and a Commodities & FX quote strip. */
   function renderNews() {
-    const view = STATE.newsView === "view2" ? "view2" : "view1";
+    const news = STATE.news;
     return `
-      <div class="section-title"><h2>News &amp; filings</h2></div>
-      <div class="toolbar" style="margin-bottom:16px">
-        <button class="btn ${view === "view1" ? "primary" : ""}" data-news-view="view1">View 1 — Filings, deals &amp; money flow</button>
-        <button class="btn ${view === "view2" ? "primary" : ""}" data-news-view="view2">View 2 — News</button>
-      </div>
-      ${view === "view1" ? renderNewsView1() : renderNewsView2()}
+      <div class="section-title"><h2>News</h2></div>
+      ${renderCommoditiesFx()}
+      ${!news ? `<div class="banner warn">No news.json found. News requires a live fetch through the
+        connected TradingView MCP (per-symbol/per-index <code>get_news</code>) run during a manual
+        refresh — see Methodology tab. Showing "Source unavailable", not "No relevant results found".</div>` : `
+      <div class="banner info">${esc(news.source_note || "TradingView MCP get_news — this Claude session only.")}</div>
+      <div class="section-title"><h3 style="margin:0">Stock related news</h3>
+        ${news.stock_news ? `<span class="hint">${news.stock_news.items.length} items · ${news.stock_news.symbols_covered.length} of ${news.stock_news.symbols_attempted.length} attempted symbols covered</span>` : ""}</div>
+      ${newsSection(news.stock_news, true)}
+      <div class="section-title" style="margin-top:22px"><h3 style="margin:0">India market &amp; financial news</h3><span class="hint">source symbol: NSE:NIFTY</span></div>
+      ${newsSection(news.india_market_news, false)}
+      <div class="section-title" style="margin-top:22px"><h3 style="margin:0">World financial news</h3><span class="hint">source symbol: SP:SPX</span></div>
+      ${newsSection(news.world_financial_news, false)}
+      `}
     `;
   }
 
-  /* ---- View 1: Company Filings / Block Deals / Money Rotating In & Out — all NSE-sourced or
-     computed from this project's own OHLCV, all part of the automated pipeline (no MCP needed) ---- */
-  function renderNewsView1() {
-    const nf = STATE.snapshot?.news_filings_view1;
-    if (!nf) return `<div class="banner warn">Not present in this snapshot — refresh to populate (this is a new section).</div>`;
+  function renderCommoditiesFx() {
+    const gm = STATE.snapshot?.global_markets;
+    if (!gm) return `<div class="banner warn" style="margin-bottom:18px">Commodities/FX section not present in this snapshot — refresh to populate.</div>`;
+    const rows = Object.entries(gm.commodities_fx || {});
     return `
-      <div class="grid grid-2" style="margin-bottom:18px">
-        ${moneyRotatingCard("Money rotating in (accumulation)", nf.money_rotating_in, "pos")}
-        ${moneyRotatingCard("Money rotating out (distribution)", nf.money_rotating_out, "neg")}
-      </div>
-      <div class="section-title"><h3 style="margin:0">Company filings</h3><span class="hint">latest market-wide batch, filtered to this universe</span></div>
-      ${filingsTable(nf.company_filings)}
-      <div class="section-title" style="margin-top:22px"><h3 style="margin:0">Block deals</h3><span class="hint">trailing ${nf.block_deals.window_days} days</span></div>
-      ${blockDealsTable(nf.block_deals)}
+      <div class="section-title"><h3 style="margin:0">Gold, Brent Oil, USD/INR &amp; Metals</h3><span class="hint">source: yfinance</span></div>
+      <div class="table-wrap" style="margin-bottom:22px"><table>
+        <tr><th class="txt">Instrument</th><th class="num">Last</th><th class="num">1D</th><th class="num">1W</th><th class="num">1M</th><th class="num">6M</th></tr>
+        ${rows.map(([label, r]) => r.available ? `<tr>
+          <td class="txt"><b>${esc(label)}</b> <span class="stat-sub">(${esc(r.ticker)})</span></td>
+          <td class="num">${fmt.num(r.last)}</td>
+          <td class="num ${fmt.cls(r["1d_change_pct"])}">${fmt.pct(r["1d_change_pct"])}</td>
+          <td class="num ${fmt.cls(r.ret_1w_pct)}">${fmt.pct(r.ret_1w_pct)}</td>
+          <td class="num ${fmt.cls(r.ret_1m_pct)}">${fmt.pct(r.ret_1m_pct)}</td>
+          <td class="num ${fmt.cls(r.ret_6m_pct)}">${fmt.pct(r.ret_6m_pct)}</td>
+        </tr>` : `<tr><td class="txt"><b>${esc(label)}</b></td><td colspan="5" class="na">Source unavailable this refresh</td></tr>`).join("")}
+      </table></div>
+      <div class="stat-sub" style="margin-top:-14px;margin-bottom:18px">${esc(gm.source)} As of ${fmt.iso(rows.find(([,r]) => r.available)?.[1]?.last_date)}.</div>
     `;
   }
 
@@ -1069,31 +1242,9 @@
     </table></div>`;
   }
 
-  /* ---- View 2: News — TradingView MCP get_news, per-symbol (matched watchlist) plus NSE:NIFTY
-     (India market) and SP:SPX (world financial) index feeds. Manual/session-only, same limitation as
-     the rest of the TradingView-derived data (see Methodology tab). ---- */
-  function renderNewsView2() {
-    const news = STATE.news;
-    if (!news) {
-      return `<div class="banner warn">No news.json found. News requires a live fetch through the
-        connected TradingView MCP (per-symbol/per-index <code>get_news</code>) run during a manual
-        refresh — see Methodology tab. Showing "Source unavailable", not "No relevant results found".</div>`;
-    }
-    const stockNews = news.stock_news;
-    const indiaNews = news.india_market_news;
-    const worldNews = news.world_financial_news;
-    return `
-      <div class="banner info">${esc(news.source_note || "TradingView MCP get_news — this Claude session only.")}</div>
-      <div class="section-title"><h3 style="margin:0">Stocks matched by the screener (Price_Volume / RSI_Based / Both)</h3>
-        ${stockNews ? `<span class="hint">${stockNews.items.length} items · ${stockNews.symbols_covered.length} of ${stockNews.symbols_attempted.length} attempted symbols covered</span>` : ""}</div>
-      ${newsSection(stockNews, true)}
-      <div class="section-title" style="margin-top:22px"><h3 style="margin:0">India market &amp; financial news</h3><span class="hint">source symbol: NSE:NIFTY</span></div>
-      ${newsSection(indiaNews, false)}
-      <div class="section-title" style="margin-top:22px"><h3 style="margin:0">World financial news</h3><span class="hint">source symbol: SP:SPX</span></div>
-      ${newsSection(worldNews, false)}
-    `;
-  }
-
+  /* Renders one news feed's items — TradingView MCP get_news, per-symbol (matched watchlist) or
+     per-index (NSE:NIFTY, SP:SPX). Manual/session-only, same limitation as the rest of the
+     TradingView-derived data (see Methodology tab). */
   function newsSection(section, showSymbolTag) {
     if (!section) return `<div class="na">Not fetched this refresh.</div>`;
     const items = [...(section.items || [])].sort((a, b) => (b.published_unix || 0) - (a.published_unix || 0));
@@ -1272,7 +1423,7 @@
           <tr><td>Analyst forecasts (recommendation, buy/hold/sell, EPS/PE estimates)</td><td>TradingView MCP get_forecasts (this Claude session only)</td><td>Confirmed working for India across cap sizes (mega-cap and mid-cap tested); currently sampled for the "Both" logic watchlist only — manual enrichment, same limitation as News</td></tr>
           <tr><td>Recent results, filings &amp; corporate events (earnings transcripts, slides, AGM/investor-day decks)</td><td>TradingView MCP get_documents (this Claude session only, provider: Quartr)</td><td>Confirmed working for India across cap sizes; sampled for the "Both" logic watchlist only — manual enrichment, same limitation as News</td></tr>
           <tr><td>Ownership (promoter/public holding %), insider trading (SEBI PIT), promoter pledge (SEBI LODR Reg 31(4))</td><td>nseindia.com official corporate-filings API (corporate-share-holdings-master, corporates-pit, corporate-pledgedata) — plain HTTP, part of the automated pipeline</td><td>Not from either connected MCP (both confirmed unavailable there — Alpha Vantage INSIDER_TRANSACTIONS/INSTITUTIONAL_HOLDINGS, TradingView get_documents category="insider_transactions"), but genuinely available from NSE's own site, the same official source already used for holidays/allIndices. Shareholding pattern matched 497/501 universe symbols; insider disclosures found for most actively-traded symbols; promoter pledge is real-time-verified at 0 companies market-wide for the trailing 12 months (a real finding, not a gap)</td></tr>
-          <tr><td>Options chain / OI / IV / Greeks / PCR</td><td><b>none connected</b></td><td>Not shown; explicitly marked unavailable everywhere</td></tr>
+          <tr><td>Options chain / OI / change-in-OI / IV / LTP / volume per strike; Max Pain &amp; PCR computed from it</td><td>nseindia.com official option-chain-v3 API (see F&amp;O tab)</td><td>Corrects an earlier "not available" claim, which only tested TradingView/Alpha Vantage MCPs — NSE's own site has real per-strike data. Index chains (NIFTY/BANKNIFTY/FINNIFTY/MIDCPNIFTY) get full detail; ~210 F&amp;O stocks get summary only (OI/PCR/Max Pain, no per-strike breakdown). Greeks are not in this endpoint's response and are not computed here.</td></tr>
           <tr><td>Alpha Vantage MCP (India)</td><td>connected but unused for India</td><td>Equity search returns BSE-labeled tickers only; NEWS_SENTIMENT rejects NSE/BSE ticker syntax; options endpoints are US-only</td></tr>
         </table>
 
