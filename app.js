@@ -18,7 +18,7 @@
     { id: "methodology", label: "Methodology & Data Status" },
   ];
 
-  let STATE = { tab: "overview", snapshot: null, status: null, news: null, loadError: null, company: null, expandedSector: null, expandedIndex: null };
+  let STATE = { tab: "overview", snapshot: null, status: null, news: null, loadError: null, company: null, expandedSector: null, expandedIndex: null, newsView: "view1" };
 
   /* ---------------- formatting helpers ---------------- */
   const fmt = {
@@ -205,6 +205,8 @@
     if (secEl && secEl.dataset.openSector) { openSectorAccordion(secEl.dataset.openSector); return; }
     const idxEl = e.target.closest("[data-open-index]");
     if (idxEl && idxEl.dataset.openIndex) { toggleIndexExpand(idxEl.dataset.openIndex); return; }
+    const newsViewEl = e.target.closest("[data-news-view]");
+    if (newsViewEl && newsViewEl.dataset.newsView) { STATE.newsView = newsViewEl.dataset.newsView; renderView(); return; }
   });
 
   /* generic client-side sort for any table[data-sortable] */
@@ -994,42 +996,116 @@
 
   /* ================= NEWS & FILINGS ================= */
   function renderNews() {
-    const news = STATE.news;
-    if (!news || !news.items) {
-      return `<div class="banner warn">No news.json found. News/filings require a live fetch through
-        the connected TradingView MCP (per-symbol <code>get_news</code>) run during a manual refresh —
-        see Methodology tab. Showing "Source unavailable", not "No relevant results found".</div>`;
-    }
-    const items = [...news.items].sort((a, b) => (b.published_unix || 0) - (a.published_unix || 0));
+    const view = STATE.newsView === "view2" ? "view2" : "view1";
     return `
-      <div class="section-title"><h2>News &amp; filings</h2><span class="hint">${items.length} items · symbols covered: ${news.symbols_covered.length} of ${news.symbols_attempted.length} attempted</span></div>
-      <div class="banner info">Coverage window: latest 24h prioritized, ${esc(news.window_note || "7-day searchable history")}.
-        Source: TradingView MCP per-symbol news feed (real publishers/timestamps/links). Alpha Vantage's
-        news endpoint rejects Indian NSE/BSE ticker formats and is not used here.</div>
-      <div class="toolbar">
-        <input type="text" id="news-search" placeholder="Search headlines/symbols…">
-        <span class="spacer"></span><span class="count-note" id="news-count">${items.length} shown</span>
+      <div class="section-title"><h2>News &amp; filings</h2></div>
+      <div class="toolbar" style="margin-bottom:16px">
+        <button class="btn ${view === "view1" ? "primary" : ""}" data-news-view="view1">View 1 — Filings, deals &amp; money flow</button>
+        <button class="btn ${view === "view2" ? "primary" : ""}" data-news-view="view2">View 2 — News</button>
       </div>
-      <div id="news-list">${items.map(newsItemHtml).join("") || '<div class="na">No relevant results found for the attempted symbols.</div>'}</div>
-      ${news.symbols_attempted.filter(s => !news.symbols_covered.includes(s)).length ? `
-        <div class="section-title"><h2>No coverage</h2></div>
-        <div class="banner warn">Source unavailable (no headlines returned) for: ${news.symbols_attempted.filter(s => !news.symbols_covered.includes(s)).map(esc).join(", ")}</div>
-      ` : ""}
+      ${view === "view1" ? renderNewsView1() : renderNewsView2()}
     `;
   }
 
-  function newsItemHtml(it) {
-    const impactColor = { positive: "var(--pos)", negative: "var(--neg)", mixed: "var(--warn)", uncertain: "var(--text-faint)" }[it.impact] || "var(--text-faint)";
-    return `<div class="card" style="margin-bottom:8px" data-search="${esc((it.headline + " " + it.symbols.join(" ")).toLowerCase())}">
-      <div class="toolbar" style="gap:8px;margin-bottom:4px">
-        <span class="tag" style="background:${impactColor}22;color:${impactColor}">${esc(it.impact || "uncertain")}</span>
-        ${it.symbols.map(sym => `<span data-open-symbol="${esc(sym)}" class="mono" style="cursor:pointer;font-size:11.5px;color:var(--accent)">${esc(sym)}</span>`).join(" ")}
-        <span class="spacer"></span>
-        <span class="stat-sub">${esc(it.provider)} · ${fmt.unixIst(it.published_unix)}</span>
+  /* ---- View 1: Company Filings / Block Deals / Money Rotating In & Out — all NSE-sourced or
+     computed from this project's own OHLCV, all part of the automated pipeline (no MCP needed) ---- */
+  function renderNewsView1() {
+    const nf = STATE.snapshot?.news_filings_view1;
+    if (!nf) return `<div class="banner warn">Not present in this snapshot — refresh to populate (this is a new section).</div>`;
+    return `
+      <div class="grid grid-2" style="margin-bottom:18px">
+        ${moneyRotatingCard("Money rotating in (accumulation)", nf.money_rotating_in, "pos")}
+        ${moneyRotatingCard("Money rotating out (distribution)", nf.money_rotating_out, "neg")}
       </div>
-      <div style="font-weight:600">${it.official ? '<span class="tag both" style="margin-right:6px">official</span>' : ""}<a href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.headline)}</a></div>
-      <div class="stat-sub" style="margin-top:4px">${esc(it.transmission || "")} ${it.official === false ? '<span class="na">— reporting/commentary, not an official company announcement</span>' : ""}</div>
+      <div class="section-title"><h3 style="margin:0">Company filings</h3><span class="hint">latest market-wide batch, filtered to this universe</span></div>
+      ${filingsTable(nf.company_filings)}
+      <div class="section-title" style="margin-top:22px"><h3 style="margin:0">Block deals</h3><span class="hint">trailing ${nf.block_deals.window_days} days</span></div>
+      ${blockDealsTable(nf.block_deals)}
+    `;
+  }
+
+  function moneyRotatingCard(title, section, colorCls) {
+    const rows = (section?.rows || []).slice(0, 15);
+    return `<div class="card">
+      <h3 style="margin-top:0">${esc(title)}</h3>
+      <div class="stat-sub" style="margin-bottom:8px">${esc(section?.source || "")}</div>
+      ${rows.length ? `<table><tr><th>Symbol</th><th class="txt">Sector</th><th class="num">% of traded vol.</th></tr>
+        ${rows.map(r => `<tr data-open-symbol="${esc(r.symbol)}" style="cursor:pointer">
+          <td class="mono"><b>${esc(r.symbol)}</b></td><td class="txt">${esc(r.sector || "—")}</td>
+          <td class="num ${colorCls}">${r.pct_of_traded_volume > 0 ? "+" : ""}${fmt.num(r.pct_of_traded_volume, 1)}%</td>
+        </tr>`).join("")}</table>`
+        : `<div class="na">No symbols crossed the classification threshold this refresh.</div>`}
     </div>`;
+  }
+
+  function filingsTable(section) {
+    if (!section || !section.available) return `<div class="banner warn">Source unavailable this refresh (NSE fetch failed) — previous data, if any, was not guessed to fill the gap.</div>`;
+    if (!section.rows.length) return `<div class="na">No filings for this universe in NSE's latest announcement batch this refresh — the feed itself only returns its most recent ~100 market-wide, so this is genuinely "none of the latest batch were ours," not a fetch failure.</div>`;
+    return `<div class="table-wrap"><table>
+      <tr><th class="txt">Time</th><th>Symbol</th><th class="txt">Subject</th><th class="txt">Details</th><th>Filing</th></tr>
+      ${section.rows.map(r => `<tr>
+        <td class="txt">${esc(r.announced_at || "—")}</td>
+        <td class="mono" data-open-symbol="${esc(r.symbol)}" style="cursor:pointer"><b>${esc(r.symbol)}</b></td>
+        <td class="txt">${esc(r.subject || "—")}</td>
+        <td class="txt">${esc((r.details || "").slice(0, 140))}</td>
+        <td>${r.attachment_url ? `<a href="${esc(r.attachment_url)}" target="_blank" rel="noopener">PDF</a>` : '<span class="na">—</span>'}</td>
+      </tr>`).join("")}
+    </table></div>`;
+  }
+
+  function blockDealsTable(section) {
+    if (!section || !section.available) return `<div class="banner warn">Source unavailable this refresh (NSE fetch failed) — previous data, if any, was not guessed to fill the gap.</div>`;
+    if (!section.rows.length) return `<div class="na">No block deals for this universe in the trailing ${section.window_days} days — a real "none," not a fetch failure.</div>`;
+    return `<div class="table-wrap"><table>
+      <tr><th class="txt">Date</th><th>Symbol</th><th class="txt">Client</th><th>Buy/Sell</th><th class="num">Quantity</th><th class="num">Price</th></tr>
+      ${section.rows.map(r => `<tr>
+        <td class="txt">${esc(r.date || "—")}</td>
+        <td class="mono" data-open-symbol="${esc(r.symbol)}" style="cursor:pointer"><b>${esc(r.symbol)}</b></td>
+        <td class="txt">${esc(r.client_name || "—")}</td>
+        <td class="${r.buy_sell === "BUY" ? "up" : "down"}">${esc(r.buy_sell || "—")}</td>
+        <td class="num">${fmt.int(r.quantity)}</td>
+        <td class="num">${fmt.num(r.trade_price)}</td>
+      </tr>`).join("")}
+    </table></div>`;
+  }
+
+  /* ---- View 2: News — TradingView MCP get_news, per-symbol (matched watchlist) plus NSE:NIFTY
+     (India market) and SP:SPX (world financial) index feeds. Manual/session-only, same limitation as
+     the rest of the TradingView-derived data (see Methodology tab). ---- */
+  function renderNewsView2() {
+    const news = STATE.news;
+    if (!news) {
+      return `<div class="banner warn">No news.json found. News requires a live fetch through the
+        connected TradingView MCP (per-symbol/per-index <code>get_news</code>) run during a manual
+        refresh — see Methodology tab. Showing "Source unavailable", not "No relevant results found".</div>`;
+    }
+    const stockNews = news.stock_news;
+    const indiaNews = news.india_market_news;
+    const worldNews = news.world_financial_news;
+    return `
+      <div class="banner info">${esc(news.source_note || "TradingView MCP get_news — this Claude session only.")}</div>
+      <div class="section-title"><h3 style="margin:0">Stocks matched by the screener (Price_Volume / RSI_Based / Both)</h3>
+        ${stockNews ? `<span class="hint">${stockNews.items.length} items · ${stockNews.symbols_covered.length} of ${stockNews.symbols_attempted.length} attempted symbols covered</span>` : ""}</div>
+      ${newsSection(stockNews, true)}
+      <div class="section-title" style="margin-top:22px"><h3 style="margin:0">India market &amp; financial news</h3><span class="hint">source symbol: NSE:NIFTY</span></div>
+      ${newsSection(indiaNews, false)}
+      <div class="section-title" style="margin-top:22px"><h3 style="margin:0">World financial news</h3><span class="hint">source symbol: SP:SPX</span></div>
+      ${newsSection(worldNews, false)}
+    `;
+  }
+
+  function newsSection(section, showSymbolTag) {
+    if (!section) return `<div class="na">Not fetched this refresh.</div>`;
+    const items = [...(section.items || [])].sort((a, b) => (b.published_unix || 0) - (a.published_unix || 0));
+    if (!items.length) return `<div class="na">No headlines returned.</div>`;
+    return `<div>${items.map(it => `<div class="card" style="margin-bottom:8px">
+      <div class="toolbar" style="gap:8px;margin-bottom:4px">
+        ${showSymbolTag && it.symbol ? `<span data-open-symbol="${esc(it.symbol)}" class="mono" style="cursor:pointer;font-size:11.5px;color:var(--accent)">${esc(it.symbol)}</span>` : ""}
+        <span class="spacer"></span>
+        <span class="stat-sub">${esc(it.provider || "—")} · ${fmt.unixIst(it.published_unix)}</span>
+      </div>
+      <div style="font-weight:600"><a href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.headline)}</a></div>
+    </div>`).join("")}</div>`;
   }
 
   /* ================= COMPANY RESEARCH ================= */
@@ -1136,12 +1212,20 @@
       <h3>Ownership, insider activity &amp; promoter pledge (NSE official corporate filings, independent source)</h3>
       ${(() => {
         const own = p.ownership;
+        const promoterDelta = (label, pts, refDate, refPct) => {
+          if (pts == null) return `<dt>Promoter chg. (${label})</dt><dd><span class="na">n/a — no filing found that far back</span></dd>`;
+          return `<dt>Promoter chg. (${label})</dt><dd class="${fmt.cls(pts)}">${pts > 0 ? "+" : ""}${pts.toFixed(2)}pp <span class="stat-sub" style="font-family:inherit">(from ${fmt.num(refPct)}% on ${esc(refDate)})</span></dd>`;
+        };
         const ownBlock = own
           ? `<dl class="kv">
               <dt>Promoter / Public holding</dt><dd>${fmt.pct(own.promoter_pct)} / ${fmt.pct(own.public_pct)}</dd>
               <dt>As of quarter end</dt><dd>${esc(own.as_of_quarter_end || "—")}</dd>
               <dt>Filed with NSE on</dt><dd>${esc(own.submission_date || "—")}</dd>
-            </dl>`
+              ${promoterDelta("3M", own.promoter_change_3m_pts, own.promoter_pct_3m_ago_date, own.promoter_pct_3m_ago)}
+              ${promoterDelta("6M", own.promoter_change_6m_pts, own.promoter_pct_6m_ago_date, own.promoter_pct_6m_ago)}
+              ${promoterDelta("1Y", own.promoter_change_1y_pts, own.promoter_pct_1y_ago_date, own.promoter_pct_1y_ago)}
+            </dl>
+            <div class="stat-sub" style="margin-top:4px">Promoter holding is disclosed quarterly (SEBI LODR Reg 31), not continuously — each change above is versus the closest quarterly filing at or before that mark, not a smooth daily trend.</div>`
           : `<div class="na">No SEBI LODR Reg 31 shareholding-pattern filing matched for this symbol this refresh.</div>`;
         const pledgeBlock = p.pledge_data_available
           ? (p.pledge

@@ -1,69 +1,646 @@
 {
-  "generated_at_ist": "2026-09-19T19:10:00+05:30",
-  "window_note": "items below span the last ~7 days per symbol; latest 24h items are dated closest to the snapshot time",
-  "source": "TradingView MCP per-symbol get_news (real publishers, timestamps, links). Alpha Vantage MCP NEWS_SENTIMENT rejects NSE/BSE ticker syntax and was not usable.",
-  "symbols_attempted": ["BBTC","EMCURE","SPLPETRO","INDIAMART","CENTRALBK","CASTROLIND","AADHARHFC","EMAMILTD","WHIRLPOOL","IGIL","HOMEFIRST","JSL","KPRMILL","PVRINOX","JSWINFRA","CAPLIPOINT","PWL","ATGL","WELCORP","ACMESOLAR"],
-  "symbols_covered": ["BBTC","EMCURE","SPLPETRO","INDIAMART","CENTRALBK","CASTROLIND","AADHARHFC","EMAMILTD","WHIRLPOOL","IGIL","HOMEFIRST","JSL","KPRMILL","PVRINOX","JSWINFRA","CAPLIPOINT","PWL","ATGL","WELCORP","ACMESOLAR"],
-  "selection_note": "Symbols were chosen this refresh as: the top 12 matched watchlist symbols by volume multiple, plus the top daily mover in each of the 8 highest-ranked sectors. This is a bounded, disclosed sample for demonstration and depth, not full-universe news coverage — see counts on the News tab.",
-  "items": [
-    {"symbol":"BBTC","symbols":["BBTC"],"headline":"Bombay Burmah share price jumps 9.5% after Rs.249 crore block deal - check details","provider":"Mint","published_unix":1789725457,"link":"https://www.tradingview.com/news/moodys:f713609f3a81a:0-bombay-burmah-share-price-jumps-9-5-after-rs-249-crore-block-deal-check-details/","official":false,"impact":"mixed","confidence":"low","transmission":"A large block trade often reflects an ownership/stake change rather than an operating catalyst; the price move reflects supply-demand from the trade, not a fundamental update."},
-    {"symbol":"BBTC","symbols":["BBTC"],"headline":"BBTC: Q1 FY27 profit reached ₹582.67 crore on revenue of ₹5,088.69 crore, aided by asset sale gains","provider":"Quartr (results summary)","published_unix":1786609757,"link":"https://www.tradingview.com/news/urn:summary_document_report:quartr.com:3689436:0-bbtc-q1-fy27-profit-reached-582-67-crore-on-revenue-of-5-088-69-crore-aided-by-asset-sale-gains/","official":false,"impact":"mixed","confidence":"medium","transmission":"Profit was boosted by one-off asset-sale gains rather than core operating margin — flows through reported EPS this quarter but isn't necessarily repeatable."},
-
-    {"symbol":"EMCURE","symbols":["EMCURE"],"headline":"Emcure Pharma shares hits 52-week high post USFDA EIR for Gujarat facility","provider":"Moneycontrol","published_unix":1786326778,"link":"https://www.tradingview.com/news/moneycontrol:8faf4e2ea094b:0-emcure-pharma-shares-hits-52-week-high-post-usfda-eir-for-gujarat-facility/","official":false,"impact":"positive","confidence":"medium","transmission":"A clean USFDA Establishment Inspection Report removes a regulatory overhang on the Gujarat plant, supporting continuity of US export revenue from that facility."},
-    {"symbol":"EMCURE","symbols":["EMCURE"],"headline":"Emcure to double down on complex generics, biosimilars, ARVs, says COO Samit Mehta","provider":"Moneycontrol","published_unix":1786345530,"link":"https://www.tradingview.com/news/moneycontrol:874aa37a7094b:0-emcure-to-double-down-on-complex-generics-biosimilars-arvs-says-coo-samit-mehta/","official":false,"impact":"uncertain","confidence":"low","transmission":"Forward-looking strategy commentary from management; no financial figures attached, so revenue/margin impact can't be sized from this alone."},
-
-    {"symbol":"SPLPETRO","symbols":["SPLPETRO"],"headline":"Supreme Petrochem Q4 profit jumps 57%, margins improve sharply","provider":"CNBC TV18","published_unix":1777046212,"link":"https://www.tradingview.com/news/cnbctv:b1b5be2b8094b:0/","official":false,"impact":"positive","confidence":"medium","transmission":"Reported margin expansion flows directly into EPS and can support a valuation re-rating if sustained into subsequent quarters."},
-    {"symbol":"SPLPETRO","symbols":["SPLPETRO"],"headline":"Supreme Petrochem shares rise up to 6% intraday as trading volume spikes","provider":"CNBC TV18","published_unix":1788163493,"link":"https://www.tradingview.com/news/cnbctv:ab6b90f02094b:0/","official":false,"impact":"uncertain","confidence":"low","transmission":"Price/volume move reported without a stated fundamental trigger — treat as a signal to watch, not a confirmed catalyst."},
-
-    {"symbol":"INDIAMART","symbols":["INDIAMART"],"headline":"IndiaMart stock crashes 5% after Q1 results; brokerages flag continued subscriber decline despite earnings beat","provider":"Moneycontrol","published_unix":1784711062,"link":"https://www.tradingview.com/news/moneycontrol:688bbffc7094b:0-indiamart-stock-crashes-5-after-q1-results-brokerages-flag-continued-subscriber-decline-despite-earnings-beat/","official":false,"impact":"negative","confidence":"medium","transmission":"Paying-subscriber count is the core forward revenue driver for IndiaMART's listing model; a declining base signals slowing future revenue even though this quarter's earnings beat."},
-    {"symbol":"INDIAMART","symbols":["INDIAMART"],"headline":"Buy IndiaMart InterMesh; target of Rs 2300: ICICI Securities","provider":"Moneycontrol (broker note)","published_unix":1784705794,"link":"https://www.tradingview.com/news/moneycontrol:9f2939ced094b:0-buy-indiamart-intermesh-target-of-rs-2300-icici-securities/","official":false,"impact":"positive","confidence":"low","transmission":"Single-broker price target; included to show the conflicting read against the subscriber-decline story above, not as a consensus view."},
-
-    {"symbol":"CENTRALBK","symbols":["CENTRALBK"],"headline":"Central Bank Of India Says Bank Unions Announce Strike On Sept 11, Sept 28-30, And Continuous Strike From Oct 26","provider":"Reuters","published_unix":1788959093,"link":"https://www.tradingview.com/news/reuters.com,2026:newsml_FWN4510FC:0-central-bank-of-india-says-bank-unions-announce-strike-on-sept-11-sept-28-30-and-continuous-strike-from-oct-26/","official":true,"impact":"negative","confidence":"medium","transmission":"Extended union strikes disrupt branch operations and loan processing, a near-term operational/cost drag and a negative sentiment signal."},
-    {"symbol":"CENTRALBK","symbols":["CENTRALBK"],"headline":"PSBs Nearly Double FCNR(B) Fundraising Targets On Strong Overseas Demand","provider":"Businessworld India","published_unix":1789384162,"link":"https://www.tradingview.com/news/moodys:eb6ce76cae2e8:0-psbs-nearly-double-fcnr-b-fundraising-targets-on-strong-overseas-demand/","official":false,"impact":"positive","confidence":"medium","transmission":"Higher FCNR(B) deposit mobilization gives PSU banks cheaper foreign-currency funding, supportive of margins sector-wide."},
-
-    {"symbol":"CASTROLIND","symbols":["CASTROLIND"],"headline":"CASTROLIND: Q2 2026 saw 25% revenue growth and 41% EBITDA rise, with a ₹6.25 interim dividend declared","provider":"Quartr (results summary)","published_unix":1785846426,"link":"https://www.tradingview.com/news/urn:summary_document_report:quartr.com:3685248:0-castrolind-q2-2026-saw-25-revenue-growth-and-41-ebitda-rise-with-a-6-25-interim-dividend-declared/","official":false,"impact":"positive","confidence":"medium","transmission":"EBITDA growing faster than revenue implies margin expansion; the declared interim dividend is a direct capital-return signal."},
-    {"symbol":"CASTROLIND","symbols":["CASTROLIND"],"headline":"Buy Castrol India; target of Rs 230: Motilal Oswal","provider":"Moneycontrol (broker note)","published_unix":1786007645,"link":"https://www.tradingview.com/news/moneycontrol:d2ed8e617094b:0-buy-castrol-india-target-of-rs-230-motilal-oswal/","official":false,"impact":"positive","confidence":"low","transmission":"Single-broker target price; directional but not a consensus estimate."},
-
-    {"symbol":"AADHARHFC","symbols":["AADHARHFC"],"headline":"AADHARHFC: AUM up 18% YOY, PAT up 19%, spreads at 5.8%, and 20% growth guidance reaffirmed","provider":"Quartr (results summary)","published_unix":1785508576,"link":"https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:3943562:0-aadharhfc-aum-up-18-yoy-pat-up-19-spreads-at-5-8-and-20-growth-guidance-reaffirmed/","official":false,"impact":"positive","confidence":"medium","transmission":"AUM and PAT growth with reaffirmed guidance directly support the growth assumptions underlying its valuation."},
-    {"symbol":"AADHARHFC","symbols":["AADHARHFC"],"headline":"Blackstone-backed Aadhar Housing sees no need to raise capital for four years; bets on smaller towns to sustain growth","provider":"Mint","published_unix":1785757787,"link":"https://www.tradingview.com/news/moodys:e29cd22a69daf:0-blackstone-backed-aadhar-housing-sees-no-need-to-raise-capital-for-four-years-bets-on-smaller-towns-to-sustain-growth/","official":false,"impact":"positive","confidence":"medium","transmission":"No near-term capital raise removes dilution risk; expansion into underpenetrated towns extends the addressable growth runway."},
-
-    {"symbol":"EMAMILTD","symbols":["EMAMILTD"],"headline":"Emami approves ₹282-crore share buyback at maximum price of ₹475","provider":"Business Line","published_unix":1789659091,"link":"https://www.tradingview.com/news/moodys:ab98e708f4a29:0-emami-approves-282-crore-share-buyback-at-maximum-price-of-475/","official":true,"impact":"positive","confidence":"medium","transmission":"A board-approved buyback reduces share count (supporting EPS) and signals management's view that shares are undervalued."},
-    {"symbol":"EMAMILTD","symbols":["EMAMILTD"],"headline":"EMAMILTD: Strong revenue growth and portfolio diversification offset margin pressures; outlook remains positive","provider":"Quartr (results summary)","published_unix":1785883911,"link":"https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:3998107:0-emamiltd-strong-revenue-growth-and-portfolio-diversification-offset-margin-pressures-outlook-remains-positive/","official":false,"impact":"mixed","confidence":"medium","transmission":"Revenue growth offsets — but does not eliminate — margin pressure from input costs; net effect on profitability is partial."},
-
-    {"symbol":"WHIRLPOOL","symbols":["WHIRLPOOL"],"headline":"Whirlpool India Q1 Results: Stock falls 5% after operational miss, margins narrow","provider":"CNBC TV18","published_unix":1785922539,"link":"https://www.tradingview.com/news/cnbctv:4dc3f8017094b:0/","official":false,"impact":"negative","confidence":"medium","transmission":"Margin compression flows directly through to reported profitability and EPS."},
-    {"symbol":"WHIRLPOOL","symbols":["WHIRLPOOL"],"headline":"Reduce Whirlpool of India; target of Rs 730: ICICI Securities","provider":"Moneycontrol (broker note)","published_unix":1788505485,"link":"https://www.tradingview.com/news/moneycontrol:d64f2db1f094b:0-reduce-whirlpool-of-india-target-of-rs-730-icici-securities/","official":false,"impact":"negative","confidence":"low","transmission":"Single-broker downgrade-style call, consistent with the margin-miss narrative above but not independent confirmation of it."},
-
-    {"symbol":"IGIL","symbols":["IGIL"],"headline":"IGIL: Q1 FY27 saw 23% revenue and 29% EBITDA growth, with strong momentum across all segments","provider":"Quartr (results summary)","published_unix":1784820861,"link":"https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:3883844:0-igil-q1-fy27-saw-23-revenue-and-29-ebitda-growth-with-strong-momentum-across-all-segments/","official":false,"impact":"positive","confidence":"medium","transmission":"EBITDA growth outpacing revenue growth implies margin expansion across the certification business."},
-    {"symbol":"IGIL","symbols":["IGIL"],"headline":"International Gemological Institute (India) Declares Interim Dividend Of 2.55 Rupees Per Share","provider":"Reuters","published_unix":1787045897,"link":"https://www.tradingview.com/news/reuters.com,2026:newsml_FWN44F01E:0-international-gemological-institute-india-declares-interim-dividend-of-2-55-rupees-per-share/","official":true,"impact":"positive","confidence":"medium","transmission":"A declared dividend is a direct, quantifiable capital-return event."},
-
-    {"symbol":"HOMEFIRST","symbols":["HOMEFIRST"],"headline":"Home First Finance Company India Approves Issuance Of NCDs Aggregating 1.50 Billion Rupees","provider":"Reuters","published_unix":1787297766,"link":"https://www.tradingview.com/news/reuters.com,2026:newsml_FWN44H1GH:0-home-first-finance-company-india-approves-issuance-of-ncds-aggregating-1-50-billion-rupees/","official":true,"impact":"mixed","confidence":"medium","transmission":"New debt funding supports loan-book growth but modestly increases leverage — a funding decision, not a profitability catalyst by itself."},
-    {"symbol":"HOMEFIRST","symbols":["HOMEFIRST"],"headline":"Buy Home First Finance Company; target of Rs 1450: ICICI Securities","provider":"Moneycontrol (broker note)","published_unix":1785317798,"link":"https://www.tradingview.com/news/moneycontrol:99d41bf6e094b:0-buy-home-first-finance-company-target-of-rs-1450-icici-securities/","official":false,"impact":"positive","confidence":"low","transmission":"Single-broker target; directional sentiment only."},
-
-    {"symbol":"JSL","symbols":["JSL"],"headline":"Jindal Stainless Enters Technical Assistance Agreement With JFE Steel For Ferritic Grades","provider":"Reuters","published_unix":1788759785,"link":"https://www.tradingview.com/news/reuters.com,2026:newsml_FWN44W0W7:0-jindal-stainless-enters-technical-assistance-agreement-with-jfe-steel-for-ferritic-grades/","official":true,"impact":"positive","confidence":"low","transmission":"A technology-transfer agreement can improve product mix/margins in ferritic stainless over time, but the benefit is long-dated and not immediately quantifiable."},
-    {"symbol":"JSL","symbols":["JSL"],"headline":"Buy Jindal Stainless; target of Rs 867: Prabhudas Lilladher","provider":"Moneycontrol (broker note)","published_unix":1788253110,"link":"https://www.tradingview.com/news/moneycontrol:9298152b6094b:0-buy-jindal-stainless-target-of-rs-867-prabhudas-lilladher/","official":false,"impact":"positive","confidence":"low","transmission":"Single-broker target price."},
-
-    {"symbol":"KPRMILL","symbols":["KPRMILL"],"headline":"KPRMILL: Q1 FY27 delivered robust revenue and profit growth, with major expansions fully self-funded","provider":"Quartr (results summary)","published_unix":1786363564,"link":"https://www.tradingview.com/news/urn:summary_document_slides:quartr.com:4019257:0-kprmill-q1-fy27-delivered-robust-revenue-and-profit-growth-with-major-expansions-fully-self-funded/","official":false,"impact":"positive","confidence":"medium","transmission":"Self-funded capacity expansion grows the business without added debt or equity dilution."},
-    {"symbol":"KPRMILL","symbols":["KPRMILL"],"headline":"Neutral KPR Mill; target of Rs 1200: Motilal Oswal","provider":"Moneycontrol (broker note)","published_unix":1786447493,"link":"https://www.tradingview.com/news/moneycontrol:b1d681bdb094b:0-neutral-kpr-mill-target-of-rs-1200-motilal-oswal/","official":false,"impact":"uncertain","confidence":"low","transmission":"A neutral broker stance — included to avoid one-sided framing."},
-
-    {"symbol":"PVRINOX","symbols":["PVRINOX"],"headline":"PVR INOX clarifies ₹200 crore kickback report, says preliminary probe found no evidence","provider":"CNBC TV18","published_unix":1788781279,"link":"https://www.tradingview.com/news/cnbctv:4a7d0bb7b094b:0/","official":false,"impact":"mixed","confidence":"low","transmission":"A governance allegation followed by a company denial leaves a reputational overhang until any formal probe concludes, even if no financial impact is confirmed."},
-    {"symbol":"PVRINOX","symbols":["PVRINOX"],"headline":"Price Action | Religare Enterprises shares rise 3% as Ashish Dhawan raises stake; PVR INOX gains 2% on buyback approval","provider":"Moneycontrol","published_unix":1788236434,"link":"https://www.tradingview.com/news/moneycontrol:6ed62e17e094b:0-price-action-religare-enterprises-shares-rise-3-as-ashish-dhawan-raises-stake-pvr-inox-gains-2-on-buyback-approval/","official":false,"impact":"positive","confidence":"medium","transmission":"Buyback approval supports EPS and signals management confidence, alongside the governance overhang noted above."},
-
-    {"symbol":"JSWINFRA","symbols":["JSWINFRA"],"headline":"Jsw Infra Says Port Logistics Unit Receives Loi For Icd At Kudathini, Ballari District, Karnataka","provider":"Reuters","published_unix":1789136842,"link":"https://www.tradingview.com/news/reuters.com,2026:newsml_FWN45309U:0-jsw-infra-says-port-logistics-unit-receives-loi-for-icd-at-kudathini-ballari-district-karnataka/","official":true,"impact":"positive","confidence":"low","transmission":"A letter of intent for a new inland container depot expands future logistics throughput capacity, though it is non-binding at this stage."},
-    {"symbol":"JSWINFRA","symbols":["JSWINFRA"],"headline":"Adani Ports, JSW Infra, Essar Ports Vie For Rs 5,881 Cr Dadri Logistics Hub","provider":"Businessworld India","published_unix":1789812110,"link":"https://www.tradingview.com/news/moodys:110a1355883c0:0-adani-ports-jsw-infra-essar-ports-vie-for-rs-5-881-cr-dadri-logistics-hub/","official":false,"impact":"uncertain","confidence":"low","transmission":"A competitive bid for a large logistics asset — optionality only until an outcome is known."},
-
-    {"symbol":"CAPLIPOINT","symbols":["CAPLIPOINT"],"headline":"Caplin Point Laboratories shares falls 2% post 10 observations from USFDA","provider":"Moneycontrol","published_unix":1787537254,"link":"https://www.tradingview.com/news/moneycontrol:5779eab72094b:0-caplin-point-laboratories-shares-falls-2-post-10-observations-from-usfda/","official":false,"impact":"negative","confidence":"medium","transmission":"USFDA inspection observations create facility-approval/remediation risk that can affect US export revenue until resolved."},
-    {"symbol":"CAPLIPOINT","symbols":["CAPLIPOINT"],"headline":"Caplin Point Lab stock delivers decisive breakout; Axis Direct shares buy range, stop loss, upside and holding period","provider":"Mint (technical call)","published_unix":1788867503,"link":"https://www.tradingview.com/news/moodys:d7baa061a0bb4:0-caplin-point-lab-stock-delivers-decisive-breakout-axis-direct-shares-buy-range-stop-loss-upside-and-holding-period/","official":false,"impact":"positive","confidence":"low","transmission":"A purely technical/chart-based call — shown deliberately alongside the USFDA regulatory risk above as a conflicting view, not a fundamental read."},
-
-    {"symbol":"PWL","symbols":["PWL"],"headline":"Physicswallah shares jump 6% as Motilal Oswal initiates with Buy, sees 66% upside","provider":"Moneycontrol (broker note)","published_unix":1788504308,"link":"https://www.tradingview.com/news/moneycontrol:1c8f63dbd094b:0-physicswallah-shares-jump-6-as-motilal-oswal-initiates-with-buy-sees-66-upside/","official":false,"impact":"positive","confidence":"low","transmission":"A single new-coverage broker call with an aggressive target — directional sentiment, not consensus."},
-    {"symbol":"PWL","symbols":["PWL"],"headline":"Lightspeed Venture Partners exits Physicswallah for Rs 550 crore; Goldman Sachs, ICICI Pru MF, Tata AIA Life among 12 buyers","provider":"Moneycontrol","published_unix":1787756938,"link":"https://www.tradingview.com/news/moneycontrol:a1bf61661094b:0-lightspeed-venture-partners-exits-physicswallah-for-rs-550-crore-goldman-sachs-icici-pru-mf-tata-aia-life-among-12-buyers/","official":false,"impact":"mixed","confidence":"low","transmission":"An early VC exit is a supply overhang via block deal, but participation from large institutional buyers is itself a validation signal — cuts both ways."},
-
-    {"symbol":"ATGL","symbols":["ATGL"],"headline":"Adani Total Gas Appoints Preyash Jhaveri As Chief Financial Officer Effective Sept 3","provider":"Reuters","published_unix":1788426836,"link":"https://www.tradingview.com/news/reuters.com,2026:newsml_FWN44U1D1:0-adani-total-gas-appoints-preyash-jhaveri-as-chief-financial-officer-effective-sept-3/","official":true,"impact":"uncertain","confidence":"low","transmission":"A management appointment; typically neutral for near-term financials absent a stated strategy shift."},
-    {"symbol":"ATGL","symbols":["ATGL"],"headline":"IGL, MGL to Adani Total Gas: City gas distributor stocks rise up to 4%; here's why","provider":"Mint","published_unix":1787131237,"link":"https://www.tradingview.com/news/moodys:6a62a025b31f0:0-igl-mgl-to-adani-total-gas-city-gas-distributor-stocks-rise-up-to-4-here-s-why/","official":false,"impact":"positive","confidence":"medium","transmission":"A sector-wide move across city-gas distributors suggests a shared regulatory/tariff tailwind rather than an ATGL-specific event."},
-
-    {"symbol":"WELCORP","symbols":["WELCORP"],"headline":"Nuvama favours Venus Pipes, Welspun Corp, APL Apollo as pipe demand recovery nears","provider":"CNBC TV18 (broker note)","published_unix":1788779328,"link":"https://www.tradingview.com/news/cnbctv:7516b17ce094b:0/","official":false,"impact":"positive","confidence":"low","transmission":"A brokerage sector thesis on pipe-demand recovery, which would benefit order books/margins if it plays out — not yet a reported result."},
-    {"symbol":"WELCORP","symbols":["WELCORP"],"headline":"Welspun Group market capitalisation doubles in two years to cross ₹1 lakh crore","provider":"CNBC TV18","published_unix":1788509021,"link":"https://www.tradingview.com/news/cnbctv:4b588927c094b:0/","official":false,"impact":"uncertain","confidence":"low","transmission":"Descriptive/historical framing rather than a fresh catalyst — included for context, not as a forward signal."},
-
-    {"symbol":"ACMESOLAR","symbols":["ACMESOLAR"],"headline":"Acme Solar Commissions 66.68 MW Solar And 300 Mwh Bess Capacity In Rajasthan","provider":"Reuters","published_unix":1789527406,"link":"https://www.tradingview.com/news/reuters.com,2026:newsml_FWN4570V8:0-acme-solar-commissions-66-68-mw-solar-and-300-mwh-bess-capacity-in-rajasthan/","official":true,"impact":"positive","confidence":"medium","transmission":"A completed, commissioned capacity addition directly adds to the contracted revenue-generating asset base — concrete rather than proposed."},
-    {"symbol":"ACMESOLAR","symbols":["ACMESOLAR"],"headline":"ACME Solar shares jump 5% after HSBC raises target price - Check investment rationale","provider":"Mint (broker note)","published_unix":1789473874,"link":"https://www.tradingview.com/news/moodys:1c6e9c8a62778:0-acme-solar-shares-jump-5-after-hsbc-raises-target-price-check-investment-rationale/","official":false,"impact":"positive","confidence":"low","transmission":"Single-broker target raise; directional sentiment."}
-  ]
+  "generated_at_ist": "2026-09-23T22:33:15.543602+05:30",
+  "source_note": "TradingView MCP get_news — per-symbol for a bounded sample of the current matched watchlist (Price_Volume and Both logic symbols, 12 of the 161 currently matched — RSI_Based-only symbols, the majority, are not individually covered due to call volume; see CLAUDE.md), plus NSE:NIFTY (India market news) and SP:SPX (world financial news) index-level feeds. This Claude session only — MCP tools have no exposed API the automated pipeline can call; re-fetch by asking Claude.",
+  "stock_news": {
+    "symbols_attempted": [
+      "APTUS",
+      "ATUL",
+      "CASTROLIND",
+      "EMAMILTD",
+      "ENGINERSIN",
+      "JAINREC",
+      "LTM",
+      "MAPMYINDIA",
+      "PATANJALI",
+      "PIIND",
+      "SUNTV",
+      "USHAMART"
+    ],
+    "symbols_covered": [
+      "APTUS",
+      "ATUL",
+      "CASTROLIND",
+      "EMAMILTD",
+      "ENGINERSIN",
+      "JAINREC",
+      "LTM",
+      "MAPMYINDIA",
+      "PATANJALI",
+      "PIIND",
+      "SUNTV",
+      "USHAMART"
+    ],
+    "items": [
+      {
+        "headline": "APTUS: AUM up 21% YoY, strong profitability, and stable asset quality despite seasonal dip",
+        "provider": "Quartr",
+        "published_unix": 1785622269,
+        "link": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:3997889:0-aptus-aum-up-21-yoy-strong-profitability-and-stable-asset-quality-despite-seasonal-dip/",
+        "symbol": "APTUS"
+      },
+      {
+        "headline": "APTUS: Q1 FY27 net profit grew to ₹26,094.10 lakhs, with strong asset quality and robust liquidity",
+        "provider": "Quartr",
+        "published_unix": 1785485979,
+        "link": "https://www.tradingview.com/news/urn:summary_document_report:quartr.com:3667381:0-aptus-q1-fy27-net-profit-grew-to-26-094-10-lakhs-with-strong-asset-quality-and-robust-liquidity/",
+        "symbol": "APTUS"
+      },
+      {
+        "headline": "Q1 results 2026: ITC to Maruti Suzuki, Sun Pharma, among companies to declare Q1 earnings today; full list here",
+        "provider": "Mint",
+        "published_unix": 1785485508,
+        "link": "https://www.tradingview.com/news/moodys:9df335f79f1c2:0-q1-results-2026-itc-to-maruti-suzuki-sun-pharma-among-companies-to-declare-q1-earnings-today-full-list-here/",
+        "symbol": "APTUS"
+      },
+      {
+        "headline": "APTUS: 21% AUM growth and 19% profit rise in Q1 FY27, with strong asset quality and digital adoption",
+        "provider": "Quartr",
+        "published_unix": 1785485424,
+        "link": "https://www.tradingview.com/news/urn:summary_document_slides:quartr.com:3941260:0-aptus-21-aum-growth-and-19-profit-rise-in-q1-fy27-with-strong-asset-quality-and-digital-adoption/",
+        "symbol": "APTUS"
+      },
+      {
+        "headline": "Aptus Value Housing Finance India Says June-Quarter Consol Profit 2.61 Billion Rupees",
+        "provider": "Reuters",
+        "published_unix": 1785484471,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_FWN43X0QB:0-aptus-value-housing-finance-india-says-june-quarter-consol-profit-2-61-billion-rupees/",
+        "symbol": "APTUS"
+      },
+      {
+        "headline": "Buy Atul; target of Rs 7700: ICICI Securities",
+        "provider": "Moneycontrol",
+        "published_unix": 1785144772,
+        "link": "https://www.tradingview.com/news/moneycontrol:6fa57dceb094b:0-buy-atul-target-of-rs-7700-icici-securities/",
+        "symbol": "ATUL"
+      },
+      {
+        "headline": "Buy Atul; target of Rs 8400: Motilal Oswal",
+        "provider": "Moneycontrol",
+        "published_unix": 1785143951,
+        "link": "https://www.tradingview.com/news/moneycontrol:0439edba2094b:0-buy-atul-target-of-rs-8400-motilal-oswal/",
+        "symbol": "ATUL"
+      },
+      {
+        "headline": "Atul Approves Capital Expenditure For Manufacturing Facility Of MCPP-P, MCPA",
+        "provider": "Reuters",
+        "published_unix": 1784883826,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_FWN43Q0MK:0-atul-approves-capital-expenditure-for-manufacturing-facility-of-mcpp-p-mcpa/",
+        "symbol": "ATUL"
+      },
+      {
+        "headline": "ATUL: Q1 FY27 saw double-digit revenue and profit growth, with strong segment performance and board expansion",
+        "provider": "Quartr",
+        "published_unix": 1784883325,
+        "link": "https://www.tradingview.com/news/urn:summary_document_report:quartr.com:3684693:0-atul-q1-fy27-saw-double-digit-revenue-and-profit-growth-with-strong-segment-performance-and-board-expansion/",
+        "symbol": "ATUL"
+      },
+      {
+        "headline": "Buy Atul; target of Rs 8200: Motilal Oswal",
+        "provider": "Moneycontrol",
+        "published_unix": 1777886276,
+        "link": "https://www.tradingview.com/news/moneycontrol:6117b3d27094b:0-buy-atul-target-of-rs-8200-motilal-oswal/",
+        "symbol": "ATUL"
+      },
+      {
+        "headline": "Energy dividend kings: ONGC, IOCL, BPCL, Castrol or IGL, which stock delivers the highest payout? Comparison",
+        "provider": "Mint",
+        "published_unix": 1789995895,
+        "link": "https://www.tradingview.com/news/moodys:5c06bc5832f90:0-energy-dividend-kings-ongc-iocl-bpcl-castrol-or-igl-which-stock-delivers-the-highest-payout-comparison/",
+        "symbol": "CASTROLIND"
+      },
+      {
+        "headline": "Trade Spotlight: How should you trade Castrol, Ramkrishna Forgings, Sapphire Foods, Jindal Saw, Granules India, and others on September 18?",
+        "provider": "Moneycontrol",
+        "published_unix": 1789697771,
+        "link": "https://www.tradingview.com/news/moneycontrol:0d6465268094b:0-trade-spotlight-how-should-you-trade-castrol-ramkrishna-forgings-sapphire-foods-jindal-saw-granules-india-and-others-on-september-18/",
+        "symbol": "CASTROLIND"
+      },
+      {
+        "headline": "Buy Castrol India; target of Rs 230: Motilal Oswal",
+        "provider": "Moneycontrol",
+        "published_unix": 1786007645,
+        "link": "https://www.tradingview.com/news/moneycontrol:d2ed8e617094b:0-buy-castrol-india-target-of-rs-230-motilal-oswal/",
+        "symbol": "CASTROLIND"
+      },
+      {
+        "headline": "CASTROLIND: Strong Q2 and H1 growth with resilient margins, cautious outlook amid inflation risks",
+        "provider": "Quartr",
+        "published_unix": 1785944077,
+        "link": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:4073331:0-castrolind-strong-q2-and-h1-growth-with-resilient-margins-cautious-outlook-amid-inflation-risks/",
+        "symbol": "CASTROLIND"
+      },
+      {
+        "headline": "Castrol India share price rises 3% on strong Q1 performance",
+        "provider": "Moneycontrol",
+        "published_unix": 1785894933,
+        "link": "https://www.tradingview.com/news/moneycontrol:7fac63d01094b:0-castrol-india-share-price-rises-3-on-strong-q1-performance/",
+        "symbol": "CASTROLIND"
+      },
+      {
+        "headline": "Emami approves ₹282-crore share buyback at maximum price of ₹475",
+        "provider": "Business Line",
+        "published_unix": 1789659091,
+        "link": "https://www.tradingview.com/news/moodys:ab98e708f4a29:0-emami-approves-282-crore-share-buyback-at-maximum-price-of-475/",
+        "symbol": "EMAMILTD"
+      },
+      {
+        "headline": "Buyback Alert: FMCG major approves share repurchase plan, but there's a difference",
+        "provider": "CNBC TV18",
+        "published_unix": 1789628398,
+        "link": "https://www.tradingview.com/news/cnbctv:ef9a44d22094b:0/",
+        "symbol": "EMAMILTD"
+      },
+      {
+        "headline": "Emami To Consider Proposal For Buyback Of Equity Shares",
+        "provider": "Reuters",
+        "published_unix": 1789389528,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_FWN4530WZ:0-emami-to-consider-proposal-for-buyback-of-equity-shares/",
+        "symbol": "EMAMILTD"
+      },
+      {
+        "headline": "Hold Emami; target of Rs 443: Prabhudas Lilladher",
+        "provider": "Moneycontrol",
+        "published_unix": 1785921700,
+        "link": "https://www.tradingview.com/news/moneycontrol:b3621f648094b:0-hold-emami-target-of-rs-443-prabhudas-lilladher/",
+        "symbol": "EMAMILTD"
+      },
+      {
+        "headline": "EMAMILTD: Strong revenue growth and portfolio diversification offset margin pressures; outlook remains positive",
+        "provider": "Quartr",
+        "published_unix": 1785883911,
+        "link": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:3998107:0-emamiltd-strong-revenue-growth-and-portfolio-diversification-offset-margin-pressures-outlook-remains-positive/",
+        "symbol": "EMAMILTD"
+      },
+      {
+        "headline": "Dividend record date 23 Sept alert: Last call for investors today! Buy Arfin India, Engineers India, others to qualify",
+        "provider": "Mint",
+        "published_unix": 1790146200,
+        "link": "https://www.tradingview.com/news/moodys:386279b63d653:0-dividend-record-date-23-sept-alert-last-call-for-investors-today-buy-arfin-india-engineers-india-others-to-qualify/",
+        "symbol": "ENGINERSIN"
+      },
+      {
+        "headline": "EIL Signs $450-m Contract with Dangote for Kenya Refinery",
+        "provider": "Economic Times",
+        "published_unix": 1790137002,
+        "link": "https://www.tradingview.com/news/moodys:3408f9dc521d9:0-eil-signs-450-m-contract-with-dangote-for-kenya-refinery/",
+        "symbol": "ENGINERSIN"
+      },
+      {
+        "headline": "EIL Signs $450m Contract with Dangote for Kenya Refinery",
+        "provider": "Economic Times",
+        "published_unix": 1790136977,
+        "link": "https://www.tradingview.com/news/moodys:2a924faf06294:0-eil-signs-450m-contract-with-dangote-for-kenya-refinery/",
+        "symbol": "ENGINERSIN"
+      },
+      {
+        "headline": "EIL bags over $450 million order from Dangote Group for Kenya refinery project",
+        "provider": "Business Line",
+        "published_unix": 1790080514,
+        "link": "https://www.tradingview.com/news/moodys:4b31a04b009b4:0-eil-bags-over-450-million-order-from-dangote-group-for-kenya-refinery-project/",
+        "symbol": "ENGINERSIN"
+      },
+      {
+        "headline": "EIL bags over USD 450 million order from Dangote Group for Kenya refinery project",
+        "provider": "Asian News International",
+        "published_unix": 1790071409,
+        "link": "https://www.tradingview.com/news/moodys:98a6e6feb4693:0-eil-bags-over-usd-450-million-order-from-dangote-group-for-kenya-refinery-project/",
+        "symbol": "ENGINERSIN"
+      },
+      {
+        "headline": "'Buy' Jain Resource Recycling for 25% upside, says ICICI Securities; check share price target",
+        "provider": "Mint",
+        "published_unix": 1788970242,
+        "link": "https://www.tradingview.com/news/moodys:cc76141014a95:0-buy-jain-resource-recycling-for-25-upside-says-icici-securities-check-share-price-target/",
+        "symbol": "JAINREC"
+      },
+      {
+        "headline": "Buy Jain Resource Recycling; target of Rs 350: ICICI Securities",
+        "provider": "Moneycontrol",
+        "published_unix": 1788852201,
+        "link": "https://www.tradingview.com/news/moneycontrol:abbe25fbe094b:0-buy-jain-resource-recycling-target-of-rs-350-icici-securities/",
+        "symbol": "JAINREC"
+      },
+      {
+        "headline": "Jain Resource Recycling Says Revocation Of Prohibition Order Permits Co To Resume Operations At Unit 2 Facility",
+        "provider": "Reuters",
+        "published_unix": 1785942746,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_FWN4421T4:0-jain-resource-recycling-says-revocation-of-prohibition-order-permits-co-to-resume-operations-at-unit-2-facility/",
+        "symbol": "JAINREC"
+      },
+      {
+        "headline": "Jain Resource Recycling Gets Nod To Recommence Manufacturing Operations At Chennai Unit-II, Except For Shed Affected By Fire On July 14",
+        "provider": "Reuters",
+        "published_unix": 1785252858,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_FWN43U1BW:0-jain-resource-recycling-gets-nod-to-recommence-manufacturing-operations-at-chennai-unit-ii-except-for-shed-affected-by-fire-on-july-14/",
+        "symbol": "JAINREC"
+      },
+      {
+        "headline": "Ashish Kacholia raises stake in this multibagger stock after 200% rally. Do you own?",
+        "provider": "Mint",
+        "published_unix": 1784978373,
+        "link": "https://www.tradingview.com/news/moodys:63547685dec26:0-ashish-kacholia-raises-stake-in-this-multibagger-stock-after-200-rally-do-you-own/",
+        "symbol": "JAINREC"
+      },
+      {
+        "headline": "Shriram Finance, Hindustan Aeronautics, Siemens Energy shares fall nearly 4%, among top Nifty 100 laggards",
+        "provider": "Mint",
+        "published_unix": 1789471102,
+        "link": "https://www.tradingview.com/news/moodys:1b18bd36730e1:0-shriram-finance-hindustan-aeronautics-siemens-energy-shares-fall-nearly-4-among-top-nifty-100-laggards/",
+        "symbol": "LTM"
+      },
+      {
+        "headline": "Kotak turns cautious on Indian IT, downgrades Infosys, TCS and LTM; prefers challengers amid AI shift",
+        "provider": "Moneycontrol",
+        "published_unix": 1787288510,
+        "link": "https://www.tradingview.com/news/moneycontrol:8c3ce42de094b:0-kotak-turns-cautious-on-indian-it-downgrades-infosys-tcs-and-ltm-prefers-challengers-amid-ai-shift/",
+        "symbol": "LTM"
+      },
+      {
+        "headline": "Cognizant, Wipro, LTM drag fresher onboarding on biz caution",
+        "provider": "Mint",
+        "published_unix": 1787124837,
+        "link": "https://www.tradingview.com/news/moodys:da72dca352237:0-cognizant-wipro-ltm-drag-fresher-onboarding-on-biz-caution/",
+        "symbol": "LTM"
+      },
+      {
+        "headline": "LTM Collaborates With Chainguard",
+        "provider": "Reuters",
+        "published_unix": 1786009021,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_FWN4430V0:0-ltm-collaborates-with-chainguard/",
+        "symbol": "LTM"
+      },
+      {
+        "headline": "LTM Announces Strategic Partnership With Cognition",
+        "provider": "Reuters",
+        "published_unix": 1785128513,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_FWN43R0EY:0-ltm-announces-strategic-partnership-with-cognition/",
+        "symbol": "LTM"
+      },
+      {
+        "headline": "CE Info Systems Says Mapmyindia Mappls Partners With Clarityx To Launch Geo-Fi",
+        "provider": "Reuters",
+        "published_unix": 1788165763,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_FWN44R04D:0-ce-info-systems-says-mapmyindia-mappls-partners-with-clarityx-to-launch-geo-fi/",
+        "symbol": "MAPMYINDIA"
+      },
+      {
+        "headline": "CE Info returns to double-digit growth, but margin pressure drags stock",
+        "provider": "CNBC TV18",
+        "published_unix": 1785922427,
+        "link": "https://www.tradingview.com/news/cnbctv:100d9f5d5094b:0/",
+        "symbol": "MAPMYINDIA"
+      },
+      {
+        "headline": "MAPMYINDIA: Q1 FY 2027 revenue rose 14.9% year-over-year, driven by automotive and IoT growth",
+        "provider": "Quartr",
+        "published_unix": 1785856567,
+        "link": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:3961306:0-mapmyindia-q1-fy-2027-revenue-rose-14-9-year-over-year-driven-by-automotive-and-iot-growth/",
+        "symbol": "MAPMYINDIA"
+      },
+      {
+        "headline": "MAPMYINDIA: Q1FY27 revenue rose 14.9% YoY, with all segments growing and strong cash position maintained",
+        "provider": "Quartr",
+        "published_unix": 1785844671,
+        "link": "https://www.tradingview.com/news/urn:summary_document_slides:quartr.com:3959735:0-mapmyindia-q1fy27-revenue-rose-14-9-yoy-with-all-segments-growing-and-strong-cash-position-maintained/",
+        "symbol": "MAPMYINDIA"
+      },
+      {
+        "headline": "MAPMYINDIA: Revenue and profit rose year-over-year, with continued focus on digital mapping solutions",
+        "provider": "Quartr",
+        "published_unix": 1785838076,
+        "link": "https://www.tradingview.com/news/urn:summary_document_report:quartr.com:3692527:0-mapmyindia-revenue-and-profit-rose-year-over-year-with-continued-focus-on-digital-mapping-solutions/",
+        "symbol": "MAPMYINDIA"
+      },
+      {
+        "headline": "India cuts import duty on palm oil, soyoil and sunflower oil",
+        "provider": "Reuters",
+        "published_unix": 1790181817,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45F16W:0-india-cuts-import-duty-on-palm-oil-soyoil-and-sunflower-oil/",
+        "symbol": "PATANJALI"
+      },
+      {
+        "headline": "Why SBI lost its Rs 1,759-crore insolvency case against Patanjali Foods guarantor despite debt remaining alive",
+        "provider": "Moneycontrol",
+        "published_unix": 1790158035,
+        "link": "https://www.tradingview.com/news/moneycontrol:5c02c8597094b:0-why-sbi-lost-its-rs-1-759-crore-insolvency-case-against-patanjali-foods-guarantor-despite-debt-remaining-alive/",
+        "symbol": "PATANJALI"
+      },
+      {
+        "headline": "Patanjali Foods shares rise up to 4%, extend gains for third straight day on FY27 growth targets",
+        "provider": "Moneycontrol",
+        "published_unix": 1790061586,
+        "link": "https://www.tradingview.com/news/moneycontrol:73d82f561094b:0-patanjali-foods-shares-rise-up-to-4-extend-gains-for-third-straight-day-on-fy27-growth-targets/",
+        "symbol": "PATANJALI"
+      },
+      {
+        "headline": "Patanjali, HDFC Bank, midcaps in focus: Mayuresh Joshi",
+        "provider": "CNBC TV18",
+        "published_unix": 1790052452,
+        "link": "https://www.tradingview.com/news/cnbctv:86d946292094b:0/",
+        "symbol": "PATANJALI"
+      },
+      {
+        "headline": "India soyoil imports to rise to record high on price competitiveness",
+        "provider": "Reuters",
+        "published_unix": 1789985551,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L1N45D09N:0-india-soyoil-imports-to-rise-to-record-high-on-price-competitiveness/",
+        "symbol": "PATANJALI"
+      },
+      {
+        "headline": "PI Industries shares fall 7% after this negative news extend losses from 52-week low",
+        "provider": "CNBC TV18",
+        "published_unix": 1789112342,
+        "link": "https://www.tradingview.com/news/cnbctv:63f312b70094b:0/",
+        "symbol": "PIIND"
+      },
+      {
+        "headline": "PI Industries bets on innovation-led growth as agrochem headwinds mount",
+        "provider": "Mint",
+        "published_unix": 1788492884,
+        "link": "https://www.tradingview.com/news/moodys:5e4e15bfdab4d:0-pi-industries-bets-on-innovation-led-growth-as-agrochem-headwinds-mount/",
+        "symbol": "PIIND"
+      },
+      {
+        "headline": "Upcoming IPO: Bharat PET receives SEBI approval to raise Rs.760 crore through public issue",
+        "provider": "Mint",
+        "published_unix": 1787932152,
+        "link": "https://www.tradingview.com/news/moodys:2121bdc83ab79:0-upcoming-ipo-bharat-pet-receives-sebi-approval-to-raise-rs-760-crore-through-public-issue/",
+        "symbol": "PIIND"
+      },
+      {
+        "headline": "PI Industries Shares Surge 2.19% in Today's Trade",
+        "provider": "Moneycontrol",
+        "published_unix": 1787035119,
+        "link": "https://www.tradingview.com/news/moneycontrol:c8804b070094b:0-pi-industries-shares-surge-2-19-in-today-s-trade/",
+        "symbol": "PIIND"
+      },
+      {
+        "headline": "Buy PI Industries; target of Rs 3000: Motilal Oswal",
+        "provider": "Moneycontrol",
+        "published_unix": 1786614782,
+        "link": "https://www.tradingview.com/news/moneycontrol:b3331639c094b:0-buy-pi-industries-target-of-rs-3000-motilal-oswal/",
+        "symbol": "PIIND"
+      },
+      {
+        "headline": "NBDA Re-elects Rajat Sharma As President For 2026-27",
+        "provider": "Businessworld",
+        "published_unix": 1790103982,
+        "link": "https://www.tradingview.com/news/moodys:897e26126e698:0-nbda-re-elects-rajat-sharma-as-president-for-2026-27/",
+        "symbol": "SUNTV"
+      },
+      {
+        "headline": "Raaka makes history: How Allu Arjun, Deepika Padukone and Atlee's film set a Guinness World Record with 37 performers",
+        "provider": "Mint",
+        "published_unix": 1790014420,
+        "link": "https://www.tradingview.com/news/moodys:5319670796504:0-raaka-makes-history-how-allu-arjun-deepika-padukone-and-atlee-s-film-set-a-guinness-world-record-with-37-performers/",
+        "symbol": "SUNTV"
+      },
+      {
+        "headline": "Big boys foray into the microdrama space while early entrants exit",
+        "provider": "Mint",
+        "published_unix": 1788169000,
+        "link": "https://www.tradingview.com/news/moodys:d04f8b3fcb750:0-big-boys-foray-into-the-microdrama-space-while-early-entrants-exit/",
+        "symbol": "SUNTV"
+      },
+      {
+        "headline": "Neutral Sun TV Network; target of Rs 545: Motilal Oswal",
+        "provider": "Moneycontrol",
+        "published_unix": 1786614790,
+        "link": "https://www.tradingview.com/news/moneycontrol:a57b87dd6094b:0-neutral-sun-tv-network-target-of-rs-545-motilal-oswal/",
+        "symbol": "SUNTV"
+      },
+      {
+        "headline": "Sun TV shares rise up to 6% after Q1 net profit jumps 17%",
+        "provider": "Moneycontrol",
+        "published_unix": 1786606786,
+        "link": "https://www.tradingview.com/news/moneycontrol:bc8ea45a8094b:0-sun-tv-shares-rise-up-to-6-after-q1-net-profit-jumps-17/",
+        "symbol": "SUNTV"
+      },
+      {
+        "headline": "Trade Spotlight: How should you trade Usha Martin, Carborundum Universal, Engineers India, Lumax Auto Tech, RBL Bank, and others on September 23?",
+        "provider": "Moneycontrol",
+        "published_unix": 1790130309,
+        "link": "https://www.tradingview.com/news/moneycontrol:55955c752094b:0-trade-spotlight-how-should-you-trade-usha-martin-carborundum-universal-engineers-india-lumax-auto-tech-rbl-bank-and-others-on-september-23/",
+        "symbol": "USHAMART"
+      },
+      {
+        "headline": "Buy Usha Martin; target of Rs 620: Anand Rathi",
+        "provider": "Moneycontrol",
+        "published_unix": 1789449861,
+        "link": "https://www.tradingview.com/news/moneycontrol:daa397a2f094b:0-buy-usha-martin-target-of-rs-620-anand-rathi/",
+        "symbol": "USHAMART"
+      },
+      {
+        "headline": "Buy Usha Martin; target of Rs 594: Prabhudas Lilladher",
+        "provider": "Moneycontrol",
+        "published_unix": 1785386757,
+        "link": "https://www.tradingview.com/news/moneycontrol:54293257f094b:0-buy-usha-martin-target-of-rs-594-prabhudas-lilladher/",
+        "symbol": "USHAMART"
+      },
+      {
+        "headline": "USHAMART: Strong revenue and margin growth driven by value-added products and robust cash generation",
+        "provider": "Quartr",
+        "published_unix": 1785248378,
+        "link": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:3922635:0-ushamart-strong-revenue-and-margin-growth-driven-by-value-added-products-and-robust-cash-generation/",
+        "symbol": "USHAMART"
+      },
+      {
+        "headline": "Usha Martin shares rise 2% post strong Q1 performance",
+        "provider": "Moneycontrol",
+        "published_unix": 1785204699,
+        "link": "https://www.tradingview.com/news/moneycontrol:01283684d094b:0-usha-martin-shares-rise-2-post-strong-q1-performance/",
+        "symbol": "USHAMART"
+      }
+    ]
+  },
+  "india_market_news": {
+    "source_symbol": "NSE:NIFTY",
+    "items": [
+      {
+        "headline": "Foreign investors buy ₹1,617 crore of Indian shares after a day of heavy selling",
+        "provider": "CNBC TV18",
+        "published_unix": 1790176220,
+        "link": "https://www.tradingview.com/news/cnbctv:461cd5a13094b:0/"
+      },
+      {
+        "headline": "Nifty Reclaims 23,400 As Metals, Realty Lead Broad-based Market Rebound",
+        "provider": "Businessworld",
+        "published_unix": 1790170357,
+        "link": "https://www.tradingview.com/news/moodys:60d9340e62074:0-nifty-reclaims-23-400-as-metals-realty-lead-broad-based-market-rebound/"
+      },
+      {
+        "headline": "Indian shares advance on oil retreat; financials lead",
+        "provider": "Reuters",
+        "published_unix": 1790158862,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45F0JQ:0-indian-shares-advance-on-oil-retreat-financials-lead/"
+      },
+      {
+        "headline": "Taking Stock: Market rebounds; Nifty above 23,400, Sensex up 299 pts; metals, realty lead",
+        "provider": "Moneycontrol",
+        "published_unix": 1790158569,
+        "link": "https://www.tradingview.com/news/moneycontrol:d10355eb8094b:0-taking-stock-market-rebounds-nifty-above-23-400-sensex-up-299-pts-metals-realty-lead/"
+      },
+      {
+        "headline": "Sensex, Nifty close at 2-week high: Crude, metals and financials drive gains",
+        "provider": "CNBC TV18",
+        "published_unix": 1790158357,
+        "link": "https://www.tradingview.com/news/cnbctv:3021e3a16094b:0/"
+      },
+      {
+        "headline": "Metals lead Nifty higher; crude slide, geopolitical uncertainty cap gains",
+        "provider": "Business Line",
+        "published_unix": 1790153755,
+        "link": "https://www.tradingview.com/news/moodys:fb6ce79ce2a36:0-metals-lead-nifty-higher-crude-slide-geopolitical-uncertainty-cap-gains/"
+      },
+      {
+        "headline": "Asian stocks trade mixed following Wall Street; Chinese equities edge lower ahead of summit",
+        "provider": "Seeking Alpha",
+        "published_unix": 1790144014,
+        "link": "https://www.tradingview.com/news/seekingalpha:f458e0508094b:0-asian-stocks-trade-mixed-following-wall-street-chinese-equities-edge-lower-ahead-of-summit/"
+      },
+      {
+        "headline": "Nifty Prediction Today – September 23, 2026: Nifty futures: Struggles to recover",
+        "provider": "Business Line",
+        "published_unix": 1790140180,
+        "link": "https://www.tradingview.com/news/moodys:5018860ffcc91:0-nifty-prediction-today-september-23-2026-nifty-futures-struggles-to-recover/"
+      },
+      {
+        "headline": "Sensex, Nifty rebound in early trade amid easing crude oil prices",
+        "provider": "Business Line",
+        "published_unix": 1790140178,
+        "link": "https://www.tradingview.com/news/moodys:981d532a7476a:0-sensex-nifty-rebound-in-early-trade-amid-easing-crude-oil-prices/"
+      },
+      {
+        "headline": "Sensex settles 300 pts higher, Nifty ends above 23,450: Positive global cues among key factors behind market rise",
+        "provider": "Moneycontrol",
+        "published_unix": 1790138057,
+        "link": "https://www.tradingview.com/news/moneycontrol:5b6bb26a4094b:0-sensex-settles-300-pts-higher-nifty-ends-above-23-450-positive-global-cues-among-key-factors-behind-market-rise/"
+      },
+      {
+        "headline": "Indian shares inch up as falling oil aids sentiment",
+        "provider": "Reuters",
+        "published_unix": 1790137949,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45F07X:0-indian-shares-inch-up-as-falling-oil-aids-sentiment/"
+      },
+      {
+        "headline": "Indian markets open higher; Sensex gains over 200 points, Nifty above 23,300 amid falling oil prices",
+        "provider": "Asian News International",
+        "published_unix": 1790137579,
+        "link": "https://www.tradingview.com/news/moodys:b4133f5bc7e9c:0-indian-markets-open-higher-sensex-gains-over-200-points-nifty-above-23-300-amid-falling-oil-prices/"
+      },
+      {
+        "headline": "Sensex, Nifty 50 prediction today: How Asian markets, crude will impact Indian markets? Gift Nifty, Kospi, Taiwan signal",
+        "provider": "Mint",
+        "published_unix": 1790137393,
+        "link": "https://www.tradingview.com/news/moodys:75c7b58dfadf1:0-sensex-nifty-50-prediction-today-how-asian-markets-crude-will-impact-indian-markets-gift-nifty-kospi-taiwan-signal/"
+      },
+      {
+        "headline": "Nifty may remain under pressure as FPI selling continues; key levels to watch",
+        "provider": "Business Line",
+        "published_unix": 1790135508,
+        "link": "https://www.tradingview.com/news/moodys:7c2d59026806b:0-nifty-may-remain-under-pressure-as-fpi-selling-continues-key-levels-to-watch/"
+      },
+      {
+        "headline": "Indian shares open flat as foreign outflows offset Asian gains",
+        "provider": "Reuters",
+        "published_unix": 1790135203,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45F07Q:0-indian-shares-open-flat-as-foreign-outflows-offset-asian-gains/"
+      }
+    ]
+  },
+  "world_financial_news": {
+    "source_symbol": "SP:SPX",
+    "items": [
+      {
+        "headline": "S&P 500 Falls 56.95 Points (0.73%)",
+        "provider": "Dow Jones Newswires",
+        "published_unix": 1790181900,
+        "link": "https://www.tradingview.com/news/DJN_DN20260923006047_20260923006047:0/"
+      },
+      {
+        "headline": "U.S. Stocks Falls as Trump Raises Hopes for Iran Deal After Midterms",
+        "provider": "GuruFocus",
+        "published_unix": 1790181719,
+        "link": "https://www.tradingview.com/news/gurufocus:1dfb81a2f094b:0-u-s-stocks-falls-as-trump-raises-hopes-for-iran-deal-after-midterms/"
+      },
+      {
+        "headline": "Wall Street falls as oil rebounds, Middle East tensions simmer",
+        "provider": "Reuters",
+        "published_unix": 1790180939,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45F13I:0-wall-street-falls-as-oil-rebounds-middle-east-tensions-simmer/"
+      },
+      {
+        "headline": "RECAP: US TSY TO BUYBACK MAX $6 BLN OF 20-YR TO 30-YR US BONDS TOMORROW; MEANWHILE US 10-YR YIELD 5.095%, HIGHEST SINCE JULY 2007",
+        "provider": "Mace News",
+        "published_unix": 1790180700,
+        "link": "https://www.tradingview.com/news/macenews:75e0d248f094b:0-recap-us-tsy-to-buyback-max-6-bln-of-20-yr-to-30-yr-us-bonds-tomorrow-meanwhile-us-10-yr-yield-5-095-highest-since-july-2007/"
+      },
+      {
+        "headline": "Wall Street slides as Trump signals possible Iran de-escalation",
+        "provider": "Seeking Alpha",
+        "published_unix": 1790178784,
+        "link": "https://www.tradingview.com/news/seekingalpha:229802a2a094b:0-wall-street-slides-as-trump-signals-possible-iran-de-escalation/"
+      },
+      {
+        "headline": "Market Pulse: Key triggers to watch before the September 24 trading session",
+        "provider": "CNBC TV18",
+        "published_unix": 1790178615,
+        "link": "https://www.tradingview.com/news/cnbctv:aac0d4b7a094b:0/"
+      },
+      {
+        "headline": "Still on the sidelines? 'UpTober' might punish S&P 500 skeptics",
+        "provider": "Seeking Alpha",
+        "published_unix": 1790178216,
+        "link": "https://www.tradingview.com/news/seekingalpha:a6f73e07f094b:0-still-on-the-sidelines-uptober-might-punish-s-p-500-skeptics/"
+      },
+      {
+        "headline": "INSTITUTE OF INTERNATIONAL FINANCE (IIIF) STUDY OF GLOBAL DEBT FINDS HIGHER INFLATION MASKS UNDERLYING VULNERABILITIES; STRUCTURAL ISSUES IGNORED",
+        "provider": "Mace News",
+        "published_unix": 1790175960,
+        "link": "https://www.tradingview.com/news/macenews:eff8f8556094b:0-institute-of-international-finance-iiif-study-of-global-debt-finds-higher-inflation-masks-underlying-vulnerabilities-structural-issues-ignored/"
+      },
+      {
+        "headline": "Investors are betting on bigger Pentagon budgets. So why are defense stocks struggling?",
+        "provider": "Reuters",
+        "published_unix": 1790175739,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L1N45F0KS:0-investors-are-betting-on-bigger-pentagon-budgets-so-why-are-defense-stocks-struggling/"
+      },
+      {
+        "headline": "FED GOV BARR Q&A, LIMITED TO HOUSING AFFORDABILITY FACTORS, ENDED",
+        "provider": "Mace News",
+        "published_unix": 1790175720,
+        "link": "https://www.tradingview.com/news/macenews:45e53f5e3094b:0-fed-gov-barr-q-a-limited-to-housing-affordability-factors-ended/"
+      },
+      {
+        "headline": "US stocks fall as 10-year Treasury yield hits highest since 2007",
+        "provider": "Reuters",
+        "published_unix": 1790175344,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L1N45F0DT:0-us-stocks-fall-as-10-year-treasury-yield-hits-highest-since-2007/"
+      },
+      {
+        "headline": "FED GOV BARR Q&A/CHI FED: FED NEEDS TO KNOW ALL ASPECTS OF THE K-SHAPED ECONOMY INCLUDING ABOUT CONSUMPTION TRENDS AMONG LOWER INCOMES",
+        "provider": "Mace News",
+        "published_unix": 1790175180,
+        "link": "https://www.tradingview.com/news/macenews:c1b2416d5094b:0-fed-gov-barr-q-a-chi-fed-fed-needs-to-know-all-aspects-of-the-k-shaped-economy-including-about-consumption-trends-among-lower-incomes/"
+      },
+      {
+        "headline": "What's up? Business activity and mortgage rates, that's what",
+        "provider": "Reuters",
+        "published_unix": 1790174719,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L6N45F0U1:0-what-s-up-business-activity-and-mortgage-rates-that-s-what/"
+      },
+      {
+        "headline": "US EIA DISTILLATES INVENTORIES -0.4 MLN BARRELS IN LATEST WEEK FROM PREVIOUS WEEK (VS. -0.6 MLN MARKETS EXPECTED)",
+        "provider": "Mace News",
+        "published_unix": 1790173860,
+        "link": "https://www.tradingview.com/news/macenews:7fb52ba0b094b:0-us-eia-distillates-inventories-0-4-mln-barrels-in-latest-week-from-previous-week-vs-0-6-mln-markets-expected/"
+      },
+      {
+        "headline": "US EIA GASOLINE INVENTORIES -1.7 MLN BARRELS IN LATEST WEEK FROM PREVIOUS WEEK (VS. +0.1 MLN MARKETS EXPECTED)",
+        "provider": "Mace News",
+        "published_unix": 1790173860,
+        "link": "https://www.tradingview.com/news/macenews:7bd67a20f094b:0-us-eia-gasoline-inventories-1-7-mln-barrels-in-latest-week-from-previous-week-vs-0-1-mln-markets-expected/"
+      }
+    ]
+  }
 }
