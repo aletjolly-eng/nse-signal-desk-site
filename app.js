@@ -919,40 +919,132 @@
   }
 
   /* ================= F&O (OPTIONS CHAIN) ================= */
-  /* NSE's own option-chain-v3 API — real OI/change-in-OI/IV/LTP/volume per strike. Max Pain and PCR
-     are computed here from that real OI data (see src/options_chain.py docstring for methodology). */
+  /* NSE's own option-chain-v3 (options) + GetQuoteApi/getSymbolDerivativesData (futures) APIs — real
+     OI/change-in-OI/IV/LTP/volume per strike, real futures OI/price. Max Pain, PCR, and Futures
+     Buildup are computed here from that real data (see src/options_chain.py docstring). Layout:
+     1) Index Options (NIFTY/BANKNIFTY/FINNIFTY/MIDCPNIFTY), 2) Stock Options, split into F&O stocks
+     currently in Both Logics vs. the rest — per explicit layout request. */
   function renderOptionsChain() {
     const oc = STATE.snapshot?.options_chain;
     if (!oc) return `<div class="section-title"><h2>F&amp;O</h2></div><div class="banner warn">Not present in this snapshot — refresh to populate (this is a new section).</div>`;
     const indexNames = Object.keys(oc.indices || {});
-    const stocks = Object.entries(oc.stocks || {}).filter(([, v]) => v.available);
+    const bothSet = new Set(oc.stocks_both_logic_fo || []);
+    const allStocks = Object.entries(oc.stocks || {});
+    const bothStocks = allStocks.filter(([sym]) => bothSet.has(sym));
+    const restStocks = allStocks.filter(([sym, v]) => !bothSet.has(sym) && v.available);
     return `
-      <div class="section-title"><h2>F&amp;O — Options Chain</h2><span class="hint">NSE official OI/IV data; Max Pain &amp; PCR computed from it</span></div>
+      <div class="section-title"><h2>F&amp;O — Options Chain</h2><span class="hint">NSE official OI/IV/futures data; Max Pain, PCR &amp; Buildup computed from it</span></div>
       <div class="banner info">${esc(oc.source)}</div>
-      <div class="grid grid-2" style="margin-bottom:18px">
-        ${indexNames.map(name => optionIndexCard(name, oc.indices[name])).join("")}
+
+      <div class="section-title"><h3 style="margin:0">1. Index Options</h3></div>
+      <div class="grid grid-2" style="margin-bottom:22px">
+        ${indexNames.map(name => optionSymbolCard(name, oc.indices[name], true)).join("")}
       </div>
-      <div class="section-title"><h3 style="margin:0">F&amp;O stocks — summary</h3><span class="hint">${stocks.length} of ${Object.keys(oc.stocks || {}).length} F&amp;O-eligible symbols have data this refresh (expiry ${esc(oc.stocks_expiry_used || "—")})</span></div>
-      ${stockOptionsTable(stocks)}
+
+      <div class="section-title"><h3 style="margin:0">2. Stock Options</h3></div>
+      <div class="section-title" style="margin-top:6px"><h4 style="margin:0;font-size:13px">2a. F&amp;O stocks currently in Both Logics</h4><span class="hint">${bothStocks.length} symbol${bothStocks.length === 1 ? "" : "s"}</span></div>
+      ${bothStocks.length
+        ? `<div class="grid grid-2" style="margin-bottom:22px">${bothStocks.map(([sym, r]) => optionSymbolCard(sym, r, false)).join("")}</div>`
+        : `<div class="na" style="margin-bottom:22px">No F&amp;O-eligible stock is currently matched by Both Logics.</div>`}
+
+      <div class="section-title" style="margin-top:6px"><h4 style="margin:0;font-size:13px">2b. Other F&amp;O stocks</h4><span class="hint">${restStocks.length} of ${allStocks.length - bothStocks.length} have data this refresh</span></div>
+      ${stockOptionsTable(restStocks)}
+      ${STATE.expandedOptionChain && restStocks.some(([sym]) => sym === STATE.expandedOptionChain)
+        ? optionSymbolCard(STATE.expandedOptionChain, oc.stocks[STATE.expandedOptionChain], false)
+        : ""}
     `;
   }
 
-  function optionIndexCard(name, r) {
+  const BUILDUP_CLASS = { "Long Buildup": "pos", "Short Covering": "pos", "Short Buildup": "neg", "Long Unwinding": "neg" };
+
+  function buildupTag(b) {
+    if (!b) return '<span class="na">n/a</span>';
+    const cls = BUILDUP_CLASS[b] || "";
+    return `<span class="tag ${cls === "pos" ? "rsi" : cls === "neg" ? "none" : "none"}" style="${cls ? `color:var(--${cls})` : ""}">${esc(b)}</span>`;
+  }
+
+  function maReadHtml(ma) {
+    if (!ma || !ma.available) return `<div class="na">${esc(ma?.reason || "Insufficient history for moving averages")}</div>`;
+    const rows = [20, 50, 100, 200].map(w => {
+      const val = ma[`sma${w}`], above = ma[`above_sma${w}`];
+      if (val == null) return `<span class="stat-sub">SMA${w}: <span class="na">n/a</span></span>`;
+      return `<span class="stat-sub">SMA${w}: ${fmt.num(val)} <b class="${above ? "up" : "down"}">${above ? "▲ above" : "▼ below"}</b></span>`;
+    });
+    return `<div style="display:flex;flex-wrap:wrap;gap:12px">${rows.join("")}</div>`;
+  }
+
+  function topStrikeCell(side) {
+    if (!side) return '<span class="na">n/a</span>';
+    const v = side.value;
+    const vfmt = typeof v === "number" ? fmt.int(Math.round(v)) : (v ?? "—");
+    return `${fmt.num(side.strike, 0)} <span class="stat-sub">(${vfmt}${side.current_oi != null ? `, OI ${fmt.int(side.current_oi)}` : ""})</span>`;
+  }
+
+  function expiryBreakdownTable(expiries) {
+    return `<div class="table-wrap" style="margin-top:8px"><table>
+      <tr><th class="txt">Expiry</th><th class="num">PCR</th><th class="num">Max Pain</th>
+        <th class="txt">Call: top vol.</th><th class="txt">Call: top OI</th><th class="txt">Call: top %OI chg</th>
+        <th class="txt">Put: top vol.</th><th class="txt">Put: top OI</th><th class="txt">Put: top %OI chg</th></tr>
+      ${expiries.map(e => {
+        if (!e.available) return `<tr><td class="txt"><b>${esc(e.label)}</b><br><span class="stat-sub">${esc(e.expiry)}</span></td><td colspan="8" class="na">Source unavailable this refresh</td></tr>`;
+        const ts = e.top_strikes || {};
+        return `<tr>
+          <td class="txt"><b>${esc(e.label)}</b><br><span class="stat-sub">${esc(e.expiry)}</span></td>
+          <td class="num">${e.pcr_oi ?? "—"}</td>
+          <td class="num">${fmt.num(e.max_pain_strike, 0)}</td>
+          <td class="txt">${topStrikeCell(ts.call?.top_volume)}</td>
+          <td class="txt">${topStrikeCell(ts.call?.top_oi)}</td>
+          <td class="txt">${ts.call?.top_oi_change_pct ? `${fmt.num(ts.call.top_oi_change_pct.strike,0)} <span class="stat-sub">(${fmt.pct(ts.call.top_oi_change_pct.value)}, OI ${fmt.int(ts.call.top_oi_change_pct.current_oi)})</span>` : '<span class="na">n/a</span>'}</td>
+          <td class="txt">${topStrikeCell(ts.put?.top_volume)}</td>
+          <td class="txt">${topStrikeCell(ts.put?.top_oi)}</td>
+          <td class="txt">${ts.put?.top_oi_change_pct ? `${fmt.num(ts.put.top_oi_change_pct.strike,0)} <span class="stat-sub">(${fmt.pct(ts.put.top_oi_change_pct.value)}, OI ${fmt.int(ts.put.top_oi_change_pct.current_oi)})</span>` : '<span class="na">n/a</span>'}</td>
+        </tr>`;
+      }).join("")}
+    </table></div>`;
+  }
+
+  function futuresBuildupHtml(futures) {
+    if (!futures || !futures.length) return `<div class="na">Futures data unavailable this refresh.</div>`;
+    return `<div class="table-wrap" style="margin-top:8px"><table>
+      <tr><th class="txt">Contract</th><th class="num">LTP</th><th class="num">Chg %</th><th class="num">OI</th><th class="num">OI Chg %</th><th>Buildup</th></tr>
+      ${futures.map(f => `<tr>
+        <td class="txt"><b>${esc(f.label)}</b>${f.label === "Current" ? ' <span class="stat-sub">(short-term outlook)</span>' : f.label === "Far" ? ' <span class="stat-sub">(long-term outlook)</span>' : ""}<br><span class="stat-sub">${esc(f.expiry)}</span></td>
+        <td class="num">${fmt.num(f.last_price)}</td>
+        <td class="num ${fmt.cls(f.price_change_pct)}">${fmt.pct(f.price_change_pct)}</td>
+        <td class="num">${fmt.int(f.open_interest)}</td>
+        <td class="num ${fmt.cls(f.oi_change_pct)}">${fmt.pct(f.oi_change_pct)}</td>
+        <td>${buildupTag(f.buildup)}</td>
+      </tr>`).join("")}
+    </table></div>`;
+  }
+
+  function optionSymbolCard(name, r, isIndex) {
     if (!r || !r.available) {
       return `<div class="card"><h3 style="margin-top:0">${esc(name)}</h3><div class="na">Source unavailable this refresh — not shown rather than guessed.</div></div>`;
     }
     const expanded = STATE.expandedOptionChain === name;
+    const company = !isIndex ? (STATE.snapshot.company_profiles?.[name]?.company) : null;
     return `<div class="card">
-      <h3 style="margin-top:0">${esc(name)}</h3>
+      <h3 style="margin-top:0">${!isIndex ? `<span data-open-symbol="${esc(name)}" style="cursor:pointer;color:var(--accent)">${esc(name)}</span>` : esc(name)}${company ? ` <span class="stat-sub" style="font-family:inherit">${esc(company)}</span>` : ""}</h3>
       <div class="grid grid-4" style="margin-bottom:10px">
         <div><div class="stat-label">Spot</div><div class="stat-value" style="font-size:16px">${fmt.num(r.underlying_value)}</div></div>
         <div><div class="stat-label">PCR (OI)</div><div class="stat-value" style="font-size:16px">${r.pcr_oi ?? "—"}</div></div>
         <div><div class="stat-label">Max Pain</div><div class="stat-value" style="font-size:16px">${fmt.num(r.max_pain_strike, 0)}</div></div>
-        <div><div class="stat-label">Expiry</div><div class="stat-value" style="font-size:13px">${esc(r.expiry || "—")}</div></div>
+        <div><div class="stat-label">Nearest expiry</div><div class="stat-value" style="font-size:13px">${esc(r.expiry || "—")}</div></div>
       </div>
-      <div class="stat-sub">Total Call OI ${fmt.int(r.total_ce_oi)} · Total Put OI ${fmt.int(r.total_pe_oi)} · as of ${esc(r.timestamp || "—")}</div>
-      <button class="btn" style="margin-top:10px" data-toggle-option-chain="${esc(name)}">${expanded ? "Hide" : "Show"} full chain (${r.num_strikes} strikes)</button>
-      ${expanded ? optionChainStrikesTable(name, r.strikes || []) : ""}
+      <div class="stat-sub" style="margin-bottom:10px">Total Call OI ${fmt.int(r.total_ce_oi)} · Total Put OI ${fmt.int(r.total_pe_oi)} · as of ${esc(r.timestamp || "—")}</div>
+
+      <h4 style="margin:10px 0 2px">3-expiry strike activity (Current / Next / Far)</h4>
+      ${expiryBreakdownTable(r.expiries || [])}
+
+      <h4 style="margin:14px 0 2px">Futures buildup — short &amp; long-term outlook</h4>
+      ${futuresBuildupHtml(r.futures)}
+
+      <h4 style="margin:14px 0 2px">Moving averages</h4>
+      ${maReadHtml(r.moving_averages)}
+
+      ${isIndex ? `<button class="btn" style="margin-top:10px" data-toggle-option-chain="${esc(name)}">${expanded ? "Hide" : "Show"} full nearest-expiry chain (${r.num_strikes} strikes)</button>
+      ${expanded ? optionChainStrikesTable(name, r.strikes || []) : ""}` : ""}
     </div>`;
   }
 
@@ -1008,19 +1100,27 @@
           <th class="num" data-key="spot" data-numeric="1">Spot</th>
           <th class="num" data-key="pcr" data-numeric="1">PCR (OI)</th>
           <th class="num" data-key="max_pain" data-numeric="1">Max Pain</th>
+          <th class="txt">Short-term outlook</th><th class="txt">Long-term outlook</th>
           <th class="num" data-key="ce_oi" data-numeric="1">Total Call OI</th>
           <th class="num" data-key="pe_oi" data-numeric="1">Total Put OI</th>
         </tr></thead>
         <tbody>
-          ${rows.map(r => `<tr data-open-symbol="${esc(r.sym)}" style="cursor:pointer">
+          ${rows.map(r => {
+            const fut = r.futures || [];
+            const shortTerm = fut.find(f => f.label === "Current")?.buildup;
+            const longTerm = fut.find(f => f.label === "Far")?.buildup;
+            return `<tr data-toggle-option-chain="${esc(r.sym)}" style="cursor:pointer">
             <td class="txt" data-sort="${esc(r.sym)}"><b>${esc(r.sym)}</b></td>
             <td class="txt">${esc(r.company)}</td>
             <td class="num" data-sort="${r.underlying_value ?? NA}">${fmt.num(r.underlying_value)}</td>
             <td class="num" data-sort="${r.pcr_oi ?? NA}">${r.pcr_oi ?? "—"}</td>
             <td class="num" data-sort="${r.max_pain_strike ?? NA}">${fmt.num(r.max_pain_strike, 0)}</td>
+            <td class="txt">${buildupTag(shortTerm)}</td>
+            <td class="txt">${buildupTag(longTerm)}</td>
             <td class="num" data-sort="${r.total_ce_oi ?? NA}">${fmt.int(r.total_ce_oi)}</td>
             <td class="num" data-sort="${r.total_pe_oi ?? NA}">${fmt.int(r.total_pe_oi)}</td>
-          </tr>`).join("")}
+          </tr>`;
+          }).join("")}
         </tbody>
       </table></div>
     </div>`;
