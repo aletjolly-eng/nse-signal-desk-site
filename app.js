@@ -19,7 +19,7 @@
     { id: "methodology", label: "Methodology & Data Status" },
   ];
 
-  let STATE = { tab: "overview", snapshot: null, status: null, news: null, loadError: null, company: null, expandedSector: null, expandedIndex: null, expandedOptionChain: null };
+  let STATE = { tab: "overview", snapshot: null, status: null, news: null, loadError: null, company: null, expandedSector: null, expandedIndex: null, expandedOptionChain: null, selectedFoStock: null };
 
   /* ---------------- formatting helpers ---------------- */
   const fmt = {
@@ -210,6 +210,12 @@
     if (ocEl && ocEl.dataset.toggleOptionChain) {
       const sym = ocEl.dataset.toggleOptionChain;
       STATE.expandedOptionChain = STATE.expandedOptionChain === sym ? null : sym;
+      renderView();
+      return;
+    }
+    const foEl = e.target.closest("[data-select-fo-stock]");
+    if (foEl && foEl.dataset.selectFoStock) {
+      STATE.selectedFoStock = foEl.dataset.selectFoStock;
       renderView();
       return;
     }
@@ -929,9 +935,18 @@
     if (!oc) return `<div class="section-title"><h2>F&amp;O</h2></div><div class="banner warn">Not present in this snapshot — refresh to populate (this is a new section).</div>`;
     const indexNames = Object.keys(oc.indices || {});
     const bothSet = new Set(oc.stocks_both_logic_fo || []);
-    const allStocks = Object.entries(oc.stocks || {});
+    const allStocks = Object.entries(oc.stocks || {}).sort((a, b) => a[0].localeCompare(b[0]));
     const bothStocks = allStocks.filter(([sym]) => bothSet.has(sym));
     const restStocks = allStocks.filter(([sym, v]) => !bothSet.has(sym) && v.available);
+
+    // Master-detail: left pane lists both groups (basic details), right pane shows the full
+    // 3-expiry/futures/MA breakdown for whichever stock is selected — per explicit layout request.
+    let selected = STATE.selectedFoStock;
+    if (!selected || !oc.stocks[selected]?.available) {
+      selected = (bothStocks[0] || restStocks[0] || [])[0] || null;
+    }
+    const selectedData = selected ? oc.stocks[selected] : null;
+
     return `
       <div class="section-title"><h2>F&amp;O — Options Chain</h2><span class="hint">NSE official OI/IV/futures data; Max Pain, PCR &amp; Buildup computed from it</span></div>
       <div class="banner info">${esc(oc.source)}</div>
@@ -941,18 +956,53 @@
         ${indexNames.map(name => optionSymbolCard(name, oc.indices[name], true)).join("")}
       </div>
 
-      <div class="section-title"><h3 style="margin:0">2. Stock Options</h3></div>
-      <div class="section-title" style="margin-top:6px"><h4 style="margin:0;font-size:13px">2a. F&amp;O stocks currently in Both Logics</h4><span class="hint">${bothStocks.length} symbol${bothStocks.length === 1 ? "" : "s"}</span></div>
-      ${bothStocks.length
-        ? `<div class="grid grid-2" style="margin-bottom:22px">${bothStocks.map(([sym, r]) => optionSymbolCard(sym, r, false)).join("")}</div>`
-        : `<div class="na" style="margin-bottom:22px">No F&amp;O-eligible stock is currently matched by Both Logics.</div>`}
-
-      <div class="section-title" style="margin-top:6px"><h4 style="margin:0;font-size:13px">2b. Other F&amp;O stocks</h4><span class="hint">${restStocks.length} of ${allStocks.length - bothStocks.length} have data this refresh</span></div>
-      ${stockOptionsTable(restStocks)}
-      ${STATE.expandedOptionChain && restStocks.some(([sym]) => sym === STATE.expandedOptionChain)
-        ? optionSymbolCard(STATE.expandedOptionChain, oc.stocks[STATE.expandedOptionChain], false)
-        : ""}
+      <div class="section-title"><h3 style="margin:0">2. Stock Options</h3><span class="hint">select a stock on the left to see its full breakdown on the right</span></div>
+      <div style="display:flex;gap:16px;align-items:flex-start">
+        <div style="width:360px;flex:0 0 auto">
+          ${foStockListPane(bothStocks, restStocks, selected)}
+        </div>
+        <div style="flex:1 1 auto;min-width:0">
+          ${selectedData
+            ? optionSymbolCard(selected, selectedData, false)
+            : `<div class="banner warn">No F&amp;O stock option data this refresh.</div>`}
+        </div>
+      </div>
     `;
+  }
+
+  function foStockListPane(bothStocks, restStocks, selected) {
+    const s = STATE.snapshot;
+    const NA = -1e15;
+    const row = ([sym, r]) => {
+      const cp = s.company_profiles?.[sym];
+      return `<tr data-select-fo-stock="${esc(sym)}" style="cursor:pointer${sym === selected ? ";background:var(--surface-2)" : ""}">
+        <td class="txt" data-sort="${esc(sym)}"><b>${esc(sym)}</b></td>
+        <td class="num" data-sort="${r.underlying_value ?? NA}">${fmt.num(r.underlying_value)}</td>
+        <td class="num ${fmt.cls(cp?.daily_change_pct)}" data-sort="${cp?.daily_change_pct ?? NA}">${fmt.pct(cp?.daily_change_pct)}</td>
+        <td class="num" data-sort="${r.pcr_oi ?? NA}">${r.pcr_oi ?? "—"}</td>
+      </tr>`;
+    };
+    const header = `<thead><tr>
+        <th data-key="symbol">Symbol</th><th class="num" data-key="spot" data-numeric="1">Spot</th>
+        <th class="num" data-key="chg" data-numeric="1">Chg%</th><th class="num" data-key="pcr" data-numeric="1">PCR</th>
+      </tr></thead>`;
+    return `<div id="tbl-fo-list" style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
+      <div class="toolbar" style="padding:8px;border-bottom:1px solid var(--border);margin-bottom:0">
+        <input type="text" placeholder="Search symbol…" data-filter-input="tbl-fo-list" style="width:100%">
+      </div>
+      <div style="max-height:70vh;overflow-y:auto">
+        <div class="stat-sub" style="background:var(--surface-2);padding:6px 10px">Both Logics (${bothStocks.length})</div>
+        <table id="table-tbl-fo-list-both" style="min-width:0">
+          ${header}
+          <tbody>${bothStocks.length ? bothStocks.map(row).join("") : `<tr><td colspan="4" class="na" style="padding:6px 10px">none currently</td></tr>`}</tbody>
+        </table>
+        <div class="stat-sub" style="background:var(--surface-2);padding:6px 10px">Other F&amp;O stocks (${restStocks.length})</div>
+        <table data-sortable id="table-tbl-fo-list" style="min-width:0">
+          ${header}
+          <tbody>${restStocks.map(row).join("")}</tbody>
+        </table>
+      </div>
+    </div>`;
   }
 
   const BUILDUP_CLASS = { "Long Buildup": "pos", "Short Covering": "pos", "Short Buildup": "neg", "Long Unwinding": "neg" };
@@ -1083,48 +1133,6 @@
     </div>`;
   }
 
-  function stockOptionsTable(stocks) {
-    if (!stocks.length) return `<div class="na">No F&amp;O stock option data this refresh.</div>`;
-    const s = STATE.snapshot;
-    const NA = -1e15;
-    const rows = stocks.map(([sym, r]) => ({ sym, company: s.company_profiles?.[sym]?.company || sym, ...r }));
-    return `<div id="tbl-fo-stocks">
-      <div class="toolbar">
-        <input type="text" placeholder="Search symbol/company…" data-filter-input="tbl-fo-stocks">
-        <span class="spacer"></span><span class="count-note" data-visible-count>${rows.length} shown</span>
-        <button class="btn" data-csv-export="table-tbl-fo-stocks">Export CSV</button>
-      </div>
-      <div class="table-wrap"><table data-sortable id="table-tbl-fo-stocks">
-        <thead><tr>
-          <th data-key="symbol">Symbol</th><th class="txt">Company</th>
-          <th class="num" data-key="spot" data-numeric="1">Spot</th>
-          <th class="num" data-key="pcr" data-numeric="1">PCR (OI)</th>
-          <th class="num" data-key="max_pain" data-numeric="1">Max Pain</th>
-          <th class="txt">Short-term outlook</th><th class="txt">Long-term outlook</th>
-          <th class="num" data-key="ce_oi" data-numeric="1">Total Call OI</th>
-          <th class="num" data-key="pe_oi" data-numeric="1">Total Put OI</th>
-        </tr></thead>
-        <tbody>
-          ${rows.map(r => {
-            const fut = r.futures || [];
-            const shortTerm = fut.find(f => f.label === "Current")?.buildup;
-            const longTerm = fut.find(f => f.label === "Far")?.buildup;
-            return `<tr data-toggle-option-chain="${esc(r.sym)}" style="cursor:pointer">
-            <td class="txt" data-sort="${esc(r.sym)}"><b>${esc(r.sym)}</b></td>
-            <td class="txt">${esc(r.company)}</td>
-            <td class="num" data-sort="${r.underlying_value ?? NA}">${fmt.num(r.underlying_value)}</td>
-            <td class="num" data-sort="${r.pcr_oi ?? NA}">${r.pcr_oi ?? "—"}</td>
-            <td class="num" data-sort="${r.max_pain_strike ?? NA}">${fmt.num(r.max_pain_strike, 0)}</td>
-            <td class="txt">${buildupTag(shortTerm)}</td>
-            <td class="txt">${buildupTag(longTerm)}</td>
-            <td class="num" data-sort="${r.total_ce_oi ?? NA}">${fmt.int(r.total_ce_oi)}</td>
-            <td class="num" data-sort="${r.total_pe_oi ?? NA}">${fmt.int(r.total_pe_oi)}</td>
-          </tr>`;
-          }).join("")}
-        </tbody>
-      </table></div>
-    </div>`;
-  }
 
   /* ================= STRATEGY RESEARCH ================= */
   function renderStrategy() {
