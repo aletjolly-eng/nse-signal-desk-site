@@ -107,6 +107,10 @@ thead th{
 }
 thead th:hover{color:var(--accent)}
 thead th.num,td.num{text-align:right}
+table[data-no-sort] thead th{cursor:default}
+table[data-no-sort] thead th:hover{color:var(--text-dim)}
+thead th[data-dir="asc"]::after{content:" \25b2";font-size:9px;vertical-align:middle}
+thead th[data-dir="desc"]::after{content:" \25bc";font-size:9px;vertical-align:middle}
 tbody td{padding:7px 10px;border-bottom:1px solid var(--border);white-space:nowrap;font-family:"IBM Plex Mono";font-variant-numeric:tabular-nums}
 tbody td.txt{font-family:"IBM Plex Sans"}
 tbody tr:hover{background:var(--surface-2)}

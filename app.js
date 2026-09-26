@@ -191,7 +191,7 @@
   }
 
   function wireDynamic() {
-    document.querySelectorAll("table[data-sortable]").forEach(wireTableSort);
+    document.querySelectorAll("table").forEach(wireTableSort);
     document.querySelectorAll("[data-csv-export]").forEach(btn => btn.addEventListener("click", () => exportCsv(btn.dataset.csvExport)));
     document.querySelectorAll("[data-filter-input]").forEach(inp => inp.addEventListener("input", () => applyTableFilter(inp)));
     document.querySelectorAll("[data-filter-select]").forEach(sel => sel.addEventListener("change", () => applyTableFilter(sel)));
@@ -221,28 +221,104 @@
     }
   });
 
-  /* generic client-side sort for any table[data-sortable] */
+  // Numeric parse for sorting: strips currency/percent/comma/arrow decoration. Returns NaN, never a
+  // guessed number, when the cell text isn't actually numeric (so callers can fall back to text compare).
+  function sortableNumber(v) {
+    if (v == null) return NaN;
+    const s = String(v).trim();
+    if (s === "" || s === "-" || s === "—" || s.toLowerCase() === "n/a") return NaN;
+    const cleaned = s.replace(/^\+/, "").replace(/[₹,%×▲▼\s]/g, "");
+    if (cleaned === "" || cleaned === "-") return NaN;
+    const n = parseFloat(cleaned);
+    return Number.isNaN(n) ? NaN : n;
+  }
+
+  // A column "looks numeric" if most of a sample of its cells parse as numbers (or are already
+  // numeric via a data-sort override) — used only when a header doesn't explicitly set data-numeric.
+  function columnLooksNumeric(rows, idx) {
+    const sample = rows.slice(0, 15);
+    let seen = 0, numeric = 0;
+    sample.forEach((r) => {
+      const cell = r.cells[idx];
+      if (!cell) return;
+      const raw = cell.dataset.sort ?? cell.textContent;
+      if (raw == null || String(raw).trim() === "") return;
+      seen++;
+      if (!Number.isNaN(sortableNumber(raw))) numeric++;
+    });
+    return seen > 0 && numeric / seen >= 0.6;
+  }
+
+  const NA_SORT_LOW = -1e15;
+
+  // Persists {idx, asc, numeric} per table id across re-renders — e.g. selecting a row in the F&O
+  // stock list re-renders that same table from scratch (new data, new selected-row highlight); without
+  // this, the viewer's chosen sort would silently revert to default (symbol) order on every click.
+  // Only tables with a stable id (unchanged across re-renders of the same view) participate.
+  const TABLE_SORT_STATE = {};
+
+  function sortTableRows(table, idx, asc, numeric) {
+    const tbody = table.tBodies[0];
+    if (!tbody) return;
+    const rows = Array.from(tbody.rows);
+    if (!rows.length) return;
+    rows.sort((a, b) => {
+      const ac = a.cells[idx], bc = b.cells[idx];
+      let av = ac ? (ac.dataset.sort ?? ac.textContent) : "";
+      let bv = bc ? (bc.dataset.sort ?? bc.textContent) : "";
+      if (numeric) {
+        const an = sortableNumber(av), bn = sortableNumber(bv);
+        av = Number.isNaN(an) ? NA_SORT_LOW : an;
+        bv = Number.isNaN(bn) ? NA_SORT_LOW : bn;
+      } else {
+        av = String(av).trim().toLowerCase();
+        bv = String(bv).trim().toLowerCase();
+      }
+      if (av < bv) return asc ? -1 : 1;
+      if (av > bv) return asc ? 1 : -1;
+      return 0;
+    });
+    rows.forEach(r => tbody.appendChild(r));
+  }
+
+  // Generic client-side sort, applied automatically to every table with a <thead> header row.
+  // Opt out with data-no-sort="1" (e.g. a fixed chronological Current/Next/Far row order where
+  // reordering would break the intended reading). data-key on a <th> is no longer required — the
+  // header's own cell position is used — but is still honored where present for back-compat.
+  // data-numeric="1" forces numeric comparison; otherwise numeric-ness is auto-detected per column.
   function wireTableSort(table) {
-    table.querySelectorAll("thead th[data-key]").forEach((th) => {
-      const idx = th.cellIndex; // true column index within the row, not index among data-key'd th's
+    if (table.dataset.noSort === "1") return;
+    if (table.dataset.sortWired === "1") return;
+    const headerRow = table.tHead && table.tHead.rows[table.tHead.rows.length - 1];
+    if (!headerRow) return;
+    const ths = Array.from(headerRow.cells);
+    if (!ths.length) return;
+    table.dataset.sortWired = "1";
+    ths.forEach((th) => {
+      const idx = th.cellIndex;
+      th.style.cursor = "pointer";
       th.addEventListener("click", () => {
-        const numeric = th.dataset.numeric === "1";
-        const tbody = table.tBodies[0];
-        const rows = Array.from(tbody.rows);
+        const rows = table.tBodies[0] ? Array.from(table.tBodies[0].rows) : [];
+        if (!rows.length) return;
+        const numeric = th.dataset.numeric === "1" ? true
+          : th.dataset.numeric === "0" ? false
+          : columnLooksNumeric(rows, idx);
         const asc = th.dataset.dir !== "asc";
-        table.querySelectorAll("thead th").forEach(h => h.removeAttribute("data-dir"));
+        ths.forEach(h => h.removeAttribute("data-dir"));
         th.dataset.dir = asc ? "asc" : "desc";
-        rows.sort((a, b) => {
-          let av = a.cells[idx].dataset.sort ?? a.cells[idx].textContent;
-          let bv = b.cells[idx].dataset.sort ?? b.cells[idx].textContent;
-          if (numeric) { av = parseFloat(av) || -Infinity; bv = parseFloat(bv) || -Infinity; }
-          if (av < bv) return asc ? -1 : 1;
-          if (av > bv) return asc ? 1 : -1;
-          return 0;
-        });
-        rows.forEach(r => tbody.appendChild(r));
+        sortTableRows(table, idx, asc, numeric);
+        if (table.id) TABLE_SORT_STATE[table.id] = { idx, asc, numeric };
       });
     });
+    // Restore a previously-chosen sort for this same table id, if any, instead of showing default order.
+    if (table.id && TABLE_SORT_STATE[table.id]) {
+      const { idx, asc, numeric } = TABLE_SORT_STATE[table.id];
+      const th = ths[idx];
+      if (th) {
+        th.dataset.dir = asc ? "asc" : "desc";
+        sortTableRows(table, idx, asc, numeric);
+      }
+    }
   }
 
   function applyTableFilter(control) {
@@ -285,7 +361,7 @@
     return `
       <div class="section-title" style="margin-top:0"><h2>Global markets</h2><span class="hint">LTP and return over 1D / 1W / 1M / 6M</span></div>
       <div class="table-wrap" style="margin-bottom:20px"><table>
-        <tr><th class="txt">Region</th><th class="txt">Index</th><th class="num">LTP</th><th class="num">1D</th><th class="num">1W</th><th class="num">1M</th><th class="num">6M</th></tr>
+        <thead><tr><th class="txt">Region</th><th class="txt">Index</th><th class="num" data-numeric="1">LTP</th><th class="num" data-numeric="1">1D</th><th class="num" data-numeric="1">1W</th><th class="num" data-numeric="1">1M</th><th class="num" data-numeric="1">6M</th></tr></thead>
         ${rows.map(([region, r]) => r.available ? `<tr>
           <td class="txt"><b>${esc(region)}</b></td>
           <td class="txt">${esc(r.name)}</td>
@@ -337,9 +413,10 @@
 
       <div class="section-title"><h2>7. Standout leaders and breakouts to watch</h2><span class="hint">top volume-multiple among matched stocks</span></div>
       <div class="table-wrap"><table>
-        <thead><tr><th>Symbol</th><th>Sector</th><th class="num">Vol ×</th><th class="num">Breakout %</th><th class="num">RSI(14)d</th><th>Logic</th></tr></thead>
+        <thead><tr><th>Symbol</th><th>Sector</th><th>F&amp;O</th><th class="num">Vol ×</th><th class="num">Breakout %</th><th class="num">RSI(14)d</th><th>Logic</th></tr></thead>
         <tbody>${leaders.map(w => `<tr data-open-symbol="${esc(w.symbol)}">
           <td class="txt"><b>${esc(w.symbol)}</b></td><td class="txt">${esc(w.sector)}</td>
+          <td class="txt">${w.fo_eligible ? "Yes" : "No"}</td>
           <td class="num">${fmt.num(w.volume?.volume_multiple)}×</td>
           <td class="num ${fmt.cls(w.breakout?.breakout_pct)}">${fmt.pct(w.breakout?.breakout_pct)}</td>
           <td class="num">${fmt.num(w.rsi_daily, 1)}</td>
@@ -980,11 +1057,14 @@
         <td class="num" data-sort="${r.underlying_value ?? NA}">${fmt.num(r.underlying_value)}</td>
         <td class="num ${fmt.cls(cp?.daily_change_pct)}" data-sort="${cp?.daily_change_pct ?? NA}">${fmt.pct(cp?.daily_change_pct)}</td>
         <td class="num" data-sort="${r.pcr_oi ?? NA}">${r.pcr_oi ?? "—"}</td>
+        <td class="num" data-sort="${r.total_ce_oi ?? NA}">${r.total_ce_oi != null ? fmt.int(r.total_ce_oi) : '<span class="na">n/a</span>'}</td>
+        <td class="num" data-sort="${r.total_pe_oi ?? NA}">${r.total_pe_oi != null ? fmt.int(r.total_pe_oi) : '<span class="na">n/a</span>'}</td>
       </tr>`;
     };
     const header = `<thead><tr>
         <th data-key="symbol">Symbol</th><th class="num" data-key="spot" data-numeric="1">Spot</th>
         <th class="num" data-key="chg" data-numeric="1">Chg%</th><th class="num" data-key="pcr" data-numeric="1">PCR</th>
+        <th class="num" data-key="ceoi" data-numeric="1">Total Call OI</th><th class="num" data-key="peoi" data-numeric="1">Total Put OI</th>
       </tr></thead>`;
     return `<div id="tbl-fo-list" style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
       <div class="toolbar" style="padding:8px;border-bottom:1px solid var(--border);margin-bottom:0">
@@ -994,7 +1074,7 @@
         <div class="stat-sub" style="background:var(--surface-2);padding:6px 10px">Both Logics (${bothStocks.length})</div>
         <table id="table-tbl-fo-list-both" style="min-width:0">
           ${header}
-          <tbody>${bothStocks.length ? bothStocks.map(row).join("") : `<tr><td colspan="4" class="na" style="padding:6px 10px">none currently</td></tr>`}</tbody>
+          <tbody>${bothStocks.length ? bothStocks.map(row).join("") : `<tr><td colspan="6" class="na" style="padding:6px 10px">none currently</td></tr>`}</tbody>
         </table>
         <div class="stat-sub" style="background:var(--surface-2);padding:6px 10px">Other F&amp;O stocks (${restStocks.length})</div>
         <table data-sortable id="table-tbl-fo-list" style="min-width:0">
@@ -1031,10 +1111,10 @@
   }
 
   function expiryBreakdownTable(expiries) {
-    return `<div class="table-wrap" style="margin-top:8px"><table>
-      <tr><th class="txt">Expiry</th><th class="num">PCR</th><th class="num">Max Pain</th>
+    return `<div class="table-wrap" style="margin-top:8px"><table data-no-sort="1" title="Rows are kept in Current/Next/Far order deliberately, not sortable">
+      <thead><tr><th class="txt">Expiry</th><th class="num">PCR</th><th class="num">Max Pain</th>
         <th class="txt">Call: top vol.</th><th class="txt">Call: top OI</th><th class="txt">Call: top %OI chg</th>
-        <th class="txt">Put: top vol.</th><th class="txt">Put: top OI</th><th class="txt">Put: top %OI chg</th></tr>
+        <th class="txt">Put: top vol.</th><th class="txt">Put: top OI</th><th class="txt">Put: top %OI chg</th></tr></thead>
       ${expiries.map(e => {
         if (!e.available) return `<tr><td class="txt"><b>${esc(e.label)}</b><br><span class="stat-sub">${esc(e.expiry)}</span></td><td colspan="8" class="na">Source unavailable this refresh</td></tr>`;
         const ts = e.top_strikes || {};
@@ -1055,8 +1135,8 @@
 
   function futuresBuildupHtml(futures) {
     if (!futures || !futures.length) return `<div class="na">Futures data unavailable this refresh.</div>`;
-    return `<div class="table-wrap" style="margin-top:8px"><table>
-      <tr><th class="txt">Contract</th><th class="num">LTP</th><th class="num">Chg %</th><th class="num">OI</th><th class="num">OI Chg %</th><th>Buildup</th></tr>
+    return `<div class="table-wrap" style="margin-top:8px"><table data-no-sort="1" title="Rows are kept in Current/Next/Far order deliberately, not sortable">
+      <thead><tr><th class="txt">Contract</th><th class="num">LTP</th><th class="num">Chg %</th><th class="num">OI</th><th class="num">OI Chg %</th><th>Buildup</th></tr></thead>
       ${futures.map(f => `<tr>
         <td class="txt"><b>${esc(f.label)}</b>${f.label === "Current" ? ' <span class="stat-sub">(short-term outlook)</span>' : f.label === "Far" ? ' <span class="stat-sub">(long-term outlook)</span>' : ""}<br><span class="stat-sub">${esc(f.expiry)}</span></td>
         <td class="num">${fmt.num(f.last_price)}</td>
@@ -1291,7 +1371,7 @@
     return `
       <div class="section-title"><h3 style="margin:0">Gold, Brent Oil, USD/INR &amp; Metals</h3><span class="hint">source: yfinance</span></div>
       <div class="table-wrap" style="margin-bottom:22px"><table>
-        <tr><th class="txt">Instrument</th><th class="num">Last</th><th class="num">1D</th><th class="num">1W</th><th class="num">1M</th><th class="num">6M</th></tr>
+        <thead><tr><th class="txt">Instrument</th><th class="num" data-numeric="1">Last</th><th class="num" data-numeric="1">1D</th><th class="num" data-numeric="1">1W</th><th class="num" data-numeric="1">1M</th><th class="num" data-numeric="1">6M</th></tr></thead>
         ${rows.map(([label, r]) => r.available ? `<tr>
           <td class="txt"><b>${esc(label)}</b> <span class="stat-sub">(${esc(r.ticker)})</span></td>
           <td class="num">${fmt.num(r.last)}</td>
@@ -1310,11 +1390,11 @@
     return `<div class="card">
       <h3 style="margin-top:0">${esc(title)}</h3>
       <div class="stat-sub" style="margin-bottom:8px">${esc(section?.source || "")}</div>
-      ${rows.length ? `<table><tr><th>Symbol</th><th class="txt">Sector</th><th class="num">% of traded vol.</th></tr>
-        ${rows.map(r => `<tr data-open-symbol="${esc(r.symbol)}" style="cursor:pointer">
+      ${rows.length ? `<table><thead><tr><th>Symbol</th><th class="txt">Sector</th><th class="num" data-numeric="1">% of traded vol.</th></tr></thead>
+        <tbody>${rows.map(r => `<tr data-open-symbol="${esc(r.symbol)}" style="cursor:pointer">
           <td class="mono"><b>${esc(r.symbol)}</b></td><td class="txt">${esc(r.sector || "—")}</td>
           <td class="num ${colorCls}">${r.pct_of_traded_volume > 0 ? "+" : ""}${fmt.num(r.pct_of_traded_volume, 1)}%</td>
-        </tr>`).join("")}</table>`
+        </tr>`).join("")}</tbody></table>`
         : `<div class="na">No symbols crossed the classification threshold this refresh.</div>`}
     </div>`;
   }
@@ -1323,14 +1403,14 @@
     if (!section || !section.available) return `<div class="banner warn">Source unavailable this refresh (NSE fetch failed) — previous data, if any, was not guessed to fill the gap.</div>`;
     if (!section.rows.length) return `<div class="na">No filings for this universe in NSE's latest announcement batch this refresh — the feed itself only returns its most recent ~100 market-wide, so this is genuinely "none of the latest batch were ours," not a fetch failure.</div>`;
     return `<div class="table-wrap"><table>
-      <tr><th class="txt">Time</th><th>Symbol</th><th class="txt">Subject</th><th class="txt">Details</th><th>Filing</th></tr>
-      ${section.rows.map(r => `<tr>
+      <thead><tr><th class="txt">Time</th><th>Symbol</th><th class="txt">Subject</th><th class="txt">Details</th><th>Filing</th></tr></thead>
+      <tbody>${section.rows.map(r => `<tr>
         <td class="txt">${esc(r.announced_at || "—")}</td>
         <td class="mono" data-open-symbol="${esc(r.symbol)}" style="cursor:pointer"><b>${esc(r.symbol)}</b></td>
         <td class="txt">${esc(r.subject || "—")}</td>
         <td class="txt">${esc((r.details || "").slice(0, 140))}</td>
         <td>${r.attachment_url ? `<a href="${esc(r.attachment_url)}" target="_blank" rel="noopener">PDF</a>` : '<span class="na">—</span>'}</td>
-      </tr>`).join("")}
+      </tr>`).join("")}</tbody>
     </table></div>`;
   }
 
@@ -1338,15 +1418,15 @@
     if (!section || !section.available) return `<div class="banner warn">Source unavailable this refresh (NSE fetch failed) — previous data, if any, was not guessed to fill the gap.</div>`;
     if (!section.rows.length) return `<div class="na">No block deals for this universe in the trailing ${section.window_days} days — a real "none," not a fetch failure.</div>`;
     return `<div class="table-wrap"><table>
-      <tr><th class="txt">Date</th><th>Symbol</th><th class="txt">Client</th><th>Buy/Sell</th><th class="num">Quantity</th><th class="num">Price</th></tr>
-      ${section.rows.map(r => `<tr>
+      <thead><tr><th class="txt">Date</th><th>Symbol</th><th class="txt">Client</th><th>Buy/Sell</th><th class="num" data-numeric="1">Quantity</th><th class="num" data-numeric="1">Price</th></tr></thead>
+      <tbody>${section.rows.map(r => `<tr>
         <td class="txt">${esc(r.date || "—")}</td>
         <td class="mono" data-open-symbol="${esc(r.symbol)}" style="cursor:pointer"><b>${esc(r.symbol)}</b></td>
         <td class="txt">${esc(r.client_name || "—")}</td>
         <td class="${r.buy_sell === "BUY" ? "up" : "down"}">${esc(r.buy_sell || "—")}</td>
         <td class="num">${fmt.int(r.quantity)}</td>
         <td class="num">${fmt.num(r.trade_price)}</td>
-      </tr>`).join("")}
+      </tr>`).join("")}</tbody>
     </table></div>`;
   }
 
@@ -1464,8 +1544,8 @@
       ${(() => {
         const tr = p.tv_research;
         if (!tr || !tr.recent_documents?.length) return `<div class="na">Not fetched for this symbol this refresh — see note above.</div>`;
-        const rows = tr.recent_documents.map(d => `<tr><td>${fmt.unixIst(d.reported_unix)}</td><td>${esc(d.title)}</td><td>${esc(d.category)}</td><td>${esc(d.fiscal_period || "—")}</td></tr>`).join("");
-        return `<table><tr><th>Date</th><th>Document</th><th>Type</th><th>Fiscal period</th></tr>${rows}</table>
+        const rows = tr.recent_documents.map(d => `<tr><td data-sort="${d.reported_unix ?? NA}">${fmt.unixIst(d.reported_unix)}</td><td>${esc(d.title)}</td><td>${esc(d.category)}</td><td>${esc(d.fiscal_period || "—")}</td></tr>`).join("");
+        return `<table><thead><tr><th>Date</th><th>Document</th><th>Type</th><th>Fiscal period</th></tr></thead><tbody>${rows}</tbody></table>
         <div class="stat-sub" style="margin-top:6px">${tr.total_documents} total documents on file at TradingView for this symbol; showing the ${tr.recent_documents.length} most recent. Source: Quartr via TradingView MCP.</div>`;
       })()}
       <h3>Ownership, insider activity &amp; promoter pledge (NSE official corporate filings, independent source)</h3>
@@ -1493,9 +1573,9 @@
           : `<div class="na">Pledge-data fetch failed this refresh — not shown rather than guessed.</div>`;
         const it = p.insider_transactions;
         const itBlock = it && it.length
-          ? `<table><tr><th>Date</th><th>Person</th><th>Category</th><th>Type</th><th>Securities</th><th>Holding after</th></tr>${
+          ? `<table><thead><tr><th>Date</th><th>Person</th><th>Category</th><th>Type</th><th>Securities</th><th class="num" data-numeric="1">Holding after</th></tr></thead><tbody>${
               it.map(r => `<tr><td>${esc(r.date || "—")}</td><td>${esc(r.acqName || "—")}</td><td>${esc(r.personCategory || "—")}</td><td>${esc(r.tdpTransactionType || "—")}</td><td>${esc(r.secAcq || "—")}</td><td>${fmt.pct(parseFloat(r.afterAcqSharesPer))}</td></tr>`).join("")
-            }</table><div class="stat-sub" style="margin-top:6px">Showing up to ${it.length} most recent SEBI PIT (insider trading) disclosures for this symbol.</div>`
+            }</tbody></table><div class="stat-sub" style="margin-top:6px">Showing up to ${it.length} most recent SEBI PIT (insider trading) disclosures for this symbol.</div>`
           : `<div class="na">No SEBI PIT insider-trading disclosures on file for this symbol.</div>`;
         return `${ownBlock}<div style="margin-top:10px">${pledgeBlock}</div><div style="margin-top:10px">${itBlock}</div>
         <div class="stat-sub" style="margin-top:8px">Source: nseindia.com official corporate-filings API (corporate-share-holdings-master, corporates-pit, corporate-pledgedata) — real regulatory disclosures, not derived from either connected MCP.</div>`;
@@ -1516,7 +1596,8 @@
       <div class="prose">
         <h3>Data sources &amp; what each one cannot do</h3>
         <table>
-          <tr><th>Data</th><th>Source</th><th>Limits</th></tr>
+          <thead><tr><th>Data</th><th>Source</th><th>Limits</th></tr></thead>
+          <tbody>
           <tr><td>Nifty 500 constituents</td><td>archives.nseindia.com official CSV</td><td>Static list; re-fetch on reconstitution</td></tr>
           <tr><td>F&amp;O eligible symbols + lot sizes</td><td>nsearchives.nseindia.com official CSV</td><td>No options/futures prices, only lot size + expiry labels</td></tr>
           <tr><td>Trading holidays</td><td>nseindia.com holiday-master API, CM segment</td><td>Fetched once for 2026; re-fetch each year</td></tr>
@@ -1533,6 +1614,7 @@
           <tr><td>Ownership (promoter/public holding %), insider trading (SEBI PIT), promoter pledge (SEBI LODR Reg 31(4))</td><td>nseindia.com official corporate-filings API (corporate-share-holdings-master, corporates-pit, corporate-pledgedata) — plain HTTP, part of the automated pipeline</td><td>Not from either connected MCP (both confirmed unavailable there — Alpha Vantage INSIDER_TRANSACTIONS/INSTITUTIONAL_HOLDINGS, TradingView get_documents category="insider_transactions"), but genuinely available from NSE's own site, the same official source already used for holidays/allIndices. Shareholding pattern matched 497/501 universe symbols; insider disclosures found for most actively-traded symbols; promoter pledge is real-time-verified at 0 companies market-wide for the trailing 12 months (a real finding, not a gap)</td></tr>
           <tr><td>Options chain / OI / change-in-OI / IV / LTP / volume per strike; Max Pain &amp; PCR computed from it</td><td>nseindia.com official option-chain-v3 API (see F&amp;O tab)</td><td>Corrects an earlier "not available" claim, which only tested TradingView/Alpha Vantage MCPs — NSE's own site has real per-strike data. Index chains (NIFTY/BANKNIFTY/FINNIFTY/MIDCPNIFTY) get full detail; ~210 F&amp;O stocks get summary only (OI/PCR/Max Pain, no per-strike breakdown). Greeks are not in this endpoint's response and are not computed here.</td></tr>
           <tr><td>Alpha Vantage MCP (India)</td><td>connected but unused for India</td><td>Equity search returns BSE-labeled tickers only; NEWS_SENTIMENT rejects NSE/BSE ticker syntax; options endpoints are US-only</td></tr>
+          </tbody>
         </table>
 
         <h3>Screening formulas</h3>
