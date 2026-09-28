@@ -1,6 +1,6 @@
 {
-  "generated_at_ist": "2026-09-23T22:33:15.543602+05:30",
-  "source_note": "TradingView MCP get_news — per-symbol for a bounded sample of the current matched watchlist (Price_Volume and Both logic symbols, 12 of the 161 currently matched — RSI_Based-only symbols, the majority, are not individually covered due to call volume; see CLAUDE.md), plus NSE:NIFTY (India market news) and SP:SPX (world financial news) index-level feeds. This Claude session only — MCP tools have no exposed API the automated pipeline can call; re-fetch by asking Claude.",
+  "generated_at_ist": "2026-09-28T12:10:26.208671+05:30",
+  "source_note": "TradingView MCP get_news — per-symbol for a bounded sample of the current matched watchlist (Price_Volume and Both logic symbols, 12 of the 161 currently matched — RSI_Based-only symbols, the majority, are not individually covered due to call volume; see CLAUDE.md), plus one benchmark-index feed per region for the News section (NSE:NIFTY India, SP:SPX US/World, XETR:DAX EU, TVC:STI ASEAN). This Claude session only — MCP tools have no exposed API the automated pipeline can call; re-fetch by asking Claude.",
   "stock_news": {
     "symbols_attempted": [
       "APTUS",
@@ -453,193 +453,870 @@
       }
     ]
   },
-  "india_market_news": {
-    "source_symbol": "NSE:NIFTY",
-    "items": [
-      {
-        "headline": "Foreign investors buy ₹1,617 crore of Indian shares after a day of heavy selling",
-        "provider": "CNBC TV18",
-        "published_unix": 1790176220,
-        "link": "https://www.tradingview.com/news/cnbctv:461cd5a13094b:0/"
+  "macro_news": {
+    "source_note": "Macro/geopolitical & policy news affecting Indian, US, EU and ASEAN stock/financial markets (war, conflict spillover, central-bank/rate commentary, policy moves), merged from one benchmark-index get_news feed per region and sorted by recency. Each item is tagged with the region whose feed surfaced it — not a claim that the story is exclusive to that region, since a single macro event (e.g. Middle East oil-price moves) routinely shows up across several regions' feeds independently, which is itself confirmation the event is genuinely cross-market.",
+    "regions": {
+      "India": {
+        "source_symbol": "NSE:NIFTY",
+        "items": [
+          {
+            "headline": "Nifty breaks below 23,000, Sensex tumbles 665 points as oil climbs, expiry volatility looms",
+            "provider": "Asian News International",
+            "published_unix": 1790571489,
+            "link": "https://www.tradingview.com/news/moodys:e11da5bfb2e2a:0-nifty-breaks-below-23-000-sensex-tumbles-665-points-as-oil-climbs-expiry-volatility-looms/",
+            "region": "India"
+          },
+          {
+            "headline": "Sensex, Nifty 50 prediction today: Stock market outlook for Monday, 28 Sept - GIFT Nifty, Kospi, Nikkei signals",
+            "provider": "Mint",
+            "published_unix": 1790570513,
+            "link": "https://www.tradingview.com/news/moodys:7e6cdce3d86f2:0-sensex-nifty-50-prediction-today-stock-market-outlook-for-monday-28-sept-gift-nifty-kospi-nikkei-signals/",
+            "region": "India"
+          },
+          {
+            "headline": "Markets open lower as crude surge, FII selling and geopolitical jitters weigh on sentiment",
+            "provider": "Business Line",
+            "published_unix": 1790570014,
+            "link": "https://www.tradingview.com/news/moodys:677d6b94dee14:0-markets-open-lower-as-crude-surge-fii-selling-and-geopolitical-jitters-weigh-on-sentiment/",
+            "region": "India"
+          },
+          {
+            "headline": "Indian shares hit near six-month low as US-Iran deadlock lifts oil prices",
+            "provider": "Reuters",
+            "published_unix": 1790569955,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45K08L:0-indian-shares-hit-near-six-month-low-as-us-iran-deadlock-lifts-oil-prices/",
+            "region": "India"
+          },
+          {
+            "headline": "Sensex down over 1,000 pts, Nifty near 22,800: Rebound in crude prices among key factors behind market crash",
+            "provider": "Moneycontrol",
+            "published_unix": 1790568422,
+            "link": "https://www.tradingview.com/news/moneycontrol:725d0c6c8094b:0-sensex-down-over-1-000-pts-nifty-near-22-800-rebound-in-crude-prices-among-key-factors-behind-market-crash/",
+            "region": "India"
+          },
+          {
+            "headline": "Indian shares open lower as US-Iran stalemate lifts oil prices",
+            "provider": "Reuters",
+            "published_unix": 1790567357,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45K087:0-indian-shares-open-lower-as-us-iran-stalemate-lifts-oil-prices/",
+            "region": "India"
+          },
+          {
+            "headline": "India's AI enablers surge as data centre buildout gathers pace",
+            "provider": "Mint",
+            "published_unix": 1790567131,
+            "link": "https://www.tradingview.com/news/moodys:5b11ffd45890c:0-india-s-ai-enablers-surge-as-data-centre-buildout-gathers-pace/",
+            "region": "India"
+          },
+          {
+            "headline": "Indian shares on track for tepid open as US-Iran stalemate lifts oil prices",
+            "provider": "Reuters",
+            "published_unix": 1790561735,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45K04G:0-indian-shares-on-track-for-tepid-open-as-us-iran-stalemate-lifts-oil-prices/",
+            "region": "India"
+          },
+          {
+            "headline": "First Tick: Top global cues to watch in today's trade",
+            "provider": "Moneycontrol",
+            "published_unix": 1790559258,
+            "link": "https://www.tradingview.com/news/moneycontrol:ede18b13c094b:0-first-tick-top-global-cues-to-watch-in-today-s-trade/",
+            "region": "India"
+          },
+          {
+            "headline": "Sensex Today | Stock Market LIVE Updates: Nifty looks for support at 23,800 as minor recovery gets sold into",
+            "provider": "CNBC TV18",
+            "published_unix": 1790555647,
+            "link": "https://www.tradingview.com/news/cnbctv:b5634ac60094b:0/",
+            "region": "India"
+          },
+          {
+            "headline": "Nifty Outlook for September 28: 23,000 key support as truncated week begins",
+            "provider": "CNBC TV18",
+            "published_unix": 1790520635,
+            "link": "https://www.tradingview.com/news/cnbctv:8de6ad7ab094b:0/",
+            "region": "India"
+          },
+          {
+            "headline": "Geopolitical developments, crude oil to steer stock market in holiday-shortened week: Analysts",
+            "provider": "Business Line",
+            "published_unix": 1790497591,
+            "link": "https://www.tradingview.com/news/moodys:e076bf40669fa:0-geopolitical-developments-crude-oil-to-steer-stock-market-in-holiday-shortened-week-analysts/",
+            "region": "India"
+          },
+          {
+            "headline": "Stock market prediction for tomorrow: Sensex, Nifty Monday, 28 Sept triggers | GIFT Nifty, Nikkei, Taiwan, Kospi cues",
+            "provider": "Mint",
+            "published_unix": 1790494427,
+            "link": "https://www.tradingview.com/news/moodys:1917043145b64:0-stock-market-prediction-for-tomorrow-sensex-nifty-monday-28-sept-triggers-gift-nifty-nikkei-taiwan-kospi-cues/",
+            "region": "India"
+          },
+          {
+            "headline": "Broader markets underperform, extend losing streak to third week",
+            "provider": "Moneycontrol",
+            "published_unix": 1790484961,
+            "link": "https://www.tradingview.com/news/moneycontrol:667a8d3d6094b:0-broader-markets-underperform-extend-losing-streak-to-third-week/",
+            "region": "India"
+          },
+          {
+            "headline": "Nifty 50 target: Will it hit 25,000 this year? Market experts weigh in on what could drive the recovery",
+            "provider": "Mint",
+            "published_unix": 1790430490,
+            "link": "https://www.tradingview.com/news/moodys:98e7a14171ccc:0-nifty-50-target-will-it-hit-25-000-this-year-market-experts-weigh-in-on-what-could-drive-the-recovery/",
+            "region": "India"
+          }
+        ]
       },
-      {
-        "headline": "Nifty Reclaims 23,400 As Metals, Realty Lead Broad-based Market Rebound",
-        "provider": "Businessworld",
-        "published_unix": 1790170357,
-        "link": "https://www.tradingview.com/news/moodys:60d9340e62074:0-nifty-reclaims-23-400-as-metals-realty-lead-broad-based-market-rebound/"
+      "US / World": {
+        "source_symbol": "SP:SPX",
+        "items": [
+          {
+            "headline": "Asian markets decline amid rising oil prices, Middle East tensions, and US futures decline",
+            "provider": "Seeking Alpha",
+            "published_unix": 1790575559,
+            "link": "https://www.tradingview.com/news/seekingalpha:666b1db08094b:0-asian-markets-decline-amid-rising-oil-prices-middle-east-tensions-and-us-futures-decline/",
+            "region": "US / World"
+          },
+          {
+            "headline": "SPX: S&P 500 Futures Slip as Oil and Bond Yields Rise. What to Watch This Week.",
+            "provider": "TradingView",
+            "published_unix": 1790574273,
+            "link": "https://www.tradingview.com/news/tradingview:5a65a3ebc094b:0-spx-s-p-500-futures-slip-as-oil-and-bond-yields-rise-what-to-watch-this-week/",
+            "region": "US / World"
+          },
+          {
+            "headline": "A new neutral rate, much like a decades-old one",
+            "provider": "Reuters",
+            "published_unix": 1790569800,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45K02R:0-a-new-neutral-rate-much-like-a-decades-old-one/",
+            "region": "US / World"
+          },
+          {
+            "headline": "MONDAY WHITE HOUSE SCHEDULE - President Trump 'makes an announcement' at 2p ET",
+            "provider": "Mace News",
+            "published_unix": 1790565240,
+            "link": "https://www.tradingview.com/news/macenews:b3e1cb76d094b:0-monday-white-house-schedule-president-trump-makes-an-announcement-at-2p-et/",
+            "region": "US / World"
+          },
+          {
+            "headline": "Dow, S&P 500, Nasdaq Futures Fall As Brent Tops $106 After Trump Rejects Iran Proposal: MU, SLV, QNT, META In Focus",
+            "provider": "Stocktwits",
+            "published_unix": 1790564663,
+            "link": "https://www.tradingview.com/news/stocktwits:90bdaed6f094b:0-dow-s-p-500-nasdaq-futures-fall-as-brent-tops-106-after-trump-rejects-iran-proposal-mu-slv-qnt-meta-in-focus/",
+            "region": "US / World"
+          },
+          {
+            "headline": "Wall Street Strategist Sees 10% Stock Rally If Oil Keeps Falling",
+            "provider": "Binance News",
+            "published_unix": 1790555383,
+            "link": "https://www.tradingview.com/news/binance_news:8fd383809094b:0-wall-street-strategist-sees-10-stock-rally-if-oil-keeps-falling/",
+            "region": "US / World"
+          },
+          {
+            "headline": "Oil climbs, stock futures slip as Trump rejects Iran's Hormuz proposal",
+            "provider": "Seeking Alpha",
+            "published_unix": 1790553118,
+            "link": "https://www.tradingview.com/news/seekingalpha:8fb529976094b:0-oil-climbs-stock-futures-slip-as-trump-rejects-iran-s-hormuz-proposal/",
+            "region": "US / World"
+          },
+          {
+            "headline": "US Futures Fall to Start the Week",
+            "provider": "Trading Economics",
+            "published_unix": 1790552742,
+            "link": "https://www.tradingview.com/news/te_news:587033:0-us-futures-fall-to-start-the-week/",
+            "region": "US / World"
+          },
+          {
+            "headline": "Dow futures fall close to 200 points, oil prices rise as Trump rejects Iran proposal",
+            "provider": "CNBC TV18",
+            "published_unix": 1790550891,
+            "link": "https://www.tradingview.com/news/cnbctv:89f5aaac1094b:0/",
+            "region": "US / World"
+          },
+          {
+            "headline": "Stock Futures Slip Slightly After Winning Week as Treasury Yields Hit Multiyear Highs",
+            "provider": "Binance News",
+            "published_unix": 1790547262,
+            "link": "https://www.tradingview.com/news/binance_news:0005cdee1094b:0-stock-futures-slip-slightly-after-winning-week-as-treasury-yields-hit-multiyear-highs/",
+            "region": "US / World"
+          },
+          {
+            "headline": "Stock Futures Are Slipping Ahead of Inflation, Jobs Data — Barrons.com",
+            "provider": "Dow Jones Newswires",
+            "published_unix": 1790547120,
+            "link": "https://www.tradingview.com/news/DJN_DN20260927000240:0/",
+            "region": "US / World"
+          },
+          {
+            "headline": "Global markets: US stocks rise, Europe slips, Asia mixed",
+            "provider": "Seeking Alpha",
+            "published_unix": 1790542973,
+            "link": "https://www.tradingview.com/news/seekingalpha:f01834048094b:0-global-markets-us-stocks-rise-europe-slips-asia-mixed/",
+            "region": "US / World"
+          },
+          {
+            "headline": "AI-driven stock swings revive hedge fund interest in dispersion trades",
+            "provider": "Seeking Alpha",
+            "published_unix": 1790520223,
+            "link": "https://www.tradingview.com/news/seekingalpha:dd4b124e7094b:0-ai-driven-stock-swings-revive-hedge-fund-interest-in-dispersion-trades/",
+            "region": "US / World"
+          },
+          {
+            "headline": "Goldman Sachs sees room for S&P 500 gains as investor positioning sinks",
+            "provider": "Seeking Alpha",
+            "published_unix": 1790518118,
+            "link": "https://www.tradingview.com/news/seekingalpha:f043dfd93094b:0-goldman-sachs-sees-room-for-s-p-500-gains-as-investor-positioning-sinks/",
+            "region": "US / World"
+          },
+          {
+            "headline": "Micron could dethrone Nvidia and become the biggest driver of S&P 500 profit growth",
+            "provider": "MarketWatch",
+            "published_unix": 1790517600,
+            "link": "https://www.tradingview.com/news/DJN_SN20260927000177:0/",
+            "region": "US / World"
+          }
+        ]
       },
-      {
-        "headline": "Indian shares advance on oil retreat; financials lead",
-        "provider": "Reuters",
-        "published_unix": 1790158862,
-        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45F0JQ:0-indian-shares-advance-on-oil-retreat-financials-lead/"
+      "EU": {
+        "source_symbol": "XETR:DAX",
+        "items": [
+          {
+            "headline": "A new neutral rate, much like a decades-old one",
+            "provider": "Reuters",
+            "published_unix": 1790573168,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L8N45K04Z:0-a-new-neutral-rate-much-like-a-decades-old-one/",
+            "region": "EU"
+          },
+          {
+            "headline": "European Stocks Rise On Oil Decline, Middle East Peace Hopes",
+            "provider": "dpa-AFX",
+            "published_unix": 1790361836,
+            "link": "https://www.tradingview.com/news/dpa_afx:d52ac7ed25b8a:0-european-stocks-rise-on-oil-decline-middle-east-peace-hopes/",
+            "region": "EU"
+          },
+          {
+            "headline": "ECB'S VUJCIC Q&A: DIESEL PRICE INFLATION FEEDS THROUGH TO CORE MEASURE",
+            "provider": "Mace News",
+            "published_unix": 1790359920,
+            "link": "https://www.tradingview.com/news/macenews:5348a96c7094b:0-ecb-s-vujcic-q-a-diesel-price-inflation-feeds-through-to-core-measure/",
+            "region": "EU"
+          },
+          {
+            "headline": "The DAX Index Closes 0.56% Higher",
+            "provider": "Trading Economics",
+            "published_unix": 1790352667,
+            "link": "https://www.tradingview.com/news/te_news:586993:0-the-dax-index-closes-0-56-higher/",
+            "region": "EU"
+          },
+          {
+            "headline": "DAX Finishes on Higher Note",
+            "provider": "Trading Economics",
+            "published_unix": 1790352512,
+            "link": "https://www.tradingview.com/news/te_news:586991:0-dax-finishes-on-higher-note/",
+            "region": "EU"
+          },
+          {
+            "headline": "Until the AI wave crashes",
+            "provider": "Reuters",
+            "published_unix": 1790336523,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L6N45H0MA:0-until-the-ai-wave-crashes/",
+            "region": "EU"
+          },
+          {
+            "headline": "DAX Gains On Crude Pullback, Iran Peace Proposal News",
+            "provider": "dpa-AFX",
+            "published_unix": 1790333794,
+            "link": "https://www.tradingview.com/news/dpa_afx:88700fe5ea251:0-dax-gains-on-crude-pullback-iran-peace-proposal-news/",
+            "region": "EU"
+          },
+          {
+            "headline": "Bonds steal the show",
+            "provider": "Reuters",
+            "published_unix": 1790332803,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L6N45H0I5:0-bonds-steal-the-show/",
+            "region": "EU"
+          },
+          {
+            "headline": "Equities nearing 'boiling point'",
+            "provider": "Reuters",
+            "published_unix": 1790330018,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L6N45H0HB:0-equities-nearing-boiling-point/",
+            "region": "EU"
+          },
+          {
+            "headline": "DAX Advances on Friday",
+            "provider": "Trading Economics",
+            "published_unix": 1790322644,
+            "link": "https://www.tradingview.com/news/te_news:586844:0-dax-advances-on-friday/",
+            "region": "EU"
+          },
+          {
+            "headline": "The DAX Index Opens 0.78% Higher",
+            "provider": "Trading Economics",
+            "published_unix": 1790321459,
+            "link": "https://www.tradingview.com/news/te_news:586829:0-the-dax-index-opens-0-78-higher/",
+            "region": "EU"
+          },
+          {
+            "headline": "When Treasuries catch Korea's volatility bug, take cover",
+            "provider": "Reuters",
+            "published_unix": 1790315512,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L6N45H0A2:0-when-treasuries-catch-korea-s-volatility-bug-take-cover/",
+            "region": "EU"
+          },
+          {
+            "headline": "The DAX Index Closes 0.57% Lower",
+            "provider": "Trading Economics",
+            "published_unix": 1790266272,
+            "link": "https://www.tradingview.com/news/te_news:586632:0-the-dax-index-closes-0-57-lower/",
+            "region": "EU"
+          },
+          {
+            "headline": "DAX Closes at 2-Month Low",
+            "provider": "Trading Economics",
+            "published_unix": 1790265666,
+            "link": "https://www.tradingview.com/news/te_news:586626:0-dax-closes-at-2-month-low/",
+            "region": "EU"
+          },
+          {
+            "headline": "Bond Selloff Rattles Global Markets",
+            "provider": "dpa-AFX",
+            "published_unix": 1790247099,
+            "link": "https://www.tradingview.com/news/dpa_afx:3e4e6b0cbf34d:0-bond-selloff-rattles-global-markets/",
+            "region": "EU"
+          }
+        ]
       },
-      {
-        "headline": "Taking Stock: Market rebounds; Nifty above 23,400, Sensex up 299 pts; metals, realty lead",
-        "provider": "Moneycontrol",
-        "published_unix": 1790158569,
-        "link": "https://www.tradingview.com/news/moneycontrol:d10355eb8094b:0-taking-stock-market-rebounds-nifty-above-23-400-sensex-up-299-pts-metals-realty-lead/"
-      },
-      {
-        "headline": "Sensex, Nifty close at 2-week high: Crude, metals and financials drive gains",
-        "provider": "CNBC TV18",
-        "published_unix": 1790158357,
-        "link": "https://www.tradingview.com/news/cnbctv:3021e3a16094b:0/"
-      },
-      {
-        "headline": "Metals lead Nifty higher; crude slide, geopolitical uncertainty cap gains",
-        "provider": "Business Line",
-        "published_unix": 1790153755,
-        "link": "https://www.tradingview.com/news/moodys:fb6ce79ce2a36:0-metals-lead-nifty-higher-crude-slide-geopolitical-uncertainty-cap-gains/"
-      },
-      {
-        "headline": "Asian stocks trade mixed following Wall Street; Chinese equities edge lower ahead of summit",
-        "provider": "Seeking Alpha",
-        "published_unix": 1790144014,
-        "link": "https://www.tradingview.com/news/seekingalpha:f458e0508094b:0-asian-stocks-trade-mixed-following-wall-street-chinese-equities-edge-lower-ahead-of-summit/"
-      },
-      {
-        "headline": "Nifty Prediction Today – September 23, 2026: Nifty futures: Struggles to recover",
-        "provider": "Business Line",
-        "published_unix": 1790140180,
-        "link": "https://www.tradingview.com/news/moodys:5018860ffcc91:0-nifty-prediction-today-september-23-2026-nifty-futures-struggles-to-recover/"
-      },
-      {
-        "headline": "Sensex, Nifty rebound in early trade amid easing crude oil prices",
-        "provider": "Business Line",
-        "published_unix": 1790140178,
-        "link": "https://www.tradingview.com/news/moodys:981d532a7476a:0-sensex-nifty-rebound-in-early-trade-amid-easing-crude-oil-prices/"
-      },
-      {
-        "headline": "Sensex settles 300 pts higher, Nifty ends above 23,450: Positive global cues among key factors behind market rise",
-        "provider": "Moneycontrol",
-        "published_unix": 1790138057,
-        "link": "https://www.tradingview.com/news/moneycontrol:5b6bb26a4094b:0-sensex-settles-300-pts-higher-nifty-ends-above-23-450-positive-global-cues-among-key-factors-behind-market-rise/"
-      },
-      {
-        "headline": "Indian shares inch up as falling oil aids sentiment",
-        "provider": "Reuters",
-        "published_unix": 1790137949,
-        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45F07X:0-indian-shares-inch-up-as-falling-oil-aids-sentiment/"
-      },
-      {
-        "headline": "Indian markets open higher; Sensex gains over 200 points, Nifty above 23,300 amid falling oil prices",
-        "provider": "Asian News International",
-        "published_unix": 1790137579,
-        "link": "https://www.tradingview.com/news/moodys:b4133f5bc7e9c:0-indian-markets-open-higher-sensex-gains-over-200-points-nifty-above-23-300-amid-falling-oil-prices/"
-      },
-      {
-        "headline": "Sensex, Nifty 50 prediction today: How Asian markets, crude will impact Indian markets? Gift Nifty, Kospi, Taiwan signal",
-        "provider": "Mint",
-        "published_unix": 1790137393,
-        "link": "https://www.tradingview.com/news/moodys:75c7b58dfadf1:0-sensex-nifty-50-prediction-today-how-asian-markets-crude-will-impact-indian-markets-gift-nifty-kospi-taiwan-signal/"
-      },
-      {
-        "headline": "Nifty may remain under pressure as FPI selling continues; key levels to watch",
-        "provider": "Business Line",
-        "published_unix": 1790135508,
-        "link": "https://www.tradingview.com/news/moodys:7c2d59026806b:0-nifty-may-remain-under-pressure-as-fpi-selling-continues-key-levels-to-watch/"
-      },
-      {
-        "headline": "Indian shares open flat as foreign outflows offset Asian gains",
-        "provider": "Reuters",
-        "published_unix": 1790135203,
-        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45F07Q:0-indian-shares-open-flat-as-foreign-outflows-offset-asian-gains/"
+      "ASEAN": {
+        "source_symbol": "TVC:STI",
+        "items": [
+          {
+            "headline": "Singapore Stocks Hit 3-Week High as Banks Rise",
+            "provider": "Trading Economics",
+            "published_unix": 1790564128,
+            "link": "https://www.tradingview.com/news/te_news:587094:0-singapore-stocks-hit-3-week-high-as-banks-rise/",
+            "region": "ASEAN"
+          },
+          {
+            "headline": "Thai baht, Korean won lead declines among Asian currencies",
+            "provider": "Reuters",
+            "published_unix": 1790562227,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45K057:0-thai-baht-korean-won-lead-declines-among-asian-currencies/",
+            "region": "ASEAN"
+          },
+          {
+            "headline": "Malaysian ringgit leads gains among mixed Asian FX",
+            "provider": "Reuters",
+            "published_unix": 1790302934,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45H03I:0-malaysian-ringgit-leads-gains-among-mixed-asian-fx/",
+            "region": "ASEAN"
+          },
+          {
+            "headline": "Indonesian rupiah, South Korean won lead retreat in Asian currencies",
+            "provider": "Reuters",
+            "published_unix": 1790216829,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45G06F:0-indonesian-rupiah-south-korean-won-lead-retreat-in-asian-currencies/",
+            "region": "ASEAN"
+          },
+          {
+            "headline": "South Korean won, Indonesian rupiah gain; broader Asian FX rangebound",
+            "provider": "Reuters",
+            "published_unix": 1790129902,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45F04M:0-south-korean-won-indonesian-rupiah-gain-broader-asian-fx-rangebound/",
+            "region": "ASEAN"
+          },
+          {
+            "headline": "South Korean won rises, Indonesian rupiah falls among tepid Asian currencies",
+            "provider": "Reuters",
+            "published_unix": 1790043359,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L1N45E01F:0-south-korean-won-rises-indonesian-rupiah-falls-among-tepid-asian-currencies/",
+            "region": "ASEAN"
+          },
+          {
+            "headline": "Taiwan dollar gains, Indonesian rupiah weakens among muted Asian FX",
+            "provider": "Reuters",
+            "published_unix": 1789957067,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45D046:0-taiwan-dollar-gains-indonesian-rupiah-weakens-among-muted-asian-fx/",
+            "region": "ASEAN"
+          },
+          {
+            "headline": "Which ASEAN equity laggards could soon become leaders?: Manishi Raychaudhuri",
+            "provider": "Reuters",
+            "published_unix": 1789945200,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L1N4520JM:0-which-asean-equity-laggards-could-soon-become-leaders-manishi-raychaudhuri/",
+            "region": "ASEAN"
+          },
+          {
+            "headline": "Ringgit, Taiwan dollar gains, South Korean won drops among muted Asian FX",
+            "provider": "Reuters",
+            "published_unix": 1789697409,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L1N45A02F:0-ringgit-taiwan-dollar-gains-south-korean-won-drops-among-muted-asian-fx/",
+            "region": "ASEAN"
+          },
+          {
+            "headline": "Indonesia's rupiah loses most as Asian currencies drift lower",
+            "provider": "Reuters",
+            "published_unix": 1789611252,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L1N459022:0-indonesia-s-rupiah-loses-most-as-asian-currencies-drift-lower/",
+            "region": "ASEAN"
+          },
+          {
+            "headline": "Middle East Conflict Seen Weighing on Singapore Bank, Aviation-Linked Stocks — Market Talk",
+            "provider": "Dow Jones Newswires",
+            "published_unix": 1789544340,
+            "link": "https://www.tradingview.com/news/DJN_DN20260916001251:0/",
+            "region": "ASEAN"
+          },
+          {
+            "headline": "South Korean won loses most among subdued Asian currencies",
+            "provider": "Reuters",
+            "published_unix": 1789524829,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L1N45801B:0-south-korean-won-loses-most-among-subdued-asian-currencies/",
+            "region": "ASEAN"
+          },
+          {
+            "headline": "STI Nears 6-Week Low, Tracks Wall Street Lower",
+            "provider": "Trading Economics",
+            "published_unix": 1789444975,
+            "link": "https://www.tradingview.com/news/te_news:583698:0-sti-nears-6-week-low-tracks-wall-street-lower/",
+            "region": "ASEAN"
+          },
+          {
+            "headline": "South Korean won, Taiwan dollar fall among mostly muted Asian currencies",
+            "provider": "Reuters",
+            "published_unix": 1789438479,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L1N45701G:0-south-korean-won-taiwan-dollar-fall-among-mostly-muted-asian-currencies/",
+            "region": "ASEAN"
+          },
+          {
+            "headline": "Philippine peso, South Korean won falls most among Asian currencies",
+            "provider": "Reuters",
+            "published_unix": 1789352415,
+            "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45603T:0-philippine-peso-south-korean-won-falls-most-among-asian-currencies/",
+            "region": "ASEAN"
+          }
+        ]
       }
-    ]
-  },
-  "world_financial_news": {
-    "source_symbol": "SP:SPX",
+    },
     "items": [
       {
-        "headline": "S&P 500 Falls 56.95 Points (0.73%)",
-        "provider": "Dow Jones Newswires",
-        "published_unix": 1790181900,
-        "link": "https://www.tradingview.com/news/DJN_DN20260923006047_20260923006047:0/"
-      },
-      {
-        "headline": "U.S. Stocks Falls as Trump Raises Hopes for Iran Deal After Midterms",
-        "provider": "GuruFocus",
-        "published_unix": 1790181719,
-        "link": "https://www.tradingview.com/news/gurufocus:1dfb81a2f094b:0-u-s-stocks-falls-as-trump-raises-hopes-for-iran-deal-after-midterms/"
-      },
-      {
-        "headline": "Wall Street falls as oil rebounds, Middle East tensions simmer",
-        "provider": "Reuters",
-        "published_unix": 1790180939,
-        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45F13I:0-wall-street-falls-as-oil-rebounds-middle-east-tensions-simmer/"
-      },
-      {
-        "headline": "RECAP: US TSY TO BUYBACK MAX $6 BLN OF 20-YR TO 30-YR US BONDS TOMORROW; MEANWHILE US 10-YR YIELD 5.095%, HIGHEST SINCE JULY 2007",
-        "provider": "Mace News",
-        "published_unix": 1790180700,
-        "link": "https://www.tradingview.com/news/macenews:75e0d248f094b:0-recap-us-tsy-to-buyback-max-6-bln-of-20-yr-to-30-yr-us-bonds-tomorrow-meanwhile-us-10-yr-yield-5-095-highest-since-july-2007/"
-      },
-      {
-        "headline": "Wall Street slides as Trump signals possible Iran de-escalation",
+        "headline": "Asian markets decline amid rising oil prices, Middle East tensions, and US futures decline",
         "provider": "Seeking Alpha",
-        "published_unix": 1790178784,
-        "link": "https://www.tradingview.com/news/seekingalpha:229802a2a094b:0-wall-street-slides-as-trump-signals-possible-iran-de-escalation/"
+        "published_unix": 1790575559,
+        "link": "https://www.tradingview.com/news/seekingalpha:666b1db08094b:0-asian-markets-decline-amid-rising-oil-prices-middle-east-tensions-and-us-futures-decline/",
+        "region": "US / World"
       },
       {
-        "headline": "Market Pulse: Key triggers to watch before the September 24 trading session",
+        "headline": "SPX: S&P 500 Futures Slip as Oil and Bond Yields Rise. What to Watch This Week.",
+        "provider": "TradingView",
+        "published_unix": 1790574273,
+        "link": "https://www.tradingview.com/news/tradingview:5a65a3ebc094b:0-spx-s-p-500-futures-slip-as-oil-and-bond-yields-rise-what-to-watch-this-week/",
+        "region": "US / World"
+      },
+      {
+        "headline": "A new neutral rate, much like a decades-old one",
+        "provider": "Reuters",
+        "published_unix": 1790573168,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L8N45K04Z:0-a-new-neutral-rate-much-like-a-decades-old-one/",
+        "region": "EU"
+      },
+      {
+        "headline": "Nifty breaks below 23,000, Sensex tumbles 665 points as oil climbs, expiry volatility looms",
+        "provider": "Asian News International",
+        "published_unix": 1790571489,
+        "link": "https://www.tradingview.com/news/moodys:e11da5bfb2e2a:0-nifty-breaks-below-23-000-sensex-tumbles-665-points-as-oil-climbs-expiry-volatility-looms/",
+        "region": "India"
+      },
+      {
+        "headline": "Sensex, Nifty 50 prediction today: Stock market outlook for Monday, 28 Sept - GIFT Nifty, Kospi, Nikkei signals",
+        "provider": "Mint",
+        "published_unix": 1790570513,
+        "link": "https://www.tradingview.com/news/moodys:7e6cdce3d86f2:0-sensex-nifty-50-prediction-today-stock-market-outlook-for-monday-28-sept-gift-nifty-kospi-nikkei-signals/",
+        "region": "India"
+      },
+      {
+        "headline": "Markets open lower as crude surge, FII selling and geopolitical jitters weigh on sentiment",
+        "provider": "Business Line",
+        "published_unix": 1790570014,
+        "link": "https://www.tradingview.com/news/moodys:677d6b94dee14:0-markets-open-lower-as-crude-surge-fii-selling-and-geopolitical-jitters-weigh-on-sentiment/",
+        "region": "India"
+      },
+      {
+        "headline": "Indian shares hit near six-month low as US-Iran deadlock lifts oil prices",
+        "provider": "Reuters",
+        "published_unix": 1790569955,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45K08L:0-indian-shares-hit-near-six-month-low-as-us-iran-deadlock-lifts-oil-prices/",
+        "region": "India"
+      },
+      {
+        "headline": "A new neutral rate, much like a decades-old one",
+        "provider": "Reuters",
+        "published_unix": 1790569800,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45K02R:0-a-new-neutral-rate-much-like-a-decades-old-one/",
+        "region": "US / World"
+      },
+      {
+        "headline": "Sensex down over 1,000 pts, Nifty near 22,800: Rebound in crude prices among key factors behind market crash",
+        "provider": "Moneycontrol",
+        "published_unix": 1790568422,
+        "link": "https://www.tradingview.com/news/moneycontrol:725d0c6c8094b:0-sensex-down-over-1-000-pts-nifty-near-22-800-rebound-in-crude-prices-among-key-factors-behind-market-crash/",
+        "region": "India"
+      },
+      {
+        "headline": "Indian shares open lower as US-Iran stalemate lifts oil prices",
+        "provider": "Reuters",
+        "published_unix": 1790567357,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45K087:0-indian-shares-open-lower-as-us-iran-stalemate-lifts-oil-prices/",
+        "region": "India"
+      },
+      {
+        "headline": "India's AI enablers surge as data centre buildout gathers pace",
+        "provider": "Mint",
+        "published_unix": 1790567131,
+        "link": "https://www.tradingview.com/news/moodys:5b11ffd45890c:0-india-s-ai-enablers-surge-as-data-centre-buildout-gathers-pace/",
+        "region": "India"
+      },
+      {
+        "headline": "MONDAY WHITE HOUSE SCHEDULE - President Trump 'makes an announcement' at 2p ET",
+        "provider": "Mace News",
+        "published_unix": 1790565240,
+        "link": "https://www.tradingview.com/news/macenews:b3e1cb76d094b:0-monday-white-house-schedule-president-trump-makes-an-announcement-at-2p-et/",
+        "region": "US / World"
+      },
+      {
+        "headline": "Dow, S&P 500, Nasdaq Futures Fall As Brent Tops $106 After Trump Rejects Iran Proposal: MU, SLV, QNT, META In Focus",
+        "provider": "Stocktwits",
+        "published_unix": 1790564663,
+        "link": "https://www.tradingview.com/news/stocktwits:90bdaed6f094b:0-dow-s-p-500-nasdaq-futures-fall-as-brent-tops-106-after-trump-rejects-iran-proposal-mu-slv-qnt-meta-in-focus/",
+        "region": "US / World"
+      },
+      {
+        "headline": "Singapore Stocks Hit 3-Week High as Banks Rise",
+        "provider": "Trading Economics",
+        "published_unix": 1790564128,
+        "link": "https://www.tradingview.com/news/te_news:587094:0-singapore-stocks-hit-3-week-high-as-banks-rise/",
+        "region": "ASEAN"
+      },
+      {
+        "headline": "Thai baht, Korean won lead declines among Asian currencies",
+        "provider": "Reuters",
+        "published_unix": 1790562227,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45K057:0-thai-baht-korean-won-lead-declines-among-asian-currencies/",
+        "region": "ASEAN"
+      },
+      {
+        "headline": "Indian shares on track for tepid open as US-Iran stalemate lifts oil prices",
+        "provider": "Reuters",
+        "published_unix": 1790561735,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45K04G:0-indian-shares-on-track-for-tepid-open-as-us-iran-stalemate-lifts-oil-prices/",
+        "region": "India"
+      },
+      {
+        "headline": "First Tick: Top global cues to watch in today's trade",
+        "provider": "Moneycontrol",
+        "published_unix": 1790559258,
+        "link": "https://www.tradingview.com/news/moneycontrol:ede18b13c094b:0-first-tick-top-global-cues-to-watch-in-today-s-trade/",
+        "region": "India"
+      },
+      {
+        "headline": "Sensex Today | Stock Market LIVE Updates: Nifty looks for support at 23,800 as minor recovery gets sold into",
         "provider": "CNBC TV18",
-        "published_unix": 1790178615,
-        "link": "https://www.tradingview.com/news/cnbctv:aac0d4b7a094b:0/"
+        "published_unix": 1790555647,
+        "link": "https://www.tradingview.com/news/cnbctv:b5634ac60094b:0/",
+        "region": "India"
       },
       {
-        "headline": "Still on the sidelines? 'UpTober' might punish S&P 500 skeptics",
+        "headline": "Wall Street Strategist Sees 10% Stock Rally If Oil Keeps Falling",
+        "provider": "Binance News",
+        "published_unix": 1790555383,
+        "link": "https://www.tradingview.com/news/binance_news:8fd383809094b:0-wall-street-strategist-sees-10-stock-rally-if-oil-keeps-falling/",
+        "region": "US / World"
+      },
+      {
+        "headline": "Oil climbs, stock futures slip as Trump rejects Iran's Hormuz proposal",
         "provider": "Seeking Alpha",
-        "published_unix": 1790178216,
-        "link": "https://www.tradingview.com/news/seekingalpha:a6f73e07f094b:0-still-on-the-sidelines-uptober-might-punish-s-p-500-skeptics/"
+        "published_unix": 1790553118,
+        "link": "https://www.tradingview.com/news/seekingalpha:8fb529976094b:0-oil-climbs-stock-futures-slip-as-trump-rejects-iran-s-hormuz-proposal/",
+        "region": "US / World"
       },
       {
-        "headline": "INSTITUTE OF INTERNATIONAL FINANCE (IIIF) STUDY OF GLOBAL DEBT FINDS HIGHER INFLATION MASKS UNDERLYING VULNERABILITIES; STRUCTURAL ISSUES IGNORED",
+        "headline": "US Futures Fall to Start the Week",
+        "provider": "Trading Economics",
+        "published_unix": 1790552742,
+        "link": "https://www.tradingview.com/news/te_news:587033:0-us-futures-fall-to-start-the-week/",
+        "region": "US / World"
+      },
+      {
+        "headline": "Dow futures fall close to 200 points, oil prices rise as Trump rejects Iran proposal",
+        "provider": "CNBC TV18",
+        "published_unix": 1790550891,
+        "link": "https://www.tradingview.com/news/cnbctv:89f5aaac1094b:0/",
+        "region": "US / World"
+      },
+      {
+        "headline": "Stock Futures Slip Slightly After Winning Week as Treasury Yields Hit Multiyear Highs",
+        "provider": "Binance News",
+        "published_unix": 1790547262,
+        "link": "https://www.tradingview.com/news/binance_news:0005cdee1094b:0-stock-futures-slip-slightly-after-winning-week-as-treasury-yields-hit-multiyear-highs/",
+        "region": "US / World"
+      },
+      {
+        "headline": "Stock Futures Are Slipping Ahead of Inflation, Jobs Data — Barrons.com",
+        "provider": "Dow Jones Newswires",
+        "published_unix": 1790547120,
+        "link": "https://www.tradingview.com/news/DJN_DN20260927000240:0/",
+        "region": "US / World"
+      },
+      {
+        "headline": "Global markets: US stocks rise, Europe slips, Asia mixed",
+        "provider": "Seeking Alpha",
+        "published_unix": 1790542973,
+        "link": "https://www.tradingview.com/news/seekingalpha:f01834048094b:0-global-markets-us-stocks-rise-europe-slips-asia-mixed/",
+        "region": "US / World"
+      },
+      {
+        "headline": "Nifty Outlook for September 28: 23,000 key support as truncated week begins",
+        "provider": "CNBC TV18",
+        "published_unix": 1790520635,
+        "link": "https://www.tradingview.com/news/cnbctv:8de6ad7ab094b:0/",
+        "region": "India"
+      },
+      {
+        "headline": "AI-driven stock swings revive hedge fund interest in dispersion trades",
+        "provider": "Seeking Alpha",
+        "published_unix": 1790520223,
+        "link": "https://www.tradingview.com/news/seekingalpha:dd4b124e7094b:0-ai-driven-stock-swings-revive-hedge-fund-interest-in-dispersion-trades/",
+        "region": "US / World"
+      },
+      {
+        "headline": "Goldman Sachs sees room for S&P 500 gains as investor positioning sinks",
+        "provider": "Seeking Alpha",
+        "published_unix": 1790518118,
+        "link": "https://www.tradingview.com/news/seekingalpha:f043dfd93094b:0-goldman-sachs-sees-room-for-s-p-500-gains-as-investor-positioning-sinks/",
+        "region": "US / World"
+      },
+      {
+        "headline": "Micron could dethrone Nvidia and become the biggest driver of S&P 500 profit growth",
+        "provider": "MarketWatch",
+        "published_unix": 1790517600,
+        "link": "https://www.tradingview.com/news/DJN_SN20260927000177:0/",
+        "region": "US / World"
+      },
+      {
+        "headline": "Geopolitical developments, crude oil to steer stock market in holiday-shortened week: Analysts",
+        "provider": "Business Line",
+        "published_unix": 1790497591,
+        "link": "https://www.tradingview.com/news/moodys:e076bf40669fa:0-geopolitical-developments-crude-oil-to-steer-stock-market-in-holiday-shortened-week-analysts/",
+        "region": "India"
+      },
+      {
+        "headline": "Stock market prediction for tomorrow: Sensex, Nifty Monday, 28 Sept triggers | GIFT Nifty, Nikkei, Taiwan, Kospi cues",
+        "provider": "Mint",
+        "published_unix": 1790494427,
+        "link": "https://www.tradingview.com/news/moodys:1917043145b64:0-stock-market-prediction-for-tomorrow-sensex-nifty-monday-28-sept-triggers-gift-nifty-nikkei-taiwan-kospi-cues/",
+        "region": "India"
+      },
+      {
+        "headline": "Broader markets underperform, extend losing streak to third week",
+        "provider": "Moneycontrol",
+        "published_unix": 1790484961,
+        "link": "https://www.tradingview.com/news/moneycontrol:667a8d3d6094b:0-broader-markets-underperform-extend-losing-streak-to-third-week/",
+        "region": "India"
+      },
+      {
+        "headline": "Nifty 50 target: Will it hit 25,000 this year? Market experts weigh in on what could drive the recovery",
+        "provider": "Mint",
+        "published_unix": 1790430490,
+        "link": "https://www.tradingview.com/news/moodys:98e7a14171ccc:0-nifty-50-target-will-it-hit-25-000-this-year-market-experts-weigh-in-on-what-could-drive-the-recovery/",
+        "region": "India"
+      },
+      {
+        "headline": "European Stocks Rise On Oil Decline, Middle East Peace Hopes",
+        "provider": "dpa-AFX",
+        "published_unix": 1790361836,
+        "link": "https://www.tradingview.com/news/dpa_afx:d52ac7ed25b8a:0-european-stocks-rise-on-oil-decline-middle-east-peace-hopes/",
+        "region": "EU"
+      },
+      {
+        "headline": "ECB'S VUJCIC Q&A: DIESEL PRICE INFLATION FEEDS THROUGH TO CORE MEASURE",
         "provider": "Mace News",
-        "published_unix": 1790175960,
-        "link": "https://www.tradingview.com/news/macenews:eff8f8556094b:0-institute-of-international-finance-iiif-study-of-global-debt-finds-higher-inflation-masks-underlying-vulnerabilities-structural-issues-ignored/"
+        "published_unix": 1790359920,
+        "link": "https://www.tradingview.com/news/macenews:5348a96c7094b:0-ecb-s-vujcic-q-a-diesel-price-inflation-feeds-through-to-core-measure/",
+        "region": "EU"
       },
       {
-        "headline": "Investors are betting on bigger Pentagon budgets. So why are defense stocks struggling?",
+        "headline": "The DAX Index Closes 0.56% Higher",
+        "provider": "Trading Economics",
+        "published_unix": 1790352667,
+        "link": "https://www.tradingview.com/news/te_news:586993:0-the-dax-index-closes-0-56-higher/",
+        "region": "EU"
+      },
+      {
+        "headline": "DAX Finishes on Higher Note",
+        "provider": "Trading Economics",
+        "published_unix": 1790352512,
+        "link": "https://www.tradingview.com/news/te_news:586991:0-dax-finishes-on-higher-note/",
+        "region": "EU"
+      },
+      {
+        "headline": "Until the AI wave crashes",
         "provider": "Reuters",
-        "published_unix": 1790175739,
-        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L1N45F0KS:0-investors-are-betting-on-bigger-pentagon-budgets-so-why-are-defense-stocks-struggling/"
+        "published_unix": 1790336523,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L6N45H0MA:0-until-the-ai-wave-crashes/",
+        "region": "EU"
       },
       {
-        "headline": "FED GOV BARR Q&A, LIMITED TO HOUSING AFFORDABILITY FACTORS, ENDED",
-        "provider": "Mace News",
-        "published_unix": 1790175720,
-        "link": "https://www.tradingview.com/news/macenews:45e53f5e3094b:0-fed-gov-barr-q-a-limited-to-housing-affordability-factors-ended/"
+        "headline": "DAX Gains On Crude Pullback, Iran Peace Proposal News",
+        "provider": "dpa-AFX",
+        "published_unix": 1790333794,
+        "link": "https://www.tradingview.com/news/dpa_afx:88700fe5ea251:0-dax-gains-on-crude-pullback-iran-peace-proposal-news/",
+        "region": "EU"
       },
       {
-        "headline": "US stocks fall as 10-year Treasury yield hits highest since 2007",
+        "headline": "Bonds steal the show",
         "provider": "Reuters",
-        "published_unix": 1790175344,
-        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L1N45F0DT:0-us-stocks-fall-as-10-year-treasury-yield-hits-highest-since-2007/"
+        "published_unix": 1790332803,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L6N45H0I5:0-bonds-steal-the-show/",
+        "region": "EU"
       },
       {
-        "headline": "FED GOV BARR Q&A/CHI FED: FED NEEDS TO KNOW ALL ASPECTS OF THE K-SHAPED ECONOMY INCLUDING ABOUT CONSUMPTION TRENDS AMONG LOWER INCOMES",
-        "provider": "Mace News",
-        "published_unix": 1790175180,
-        "link": "https://www.tradingview.com/news/macenews:c1b2416d5094b:0-fed-gov-barr-q-a-chi-fed-fed-needs-to-know-all-aspects-of-the-k-shaped-economy-including-about-consumption-trends-among-lower-incomes/"
-      },
-      {
-        "headline": "What's up? Business activity and mortgage rates, that's what",
+        "headline": "Equities nearing 'boiling point'",
         "provider": "Reuters",
-        "published_unix": 1790174719,
-        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L6N45F0U1:0-what-s-up-business-activity-and-mortgage-rates-that-s-what/"
+        "published_unix": 1790330018,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L6N45H0HB:0-equities-nearing-boiling-point/",
+        "region": "EU"
       },
       {
-        "headline": "US EIA DISTILLATES INVENTORIES -0.4 MLN BARRELS IN LATEST WEEK FROM PREVIOUS WEEK (VS. -0.6 MLN MARKETS EXPECTED)",
-        "provider": "Mace News",
-        "published_unix": 1790173860,
-        "link": "https://www.tradingview.com/news/macenews:7fb52ba0b094b:0-us-eia-distillates-inventories-0-4-mln-barrels-in-latest-week-from-previous-week-vs-0-6-mln-markets-expected/"
+        "headline": "DAX Advances on Friday",
+        "provider": "Trading Economics",
+        "published_unix": 1790322644,
+        "link": "https://www.tradingview.com/news/te_news:586844:0-dax-advances-on-friday/",
+        "region": "EU"
       },
       {
-        "headline": "US EIA GASOLINE INVENTORIES -1.7 MLN BARRELS IN LATEST WEEK FROM PREVIOUS WEEK (VS. +0.1 MLN MARKETS EXPECTED)",
-        "provider": "Mace News",
-        "published_unix": 1790173860,
-        "link": "https://www.tradingview.com/news/macenews:7bd67a20f094b:0-us-eia-gasoline-inventories-1-7-mln-barrels-in-latest-week-from-previous-week-vs-0-1-mln-markets-expected/"
+        "headline": "The DAX Index Opens 0.78% Higher",
+        "provider": "Trading Economics",
+        "published_unix": 1790321459,
+        "link": "https://www.tradingview.com/news/te_news:586829:0-the-dax-index-opens-0-78-higher/",
+        "region": "EU"
+      },
+      {
+        "headline": "When Treasuries catch Korea's volatility bug, take cover",
+        "provider": "Reuters",
+        "published_unix": 1790315512,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L6N45H0A2:0-when-treasuries-catch-korea-s-volatility-bug-take-cover/",
+        "region": "EU"
+      },
+      {
+        "headline": "Malaysian ringgit leads gains among mixed Asian FX",
+        "provider": "Reuters",
+        "published_unix": 1790302934,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45H03I:0-malaysian-ringgit-leads-gains-among-mixed-asian-fx/",
+        "region": "ASEAN"
+      },
+      {
+        "headline": "The DAX Index Closes 0.57% Lower",
+        "provider": "Trading Economics",
+        "published_unix": 1790266272,
+        "link": "https://www.tradingview.com/news/te_news:586632:0-the-dax-index-closes-0-57-lower/",
+        "region": "EU"
+      },
+      {
+        "headline": "DAX Closes at 2-Month Low",
+        "provider": "Trading Economics",
+        "published_unix": 1790265666,
+        "link": "https://www.tradingview.com/news/te_news:586626:0-dax-closes-at-2-month-low/",
+        "region": "EU"
+      },
+      {
+        "headline": "Bond Selloff Rattles Global Markets",
+        "provider": "dpa-AFX",
+        "published_unix": 1790247099,
+        "link": "https://www.tradingview.com/news/dpa_afx:3e4e6b0cbf34d:0-bond-selloff-rattles-global-markets/",
+        "region": "EU"
+      },
+      {
+        "headline": "Indonesian rupiah, South Korean won lead retreat in Asian currencies",
+        "provider": "Reuters",
+        "published_unix": 1790216829,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45G06F:0-indonesian-rupiah-south-korean-won-lead-retreat-in-asian-currencies/",
+        "region": "ASEAN"
+      },
+      {
+        "headline": "South Korean won, Indonesian rupiah gain; broader Asian FX rangebound",
+        "provider": "Reuters",
+        "published_unix": 1790129902,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45F04M:0-south-korean-won-indonesian-rupiah-gain-broader-asian-fx-rangebound/",
+        "region": "ASEAN"
+      },
+      {
+        "headline": "South Korean won rises, Indonesian rupiah falls among tepid Asian currencies",
+        "provider": "Reuters",
+        "published_unix": 1790043359,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L1N45E01F:0-south-korean-won-rises-indonesian-rupiah-falls-among-tepid-asian-currencies/",
+        "region": "ASEAN"
+      },
+      {
+        "headline": "Taiwan dollar gains, Indonesian rupiah weakens among muted Asian FX",
+        "provider": "Reuters",
+        "published_unix": 1789957067,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45D046:0-taiwan-dollar-gains-indonesian-rupiah-weakens-among-muted-asian-fx/",
+        "region": "ASEAN"
+      },
+      {
+        "headline": "Which ASEAN equity laggards could soon become leaders?: Manishi Raychaudhuri",
+        "provider": "Reuters",
+        "published_unix": 1789945200,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L1N4520JM:0-which-asean-equity-laggards-could-soon-become-leaders-manishi-raychaudhuri/",
+        "region": "ASEAN"
+      },
+      {
+        "headline": "Ringgit, Taiwan dollar gains, South Korean won drops among muted Asian FX",
+        "provider": "Reuters",
+        "published_unix": 1789697409,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L1N45A02F:0-ringgit-taiwan-dollar-gains-south-korean-won-drops-among-muted-asian-fx/",
+        "region": "ASEAN"
+      },
+      {
+        "headline": "Indonesia's rupiah loses most as Asian currencies drift lower",
+        "provider": "Reuters",
+        "published_unix": 1789611252,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L1N459022:0-indonesia-s-rupiah-loses-most-as-asian-currencies-drift-lower/",
+        "region": "ASEAN"
+      },
+      {
+        "headline": "Middle East Conflict Seen Weighing on Singapore Bank, Aviation-Linked Stocks — Market Talk",
+        "provider": "Dow Jones Newswires",
+        "published_unix": 1789544340,
+        "link": "https://www.tradingview.com/news/DJN_DN20260916001251:0/",
+        "region": "ASEAN"
+      },
+      {
+        "headline": "South Korean won loses most among subdued Asian currencies",
+        "provider": "Reuters",
+        "published_unix": 1789524829,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L1N45801B:0-south-korean-won-loses-most-among-subdued-asian-currencies/",
+        "region": "ASEAN"
+      },
+      {
+        "headline": "STI Nears 6-Week Low, Tracks Wall Street Lower",
+        "provider": "Trading Economics",
+        "published_unix": 1789444975,
+        "link": "https://www.tradingview.com/news/te_news:583698:0-sti-nears-6-week-low-tracks-wall-street-lower/",
+        "region": "ASEAN"
+      },
+      {
+        "headline": "South Korean won, Taiwan dollar fall among mostly muted Asian currencies",
+        "provider": "Reuters",
+        "published_unix": 1789438479,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L1N45701G:0-south-korean-won-taiwan-dollar-fall-among-mostly-muted-asian-currencies/",
+        "region": "ASEAN"
+      },
+      {
+        "headline": "Philippine peso, South Korean won falls most among Asian currencies",
+        "provider": "Reuters",
+        "published_unix": 1789352415,
+        "link": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N45603T:0-philippine-peso-south-korean-won-falls-most-among-asian-currencies/",
+        "region": "ASEAN"
       }
     ]
   }

@@ -128,7 +128,7 @@
       ${isStale ? `<span class="pill stale">STALE — last refresh failed</span>` : ""}
       <span class="mono">Snapshot: ${fmt.iso(s.generated_at_ist)}</span>
       <span>· Screening close session: <span class="mono">${esc(s.screening_close_session)}</span></span>
-      <span>· Scheduling: <b style="color:var(--warn)">${st?.scheduling_configured ? "configured (cron)" : "not configured"}</b></span>
+      <span>· Scheduling: <b style="color:${st?.scheduling_configured ? "var(--pos)" : "var(--warn)"}">${st?.scheduling_configured ? "confirmed running (cron)" : "not configured"}</b></span>
     `;
   }
 
@@ -158,7 +158,7 @@
         <dt>Last attempt</dt><dd>${fmt.iso(st.last_attempt)}</dd>
         <dt>Last success</dt><dd>${fmt.iso(st.last_success)}</dd>
         <dt>Last error</dt><dd>${st.last_error ? "see status.json — refresh failed, previous snapshot kept" : "none"}</dd>
-        <dt>Scheduled cron (GitHub Actions)</dt><dd>configured — 07:00–23:00 IST, every 2h, Mon–Fri; not independently confirmed to have fired on schedule yet, see Methodology tab</dd>
+        <dt>Scheduled cron (GitHub Actions)</dt><dd>configured — 07:00–23:00 IST, every 2h, Mon–Fri; confirmed firing unattended (checked directly against GitHub's Actions run history 2026-09-28), see Methodology tab</dd>
       </dl>
     `);
   }
@@ -386,7 +386,7 @@
     return `
       ${renderGlobalMarketsPanel()}
       <div class="banner info">${st.scheduling_configured
-        ? `A GitHub Actions cron is <b>configured</b> to refresh this automatically on trading days — not yet independently confirmed from here to have fired unattended. See the`
+        ? `A GitHub Actions cron <b>runs this automatically</b> on trading days — confirmed firing unattended by checking GitHub's own Actions run history directly (16 schedule-triggered runs as of 2026-09-28). The trigger itself is confirmed, though an individual run can still fail (this happened once, now fixed). See the`
         : `Manual-refresh snapshot. Scheduling is <b>not configured</b> — see the`}
         <a href="#" onclick="event.preventDefault();document.querySelector('[data-tab=methodology]').click()">Methodology tab</a> for what that means and how to trigger a refresh.</div>
       <div class="grid grid-4">
@@ -433,7 +433,7 @@
           <li>Sector return figures use an equal-weighted aggregate of Nifty 500 constituents per NSE industry bucket, not a separately-traded NSE sector index — see Methodology.</li>
           <li>NSE Indices tab: RSI/trend/strategies are only computed for indices with a verified full historical price series (8 of 139) — the rest show real NSE snapshot stats with "insufficient data" rather than a guessed logic tag.</li>
           <li>${st.scheduling_configured
-            ? 'A GitHub Actions cron is configured to run <code>scripts/refresh.py</code> unattended on trading days — not yet independently confirmed from here to have fired on schedule; see Methodology.'
+            ? 'A GitHub Actions cron runs <code>scripts/refresh.py</code> unattended on trading days — confirmed firing on schedule by checking GitHub\'s own Actions run history directly; see Methodology.'
             : 'Scheduling is not configured — this snapshot only updates when someone manually triggers <code>scripts/refresh.py</code>.'}</li>
         </ul>
       </div>
@@ -1342,8 +1342,10 @@
 
   /* ================= NEWS & FILINGS ================= */
   /* Restructured per explicit request: filings/deals/money-flow moved to Strategy Research (see
-     renderFilingsDealsMoneyFlow above). This tab is now News only: stock news, India market news,
-     world financial news, and a Commodities & FX quote strip. */
+     renderFilingsDealsMoneyFlow above). This tab has three sections, in this order: Commodities & FX
+     (unchanged), News (macro/geopolitical & policy news spanning India/US/EU/ASEAN markets — merged
+     from four regional benchmark-index feeds per a follow-up request that broadened this beyond just
+     India + generic "world" news), and Stock related news (unchanged). */
   function renderNews() {
     const news = STATE.news;
     return `
@@ -1353,13 +1355,12 @@
         connected TradingView MCP (per-symbol/per-index <code>get_news</code>) run during a manual
         refresh — see Methodology tab. Showing "Source unavailable", not "No relevant results found".</div>` : `
       <div class="banner info">${esc(news.source_note || "TradingView MCP get_news — this Claude session only.")}</div>
-      <div class="section-title"><h3 style="margin:0">Stock related news</h3>
+      <div class="section-title"><h3 style="margin:0">News</h3>
+        <span class="hint">${esc(news.macro_news?.source_note || "Macro/geopolitical & policy news — India, US, EU & ASEAN markets")}</span></div>
+      ${newsSection(news.macro_news, false, true)}
+      <div class="section-title" style="margin-top:22px"><h3 style="margin:0">Stock related news</h3>
         ${news.stock_news ? `<span class="hint">${news.stock_news.items.length} items · ${news.stock_news.symbols_covered.length} of ${news.stock_news.symbols_attempted.length} attempted symbols covered</span>` : ""}</div>
       ${newsSection(news.stock_news, true)}
-      <div class="section-title" style="margin-top:22px"><h3 style="margin:0">India market &amp; financial news</h3><span class="hint">source symbol: NSE:NIFTY</span></div>
-      ${newsSection(news.india_market_news, false)}
-      <div class="section-title" style="margin-top:22px"><h3 style="margin:0">World financial news</h3><span class="hint">source symbol: SP:SPX</span></div>
-      ${newsSection(news.world_financial_news, false)}
       `}
     `;
   }
@@ -1433,13 +1434,14 @@
   /* Renders one news feed's items — TradingView MCP get_news, per-symbol (matched watchlist) or
      per-index (NSE:NIFTY, SP:SPX). Manual/session-only, same limitation as the rest of the
      TradingView-derived data (see Methodology tab). */
-  function newsSection(section, showSymbolTag) {
+  function newsSection(section, showSymbolTag, showRegionTag) {
     if (!section) return `<div class="na">Not fetched this refresh.</div>`;
     const items = [...(section.items || [])].sort((a, b) => (b.published_unix || 0) - (a.published_unix || 0));
     if (!items.length) return `<div class="na">No headlines returned.</div>`;
     return `<div>${items.map(it => `<div class="card" style="margin-bottom:8px">
       <div class="toolbar" style="gap:8px;margin-bottom:4px">
         ${showSymbolTag && it.symbol ? `<span data-open-symbol="${esc(it.symbol)}" class="mono" style="cursor:pointer;font-size:11.5px;color:var(--accent)">${esc(it.symbol)}</span>` : ""}
+        ${showRegionTag && it.region ? `<span class="tag none">${esc(it.region)}</span>` : ""}
         <span class="spacer"></span>
         <span class="stat-sub">${esc(it.provider || "—")} · ${fmt.unixIst(it.published_unix)}</span>
       </div>
@@ -1638,17 +1640,31 @@
         </div>
 
         <h3>Scheduling</h3>
-        <p><b style="color:var(--warn)">Configured, not independently confirmed to fire automatically yet.</b>
+        <p><b style="color:var(--pos)">Configured, and confirmed to fire automatically and unattended.</b>
         A GitHub Actions cron (<code>.github/workflows/refresh-and-deploy.yml</code>) is wired up to run
         <code>scripts/refresh.py</code> and redeploy this site at ${(st.target_schedule_ist || []).join(", ")} IST,
         Mon–Fri (respecting the NSE trading calendar — outside trading hours / on holidays, market data is
-        retained as last-completed-session). This satisfies the "your own scheduler" condition for a real
-        automatic run, but every success recorded below so far traces to either a manual "Run workflow"
-        click or a local run from an active Claude session, not a confirmed unattended cron firing — this
-        page doesn't have API access to GitHub's own Actions run history to verify that independently. The
-        MCP-derived fields (TradingView analyst forecasts/technicals) still can't refresh unattended either
-        way — those need an active Claude session regardless of the cron. To refresh sooner than the next
-        scheduled slot, use the "Refresh now" button.</p>
+        retained as last-completed-session). This page's own snapshot data has no API access to GitHub's
+        Actions run history, so this confirmation was done directly against GitHub's REST API (as Claude,
+        out of band, not from anything this static page can check on its own): as of 2026-09-28, the
+        workflow's run history shows <b>16 runs with <code>event: schedule</code></b> (i.e. GitHub's own
+        cron trigger, never a person clicking "Run workflow") spanning 2026-09-23 through 2026-09-28 — this
+        alone confirms the trigger genuinely fires with nobody watching, which was the real open question.
+        <b>That is a separate claim from "every run succeeds," which is not true</b>: the run that fired at
+        2026-09-28 12:38 IST failed at the git-push step because this project's own refresh (~13 minutes,
+        mostly fetching per-strike options data for ~210 F&amp;O stocks) collided with a manual push to
+        <code>main</code> mid-run — a real race, not a cron malfunction, and the push step has since been
+        given retry logic for exactly this case. A failed run behaves like any other failed refresh: the
+        previous snapshot is kept and marked stale (see "Non-negotiables"), it does not silently disappear.
+        The public Pages site's own <code>data/status.json</code> <code>last_success</code> field always
+        reflects the most recent run that actually succeeded, scheduled or manual. The only
+        <code>workflow_dispatch</code> (manually-triggered) runs in the history are from initial setup and
+        from testing on 2026-09-26/27 — a Saturday and Sunday, which the cron's <code>1-5</code> (Mon–Fri)
+        day-of-week field correctly skips, since NSE doesn't trade on weekends; that gap was the schedule
+        working as designed, not a missed firing. The MCP-derived
+        fields (TradingView analyst forecasts/technicals) still can't refresh unattended either way — those
+        need an active Claude session regardless of the cron. To refresh sooner than the next scheduled
+        slot, use the "Refresh now" button.</p>
         <div class="kv" style="max-width:420px">
           <dt>Last attempt</dt><dd>${fmt.iso(st.last_attempt)}</dd>
           <dt>Last success</dt><dd>${fmt.iso(st.last_success)}</dd>
