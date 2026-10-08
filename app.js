@@ -1355,6 +1355,7 @@
         connected TradingView MCP (per-symbol/per-index <code>get_news</code>) run during a manual
         refresh — see Methodology tab. Showing "Source unavailable", not "No relevant results found".</div>` : `
       <div class="banner info">${esc(news.source_note || "TradingView MCP get_news — this Claude session only.")}</div>
+      ${newsStalenessBanner(news.generated_at_ist)}
       <div class="section-title"><h3 style="margin:0">News</h3>
         <span class="hint">${esc(news.macro_news?.source_note || "Macro/geopolitical & policy news — India, US, EU & ASEAN markets")}</span></div>
       ${newsSection(news.macro_news, false, true)}
@@ -1363,6 +1364,27 @@
       ${newsSection(news.stock_news, true)}
       `}
     `;
+  }
+
+  // news.json is a manual-fetch-only file (TradingView MCP, this Claude session only — see
+  // CLAUDE.md) that nothing in the automated pipeline ever touches, unlike the rest of the snapshot
+  // which refreshes every 2h on trading days. Without this, the topbar's always-fresh "Snapshot:"
+  // timestamp made the whole page look current even when the News tab's content was actually days or
+  // weeks old — a real staleness complaint this surfaced. Shown with its own timestamp, separate from
+  // and NOT implied by the main snapshot's, and flagged once it's old enough to likely be missing
+  // real news (48h covers a normal single trading-day gap without false-flagging every morning).
+  const NEWS_STALE_HOURS = 48;
+  function newsStalenessBanner(generatedAtIst) {
+    if (!generatedAtIst) return "";
+    const ageMs = Date.now() - new Date(generatedAtIst).getTime();
+    const ageHours = ageMs / 3600000;
+    const stale = ageHours > NEWS_STALE_HOURS;
+    const ageText = ageHours < 48 ? `${Math.round(ageHours)}h ago` : `${Math.round(ageHours / 24)}d ago`;
+    return `<div class="banner ${stale ? "warn" : "info"}" style="margin-top:-6px">
+      News content last fetched: <b>${fmt.iso(generatedAtIst)}</b> (${ageText})${stale
+        ? ' — this is a manual-fetch-only section (no automated refresh); ask Claude to re-fetch it if it looks out of date.'
+        : ""}
+    </div>`;
   }
 
   function renderCommoditiesFx() {
