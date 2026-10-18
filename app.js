@@ -651,11 +651,12 @@
         ${key === "Price_Volume" ? "Includes rows also tagged Both (they satisfy this condition too)." : ""}
         ${key === "RSI_Based" ? "Includes rows also tagged Both (they satisfy this condition too)." : ""}
       </div>
-      ${rows.length === 0 ? `<div class="banner warn">No stocks match this logic in the current snapshot — thresholds were not relaxed to force a result.</div>` : screenerTable(rows, containerId, sectors)}
+      ${key === "Both" ? `<div class="banner info">${optionStrikeNote()}</div>` : ""}
+      ${rows.length === 0 ? `<div class="banner warn">No stocks match this logic in the current snapshot — thresholds were not relaxed to force a result.</div>` : screenerTable(rows, containerId, sectors, key === "Both")}
     `;
   }
 
-  function screenerTable(rows, containerId, sectors) {
+  function screenerTable(rows, containerId, sectors, withOptions) {
     return `
       <div id="${containerId}">
         <div class="toolbar">
@@ -678,9 +679,10 @@
             <th class="num" data-key="liquidity" data-numeric="1">Liquidity (Avg turnover)</th>
             <th class="num" data-key="rsi_daily" data-numeric="1">RSI(14) d</th><th class="num" data-key="rsi_1h" data-numeric="1">RSI(14) 1h</th>
             <th class="num" data-key="pe" data-numeric="1">P/E</th>
+            ${withOptions ? optionStrikeHeaders() : ""}
           </tr></thead>
           <tbody>
-            ${rows.map(w => screenerRow(w)).join("")}
+            ${rows.map(w => screenerRow(w, withOptions)).join("")}
           </tbody>
         </table>
         </div>
@@ -688,7 +690,45 @@
     `;
   }
 
-  function screenerRow(w) {
+  /* Call/Put strike snapshot for a stock's nearest monthly expiry, from the options_chain section
+     (NSE option-chain-v3): ATM = listed strike nearest spot (with its CE/PE premiums); max Vol / max OI
+     = the strike with the highest traded volume / open interest on that side. */
+  function optionStrikeHeaders() {
+    const exp = STATE.snapshot?.options_chain?.stocks_expiries_used?.[0];
+    const t = exp ? ` (expiry ${exp})` : "";
+    return `<th class="num" data-numeric="1" title="Strike nearest the underlying price${t}; CE/PE premiums at that strike">ATM strike</th>
+      <th class="num" data-numeric="1" title="Call strike with the highest traded volume${t}">CE max Vol</th>
+      <th class="num" data-numeric="1" title="Call strike with the highest open interest${t}">CE max OI</th>
+      <th class="num" data-numeric="1" title="Put strike with the highest traded volume${t}">PE max Vol</th>
+      <th class="num" data-numeric="1" title="Put strike with the highest open interest${t}">PE max OI</th>`;
+  }
+
+  function optionStrikeCells(symbol, foEligible) {
+    const NA = -1e15;
+    const st = STATE.snapshot?.options_chain?.stocks?.[symbol];
+    const e = st?.available ? (st.expiries || []).find(x => x.available && x.label === "Current") : null;
+    if (!e) {
+      const [txt, why] = foEligible ? ["n/a", "No option-chain data for this stock this refresh"] : ["—", "Not F&O eligible — no listed options"];
+      return `<td class="num" data-sort="${NA}"><span class="na" title="${why}">${txt}</span></td>`.repeat(5);
+    }
+    const ts = e.top_strikes || {};
+    const side = (x, label) => x
+      ? `<td class="num" data-sort="${x.strike}">${fmt.num(x.strike, 0)} <span class="stat-sub">${label} ${fmt.int(x.value)}</span></td>`
+      : `<td class="num" data-sort="${NA}"><span class="na">n/a</span></td>`;
+    const atm = e.atm
+      ? `<td class="num" data-sort="${e.atm.strike}">${fmt.num(e.atm.strike, 0)} <span class="stat-sub">CE ${fmt.num(e.atm.ce_ltp)} · PE ${fmt.num(e.atm.pe_ltp)}</span></td>`
+      : `<td class="num" data-sort="${NA}"><span class="na" title="ATM not in this snapshot — populated from the next refresh">n/a</span></td>`;
+    return atm + side(ts.call?.top_volume, "vol") + side(ts.call?.top_oi, "OI") + side(ts.put?.top_volume, "vol") + side(ts.put?.top_oi, "OI");
+  }
+
+  function optionStrikeNote() {
+    const exp = STATE.snapshot?.options_chain?.stocks_expiries_used?.[0];
+    return `Option strike columns (F&amp;O stocks only): nearest monthly expiry${exp ? ` (${esc(exp)})` : ""} from NSE's option chain.
+      ATM = listed strike nearest the spot price, with the call (CE) and put (PE) premiums at that strike; max Vol / max OI = the
+      call or put strike with the highest traded contracts / open interest. "—" = not F&amp;O eligible.`;
+  }
+
+  function screenerRow(w, withOptions) {
     const v = w.volume || {}, b = w.breakout || {};
     const NA = -1e15; // sentinel so "n/a" rows sort to the bottom, never silently as zero
     // Liquidity proxy: 125-session average volume x screening close = average rupee value traded on a
@@ -714,6 +754,7 @@
       <td class="num" data-sort="${w.rsi_daily ?? NA}">${w.rsi_daily ?? '<span class="na">n/a</span>'}</td>
       <td class="num" data-sort="${w.rsi_1h ?? NA}">${w.rsi_1h ?? '<span class="na">n/a</span>'}</td>
       <td class="num" data-sort="${w.pe ?? NA}">${w.pe ?? '<span class="na">n/a</span>'}</td>
+      ${withOptions ? optionStrikeCells(w.symbol, w.fo_eligible) : ""}
     </tr>`;
   }
 
@@ -1368,6 +1409,7 @@
         listed stocks show as insufficient history there. DMI uses ${p.dmi_period}-period Wilder smoothing (values cross-checked against
         TradingView). A "cross" must be fresh: an indicator that has been on the right side for longer than the window is a
         sustained trend, not a new signal, and does not match. The weekly bar is week-to-date, built from completed daily sessions.
+        <div style="margin-top:6px">${optionStrikeNote()}</div>
       </div></div>
       <div class="grid grid-4">
         <div class="card"><div class="stat-label">Scanned</div><div class="stat-value">${fmt.int(d.scanned)}</div><div class="stat-sub">Nifty 500 + F&amp;O universe</div></div>
@@ -1394,7 +1436,7 @@
       <thead><tr><th>Symbol</th><th class="txt">Company</th><th class="txt">Sector</th><th>F&amp;O</th>
         <th class="num">Close</th><th class="num">WMA(${d.params.wma_period})</th><th class="num">+DI</th><th class="num">−DI</th><th class="num">ADX</th><th class="num">RSI</th>
         <th class="num" title="${unit}">${diLabel}</th><th class="num" title="${unit}">${adxLabel}</th><th class="num" title="${unit}">${rsiLabel}</th>
-        <th>Other timeframe</th></tr></thead>
+        <th>Other timeframe</th>${optionStrikeHeaders()}</tr></thead>
       <tbody>${rows.map(r => `<tr data-open-symbol="${esc(r.symbol)}">
         <td class="txt"><b>${esc(r.symbol)}</b></td><td class="txt">${esc(r.company)}</td><td class="txt">${esc(r.sector)}</td>
         <td class="txt">${r.fo_eligible ? "Yes" : "No"}</td>
@@ -1404,6 +1446,7 @@
         <td class="num" data-sort="${r.adx_cross_age}">${cross(r.adx_cross_age)}</td>
         <td class="num" data-sort="${r.rsi_cross_age}">${cross(r.rsi_cross_age)}</td>
         <td>${r.other_timeframe_pass ? `<span class="tag both">${tf === "daily" ? "Weekly" : "Daily"} too</span>` : '<span class="tag none">No</span>'}</td>
+        ${optionStrikeCells(r.symbol, r.fo_eligible)}
       </tr>`).join("")}</tbody></table></div>
       <div class="stat-sub" style="margin:-8px 0 14px">Cross columns: ${unit} the cross happened (latest = on the most recent ${tf === "daily" ? "session" : "weekly bar"}).</div>`;
   }
