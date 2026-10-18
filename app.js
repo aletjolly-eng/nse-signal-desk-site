@@ -1,6 +1,6 @@
 /* NSE Signal Desk — client-side render logic.
-   Reads two static, manually-refreshed JSON files (data/snapshot.json, data/status.json, and
-   data/news.json when present). There is no live backend: "Refresh now" explains how a new
+   Reads two static JSON files (data/snapshot.json, data/status.json) produced by the refresh
+   pipeline. There is no live backend: "Refresh now" explains how a new
    refresh is produced rather than pretending this static page can re-fetch NSE data itself. */
 (function () {
   "use strict";
@@ -11,6 +11,7 @@
     { id: "screen_pv", label: "Price_Volume Screener" },
     { id: "screen_rsi", label: "RSI_Based Screener" },
     { id: "screen_both", label: "Both Logics" },
+    { id: "dmi", label: "DMI_RSI_WMA" },
     { id: "indices", label: "NSE Indices" },
     { id: "fo", label: "F&O" },
     { id: "strategy", label: "Strategy Research" },
@@ -68,10 +69,8 @@
   }
 
   async function boot() {
-    const [snapshot, status, news] = await Promise.all([
-      loadJSON("data/snapshot.json"), loadJSON("data/status.json"), loadJSON("data/news.json"),
-    ]);
-    STATE.snapshot = snapshot; STATE.status = status; STATE.news = news;
+    const [snapshot, status] = await Promise.all([loadJSON("data/snapshot.json"), loadJSON("data/status.json")]);
+    STATE.snapshot = snapshot; STATE.status = status; STATE.news = snapshot?.news || null;
     if (!snapshot) STATE.loadError = "snapshot.json could not be loaded — no screening data available.";
     renderShell();
     renderTopbar();
@@ -104,6 +103,10 @@
     if (id === "screen_pv") return ` <span class="badge">${c.matched_price_volume + c.matched_both}</span>`;
     if (id === "screen_rsi") return ` <span class="badge">${c.matched_rsi_based + c.matched_both}</span>`;
     if (id === "screen_both") return ` <span class="badge">${c.matched_both}</span>`;
+    if (id === "dmi" && STATE.snapshot.dmi_rsi_wma) {
+      const syms = new Set(Object.values(STATE.snapshot.dmi_rsi_wma.lists).flat().map(r => r.symbol));
+      return ` <span class="badge">${syms.size}</span>`;
+    }
     return "";
   }
 
@@ -183,7 +186,7 @@
       screen_pv: () => renderScreener("Price_Volume", "Price_Volume Screener", r => r.logic_matched === "Price_Volume" || r.logic_matched === "Both"),
       screen_rsi: () => renderScreener("RSI_Based", "RSI_Based Screener", r => r.logic_matched === "RSI_Based" || r.logic_matched === "Both"),
       screen_both: () => renderScreener("Both", "Both Logics", r => r.logic_matched === "Both"),
-      indices: renderIndices, fo: renderOptionsChain, strategy: renderStrategy, news: renderNews, company: renderCompany, methodology: renderMethodology,
+      dmi: renderDmiRsiWma, indices: renderIndices, fo: renderOptionsChain, strategy: renderStrategy, news: renderNews, company: renderCompany, methodology: renderMethodology,
     };
     el.innerHTML = `<div class="view active" id="view-inner"></div>`;
     document.getElementById("view-inner").innerHTML = renderers[STATE.tab] ? renderers[STATE.tab]() : "";
@@ -195,6 +198,7 @@
     document.querySelectorAll("[data-csv-export]").forEach(btn => btn.addEventListener("click", () => exportCsv(btn.dataset.csvExport)));
     document.querySelectorAll("[data-filter-input]").forEach(inp => inp.addEventListener("input", () => applyTableFilter(inp)));
     document.querySelectorAll("[data-filter-select]").forEach(sel => sel.addEventListener("change", () => applyTableFilter(sel)));
+    document.querySelectorAll("[data-news-filter]").forEach(sel => sel.addEventListener("change", applyNewsFilter));
   }
 
   // Delegated once, at document level, so clicks work everywhere these attributes appear —
@@ -1340,25 +1344,90 @@
     };
   }
 
+  /* ================= DMI_RSI_WMA ================= */
+  /* Computed in src/dmi_rsi_wma.py from daily OHLCV already fetched (weekly bars resampled from it).
+     "Crosses ... sustained" = fresh flip within the window that has held on every bar since; an
+     indicator already on the right side for longer than the window is NOT a match (see CLAUDE.md). */
+  function renderDmiRsiWma() {
+    const d = STATE.snapshot?.dmi_rsi_wma;
+    if (!d) return `<div class="section-title"><h2>DMI_RSI_WMA</h2></div><div class="banner warn">Not present in this snapshot — refresh to populate (this is a new section).</div>`;
+    const p = d.params, wd = p.windows.daily, ww = p.windows.weekly;
+    const asOf = tf => d.as_of[tf] ? esc(d.as_of[tf]) : "n/a";
+    const section = (dir, title, color) => `
+      <div class="section-title" style="margin-top:26px"><h2 style="color:var(--${color})">${title}</h2></div>
+      ${dmiTable(d, dir, "daily")}
+      ${dmiTable(d, dir, "weekly")}`;
+    return `
+      <div class="section-title"><h2>DMI_RSI_WMA</h2><span class="hint">calculated indicators, daily &amp; weekly · daily bars as of ${asOf("daily")}</span></div>
+      <div class="banner info"><div>
+        <b>Bullish</b> needs all three: (1) +DI crosses above −DI <i>and</i> +DI crosses above ADX, both within the last
+        ${wd.dmi_window} sessions (daily) / ${ww.dmi_window} weeks (weekly) and still holding; (2) RSI(${p.rsi_period}) crosses above
+        ${p.rsi_level} within the last ${wd.rsi_window} sessions / this week, still above; (3) every close this week above
+        WMA(${p.wma_period}). <b>Bearish</b>: +DI crosses below −DI <i>and</i> +DI crosses below ADX, RSI crosses below ${p.rsi_level},
+        every close this week below WMA. On weekly bars WMA(${p.wma_period}) needs ${p.wma_period}+ weeks of history, so recently
+        listed stocks show as insufficient history there. DMI uses ${p.dmi_period}-period Wilder smoothing (values cross-checked against
+        TradingView). A "cross" must be fresh: an indicator that has been on the right side for longer than the window is a
+        sustained trend, not a new signal, and does not match. The weekly bar is week-to-date, built from completed daily sessions.
+      </div></div>
+      <div class="grid grid-4">
+        <div class="card"><div class="stat-label">Scanned</div><div class="stat-value">${fmt.int(d.scanned)}</div><div class="stat-sub">Nifty 500 + F&amp;O universe</div></div>
+        <div class="card"><div class="stat-label">Evaluated (daily / weekly)</div><div class="stat-value">${fmt.int(d.available.daily)} / ${fmt.int(d.available.weekly)}</div><div class="stat-sub">${fmt.int(d.unavailable.daily)} / ${fmt.int(d.unavailable.weekly)} with insufficient history</div></div>
+        <div class="card"><div class="stat-label" style="color:var(--pos)">Bullish (daily / weekly)</div><div class="stat-value">${d.lists.bull_daily.length} / ${d.lists.bull_weekly.length}</div><div class="stat-sub">${d.lists.bull_daily.filter(r => r.other_timeframe_pass).length} pass on both</div></div>
+        <div class="card"><div class="stat-label" style="color:var(--neg)">Bearish (daily / weekly)</div><div class="stat-value">${d.lists.bear_daily.length} / ${d.lists.bear_weekly.length}</div><div class="stat-sub">${d.lists.bear_daily.filter(r => r.other_timeframe_pass).length} pass on both</div></div>
+      </div>
+      ${section("bull", "Section 1 — Bullish", "pos")}
+      ${section("bear", "Section 2 — Bearish", "neg")}
+    `;
+  }
+
+  function dmiTable(d, dir, tf) {
+    const key = `${dir}_${tf}`, rows = d.lists[key], cc = d.condition_counts[key];
+    const unit = tf === "daily" ? "sessions ago" : "weeks ago";
+    const diLabel = dir === "bull" ? "+DI×−DI ↑" : "+DI×−DI ↓";
+    const adxLabel = dir === "bull" ? "+DI×ADX ↑" : "+DI×ADX ↓";
+    const rsiLabel = dir === "bull" ? "RSI×50 ↑" : "RSI×50 ↓";
+    const head = `<div class="section-title"><h3 style="margin:0">${tf === "daily" ? "Daily" : "Weekly"} timeframe — ${rows.length} match${rows.length === 1 ? "" : "es"}</h3>
+      <span class="hint">individually: DMI ${cc.dmi} · RSI ${cc.rsi} · WMA ${cc.wma} of ${fmt.int(d.available[tf])} evaluated</span></div>`;
+    if (!rows.length) return `${head}<div class="na" style="margin-bottom:14px">No stocks match all three conditions on the ${tf} timeframe this refresh.</div>`;
+    const cross = v => v === 0 ? "latest" : v;
+    return `${head}<div class="table-wrap" style="margin-bottom:14px"><table>
+      <thead><tr><th>Symbol</th><th class="txt">Company</th><th class="txt">Sector</th><th>F&amp;O</th>
+        <th class="num">Close</th><th class="num">WMA(${d.params.wma_period})</th><th class="num">+DI</th><th class="num">−DI</th><th class="num">ADX</th><th class="num">RSI</th>
+        <th class="num" title="${unit}">${diLabel}</th><th class="num" title="${unit}">${adxLabel}</th><th class="num" title="${unit}">${rsiLabel}</th>
+        <th>Other timeframe</th></tr></thead>
+      <tbody>${rows.map(r => `<tr data-open-symbol="${esc(r.symbol)}">
+        <td class="txt"><b>${esc(r.symbol)}</b></td><td class="txt">${esc(r.company)}</td><td class="txt">${esc(r.sector)}</td>
+        <td class="txt">${r.fo_eligible ? "Yes" : "No"}</td>
+        <td class="num">${fmt.num(r.close)}</td><td class="num">${fmt.num(r.wma)}</td>
+        <td class="num">${fmt.num(r.plus_di)}</td><td class="num">${fmt.num(r.minus_di)}</td><td class="num">${fmt.num(r.adx)}</td><td class="num">${fmt.num(r.rsi, 1)}</td>
+        <td class="num" data-sort="${r.di_cross_age}">${cross(r.di_cross_age)}</td>
+        <td class="num" data-sort="${r.adx_cross_age}">${cross(r.adx_cross_age)}</td>
+        <td class="num" data-sort="${r.rsi_cross_age}">${cross(r.rsi_cross_age)}</td>
+        <td>${r.other_timeframe_pass ? `<span class="tag both">${tf === "daily" ? "Weekly" : "Daily"} too</span>` : '<span class="tag none">No</span>'}</td>
+      </tr>`).join("")}</tbody></table></div>
+      <div class="stat-sub" style="margin:-8px 0 14px">Cross columns: ${unit} the cross happened (latest = on the most recent ${tf === "daily" ? "session" : "weekly bar"}).</div>`;
+  }
+
   /* ================= NEWS & FILINGS ================= */
-  /* Restructured per explicit request: filings/deals/money-flow moved to Strategy Research (see
-     renderFilingsDealsMoneyFlow above). This tab has three sections, in this order: Commodities & FX
-     (unchanged), News (macro/geopolitical & policy news spanning India/US/EU/ASEAN markets — merged
-     from four regional benchmark-index feeds per a follow-up request that broadened this beyond just
-     India + generic "world" news), and Stock related news (unchanged). */
+  /* Three sections: Commodities & FX, News (market-moving macro/geopolitical/policy headlines for
+     India/US/EU/ASEAN), Stock related news. News is fetched automatically every refresh by
+     src/news_feeds.py (Google News topic searches + publisher RSS) and lives in snapshot.news. */
   function renderNews() {
     const news = STATE.news;
+    const feeds = news?.macro_news?.feeds || [];
+    const failed = feeds.filter(f => !f.ok);
     return `
       <div class="section-title"><h2>News</h2></div>
       ${renderCommoditiesFx()}
-      ${!news ? `<div class="banner warn">No news.json found. News requires a live fetch through the
-        connected TradingView MCP (per-symbol/per-index <code>get_news</code>) run during a manual
-        refresh — see Methodology tab. Showing "Source unavailable", not "No relevant results found".</div>` : `
-      <div class="banner info">${esc(news.source_note || "TradingView MCP get_news — this Claude session only.")}</div>
-      ${newsStalenessBanner(news.generated_at_ist)}
+      ${!news ? `<div class="banner warn">News not present in this snapshot — Source unavailable. It is fetched
+        automatically on each refresh; the next scheduled run will populate it.</div>` : `
+      <div class="banner info">${esc(news.source_note || "")}</div>
+      ${newsStalenessBanner(news.generated_at_ist, news.carried_forward)}
       <div class="section-title"><h3 style="margin:0">News</h3>
-        <span class="hint">${esc(news.macro_news?.source_note || "Macro/geopolitical & policy news — India, US, EU & ASEAN markets")}</span></div>
-      ${newsSection(news.macro_news, false, true)}
+        <span class="hint">market-moving news for India, US, EU &amp; ASEAN · ${feeds.length - failed.length}/${feeds.length} feeds OK${failed.length
+          ? ` · unavailable this run: ${esc(failed.map(f => f.name.replace("Google News: ", "")).join(", "))}` : ""}</span></div>
+      ${newsFilterBar(news.macro_news?.items || [])}
+      <div id="news-macro">${newsSection(news.macro_news, false, true)}</div>
       <div class="section-title" style="margin-top:22px"><h3 style="margin:0">Stock related news</h3>
         ${news.stock_news ? `<span class="hint">${news.stock_news.items.length} items · ${news.stock_news.symbols_covered.length} of ${news.stock_news.symbols_attempted.length} attempted symbols covered</span>` : ""}</div>
       ${newsSection(news.stock_news, true)}
@@ -1366,24 +1435,42 @@
     `;
   }
 
-  // news.json is a manual-fetch-only file (TradingView MCP, this Claude session only — see
-  // CLAUDE.md) that nothing in the automated pipeline ever touches, unlike the rest of the snapshot
-  // which refreshes every 2h on trading days. Without this, the topbar's always-fresh "Snapshot:"
-  // timestamp made the whole page look current even when the News tab's content was actually days or
-  // weeks old — a real staleness complaint this surfaced. Shown with its own timestamp, separate from
-  // and NOT implied by the main snapshot's, and flagged once it's old enough to likely be missing
-  // real news (48h covers a normal single trading-day gap without false-flagging every morning).
-  const NEWS_STALE_HOURS = 48;
-  function newsStalenessBanner(generatedAtIst) {
+  function newsFilterBar(items) {
+    const opts = key => [...new Set(items.map(it => it[key]).filter(Boolean))].sort()
+      .map(v => `<option value="${esc(v)}">${esc(v)}</option>`).join("");
+    return `<div class="toolbar">
+      <select data-news-filter="region"><option value="">All regions</option>${opts("region")}</select>
+      <select data-news-filter="theme"><option value="">All themes</option>${opts("theme")}</select>
+      <span class="count-note" id="news-macro-count">${items.length} headlines</span>
+    </div>`;
+  }
+
+  function applyNewsFilter() {
+    const sel = k => document.querySelector(`[data-news-filter="${k}"]`)?.value || "";
+    const region = sel("region"), theme = sel("theme");
+    let shown = 0;
+    document.querySelectorAll("#news-macro [data-region]").forEach(card => {
+      const show = (!region || card.dataset.region === region) && (!theme || card.dataset.theme === theme);
+      card.style.display = show ? "" : "none";
+      if (show) shown++;
+    });
+    const c = document.getElementById("news-macro-count");
+    if (c) c.textContent = `${shown} headline${shown === 1 ? "" : "s"}`;
+  }
+
+  // News has its own fetch time (it can be carried forward from an earlier run if every feed fails),
+  // so show it rather than letting the topbar's snapshot time imply freshness. 72h tolerates the
+  // weekend gap (the cron runs Mon-Fri) without false alarms.
+  const NEWS_STALE_HOURS = 72;
+  function newsStalenessBanner(generatedAtIst, carriedForward) {
     if (!generatedAtIst) return "";
-    const ageMs = Date.now() - new Date(generatedAtIst).getTime();
-    const ageHours = ageMs / 3600000;
-    const stale = ageHours > NEWS_STALE_HOURS;
+    const ageHours = (Date.now() - new Date(generatedAtIst).getTime()) / 3600000;
+    const stale = carriedForward || ageHours > NEWS_STALE_HOURS;
     const ageText = ageHours < 48 ? `${Math.round(ageHours)}h ago` : `${Math.round(ageHours / 24)}d ago`;
     return `<div class="banner ${stale ? "warn" : "info"}" style="margin-top:-6px">
-      News content last fetched: <b>${fmt.iso(generatedAtIst)}</b> (${ageText})${stale
-        ? ' — this is a manual-fetch-only section (no automated refresh); ask Claude to re-fetch it if it looks out of date.'
-        : ""}
+      News last fetched: <b>${fmt.iso(generatedAtIst)}</b> (${ageText}) — refreshed automatically with each scheduled run
+      (every 2h, Mon–Fri).${carriedForward ? " The latest run could not reach any news feed, so this is the last successful fetch."
+        : stale ? " No refresh has run since then — see Methodology &amp; Data Status for the refresh history." : ""}
     </div>`;
   }
 
@@ -1453,17 +1540,16 @@
     </table></div>`;
   }
 
-  /* Renders one news feed's items — TradingView MCP get_news, per-symbol (matched watchlist) or
-     per-index (NSE:NIFTY, SP:SPX). Manual/session-only, same limitation as the rest of the
-     TradingView-derived data (see Methodology tab). */
+  /* Renders one news list (macro feeds or per-stock), newest first. */
   function newsSection(section, showSymbolTag, showRegionTag) {
     if (!section) return `<div class="na">Not fetched this refresh.</div>`;
     const items = [...(section.items || [])].sort((a, b) => (b.published_unix || 0) - (a.published_unix || 0));
     if (!items.length) return `<div class="na">No headlines returned.</div>`;
-    return `<div>${items.map(it => `<div class="card" style="margin-bottom:8px">
+    return `<div>${items.map(it => `<div class="card" style="margin-bottom:8px"${showRegionTag ? ` data-region="${esc(it.region)}" data-theme="${esc(it.theme)}"` : ""}>
       <div class="toolbar" style="gap:8px;margin-bottom:4px">
         ${showSymbolTag && it.symbol ? `<span data-open-symbol="${esc(it.symbol)}" class="mono" style="cursor:pointer;font-size:11.5px;color:var(--accent)">${esc(it.symbol)}</span>` : ""}
         ${showRegionTag && it.region ? `<span class="tag none">${esc(it.region)}</span>` : ""}
+        ${showRegionTag && it.theme ? `<span class="tag pv">${esc(it.theme)}</span>` : ""}
         <span class="spacer"></span>
         <span class="stat-sub">${esc(it.provider || "—")} · ${fmt.unixIst(it.published_unix)}</span>
       </div>
@@ -1626,7 +1712,7 @@
           <tr><td>F&amp;O eligible symbols + lot sizes</td><td>nsearchives.nseindia.com official CSV</td><td>No options/futures prices, only lot size + expiry labels</td></tr>
           <tr><td>Trading holidays</td><td>nseindia.com holiday-master API, CM segment</td><td>Fetched once for 2026; re-fetch each year</td></tr>
           <tr><td>OHLCV, volume, P/E, sector, fundamentals</td><td>yfinance (Yahoo Finance), SYMBOL.NS</td><td>Free/unauthenticated; intraday can lag true NSE ticks by minutes</td></tr>
-          <tr><td>News</td><td>TradingView MCP per-symbol get_news</td><td>Requires a live Claude session to fetch (see below)</td></tr>
+          <tr><td>News</td><td>Google News RSS topic searches + publisher RSS (Economic Times, Livemint, Business Standard, CNBC) + RBI press releases</td><td>Fetched automatically every refresh; last 48h only. Google News RSS is unofficial (no guarantee it keeps working); each feed fails independently and is listed on the News tab. Region/theme tags reflect which search surfaced a headline, not a reading of the article.</td></tr>
           <tr><td>NSE index levels, breadth, P/E/P/B/DY, 52w range</td><td>nseindia.com/api/allIndices (official, all 139 indices)</td><td>Point-in-time snapshot only, no history — re-fetched via scripts/fetch_indices.py</td></tr>
           <tr><td>NSE index RSI/trend/realized volatility</td><td>yfinance, cross-validated tickers (see index_universe.py)</td><td>Only 8 of 26 candidate index tickers have usable multi-year history on Yahoo; the rest show snapshot stats only</td></tr>
           <tr><td>NSE index charts</td><td>NSE's own hosted images (allIndices chart30dPath/chart365dPath)</td><td>Real sourced images for all 139 indices; not a reconstructed chart</td></tr>
@@ -1647,6 +1733,17 @@
         <p>Breakout %: last close ÷ prior ${s.thresholds.volume_lookback_sessions}-session high, minus 1.</p>
         <p>RSI: Wilder's RSI(14) on daily closes (and, for matched symbols only, on completed 1-hour bars). RSI_Based logic requires daily RSI(14) in [${s.thresholds.rsi_band[0]}, ${s.thresholds.rsi_band[1]}].</p>
         <p>Candle completion: all daily figures use the last <b>completed</b> NSE session (${s.screening_close_session} at this snapshot's generation time) — never a partially-formed live candle.</p>
+
+        <h3>DMI_RSI_WMA screen</h3>
+        <p>Computed from the same yfinance daily OHLCV (3 years, completed sessions only); weekly bars are resampled
+        Monday–Friday from those daily candles, with the current week being week-to-date. DMI (+DI/−DI/ADX) and RSI use
+        14-period Wilder smoothing; WMA is a 100-period linearly weighted moving average of closes (on weekly bars this
+        needs 100+ weeks of history, so recently listed stocks are excluded from the weekly screen). Spot-checked against
+        TradingView's own values: daily DMI/RSI matched exactly; weekly within ~0.4 ADX points (less weekly history to smooth over).
+        A "cross" must have happened inside its window (DMI: 10 sessions / 2 weeks; RSI: 5 sessions / this week) and still
+        hold on every bar since; a condition that has held for longer than the window is not counted as a fresh cross. The
+        WMA condition requires every close of the current week on the correct side. The bearish DMI rule is +DI
+        crossing below −DI and below ADX. No P/E filter is applied to this screen.</p>
 
         <h3>Sector Strength Score</h3>
         <p>30% 1-day + 25% 5-session + 20% 20-session benchmark(Nifty 50)-relative return, + 15% % constituents above 20DMA + 10% % above 50DMA — each percentile-ranked across sectors before weighting. "Sector" = equal-weighted mean of that NSE industry bucket's Nifty 500 constituents (not a separately-traded NSE sector index — see data-source table above). Ties share rank (competition ranking). Sectors with fewer than 3 constituents having ≥55 sessions of history are excluded and listed under "Excluded — inadequate coverage".</p>
@@ -1706,24 +1803,13 @@
   window.__APP__ = { STATE, fmt, esc, openModal, boot };
   document.addEventListener("DOMContentLoaded", () => {
     boot().then(() => {
-      // simple text search wiring for company + news tabs (added after DOM exists)
+      // simple text search wiring for the company tab (added after DOM exists)
       document.addEventListener("input", e => {
         if (e.target.id === "company-search") {
           const q = e.target.value.toLowerCase();
           document.querySelectorAll("#company-grid [data-search]").forEach(el => {
             el.style.display = el.dataset.search.includes(q) ? "" : "none";
           });
-        }
-        if (e.target.id === "news-search") {
-          const q = e.target.value.toLowerCase();
-          let visible = 0;
-          document.querySelectorAll("#news-list [data-search]").forEach(el => {
-            const show = el.dataset.search.includes(q);
-            el.style.display = show ? "" : "none";
-            if (show) visible++;
-          });
-          const c = document.getElementById("news-count");
-          if (c) c.textContent = visible + " shown";
         }
       });
     });
