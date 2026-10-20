@@ -1,10 +1,10 @@
 {
-  "generated_at_ist": "2026-10-20T18:19:23.726672+05:30",
+  "generated_at_ist": "2026-10-20T23:32:57.940758+05:30",
   "market_status": {
     "status": "CLOSED",
     "is_trading_day": false,
     "holiday_reason": "Dussehra",
-    "as_of_ist": "2026-10-20T18:19:23.726672+05:30",
+    "as_of_ist": "2026-10-20T23:32:57.940758+05:30",
     "last_completed_trading_day": "2026-10-19"
   },
   "screening_close_session": "2026-10-19",
@@ -383,7 +383,7 @@
       "sector": "Financial Services",
       "in_nifty500": true,
       "fo_eligible": true,
-      "pe": 13.9,
+      "pe": 12.9,
       "logic_matched": "RSI_Based",
       "volume": {
         "available": true,
@@ -901,7 +901,7 @@
       "sector": "Consumer Services",
       "in_nifty500": true,
       "fo_eligible": false,
-      "pe": 34.65,
+      "pe": 34.97,
       "logic_matched": "RSI_Based",
       "volume": {
         "available": true,
@@ -2492,7 +2492,7 @@
       "sector": "Financial Services",
       "in_nifty500": true,
       "fo_eligible": false,
-      "pe": 6.91,
+      "pe": 6.66,
       "logic_matched": "RSI_Based",
       "volume": {
         "available": true,
@@ -3010,7 +3010,7 @@
       "sector": "Information Technology",
       "in_nifty500": true,
       "fo_eligible": true,
-      "pe": 23.52,
+      "pe": 24.21,
       "logic_matched": "RSI_Based",
       "volume": {
         "available": true,
@@ -3602,7 +3602,7 @@
       "sector": "Financial Services",
       "in_nifty500": true,
       "fo_eligible": true,
-      "pe": 12.73,
+      "pe": 12.95,
       "logic_matched": "RSI_Based",
       "volume": {
         "available": true,
@@ -4046,7 +4046,7 @@
       "sector": "Construction Materials",
       "in_nifty500": true,
       "fo_eligible": true,
-      "pe": 36.71,
+      "pe": 35.61,
       "logic_matched": "Price_Volume",
       "volume": {
         "available": true,
@@ -4083,7 +4083,7 @@
       "sector": "Financial Services",
       "in_nifty500": true,
       "fo_eligible": true,
-      "pe": 6.68,
+      "pe": 6.27,
       "logic_matched": "Both",
       "volume": {
         "available": true,
@@ -5194,25 +5194,553 @@
   },
   "news": {
     "available": true,
-    "generated_at_ist": "2026-10-20T18:19:23.726672+05:30",
+    "generated_at_ist": "2026-10-20T23:32:57.940758+05:30",
     "source_note": "Fetched automatically every refresh: 10 Google News topic searches + 5 publisher RSS feeds (15/15 OK this run), headlines from the last 48h, duplicates removed. Per-stock news: Google News search per Price_Volume/Both-logic matched company, last 7 days. Region/theme tags come from which search or feed surfaced the headline, not from reading the article.",
     "macro_news": {
       "items": [
         {
-          "headline": "UK to deploy fighter jets to defend Saudi cities from Houthi attacks",
-          "link": "https://www.cnbc.com/2026/10/20/uk-fighter-jets-saudi-houthi-attacks-iran.html",
-          "published_unix": 1792501104,
+          "headline": "Trump sued over 50% tariffs on Canada in latest trade challenge",
+          "link": "https://www.cnbc.com/2026/10/20/trump-tariffs-canada-section-338-lawsuit.html",
+          "published_unix": 1792519573,
           "provider": "CNBC World Markets",
           "region": "US / World",
           "theme": "Markets"
         },
         {
-          "headline": "U.S. Treasury yields move lower after weak housing data",
-          "link": "https://www.cnbc.com/2026/10/20/us-treasury-yields-investors-economy.html",
-          "published_unix": 1792500720,
+          "headline": "Interest Rate Predictions for October 2026",
+          "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPX29jN2tIcWVUT0FMS1cwWU9CVmVnbExpZzRVazNZQl9ScWZNYTQxX0UtNFZ2QXlYdkVUX2RZWVp2RHVTRGFXRXZuNnJ3OWVDUENxRVlfbTl1UmpXU2JRWE9KVkZ1SkVuOVphQUl2ZmtWb3E4R2hVOEg5VFM0eXFyeEoySQ?oc=5",
+          "published_unix": 1792519516,
+          "provider": "Norada Real Estate Investments",
+          "region": "US / World",
+          "theme": "Fed / rates"
+        },
+        {
+          "headline": "European Central Bank: Core inflation pressures and rate path \u2013 Commerzbank",
+          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNUWszdF9pU29PdEhfTlFiZmtKSjQ2SjlrTUpjZjdCOVZmOFNkMkVsWUoxZ21ReklQempPazJ4OTQ5T0hKaWliaVlLMXBxVGRZWnhkN2FwRGZFQ1FMNFB4bTZyLVJDaTI3WUxSUjhjMk5ueHFMUFRpM0NibExOdVdBV2NwSTJwS09pNl80RHBlNGM1OElGWGNKSlZaVW9VanNoakVYN0xuTmJNT3VuOGZqSF9Jc25zdw?oc=5",
+          "published_unix": 1792519479,
+          "provider": "FXStreet",
+          "region": "EU",
+          "theme": "ECB / rates"
+        },
+        {
+          "headline": "SpaceX earnings live updates: Here's why analysts are bullish ahead of the report",
+          "link": "https://www.cnbc.com/2026/10/20/spacex-spcx-earnings-live-updates-q3-2026html.html",
+          "published_unix": 1792519056,
           "provider": "CNBC World Markets",
           "region": "US / World",
           "theme": "Markets"
+        },
+        {
+          "headline": "Housing is flashing warning signs just as the Fed weighs more interest rate hikes",
+          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPQThhSGdLckY3MFRuaDNSQXFrSS1WWmQ1b29MNXN6a3ZJUDgtOWRPNEEybjdWeUdYal9RWm9XSk9Od2RZeV91dDAyZmtUTE9kN0R5Ul91bUFlRzVudG5TcmhfdFhuUURUbV85dHV6MWsyTTNURWRwZl9lVVJiOE9zTlNiT2xwVUROekxiWTRWQk_SAZYBQVVfeXFMTTc2a08zNV9CdTlVWGRzcWNIX0E3Qk9idS1GWDM5ejVhQ05Wa0Jvb2dhRUdKVUNQcHJsTklHWl84RjJQY2ZINk9HVEdzSmRhdWtYRzlxNFhjUW5scmlxZ1EwUHRDeVRqVHQ3TkpEOXVoSXRPRWlpeUpWcllkWFpuVGIyQXJ6ZGI3T28yRi1jTENIbGlRUVBB?oc=5",
+          "published_unix": 1792518611,
+          "provider": "CNBC",
+          "region": "US / World",
+          "theme": "Fed / rates"
+        },
+        {
+          "headline": "Global stocks fall as AI spending concerns resurface, oil prices surge",
+          "link": "https://www.business-standard.com/markets/news/global-stocks-fall-as-ai-spending-concerns-resurface-oil-prices-surge-126102000915_1.html",
+          "published_unix": 1792518252,
+          "provider": "Business Standard Markets",
+          "region": "India",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Oil Price Shows War Escalation Risks; U.S. Midterm Eyed, Goldman Says -- OPIS",
+          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNNjZXdzBKR2tfMVhNeU5XUlhPOTNaOFBrZEk4QVF5TV80UjFPbmo5ZE1wREtPWUItUlc2NjRpLWM1b2tqd2hrd3JWUlU5STg1M1paYklONmRBS3MxelhYSWd0bWswYjBMTWhnSlF3Nnh5VnZNOExhUE11N3F4OFpPMG9pNHlyTWJQNFVINHhqYTBfcWxMYTczVnQ4T1VnQnlFOV9zQzdqNk9EdmttN0FUeFFGdlV4MHViMm5xaEVKUnF2UQ?oc=5",
+          "published_unix": 1792517854,
+          "provider": "marketscreener.com",
+          "region": "Global",
+          "theme": "Geopolitics / oil"
+        },
+        {
+          "headline": "If Elon Musk gifts SpaceX stock through Trump Accounts, it will come with a catch",
+          "link": "https://www.cnbc.com/2026/10/20/musk-spacex-trump-account-stock-rules.html",
+          "published_unix": 1792517378,
+          "provider": "CNBC World Markets",
+          "region": "US / World",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Dow jumps 500 points as solid earnings, falling crude oil stir rebound: Live updates",
+          "link": "https://www.cnbc.com/2026/10/19/stock-market-today-live-updates.html",
+          "published_unix": 1792517064,
+          "provider": "CNBC World Markets",
+          "region": "US / World",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Braze stock surges over 50% after Salesforce announces $5.66 billion acquisition",
+          "link": "https://www.livemint.com/market/stock-market-news/braze-stock-surges-over-50-after-salesforce-announces-5-66-billion-acquisition-11792516251172.html",
+          "published_unix": 1792516861,
+          "provider": "Livemint Markets",
+          "region": "India",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Rubio visits India seeking relief from global energy crunch",
+          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOclJjQ3VBc01WR1M4Rm9LeXVvV3pJX2hsUEo1ZnI5RkxwZExUQklld2VCaV9SNTNzUkZpQm54VnlQMU1aWHMweFp0UGFoenpTSmIwOHpZd1dUYlhkRG4xVE1tT3VIX2FoUFhpZGpHUXJoX1pvRWY5T09sSnJfZlB1RnNIMnJYUkdwaURCMjB5ckVISF9hYVY4NmRvY1U1TFl6LXZCWEdzRV9PMC0weHZOc2JxSWJXN282SnZaMERVeVFCZw?oc=5",
+          "published_unix": 1792516431,
+          "provider": "The Washington Post",
+          "region": "India",
+          "theme": "Policy"
+        },
+        {
+          "headline": "Rising overnight rates may spur strong demand at RBI's liquidity auction",
+          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPRzk3M09ZaWlrdnVVWF9teTM3ZThRcl9tMU9Ta2w5ZTZfTXFyc29hRWxSdm85YXU5VE1WTXhGSUlnd3ZLM0Q2cTVWZDMxMmRrRDltWTNRNmlrTE94ZHFOT294Q1ZmZGU0NDR5eXFncU9yTzBTLXpSNWh2cS1VOU9WZTJscVczRzAxTThER1FOclRLT1VuWE1PLTI4RDZqTWk3Y3IwczRDY3llb0dVTGl3T0R4M3YyVGdUUEhhc20xaEJHOGpw0gHKAUFVX3lxTE4zM3JhdVdUSjZyWXBDMHg5YWdSYW9zNnVFeEtHUkVLX3pnQU5hVE9pd0N4MXo0eG1sUlZLVnkxMXFhMFFvRUpMSE9mZVdxbEpxTUpXVGRpMlNYdkkyTkdJR3pJc2lkaGdfa09Ta2N1TlM0anYtWld1dlFXRGx2SGR2VE9KaVoyTUFGNlFxT2Nlb1Q0S1dKMVVEMk1EQ08yZ0syeGk3QjJjcEMxdDF0NnBKcHlSdEdDZHRPczhhN21EOFhqOTBCcmlWS3c?oc=5",
+          "published_unix": 1792516402,
+          "provider": "Business Standard",
+          "region": "India",
+          "theme": "RBI / rates"
+        },
+        {
+          "headline": "US stocks rise after companies deliver strong profits and oil prices retreat",
+          "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQTUxwUkw1R0I4c0hwa0lfVGdUQ3ZoMlVlZzZBa1RBTU9hMEZtSTFQY3d3NzVYRlFiN1hubTFWX3JXVnZBbnUxSmFsM05CZ1lyVVVOamlWOXlxUzdaMTcxdFBzY3gzZVdmNjZaTXNPNWtBeTNvMTVETWtwcGxaaE5CQWFUOS0tM1NpS2FkT1pocUlYWGZkX2wyd0d3OTg?oc=5",
+          "published_unix": 1792515420,
+          "provider": "AP News",
+          "region": "US / World",
+          "theme": "Markets"
+        },
+        {
+          "headline": "AST SpaceMobile Stocks Rise 6.76% as Europe's Spectrum Push Raises a Pricing Question",
+          "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNSDhpb1hZUl9jZVBLMDlYSS1jX1RLRV9uaDVuY2ZTdmw3VGNiWG9XV3BVRlBYWTg2QWNsanpMY3o2YW9DWE5Jb1JpdFZMU25xR01vUC1tLVQxc0NadmZGQk9zUXIwd3BnVG5QVEhyRUd6MDBpWjRhM2dPOEJZVXc2THA5MlVRNnZrZmRmLW0xNU9SODl2dHJxZGRR?oc=5",
+          "published_unix": 1792515311,
+          "provider": "Yahoo Finance",
+          "region": "EU",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Wall Street climbs as healthcare stocks hit record, oil prices ease; Dow Jones up 0.97%, S&P gains 0.42%",
+          "link": "https://news.google.com/rss/articles/CBMimwJBVV95cUxNX3p2NF82VTlfeUI4UUNxWGt6Zm9yMEl4VHVRSXlsUFo4eFM5SHFOdFFXSXdQUXlwMUZBR3F2NVNjSS1DeHJGOTlzdWpwUEVFZnpaZXVyblRqQWFXWmtnM3ZFeHllYWVkdnkxb0hEcW9RMnJnUUpyU0ZidnlnU1NUSlJ5OFEtS3Rkdy1mQmpSVzlmTXJMRmZjOS1GM0laNXpCUlhUWkxKbkhfOEZ2SDA1cWVOU2F3TUFZUk12UWJUT2NoV0thb3pyM3I3Zjh4d2szS0JZZVBzQi03cUV4U08yOUpXcU1hek5CckZYVHdwMU8zajFzQVA3ajBHYkNpakNaenlSUEd3cFBuNjZmNXpBN2xnSUFUb2xnOVhr0gGiAkFVX3lxTFAwTmxJYUNsNFhlSU1jU1lzUHo0cWVmbG4xY0ZKNHhjQXlvMmxkS0liWGpJZ0l3V0JrZjVYbmFxZVhrczlod1Rxdk4wZHNzV2lsR0RpRzJQeVlOU2F1MnlKNk1rMGY2Z0prQnpTb19mTmxVMlIwMi02Y2I3amljVm5IY1RVSU1IS09Nb1FHQ2hTVGxHdmJaeDYwOXViMGw5R3V2SGFvWDhlbkREWTh3NFhlbUVTcDhjdXNEUEREb2t2YlNwWk9xQS1iSGQyMFZXR0Z4SVRvWlFtN25oTXJLaTlMVklKY2ZPS2drdUgzWGdMaC1WMHVaTUw0dUozVnZkeW5SN2owb3U1aVZ4VlhySWRmaHF6M1ZtdGhUM0lzSVdmTzZn?oc=5",
+          "published_unix": 1792515180,
+          "provider": "The Times of India",
+          "region": "US / World",
+          "theme": "Markets"
+        },
+        {
+          "headline": "IDX Composite gains 282 points as MSCI reforms lift banks",
+          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQN29rRE9nWmxBRFpGSjdJNjdhTU9JZ1dna3pqczdnQi1CWEx5WFNDbi1YemJSYTg2TUtXTGZVN0ZWdU45bmxLaW9yck9XS1J6UmpTVVY3VTNJTVNEM1oyNFA5Y1oteHdDRFVfRGhDaldRVzM3azNzSlluWEF6a3A1NU1GNjBOUlo1VlJncmhrcDNjeTRudy1WdXJhYTEtQ1RPWlBienYxVFpfNG56Vy1TaW0tN0gtQmx2UFpJ?oc=5",
+          "published_unix": 1792514940,
+          "provider": "ad-hoc-news.de",
+          "region": "ASEAN",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Wall Street gains ground on healthcare stocks rally, oil retreat",
+          "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOT2JsXzZ4YTVKcDJjNE9iTW42aU0wY0VOZXRtdDYxTzJTanBUOGZIT1FLSl9FVTNxQ1RpTVFSWHlsejgyR0Y1b3JQWXRlT0dEMjJPWWpXYlpfdFJQaHZKZG5KdUNMdW53NmlMd2RwUWJKWFB3dE9Xc2ZBbnRfalF3cWNzblhxTGJOTGlKYUh1a0FmWC1vaGQydWZXdTMzemJjSVg5NWZ0bw?oc=5",
+          "published_unix": 1792514348,
+          "provider": "Reuters",
+          "region": "US / World",
+          "theme": "Markets"
+        },
+        {
+          "headline": "What options traders expect from SpaceX earnings after the bell",
+          "link": "https://www.cnbc.com/2026/10/20/spacex-reports-after-the-bell-heres-what-options-traders-expect-.html",
+          "published_unix": 1792514076,
+          "provider": "CNBC World Markets",
+          "region": "US / World",
+          "theme": "Markets"
+        },
+        {
+          "headline": "What Meta\u2019s Quarter Has to Show to Justify Wall Street\u2019s Highest Targets",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPS1FGazZJTlFjdzdkRlVIWFFRZzJjOUhIN1h5THlrem1zWlliTEFMMlZOWDR4b0xXdzhhTUlGSkt2ZnlHUnQzTFZXWTlpSDQ1RWdsVnhNZmN2Wk4yZE9pamRhcEc2TGdyeVIxMVpZd3lValNEa2MyNlltMWdfVk40QUdiemZlVE9yTHNMX2UxZHB4dkxaYU9oVEVTMElIenhZczJ4M1VQZDd6aHFHbHdMTFNvUWc?oc=5",
+          "published_unix": 1792513800,
+          "provider": "24/7 Wall St.",
+          "region": "US / World",
+          "theme": "Markets"
+        },
+        {
+          "headline": "U.S. Stocks Turn Higher, Setting Aside AI Jitters",
+          "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNRFIwYTNvY1RkcV9BYS02QWZBTTczUmVPTUtmaGs0d2JCZFB5eHVMUzd5RkNhVU5EUnJMYlEza1RhS1UyRjhCYlYzZTZER3hDcVI0R2g0SzhxenFDRDl3VjA4dFhrWC1YV0p4UVdaZFg1bHVRSElOVnMycDliaHZRWUdRLU5Nd09aS08wTQ?oc=5",
+          "published_unix": 1792513380,
+          "provider": "WSJ",
+          "region": "US / World",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Tech jitters lead stocks lower, oil surges then slides",
+          "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPeFYydDJYaGYzR3VsMlNBTi14a19Ec1R6MGJPU2haaFJTRDBCaEF3WkxGQ3A4RFRRRGtTYmdTb2pLUDBhTl9uVTU4Tm84WHBmSHoyZHpJNHBBZlEydDNsTGJCbmIxTjNRRFZkRm04MUJGYUxnZmNueFpkOFdCY2RNNVRlZjRfRXlrY0xFcmZsNWtFc1pOcU9zb3RB?oc=5",
+          "published_unix": 1792512898,
+          "provider": "Yahoo Finance",
+          "region": "EU",
+          "theme": "Markets"
+        },
+        {
+          "headline": "10-year Treasury yield moves lower after weak housing data",
+          "link": "https://www.cnbc.com/2026/10/20/us-treasury-yields-investors-economy.html",
+          "published_unix": 1792512536,
+          "provider": "CNBC World Markets",
+          "region": "US / World",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Trade Setup For Oct 21: Nifty Breaking Below 22,800 Support Can Trigger Another Bear Attack, Analysts Warn",
+          "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPSkxHOVBfRVlrdE9iMmdSOHVraG1vYnZ6NHEzZ2RleDBrd1FWUXpaaEZYVWNLT1FRUHdmZGFHd25sVldRc0dhVmstdGU4dmZla3hUZU9ycjlBNnpqc1Qtb3ZjS2puX2x4MTBzSkQ3dTRIalZzNEIyOFJCaEhmR0M0UEJZOTJaRmNQQmtaOW8zQXVBVVlFajJRMFZsXzcweHpKUTRwTFhqMXlDUWdrR0Z0NjJ5VWZvbFhEMnNfZmV3LVd6Xy02VkJDa2JGS01vLU1TeDhiN1dmYnRqczF0M3ZySi1B0gHqAUFVX3lxTFBTbTBURVBhelFWWU1OQ1NPTjFISGhULU8yb2F2VHhaaUpTR01PaEc5WktMczNNbEh4S3lpdlBXTTdueUd0TzB2VVpsMnJJMldPY25rMWtnNkRIcE1TVHhCUzlZSi1Sbk16YkhTMEJRYUtmcFZINHcxVkc1ZEtVM2FwSzRxTk52dlotZFlzUGYyVU9PMHlnd2J0QlNEempVckhvX3k3MUxLTzE0THhZWXJnRTJVdmVVbTNJZHJOQ2xneGdTb2hlcEJjZmdkdWxrWmgyYmxiWHFVckdLRGFIZDVOMnp4cVZtcnE0QQ?oc=5",
+          "published_unix": 1792512513,
+          "provider": "NDTV Profit",
+          "region": "Global",
+          "theme": "Geopolitics / oil"
+        },
+        {
+          "headline": "Fed Rate Decision: 94 of 100 Economists Expect October Pause, December Hike Looms",
+          "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOcWFWT0xQU0JnS3JRcWR2VlNwUlFXamJ4dGJOMi1lZmdWSU5yU0lSbVFsdGxFLTBiZnAzR3ozMm1UcHY5ZHdzakJ4Q1BzRXFHYjdYUnpXRzVIbTJ2cVl2VkFQNE16Yl9XSXFFV210bDI2NkhNX1MyZ25ybU9XSHJEWDU2czhSdjdwUzNqSklWcmNKaGtTLWlrTVpWQnFtZlN5cVVOcVJZczRHVFREdW1DMWZoMkt4bXlt?oc=5",
+          "published_unix": 1792512122,
+          "provider": "CryptoRank",
+          "region": "US / World",
+          "theme": "Fed / rates"
+        },
+        {
+          "headline": "Here's what to expect when Netflix reports earnings after the bell",
+          "link": "https://www.cnbc.com/2026/10/20/netflix-nflx-earnings-q3-2026.html",
+          "published_unix": 1792512001,
+          "provider": "CNBC World Markets",
+          "region": "US / World",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Why bank stocks are lagging the broader market",
+          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQSmVUWlc1eEJ4OENsZ2hPMmxNTlU4bU5pNXE2amdUM0FTb1k1MzdBMlIwOUp0N2laMGZFRTFZRGVtTFROQ1NiVnhuU0NGRFFicENraE9hTC16V3BuZXBzR2VYc0dmRTFpaDJNc2hkbU5LMXltMEZJQVgwX0NFTW1pdTdnQ0Y?oc=5",
+          "published_unix": 1792512000,
+          "provider": "Yahoo Finance",
+          "region": "US / World",
+          "theme": "Fed / rates"
+        },
+        {
+          "headline": "'Risk appetite' for stocks is the worst since March, Goldman Sachs says",
+          "link": "https://www.cnbc.com/2026/10/20/-risk-appetite-for-stocks-is-the-worst-since-march-goldman-sachs-says.html",
+          "published_unix": 1792511927,
+          "provider": "CNBC World Markets",
+          "region": "US / World",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Oil parked above $110 a barrel as IEA warns energy markets won\u2019t return to normal next year",
+          "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQejhpc1ZuZjVqdnZ4TWRuWnJRdVZ5dkItQThVQk5fQkZpeDZwY1RrUWo2WmxRY0g0Rmhqd0RpRFcyUE1vZlNiMFVEZC1QX0tTTEU1OGM5ODJ1RVFjNGJLX1EwdzVzeW9QYnc3TjJzeThyMTZkVXNzSVZTR3BvNXYxYTJ5cmMydUxucDJBd0xoa0M5ODRlRk85d3RCTHdrWW9DYXdqSDZVTDdEdW8tNDJJV0dDZUNFSDRUSnhtVzR1aVhuZmZkMlprQTg0Z0lzQ01XOGpZeHFYQ2M?oc=5",
+          "published_unix": 1792511482,
+          "provider": "Scripps News",
+          "region": "Global",
+          "theme": "Geopolitics / oil"
+        },
+        {
+          "headline": "European Stocks Close Mixed in Tuesday Trading Amid Ongoing Unrest in France, Fighting in Middle East",
+          "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPejdGX1V0Uzh2RjZBQjM5QjVmSmtUbmhERDlnVjdHSW1wbFRwRFRSNWdxbHdXcnVfT2ZUbGdxeXFQSGZEeU5Ic1N1NlhxVDBXOWY2cnZ6UzV4VDNDekRCUGpMeXlZaDUxb3M3d3RIYWx4VTk4ZVh6cHE4OWxZRWttTzVsRmxhaTdaaXFxZ19NYjdIbXFTQ3JkZ0NBOXZyTy1jNUZYdFlNUDFVZUE?oc=5",
+          "published_unix": 1792511034,
+          "provider": "Yahoo Finance",
+          "region": "EU",
+          "theme": "Markets"
+        },
+        {
+          "headline": "General Motors beats Wall Street's Q3 earnings expectations, narrows full-year guidance",
+          "link": "https://www.cnbc.com/2026/10/20/general-motors-gm-earnings-q3-2026.html",
+          "published_unix": 1792511024,
+          "provider": "CNBC World Markets",
+          "region": "US / World",
+          "theme": "Markets"
+        },
+        {
+          "headline": "The $1 Trillion AI Spending Boom Could Force the Fed to Raise Rates - and You and I May Pay the Price",
+          "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPb3JVblVkYXdTS3A3dDViLUhDTEc3S3hpeXcxdWw3cXBEZnRtOThJTEY4bVNDMmU0b0d5NllHTmFsaG1tQ1lCWE04VmM3dnA5S1lZSk40cXVXTnRZT05rQjMwbXBuTGRBT0ZkNHhXemlUSHZwRHZIR2xmbG8tdHVaNDBFNTB2c04wU3dGcF9fRnJUQ1g3aldMY1FEbFFJMTR0R1A1R3drOUdJUXQtM0txbzBzTzZ1WnptSllYU2c2VTh6MmtTSllkU0ZpZWRSVFhIWmxFQTIyakwzdw?oc=5",
+          "published_unix": 1792510800,
+          "provider": "24/7 Wall St.",
+          "region": "US / World",
+          "theme": "Fed / rates"
+        },
+        {
+          "headline": "Wall Street gains as healthcare stocks rally, oil prices fall",
+          "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNNGlUSnVLbVQwcTRGQkRSMzI1WmJDVVE4dGhqak9kOTlJTVl1UTVpRDh0ZC01dDd4WTJLVnNZTU5GdWVtRE5QSnladkdfbGgySTdFejVKWGtBaW1KLXpPS1NqNzhRWjg0U1RaTWVZaFg2YUlpSUdJd3podU5wYVFNS0JXSmVlSzQ3YmVaTXpBaHNqUG03MFgzS2kwUFpoVnR5dEhPYk5fcmw2ZHBXSVk4U2k3TFpBNDRldWxPUVdsREx3ZnBVWlE?oc=5",
+          "published_unix": 1792510440,
+          "provider": "The Detroit News",
+          "region": "US / World",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Stock Market Today: Nifty, Sensex Jump 3.5% As US-Iran Ceasefire Lifts Sentiment, All Eyes On RBI MPC Outcome",
+          "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNT1htanU5VmNRTEhnM0FDSVMtd1QzSHJsNmF5N08zWDFyUkN1cG5DUjFMTEd3WjlBS1JCbGpEWlRMRVNhQWF2YVZRRnN6a2NEcXRtOXVkck05WVk0Q0pxbWxsSXhFTVM1cHlvV0pSM21XZTZWa2FKYTlMRE01UTlfdjdiaTU5VnlWVlFEdmR1UXI5WUVWLUFBR2ZSMGlnUU50VVBDNHFWdG1hdXhJOHEyb2dSTmpxNlEwWHU0ZWRocVNyNUxSZlF3WU90SjMxc09EM2FhdFQtZFQ?oc=5",
+          "published_unix": 1792509824,
+          "provider": "Goodreturns",
+          "region": "India",
+          "theme": "RBI / rates"
+        },
+        {
+          "headline": "Wall Street rebounds from lows as upbeat earnings, falling oil prices lift sentiment; Micron, Intel up 2%",
+          "link": "https://www.livemint.com/market/stock-market-news/wall-street-rebounds-from-lows-as-upbeat-earnings-falling-oil-prices-lift-sentiment-micron-intel-up-2-11792507459852.html",
+          "published_unix": 1792509679,
+          "provider": "Livemint Markets",
+          "region": "India",
+          "theme": "Markets"
+        },
+        {
+          "headline": "MAPI stock: MAPI carries an 8.85 price-to-earnings ratio",
+          "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOeHh4My1aT21UX1FpeklGd1czR2kxb3RBQXptQWJVS0kwTXM5U1hhV0NFTEl3OWo2YXdneEZydXJSWTM0aGtGX2YwREVmcDc1YklHTXJlRS1EQ0haR3MtYTF5SzlsU2JrNk1DSF9GMGNaV1FGSm91VTVuZnczMDA4TWkyejVDdE1nUnpqeGJyMl9URXZ3SmZ1NUV0VWY5YjBCcEphRDQ2VE5KZWZPdkNoVjZjczdvdlBmRnc?oc=5",
+          "published_unix": 1792509583,
+          "provider": "ad-hoc-news.de",
+          "region": "ASEAN",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Ahead of Market: 10 things that will decide stock market action on Wednesday",
+          "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNdm5jTmpBZ19HVWpKclpZYlBkbmtvbVRJbmpHNXFuTm1ranl4VGs2d2pSN1pDSDQySEtKNVBUSkdPaWN4WGRMSXFFYTYyNUt6VzhzM1cyRDE1Z3MwS2VNQXh1d212RXBaMlZDbW9wVWd0RHE2aGJ5ai1nWERRNmwzTjJNbUZtN3FmTl9aTnRKdmtnRkRleDl5SWlWeC1lR0FBZEtwMm9DUndPZjY3WmxQVjdMWDN2bHFWdERvTTdmQ0NJNmt5Z0l3QmlfZG5fOVlETjRNODdBei1ST1dyU1NNazJlMNIB6AFBVV95cUxOdlNKZ0dZSm4wUUw3SzlWVTVHN2tTeUsxbkFickxxX09SazY5UWwwNEh2MnV3R2lISGlnNDRFUW1iV0piWGJBU0ItNGNhSWk3WkZKZVIwZDRkUERfRzAzT2hYUTkxb0ktTVVBME1BV2twZlB3SktzS3J5RHBCMkRwWmNBeXJFcS03anpCWUllc2xNUEcyRGVVdXZKSzZBekJqcTkzQkx6cVB2R0EzQmRxVmZhUnhST3pMbGpHd2FqTDRMTnpaNXV4cUhmRk92cmhvMlpBSGEzaHdBYjZZVkFEQVJiWWZTYXNf?oc=5",
+          "published_unix": 1792509131,
+          "provider": "The Economic Times",
+          "region": "India",
+          "theme": "Markets"
+        },
+        {
+          "headline": "European Equities Traded in the US as American Depositary Receipts Advance in Tuesday Trading",
+          "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOUVN4SHpaRjdqRG5pZ2ZQY3I4cFJyTzVzODJGTWxqODlIZnpCX0V1anRUeUNON1YzVmlxNGJ5S3luVEY3d052MzE5MERMdDVVaVNWWHEyWXdGQ0NZNjdXb0JGd2doWjQ2alp1emdveFBNSjVJY0h2TXpraWMyTzhOVElGRjFIU0VVM1FrLWkzRGNkaWxqcGtqM3RvdENld29sTHY4anZua0ZTRndD?oc=5",
+          "published_unix": 1792509036,
+          "provider": "Yahoo Finance",
+          "region": "EU",
+          "theme": "Markets"
+        },
+        {
+          "headline": "U.S. stocks rise after oil prices retreat and companies deliver strong profits",
+          "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPUlZjRWk0ZUNCd1Vnb19ZNExNT2RWNi1LdzViQWRTYkxXMnVrSkdwSDB0REg0cUxPY21uTnlBYUItdm1Lc0ptZGwtdXozMks0d3RUYjBIYWRrdVZDRW5MTjhvMHk4RGpzal94SzJCMEFGZk93UDV3eUVoQVo0WVJqaXdlSmR2NW1hckVxNkFpR3Jib0lHSEo0SDE1Mk5IcFpEbk1yUDdxWFpmOXVRMUgwa1J3QXRTeVBnVWlxWVlMM1o?oc=5",
+          "published_unix": 1792508984,
+          "provider": "BNN Bloomberg",
+          "region": "Global",
+          "theme": "Geopolitics / oil"
+        },
+        {
+          "headline": "Aerospace and military contractors raise 2026 profit forecasts",
+          "link": "https://economictimes.indiatimes.com/markets/us-stocks/news/aerospace-and-military-contractors-raise-2026-profit-forecasts/articleshow/135072414.cms",
+          "published_unix": 1792508962,
+          "provider": "Economic Times Markets",
+          "region": "India",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Indonesia Battles to Stabilise Market after MSCI Expulsion Threat",
+          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQQlFFcld4dTdmajQ1OHQ5eDdFMGRIRlRJN2FwSUNWR2JkWEp5WEVVNUJzdnh3dlBtWVlnZG5XZnV2UXRRcjhRRU55MG9OZGRBZ2xnbE9Cd3lRTXk5SkxsbllZVURxQjFuSlV4YmpaR1pqZ1JTR3V5b21JNUFDWUNsX3BER1FySE5YdFhBckFwYktra3R0aWd2OWpJQ1pTZnpQ0gGbAUFVX3lxTFA5V1JNcS01dVZyLVZfYkY0UGIxWV8tZlF6dWJXOGJxSWVpRHhuZGdxMGVwQi1CMHZxTWRRYkFiMmJXT3FlNF9iM0xMYTVybGxkSGliWDUweno1TGNPaEpTeUd1VGhVTHM0b01UNUliNUlseXRQbmtPNUs0VmtGTEdUbkRVaDBOTklwNFJOV09mRGlpTHVoNVNCbnpR?oc=5",
+          "published_unix": 1792508410,
+          "provider": "KONTAN",
+          "region": "ASEAN",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Oil Prices Rise as Houthi Attacks Threaten Gulf Oil Supplies",
+          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNbEtEZEdnT1lWMS1fYi1zYmZBYlJFYXZ2bFlzTDNTOEhFenUwWkdhUG90WUVHajNhMG1kZlVTTFhMMmdhWFJ6cTBwS29id2hMZ1BoR1Z3cTdDRHB2c2EwT0YxRUoyWHZqdG1aXy1GZkhRTmc5cWhJZmdGZnpzM1RMOS1hTU1OSmR4QU5uZW5ETDZVTVZrcjMta08tS2RFMW_SAawBQVVfeXFMUGE0U0RsSHl2Ry1UOVd4TnhzM3dtSzlraS1rNUIzdi0wc2RwVXgxZnZFUHp3SzN2V0pjZERJQU1mTnRqdkpDc3hyd3JkQUJ5T3RXMHlza3dmclNBR3RqdW9ua3VMX2tUaE9QVUI4cHVWUzFneVlwSTd4WGwtc1hYQ0ZScElUWHFUckVHbDJ2eGNIdlJjc3JOTERUS3dxaE94U3cwZGhzTHZnV3Nvag?oc=5",
+          "published_unix": 1792508400,
+          "provider": "Analytics Insight",
+          "region": "Global",
+          "theme": "Geopolitics / oil"
+        },
+        {
+          "headline": "Japfa Comfeed Indonesia stock: On the IDX, Japfa Comfeed Indonesia stock gains 4.56 percent",
+          "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNT09sVGtxajZPVHZTdElpRWVXUk9EZHYtMDRfOXc5U1dxcHZLN3JOZDFJY0dWV0JzZk1lRGRTekM5LUJVell3WF9vRkJVRG9EQ3lsc3pSeXM0Qk0tajUzYVVWY1owV09GSUZxaUE4VDl0UlVMSEVYRFFMSWY3Wk9OZXFVRjZGbV9WRWpIS3RKV0Q1SE1xS0NUTC1sVWZwbV9sOENIYWNGQjZFT09jR0U1c0Q1MmVtQmY3MFZEaUxZQ2RvLXdyeE9lYXFZZmE2YXAyeXJNWFZYblFKeDdxanFrYzhQMV90TW8?oc=5",
+          "published_unix": 1792508372,
+          "provider": "ad-hoc-news.de",
+          "region": "ASEAN",
+          "theme": "Markets"
+        },
+        {
+          "headline": "AI Chip Stocks Lead Wall Street Recovery After Oil Retreat; Intel, AMD, CoreWeave Among Top Gainers",
+          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQOWVVUkw5QVNFR2dOWEUwTll4QWR5SElOTGpRM2llVm1EVThVa09BT1ItV3JhLVcyVkJmc1h1ekJmVXRqRzA1bnl5aktaTzlJLVgwalhVQmNYNGJIc3Awb195LTBWcENoUW9OT3hndGdOSW5ENG9qbHlYdm9FeVRtM1EzeE0zZWtMaXd2b3Ryc1pUZlVMRDU0Y3FGTlpyc0hzUmJRbVJVbEhjd241NzlwXzF5Q1dYTHdMMUxPbk1XNkZxd2dUSWJNNm1EZzU2S0VzMndQaEVOZ9IB3wFBVV95cUxNeG9Mb3JJTDluT0plNnljaExaMExOaXNzTXNVenV4VWtYV01fbjVfbUNXSjZVY1U4M1Y4LWVmRVMxZF9VNkdYSElybTRXRFBXM1otV1BPWG1jeGY0T1g3Q2o0dVc5bmo3OXhUMmJZSU5yNWdNZEk5QjdzdnlFWXNGOWNmSmNuTHF0b3VTdlZ4RHF1LWU2VHFMSUpWenBsZFI3UWJDZHQxeDZTOWcyVGhmaHd3Z2V3SlVwRmg2ZzVPN1o0ZTlvZVdReXZYTFpralk2YS16TEZ1S1FqS0FSZTZZ?oc=5",
+          "published_unix": 1792508250,
+          "provider": "NDTV Profit",
+          "region": "US / World",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Sensex Plunges 1,045 Points, Nifty Hits 2026 Low as Oil Prices Surge",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOT2w0OExuLXNXNkItVEJweDJtWkZCQlBkZUQ4LUYtNDlqVVRyQU5WemdBSUhnY3gwWGdza2Z2UXUwUC1MSE9SQzNkenpXR1RIWFpTdHctRE84dDlOWVEtYTNzS1Yzb09fZFlZTG1pMkc0N3lCQ2l3Rl96eFV4QnphVVhWTDVBUnhTSGo1LVgzWHhjbmZobWt0S3d6WQ?oc=5",
+          "published_unix": 1792507919,
+          "provider": "INDIA New England News",
+          "region": "India",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Big-ticket IPOs have struggled to deliver bumper listing gains. Can Mukesh Ambani backed Reliance Jio buck the trend?",
+          "link": "https://www.livemint.com/market/stock-market-news/bigticket-ipos-have-struggled-to-deliver-bumper-listing-gains-can-mukesh-ambani-backed-reliance-jio-buck-the-trend-11792505293980.html",
+          "published_unix": 1792506476,
+          "provider": "Livemint Markets",
+          "region": "India",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Can European Bank Stocks Rally Once More This Year?",
+          "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNNHVLOVh4ZUlVcFpEUWJCY0hrVDRNejVtRDZqaDFjdmJnY3Nsa21abEo2YWZyak81V3dybFdVaW1qeDh0UVdYUklQSDRMZW1lV1pVekV2b2FEWUotNFNGVkJNODd5TndYa0JETXl4S1ZlWFpqNnN3OE00dE0tZlJTaG5iREM5dWpROUxYNHBKZjNXTkd5eF8yeHd3?oc=5",
+          "published_unix": 1792506371,
+          "provider": "Morningstar",
+          "region": "EU",
+          "theme": "ECB / rates"
+        },
+        {
+          "headline": "Niall Ferguson: Why Europe Is Burning",
+          "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPV3lpUk9QNTRtaXpMai00SlFSWVJab1lNdmZFTTlmTjlMbkpYYWRwS0stR29GY1VScFF1eU5CemNuY1IwSktSdkdDamlJMV95NG9EUE92T3lORGVueUYtaGFfZ0hIbjYydVRCS0Y4RjQ0ZW5PaXJ2dmhqUWNGc3hlRVp3?oc=5",
+          "published_unix": 1792506261,
+          "provider": "The Free Press",
+          "region": "EU",
+          "theme": "ECB / rates"
+        },
+        {
+          "headline": "Danantara sees buying opportunity in Indonesia\u2019s stock market rout",
+          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxObXRudDlsWHZGd1ZJT1J6RTFRRDdtaDNfZkY1aDkzNmVoWjdSMU1yRzM4YUw5WkpTUU5WQW56QjJtelBSVnF3V1FZc05jTm13Mkx2M3V2N0RTNVNzVDkwUzREOG1ubzUtSUw1QmdlMWltUXc0N1hpWC1jUWdVWjF0ZTZlb2tiMXJzMXREUExWbGU1ZE5XVEltcXI0OFlHcmNCTU12MzVtNFEtZ2VzWTNGUDF1TEdfdG00am1XOERZbnByY0U?oc=5",
+          "published_unix": 1792505352,
+          "provider": "Indonesia Business Post",
+          "region": "ASEAN",
+          "theme": "Markets"
+        },
+        {
+          "headline": "IEA chief sees little chance of oil market 'normalisation' next year",
+          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9rU1VDSDJUdU5SR0hUQlNUSnN4VUZhQWdEVkxCSU9famNqWGVIMXNvZE5XUXdLaTU4NkVoT2Y5a0tVM1RhbnBFM2FqZDd0Tmh5?oc=5",
+          "published_unix": 1792505343,
+          "provider": "Bangladesh Sangbad Sangstha (BSS)",
+          "region": "Global",
+          "theme": "Geopolitics / oil"
+        },
+        {
+          "headline": "IEA Sees Little Chance of Oil Market Normalisation in 2027 Amid Middle East War",
+          "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOTjlCYmIwYUNzNWFZMzlhZnBGNXNLUG8weEt0QWZMSW5uQm9QOFBjZUxUdXk2N2d2TVRjUjhjV0lQODBlS2cycEMzWnRXdUxwQlNCN2hjaXNrOFE0a3gyMGdrM2Q0aE80T3RSamNBTHhHVGRCbERJQUtWRWhzRlE1T1NxRDBoNFNzRThFV0hhRnpjTlIxLU5MMkVNVVZNTVBzTURHc0VId3QyUmRRSFpONUsxdlBRcE1JRHhGWU44NGk?oc=5",
+          "published_unix": 1792505147,
+          "provider": "Kurdistan24",
+          "region": "Global",
+          "theme": "Geopolitics / oil"
+        },
+        {
+          "headline": "2.45pm Markets Update",
+          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE8zaklLbmI2OC1vTWl0OFlaZkdjWGdLbm1kNjJIYWVrWDJ1SGJ4ZUMzV2NSYnUzaDBGZDVaemhaU0tsTGhNTi02VDQxVlZUcldV?oc=5",
+          "published_unix": 1792504757,
+          "provider": "RTE.ie",
+          "region": "EU",
+          "theme": "Markets"
+        },
+        {
+          "headline": "MSCI-Triggered Crash Exposes Hidden Risks Rattling Indonesia's Economy | The Reason Why",
+          "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNc2RUSHdXN1B0MVhBaEl0Um9WVTZHSTJDOWRkUjhXWDZkWWRsMFplQXZ6NkU4enBZLWg0ai1Pc0t3WUg5UlR6eHpORzNsdmR0d1VCMjZJNnVkeXpjdDNieFhBVDA1MXAxWEFDS1l1S2JOTE0zbnp4VU5UeTFGVGljeEFZdEhkMmtsa0QxdS1MMDhJS2I1T2Z6S3RURW0wQ2I3bUdaUko0S0JZd1hBaFM4eUFMLVAzdjNhNUlCSFpteHZ3dkFnckc00gHPAUFVX3lxTE5vbnBzd1BPdjhyMzRWTjdLYlBvOUxQaVJLVlJJVHI1X2hOZHR1eWNjcnpGNERzVVExazdMX0FzRGhjblFCYXdTWTkzVFI0S2ZFVWhvLXpHOS1xTU00Uk9UWTZOLWhVenNzSVdPMWIwdkVmVUNIRjhMOG5tNmlyZmRTVlVNVmR3ZEV6NXd4ODBTUDVtSTEzVVRmSzNMMjZhcGdLY0ZNaGdVdlM3d1ljME5CVnIzRy1wWFgzYlBDSmx4ckhHSXhWSFVvT3FVakZFQQ?oc=5",
+          "published_unix": 1792504610,
+          "provider": "NDTV Profit",
+          "region": "ASEAN",
+          "theme": "Markets"
+        },
+        {
+          "headline": "The hidden risks behind Haji Isam\u2019s billion-dollar Bayan deal",
+          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQaTJOZXFGR3ZnVi13enBmWS1RTU15RVRsX0RiOUgyejZxNTItTHRNcjh3RnBpVzJHeUZpSG5vUm1wUjUwUVhJY2c5LU5RQXhmUXl3OGVNUTBlN0t4SktkZWdnS21jTU5qUVc2d0JRUlFLaHp1ak5FRld4dklZTHZyZF9tbDdNdFdiU19QZThoaFB3YU1abVBKVHBIMTZCcE51X2dyRmdDNGpmS2hVZGFjamNfb21pUXNFcnZCcw?oc=5",
+          "published_unix": 1792504446,
+          "provider": "Indonesia Business Post",
+          "region": "ASEAN",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Jio IPO has lenders, brokerages pushing retail participation with loans, marketing reach out",
+          "link": "https://www.livemint.com/market/india-jio-ipo-lenders-brokerages-push-retail-participation-with-loans-marketing-11792473742375.html",
+          "published_unix": 1792504133,
+          "provider": "Livemint Markets",
+          "region": "India",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Fed sneezes, but emerging markets aren't catching a cold yet: McGeever",
+          "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQOTl6bVNkbzNsQVRQc2pNcnRLWkpaT2kydTdtSGk1WF94R2RoUndFYXFmcThQaXlIRUt0dzZXcW5lcUlsSUtzQVp6NHdGenF3MnE1R3dLbWpLeUZNenFrcDkyS2FsWTBYM3QxQWRKQmZLX3BoWmhiX19rUTk5QjJnajZLQTZlZy1EeE1oZkczeDd3Vk5EWFZ1SnQySlhwNkl0ejVYMk9BR2REdER2VUNZRGFwcGc4a0pEX3NHRkNZeXV5dGRjVV82ejlxeDFWcmc3R3NmOGVFWGhJdDFk0gHiAUFVX3lxTE8xS0tTMW5HMnZmd2ZCTS1Yb0lkbG9kQjBDOExsOUVUVzBNZ2tiZHBJc09XNkppZGV5amg1dUROUkJqZDcxdnoyREZSUjdwOW1DS01aUktOMW5qT2dVbTdnd0lnTE1IQzhnSzA5QjZ0Zkh6WVV0bXl3UU5wNmFoaFZ6NW5aLVJnVG03anRYWERIeTMtSGg2WHhGQnZSUHNibE1mSllFUVhuZW54MWZzZ1JlQkpYTE1BNkFwSVNfRXNQdHNETmc0LW1URDd3a0ZxeGdDRU85VDRtS3FZc2tOUkllWHc?oc=5",
+          "published_unix": 1792504057,
+          "provider": "The Economic Times",
+          "region": "US / World",
+          "theme": "Fed / rates"
+        },
+        {
+          "headline": "Telkom Indonesia stock: Frankfurt close puts Telkom Indonesia stock at EUR 10.20, up 10.27 percent",
+          "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOcW4wVG1KYno2amhzSUVXNkVqYUJ3dVFLNHhEMXFnY3U1Sk1Qa0ZrMEd3N001WnltV1NPTmdiaWpCS2hxdW1Bdmh2VUxZVk1yWXozZFZsazVOdTRBcFdYcTE2U1BxQ1RoamxsNmNxVld6dnRidVhMZ1BwWXY1QjgxVTVVbVdDLWxxLUN5LW5SUVp3SlBVaUt1QWNNV0dzMTFoOWZTbWVhXzV6SGdxdURZb1hjUGlocDBNWHlpSzhIckZZalVSbTdGX2FVUVNhUjgtMDJzdTF5YnZuZUhpS0IweEFFV1E0TThidUdJcFhOZE8?oc=5",
+          "published_unix": 1792503748,
+          "provider": "ad-hoc-news.de",
+          "region": "ASEAN",
+          "theme": "Markets"
+        },
+        {
+          "headline": "US stocks today: US stocks gain as healthcare stocks hit record high, oil prices fall",
+          "link": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/us-stocks-today-us-stocks-open-lower-as-ai-stocks-decline-oil-prices-rise/articleshow/135071224.cms",
+          "published_unix": 1792503570,
+          "provider": "Economic Times Markets",
+          "region": "India",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Monetary policy in times of geopolitical tensions and technological disruption",
+          "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOZ2d4bUhGbzZXM0VhelpmVWxmUzJLZVpScUdjQ2kwc3pmeHpFbElFTURzeVExbE03QU1kcjg5SVNDb2VhQTUwNVhTUkVfMjJ6X2NzNlNMNk4yenJmOTRBcW5nV0lJdjBBTV9VU0U5VUw0OFRoblcyRUdNbW5DX0NsNGNTci14cG9PUTE0TDRwZ3hFZ3I1NlU0U0E0VmhDb0paX3k1OVMwMDdnV1JLV2xzeTJNUXdrSGQzVXZfQ1Z6dk1sam9sLWdxU2VBX3cxZGc4enJfb0pkemJkdUNUZzhhUWgtN0g3dmM?oc=5",
+          "published_unix": 1792503480,
+          "provider": "Suomen Pankki",
+          "region": "EU",
+          "theme": "ECB / rates"
+        },
+        {
+          "headline": "Federal Reserve seen skipping Oct rate hike but hiking in Dec - Reuters poll",
+          "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNcVN0UTZfVmVsWHlnV3djdWRkWFFZQmVCWmNZZk16OTNUSDUzLXBCU09XdG5HUW5qdzNjOUtpM05LaDZLLWx0MEpUM0VzV2lvQ1BSazlINVpGbWU2blctVllUTXRpNTVmRm1TV2JGUzRYV3ZEbk5tMU1pTHpnc0MzcWt3Z3BFZXZZX191UDNadXhsTDZGMEtOLTZULUhJYVJaV0FVS2g0b3FkR1hNRlRabnlXQ3AxNTV1ZUY0bXNETDdMZU84eWc?oc=5",
+          "published_unix": 1792503070,
+          "provider": "Investing.com",
+          "region": "US / World",
+          "theme": "Fed / rates"
+        },
+        {
+          "headline": "OJK says it is going all-out on Indonesia capital market reforms",
+          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNSWpVUFo2UEJFVGdxUkUyWHFLelBmQ2RFdTBUcUgzWF82QnRhWjJyZWJwQmljdk5UM2hEQndxNTR6RUNsMmZKV3JDMDZGZ3c3V0EwczZtdTFXZG5DWU9PbzVPMXhXWG1QMk1neU1HRklvNzh6V1hGaXpZbkhadFpuQXVQMzNEalhJVXpzT2ZuZERYZ091Um5VU0NRVmxhdGY0elMwRdIBqgFBVV95cUxOdXdYb3dOWE91WnNvWUNqWlM2WTVOMmJMS0Jtd1phTkRwazNVZGJMV3JlV0FOeC1PMThKeGgzZlNnQmFMQk9YNGY3dTRtVVlEUktoVzA3YTEzRUpZM3VSb2NyQjR4ajYwakdsTUgwYklBdFI1aXFrMHNfYWU5dlZRZ0I4OHhCaWtUdVU1LXoxal9XNlhpMDlvSm1MNWRHS2ZINDEyY045S3Nxdw?oc=5",
+          "published_unix": 1792502877,
+          "provider": "ANTARA News",
+          "region": "ASEAN",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Fed to skip October but raise rates again in December, nearly all economists say",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOZUFYOUZFZXZ4UWJSN1J6RkRxM1lkdGJsUFZRZ2puQkFnRk9rczVQZF9iUS12amVsUl9ESnA4MmNlUmFuVnBVY3BoeVZoVWx1dmwtSWdCa2tGUUlXeXdWR0o0U2o5NHdUend5d2o3c1NoUlZTQUNyWFFEalBHY25QMVptcnFoRnZiSk1JVDFyb1VFYkg0NGRJaXhWemlUY3gxX3YxeVh0YkNMSHNQU21pWkc0OVQ?oc=5",
+          "published_unix": 1792502847,
+          "provider": "Reuters",
+          "region": "US / World",
+          "theme": "Fed / rates"
+        },
+        {
+          "headline": "German Mortgage Rates Reach Highest Since 2009 on Iran War Inflation Fears - News and Statistics",
+          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPNHRVRDNHQmY4WVRzNGg1RGl0Umd2dTlqb0ktMkl0cy1hWmRyM0FZd0RNdVk4c2F6dXpxeWtIdUpzclhGZXYzQjh3eVJiRjhiN2NFQjVrZklZTDE2eFo0bHM0bEpOSkdSVE9KVVc0UlJCWUdVUXN5QWllUGFBbUhSOGgzaHg3N01UQWlBdnVob2xNa2w5RDFFMWJRZm9Tdw?oc=5",
+          "published_unix": 1792502616,
+          "provider": "IndexBox",
+          "region": "EU",
+          "theme": "ECB / rates"
+        },
+        {
+          "headline": "Paras Healthcare Raises \u20b9652.5 Crore From Anchor Investors Ahead of IPO",
+          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOOW9nNmx6Z2k3d0U1NFgwclJsR3NEcEZ3c05wdFVtMTd1Y2xnWTVyVS1CaXFrSlNKUElwcTN4Y08zbXQwTXU0Ujh2UW5WNTl0NHJPSlYyQVprUXRiR0VVMTlqRngxdHdoRW0yUWtnY2FVLU13cUV4NnVtVE9NTmxtdXMtRzAtOWwzTGMzSEVTODdXb2M4aHNtT3ZWc0g1U09NalZ1bnJWSGpVNWdmRmhQNVJSTQ?oc=5",
+          "published_unix": 1792502478,
+          "provider": "India Business Trade",
+          "region": "India",
+          "theme": "Policy"
+        },
+        {
+          "headline": "Inflation Proof Utility Stocks Like Iberdrola Enel And RWE In Europe",
+          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOVFE4Q3p1eGRFVFg3a0NvU0tpaTBJcTQ1VENLRW8yd3ZadktJR2VPSGQyN1d5ZjR1Y3NWcWdkVUJENzcyTnRXVXBfanVOZFhVUk5rMlNBRkhjcVh1c3N3c3g3VnlhVGxrcGNodVpNN3hxbjJvelloSWNiYTh1S01hUTJDYmtvMXdid3JVZ1FIX1VWOUZ2Q3I5azhBZkJ3dw?oc=5",
+          "published_unix": 1792501989,
+          "provider": "Yahoo Finance",
+          "region": "EU",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Hilton to move stock listing to Nasdaq",
+          "link": "https://economictimes.indiatimes.com/markets/us-stocks/news/hilton-to-move-stock-listing-to-nasdaq/articleshow/135070768.cms",
+          "published_unix": 1792501986,
+          "provider": "Economic Times Markets",
+          "region": "India",
+          "theme": "Markets"
+        },
+        {
+          "headline": "China's CATL third-quarter profit growth slowest in nearly two years as competition intensifies",
+          "link": "https://economictimes.indiatimes.com/markets/us-stocks/news/chinas-catl-third-quarter-profit-growth-slowest-in-nearly-two-years-as-competition-intensifies/articleshow/135070675.cms",
+          "published_unix": 1792501697,
+          "provider": "Economic Times Markets",
+          "region": "India",
+          "theme": "Markets"
+        },
+        {
+          "headline": "U.S. Tech Rose, China and Indonesia Fell",
+          "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPX0U5OERQbTFNYkhyNVJFZ25lV0FpY21PTnlQQUlwZmtPTEFmNTU2SnVmZndyS0hmMlpsc2VOUTlTSHh5Q2c0ejhsSF9Cd090QjFTUHZNenhRMTllenotbk9KQnUxX2JPd1B4SXEyUFN6SlRtZnBNZWM5NGs3SmFtUGVjNWYzc20wcmfSAX5BVV95cUxQWU5uVjhYTk85LW9BOHBkaUY4b2lESk82aUJkc25PX3hJNW45a3ZMd3UwTFNSRFJibzF3OXZLb3cyb0IycVBBT0RYcy10a1hvZjlSNDFxZ0l5Z1dzM0ROQmRSUjNwbW1xMkZMc01FUWI4Y1RQeVVQZkpKd3hYWmc?oc=5",
+          "published_unix": 1792501500,
+          "provider": "Baystreet.ca",
+          "region": "ASEAN",
+          "theme": "Markets"
+        },
+        {
+          "headline": "Bank of America says 1% increase to interest rate would add $95 billion in national debt costs",
+          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNWDk4ZC1wYS13eklDXzVoTC1MLTBiMVdjbFE5ZG5UVFlpRVQ4WXllalJ4aFNPcmVmSzhkR25nMVF1VlRSU29uQ1hEb2dETkVHU3VSN3RuMkpSelp5cjA4OGNJa1h4ZGdQbVlrOHo4eklqSlZ6OGlvNG1SMFpBWTRHNXlHMkhNaWtwZFYyRUlIaw?oc=5",
+          "published_unix": 1792501440,
+          "provider": "Fortune",
+          "region": "US / World",
+          "theme": "Fed / rates"
         },
         {
           "headline": "Eternal share: What to expect from Zomato parent\u2019s Q2 results 2026 as Blinkit growth stays strong",
@@ -5223,36 +5751,12 @@
           "theme": "Markets"
         },
         {
-          "headline": "General Motors beats Wall Street's Q3 earnings expectations, narrows full-year guidance",
-          "link": "https://www.cnbc.com/2026/10/20/general-motors-gm-earnings-q3-2026.html",
-          "published_unix": 1792500267,
-          "provider": "CNBC World Markets",
-          "region": "US / World",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Rubio arrives in India amid growing pressure on global energy markets",
-          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOclJjQ3VBc01WR1M4Rm9LeXVvV3pJX2hsUEo1ZnI5RkxwZExUQklld2VCaV9SNTNzUkZpQm54VnlQMU1aWHMweFp0UGFoenpTSmIwOHpZd1dUYlhkRG4xVE1tT3VIX2FoUFhpZGpHUXJoX1pvRWY5T09sSnJfZlB1RnNIMnJYUkdwaURCMjB5ckVISF9hYVY4NmRvY1U1TFl6LXZCWEdzRV9PMC0weHZOc2JxSWJXN282SnZaMERVeVFCZw?oc=5",
-          "published_unix": 1792500231,
-          "provider": "The Washington Post",
+          "headline": "\u2018We are positive on duration bonds\u2019: Basant Bafna",
+          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQUjljeEJyV3l1bE9QWXdqdUE0RExZREotOEc0SEdXanZIanZkS2VaaFZ1WmdtdHIwZ0l1T190S3RHN2RUR1RDTmpGQmFiaUF5TjNHZTFNaUtPcjhvM2hadmVud2hlX0tISDdNRUVKRWlQQXplQktIR21zUFpXZE56Mnlkc0lCd0lpV1VlNDVHbDRDRk96WGdzVFRKZ2dkM05ZVnfSAaIBQVVfeXFMUFI5Y3hCcld5dWxPUFl3anVBNERMWURKLThHNEhHV2p2SGp2ZEtlWmhWdVpnbXRyMGdJdU9fdEt0RzdkVEdUQ05qRkJhYmlBeU4zR2UxTWlLT3I4bzNoWnZlbndoZV9LSEg3TUVFSkVpUEF6ZUJLSEdtc1BaV2ROejJ5ZHNJQndJaVdVZTQ1R2w0Q0ZPelhnc1RUSmdnZDNOWVZ3?oc=5",
+          "published_unix": 1792500648,
+          "provider": "The Financial Express",
           "region": "India",
-          "theme": "Policy"
-        },
-        {
-          "headline": "Fed to skip October but raise rates again in December, nearly all economists say",
-          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOZUFYOUZFZXZ4UWJSN1J6RkRxM1lkdGJsUFZRZ2puQkFnRk9rczVQZF9iUS12amVsUl9ESnA4MmNlUmFuVnBVY3BoeVZoVWx1dmwtSWdCa2tGUUlXeXdWR0o0U2o5NHdUend5d2o3c1NoUlZTQUNyWFFEalBHY25QMVptcnFoRnZiSk1JVDFyb1VFYkg0NGRJaXhWemlUY3gxX3YxeVh0YkNMSHNQU21pWkc0OVQ?oc=5",
-          "published_unix": 1792500229,
-          "provider": "Reuters",
-          "region": "US / World",
-          "theme": "Fed / rates"
-        },
-        {
-          "headline": "Wall Street analysts update ratings across tech, media and consumer stocks",
-          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNbHllUTBmdnhTOVJxdGJBRk94YVdWaE5CbWRBSmdIWDByWlNvczBsZVRRSWxnbnVkSF8zeG83UmEyTjVfMHhIT3NQbXlDeGFvTW0wd05ENExnMjBOOVFCQnpQZVI0OVNTYW5jS2Z2ZTNvMl96UmRzUFhjbzVkSDA0aVdIaU9rcml0T1Fpc0pHakRKYVpmNHFSUg?oc=5",
-          "published_unix": 1792499491,
-          "provider": "Traders Union",
-          "region": "US / World",
-          "theme": "Markets"
+          "theme": "RBI / rates"
         },
         {
           "headline": "British Pound advances against Euro as UK jobs data strengthens BoE hike bets",
@@ -5263,12 +5767,12 @@
           "theme": "ECB / rates"
         },
         {
-          "headline": "Will the Fed Raise Interest Rates Again This Month?",
-          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNdG15amh6WjF1REdxeFRvZS0tOGJROFl3MXc0Y2tLZ05FNEM3enJ5UlRMeXd1eW5VaUEwUTBzTkd6dmVNck8zWEtkZExBNW5wN2tjZU92VXpzajdqcmpLb3VCeVp0dWNIY0Q0ZUdjWi1qN2c2WDdhY1Zya3ozWU5MaGdQNU5HcWdCUHlZQ2F0ZmtnMVk?oc=5",
-          "published_unix": 1792498813,
-          "provider": "Norada Real Estate Investments",
-          "region": "US / World",
-          "theme": "Fed / rates"
+          "headline": "Mortgage rates in Germany reached 4.5% \u1409 News from Fakti.bg - Properties",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9fVXZGejhjOGZ3V29SQkg0TW5xT1p5SVRTdHdWd0ZKX3ZtenFmQzBkWXhSN0pXTFZCdEhSQ1VVcDBhelhlNjNEVlZfUTRpckVxbkdMeUJ3Wk52OXBJenRvS2s0RDFEbDZBcnd1OFBzaDhRcjZkUVFrY1RHQUZrWVU?oc=5",
+          "published_unix": 1792498860,
+          "provider": "Fakti.bg",
+          "region": "EU",
+          "theme": "ECB / rates"
         },
         {
           "headline": "Bajaj Finance vs IREDA vs Reliance's Jio Financial: Top financial stock to buy after Q2 results 2026 for best returns?",
@@ -5276,14 +5780,6 @@
           "published_unix": 1792498806,
           "provider": "Livemint Markets",
           "region": "India",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Foreign outflow reaches Rp2.13 trillion, BBCA recorded as top sell",
-          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxObElkdG5NZ1VLQVJHdTQ5azdSak1ZMEdJZWdScDhjYnBJZkxzbzBLZkI4a1BfeEpDaEdWenJvbXBxbml2YktXN1Zqd2NTNUx6eExBamhBbDgyU1VVakFwemdZNUZpanJlTEFYSGhsWjM5Q1RNSnJrU2RSN0cyVlUzNjd1cFA2OVlWVDUzckRMU0E1OGdxdXdRMmstWGJleWNGWF9lZGl5MldhQQ?oc=5",
-          "published_unix": 1792498800,
-          "provider": "IDNFinancials",
-          "region": "ASEAN",
           "theme": "Markets"
         },
         {
@@ -5295,7 +5791,7 @@
           "theme": "Markets"
         },
         {
-          "headline": "Dow Jones| Nasdaq | S&amp;P 500 | US Stock Market Today |Live Updates: Nasdaq futures slip as oil rises, AI stocks weaken ahead of earnings",
+          "headline": "Dow Jones| Nasdaq | S&amp;P 500 | US Stock Market Today |Live Updates: S&amp;P 500 Healthcare hits record high, Dow soars over 500 points",
           "link": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/dow-jones-stock-market-live-updates-nasdaq-sp-500-us-iran-israel-war-hormuz-deal-brent-crude-oil-fed-rate-treasury-yields-earnings-forecast-nvidia-macys-gamestop-stock-price-news-20th-september-2026/liveblog/135069926.cms",
           "published_unix": 1792497682,
           "provider": "Economic Times Markets",
@@ -5311,52 +5807,12 @@
           "theme": "Markets"
         },
         {
-          "headline": "NVIDIA Keeps Falling and Wall Street Won\u2019t Move Its Target. Is It Time To Buy?",
-          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQdXdRTEZ3b2xDdW96M2hORTVLZkcweW5wcHh1NWpZWWg5SWU0QU1PYkNpYl9HV2JXcExUUl9tWnQyX0VHU3RoMVZmWk9PUHRFbENVVlMwQmNrdzF1ZkZzOWpkNTR2a3pDSFVJQnc5aHpPbWF6aERzUVFJWFhTbmRoOVMzckIxQXJzbEtseU1BVlQ4cGpCZWZfV0tQQ3FzQQ?oc=5",
-          "published_unix": 1792497611,
-          "provider": "Yahoo Finance",
-          "region": "US / World",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Here Are Tuesday\u2019s Top Wall Street Analyst Research Calls: Akamai Technolgies, Apple, Blackrock, Ford Motor, Healthcare Realty Trust, Noble, Sunoco LP, Venture Global, Western Midstream Partners, Zoetis, and More",
-          "link": "https://news.google.com/rss/articles/CBMiygJBVV95cUxOU0hDNm9kYkZ0ZzlNSWE2VmYya01aV0hfSm8zbjFfQjZxcjNFMTN3bEVPZFZIcTQ3eDBWUWZSaWVCQ0NQSVN2VUg5SkpaRzQzcTBPQkJTcHRPYUlNemZoWEpacjRpUlZ2ZVdzMFEyTXFRZ2UxOUx4emEtUHh6MTRXeTBxbVM5SEZKNzZVcEREb1hfdFhxd05pYW5zVnBaNmxnVUVrZzBxTnR0TmJfY080WU1ZNEEzcndKMV9kR2RpY2FzRnM0MG1JczRRZ2dHdGN3bjkxV2dKVmdITDdLSVFpOFdxaXJ3LW1YWmVKRVdqX21ZMVliTVpUTmZNTjhzRHlTcUV3cFFZTE56VGVoMllnSXdURFBDTzVYUHMxbEhydXJNMXR1UTBBX1FKRnZUakdpeW5pVzdWN2lndEFDTm52dzNYaHVHaTZiaFE?oc=5",
-          "published_unix": 1792497420,
-          "provider": "24/7 Wall St.",
-          "region": "US / World",
-          "theme": "Markets"
-        },
-        {
           "headline": "Citi sees Europe as positioning winner as bearish bets on U.S. stocks mount",
           "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOYzNBM2dsaHdmNDc3RDZ2ZWIwOHVyNFhMV3pxNkdxZ1NncnBUQXpFUENRYjBDM1AwSlB6VHl2dW82ZGcxNzVURUltRkRndjljbDZzdDRkTU0wY3N4X0t5dXFGbjV6UHc4TTZJWnlESW5zYnFQaGRMVFhjOG1ieUxVcGhYaHdxZ3pBejZLRElqRUpxczl6ZERFTjBSNnhFdW5aeUg3Qm5HNDJiVlk?oc=5",
           "published_unix": 1792497374,
           "provider": "Yahoo Finance",
           "region": "EU",
           "theme": "Markets"
-        },
-        {
-          "headline": "Wall Street Gave Micron Back Its $1 Trillion Crown Just One Session Later",
-          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPNnlaU2tIdXQ3YWV3YzV1NGFad3ZFbjI1QUNIOEUzUUtiZF9aaDhHRXNpQUFjOGZVUEh1YTFUVy1ITGxzN1FndVRuSEJPbGlnNmN3VklXWDNsVS13blhFdnBsVloxOWFGXzRJaElhcUJRUDNDcnVRbjlQaDNTSEpEZThKS2tZOW5sd3BFdEJKY3BIajZhaEh4Wg?oc=5",
-          "published_unix": 1792497330,
-          "provider": "Yahoo Finance",
-          "region": "US / World",
-          "theme": "Markets"
-        },
-        {
-          "headline": "2 Revolutionary AI Stocks With 241% and 324% Upside, According to Select Wall Street Analysts",
-          "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPOWNnVkRJZ1ZDempRU0RKX2lEMm93VEs0WDVzaVRIWnpKa01sVFRnQklqN1hmcmc1eDFPc0Y5N0dBVTJKUDBhTVkyblpsQU9CZEZiZFJHeU5vbkVZN1lmQmJUbFhlc1NqNlJqVWlOTEhPZ1FkT0JLNk9oZ1BJeWtQVmlmMl9aUFRQb2dGeF83OHNTTC1yS1FwZWFldlIyY2RhVmlhb2V1ekhKaFlHekRWQk1ZenVzdE9WamFXNEVR?oc=5",
-          "published_unix": 1792496768,
-          "provider": "The Motley Fool",
-          "region": "US / World",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Jordan Kerridge: AI infrastructure spending complicates U.S. Federal Reserve rate policy",
-          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPclBGRzlYZW9selZveW9rYjNRd3RQN3gya0l5YWdURmtaX1Z2VXJSc3I0YV9mOG9CMDRXM1I4aVFVc3ljVEMxVS1TQkhLa25rR2NYNFd1VVZRdXRMSERIb3V1TDlkUVAwRUFWT2NwQ2dtSk9JVWlSdTl4YnFaZHJIZFNuVFp4OFlG?oc=5",
-          "published_unix": 1792496108,
-          "provider": "Traders Union",
-          "region": "US / World",
-          "theme": "Fed / rates"
         },
         {
           "headline": "French Turmoil, Crude Bills, Persian Gulf Hostilities Undercut European Bourses Midday",
@@ -5367,7 +5823,7 @@
           "theme": "Markets"
         },
         {
-          "headline": "Meta's AI spending, Muse assistant adoption in focus for quarterly results",
+          "headline": "Meta\u2019s AI spending and Muse adoption set to test Zuckerberg\u2019s strategy",
           "link": "https://economictimes.indiatimes.com/markets/us-stocks/news/metas-ai-spending-muse-assistant-adoption-in-focus-for-quarterly-results/articleshow/135068976.cms",
           "published_unix": 1792495931,
           "provider": "Economic Times Markets",
@@ -5375,28 +5831,12 @@
           "theme": "Markets"
         },
         {
-          "headline": "Gold extends losses as rising Oil prices reinforce Fed rate hike bets",
-          "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOQ1lWdldiOEJVbVE2UU82Mk5Mc1d1ZWFIZl9rSW83ME9YTTVzV2ZGSWNoVk5fUEpITG5qSk5qTkwzVTk3THhYUGNNYm9fRTVhd0kyb1pJSEo0c2k4V01JdFZWRS1rTzJPV0k5TTFyTXRmYndfTi1VMFZPVTFvenUwbVJ0WGpOdTFJRzRPTy0tWFduSmh0TFpYNXRuUVU0M21HQUNpY3NocXI1d3ZKUXVPX1pB?oc=5",
-          "published_unix": 1792495810,
-          "provider": "FXStreet",
-          "region": "US / World",
-          "theme": "Fed / rates"
-        },
-        {
-          "headline": "OYO-parent PRISM to nearly halve IPO fresh issue size to up to Rs 3,350 cr: Sources",
+          "headline": "Oyo parent PRISM to cut IPO fresh issue nearly 50% to Rs 3,350 crore: Sources",
           "link": "https://economictimes.indiatimes.com/markets/ipos/fpos/oyo-parent-prism-to-nearly-halve-ipo-fresh-issue-size-to-up-to-rs-3350-cr-sources/articleshow/135068962.cms",
           "published_unix": 1792495810,
           "provider": "Economic Times Markets",
           "region": "India",
           "theme": "Markets"
-        },
-        {
-          "headline": "Niall Ferguson: Why Europe Is Burning",
-          "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPV3lpUk9QNTRtaXpMai00SlFSWVJab1lNdmZFTTlmTjlMbkpYYWRwS0stR29GY1VScFF1eU5CemNuY1IwSktSdkdDamlJMV95NG9EUE92T3lORGVueUYtaGFfZ0hIbjYydVRCS0Y4RjQ0ZW5PaXJ2dmhqUWNGc3hlRVp3?oc=5",
-          "published_unix": 1792495782,
-          "provider": "The Free Press",
-          "region": "EU",
-          "theme": "ECB / rates"
         },
         {
           "headline": "Can Reliance Jio Simultaneously Pitch Itself To Global Investors As A Technology Giant While Its Billionaire Owner Is Being Publicly Accused By Elon Musk Of Benefiting From A System That Delays A Potential Competitor's Entry Into India?",
@@ -5415,76 +5855,12 @@
           "theme": "Markets"
         },
         {
-          "headline": "Ringgit ends flat on caution ahead of Fed meeting",
-          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQVW8wU1hvQVBUalVnYVlJSjd4cl81ZnloNll0VjdhS29NdmJmd25wTDlxd0M0ZWMxQnJia1Rob2xvSmltdGlSQlQ2YXhkcjNHdV9iQ1ZnOU02aVl2S2U0V1ZvdFB1dWp5S0cwQmVlQkFBU29KdGVsd0dQM3gxMXB2Y0lhME9ITmM5ZFd1clNlRzFGeWtwRW5fOQ?oc=5",
-          "published_unix": 1792495575,
-          "provider": "The Malaysian Reserve",
-          "region": "US / World",
-          "theme": "Fed / rates"
-        },
-        {
-          "headline": "RedPlanet FY26 net profit rises 21% ahead of ACE Market debut",
-          "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPTEFVWGxiNUxEQVpVZE85OVNxbUpxVDkwajRRVUZESmZVRlBzUldteU5mXzh5Rk82VmFUanBwRW8zU3ZoZk5KUy1ER1g2TzBUNHZTeV9tN0NTYWRFZEhYNjFSblZnMXRrVmtaQ0ZiU0hvbzVpbDVBMmpPb3ZIVXFKakZQaXpad09JUWZadzUwMHNKd3VlNHBfVDFaNW13VDNSUVlNV1BIZTJuclZLdTZsQ0c2M1BoOWFCUzFSdlF3?oc=5",
-          "published_unix": 1792495560,
-          "provider": "The Star",
-          "region": "ASEAN",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Wall Street Analysts Are Bullish on Top Utilities Picks",
-          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOV2ZvNzFUQ0NMSU1abGszS1VzblFBMXBtaGpUcTNZeGF0V25KbnRyT3BmYkhHTDk3YXRncGt2dE1yMUNXVHBkMlJYLWdoM2QyR1ZPa2tTUVgtbW1ib29MVFVFaE1lN2N6TjlCSHVFaVJLajRCdlhTVDA4U3M0eTlzd3Z0eXozVGRlWXBtTVBOQXVialZOdnFFS05DOGMtS1R3eEgtM2FnOUM5YjdkWDM3VzZuWlJkRXAySnRiU3VqNFZYNUlDUnpQWXZ1WnE2UU5MdEZJcjdUdw?oc=5",
-          "published_unix": 1792495513,
-          "provider": "The Globe and Mail",
-          "region": "US / World",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Number of branded housing projects in India set to jump over 2-fold in 6 years: Savills",
-          "link": "https://economictimes.indiatimes.com/markets/digital-real-estate/realty-news/number-of-branded-housing-projects-in-india-set-to-jump-over-2-fold-in-6-years-savills/articleshow/135068870.cms",
-          "published_unix": 1792495457,
-          "provider": "Economic Times Markets",
-          "region": "India",
-          "theme": "Markets"
-        },
-        {
-          "headline": "US Stocks: 3M lifts annual profit forecast on cost controls, price hikes",
-          "link": "https://economictimes.indiatimes.com/markets/us-stocks/news/us-stocks-3m-lifts-annual-profit-forecast-on-cost-controls-price-hikes/articleshow/135068806.cms",
-          "published_unix": 1792495329,
-          "provider": "Economic Times Markets",
-          "region": "India",
-          "theme": "Markets"
-        },
-        {
-          "headline": "US Stocks: GE Aerospace raises 2026 profit forecast as services strength drives growth",
-          "link": "https://economictimes.indiatimes.com/markets/us-stocks/news/us-stocks-ge-aerospace-raises-2026-profit-forecast-as-services-strength-drives-growth/articleshow/135068763.cms",
-          "published_unix": 1792495175,
-          "provider": "Economic Times Markets",
-          "region": "India",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Iran War vs Petrol Prices: Why Fuel Is Getting Cheaper in Pakistan",
+          "headline": "Oil Prices Dip as Iran War Keeps Markets on Edge: Will Petrol Get Cheaper in Pakistan?",
           "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9rM1JzWjFxZ0tJRUVUd0FtbWJkSGFpQWtxb3JwWXVCY2U5dVRzNVNoNU1tcDA1Sk1ITThfckZySU1IWnJjX1VpS2ZUOGQ0d05fMVd4UkZ2LWEtMFY2SUoxaFN5WmQ5VElqVmc?oc=5",
           "published_unix": 1792495060,
           "provider": "Brandsynario",
           "region": "Global",
           "theme": "Geopolitics / oil"
-        },
-        {
-          "headline": "US Stocks: GM's core profit rises 22% on strength of pickup-truck business",
-          "link": "https://economictimes.indiatimes.com/markets/us-stocks/news/us-stocks-gms-core-profit-rises-22-on-strength-of-pickup-truck-business/articleshow/135068643.cms",
-          "published_unix": 1792495052,
-          "provider": "Economic Times Markets",
-          "region": "India",
-          "theme": "Markets"
-        },
-        {
-          "headline": "High Growth Stocks With Strong Insider Confidence",
-          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNR2swd1FWSmlhVXlZWUZ6NzFnblB4Q1lmbTNpNnNLM2djaEQ4SUNYYVV2NnNkcGJrUnR6WnhCajBzY2JYQ2VpVzk3bUFIR2hKUktpY3ZCWEt6cmw5V1BwZkJTbEY0NkdQQ1dFU0dOS3VtdGxvNmJTZlhuRHloUE5kdndwNFI3REE0VFdMOTRJT05KZ1p0VDZTUkdJQWtrNWVRM0lTM3BXZ0NCVVp4RW9tMWlKUHdYSUtFWXJVR9IBvAFBVV95cUxNR2swd1FWSmlhVXlZWUZ6NzFnblB4Q1lmbTNpNnNLM2djaEQ4SUNYYVV2NnNkcGJrUnR6WnhCajBzY2JYQ2VpVzk3bUFIR2hKUktpY3ZCWEt6cmw5V1BwZkJTbEY0NkdQQ1dFU0dOS3VtdGxvNmJTZlhuRHloUE5kdndwNFI3REE0VFdMOTRJT05KZ1p0VDZTUkdJQWtrNWVRM0lTM3BXZ0NCVVp4RW9tMWlKUHdYSUtFWXJVRw?oc=5",
-          "published_unix": 1792494989,
-          "provider": "Simply Wall Street",
-          "region": "US / World",
-          "theme": "Markets"
         },
         {
           "headline": "Months After TMC Exit, Gujarat Allots Yusuf Pathan Disputed Vadodara Plot",
@@ -5503,12 +5879,20 @@
           "theme": "Markets"
         },
         {
-          "headline": "Artha Bharat to shift two GIFT City funds to Abu Dhabi over tax hurdles",
-          "link": "https://www.business-standard.com/markets/news/artha-bharat-to-shift-two-gift-city-funds-to-abu-dhabi-over-tax-hurdles-126102000508_1.html",
-          "published_unix": 1792494424,
-          "provider": "Business Standard Markets",
+          "headline": "New ECB warning: Pressure on the supply chain is mounting, with a risk of higher food inflation",
+          "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNTERXVjBocVUzSXAyN2VwUHFXTXdobHBZazlxZG9yN21iU0tocFN3VzFKalIwMk5tcnN1cGt4R0FQLUVZYllaOHNYWHg4Z2hWNWx5VGhJWllLMTZLZnktX1BTak80Vm5qQVd1STFpZWY0RjNKa2w2ZGhkajdZNXJzNl85UE1XblJHY1RhMkkxMzdSb0hGcUJzSEY3M3p6N0Y5WFlXX0w5TWJOMlAzUV9pWlhUWFprQWdmQzJ0alhPRzlxZ0ZNU3AwOWhB?oc=5",
+          "published_unix": 1792494064,
+          "provider": "Eunews",
+          "region": "EU",
+          "theme": "ECB / rates"
+        },
+        {
+          "headline": "Govt to Review 2019 Mineral Policy for New Priorities",
+          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPbmtzWVIzVTZCQjQ1Nkstd080YUFnOVNOZlhsaF8wM0hsRnpvall2cTV2R1QxYlh3ZVZmNTlMVGxBNHlLbnNtNEVqaHJQSUd6cXlQZmswWnFScU4wTTltR2s2SWZ6UU9EU25fTDAtWjRfcFdPdVlSblh5NHh4QUxSdWlTX0ptSUJlYWVZVXFCWWJBMk9jRV9sNGl5ZkRNamlfaEVHS19nYVJDMWhta3fSAa4BQVVfeXFMT25rc1lSM1U2QkI0NTZLLXdPNGFBZzlTTmZYbGhfMDNIbEZ6b2pZdnE1dkdUMWJYd2VWZjU5TFRsQTR5S25zbTRFamhyUElHenF5UGZrMFpxUnFOME05bUdrNklmelFPRFNuX0wwLVo0X3BXT3VZUm5YeTR4eEFMUnVpU19KbUlCZWFlWVVxQlliQTJPY0VfbDRpeWZETWppX2hFR0tfZ2FSQzFobWt3?oc=5",
+          "published_unix": 1792493479,
+          "provider": "Rediff MoneyWiz",
           "region": "India",
-          "theme": "Markets"
+          "theme": "Policy"
         },
         {
           "headline": "AUGMONT ENTERPRISES LTD Share Price - Live NSE: AUGMONT Stock Price & Chart",
@@ -5517,22 +5901,6 @@
           "provider": "Upstox",
           "region": "India",
           "theme": "FII / DII flows"
-        },
-        {
-          "headline": "Weekly market commentary",
-          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQLWJDTjBBalYwVHVpc0VxV1BwRE1xeUt1RWlLQ1VJdnJQRXNnb3p6MnFNbjRBV0s0TnlldW4wSVIycFRQeVNISWJ3VV9wMWdjX1ZndE1Tc24tNzc0anNYWjl0SVBsRDhSa0dVTWlyVVYxX0w5b2JhTFB0Tm9Vb2FwYVZubTU1SVJlcy0zMEpXOEM4ZlhiSU1QazdVQVlldw?oc=5",
-          "published_unix": 1792493044,
-          "provider": "BlackRock",
-          "region": "India",
-          "theme": "Policy"
-        },
-        {
-          "headline": "HSBC CEO warns the AI boom won\u2019t make every data center a good bet",
-          "link": "https://www.cnbc.com/2026/10/20/data-center-financing-ai-debt-hsbc.html",
-          "published_unix": 1792492757,
-          "provider": "CNBC World Markets",
-          "region": "US / World",
-          "theme": "Markets"
         },
         {
           "headline": "Reliance Jio IPO: Massive bids top $25 bn amount for anchor book! How Mukesh Ambani firm attracted top-notch investors",
@@ -5559,14 +5927,6 @@
           "theme": "ECB / rates"
         },
         {
-          "headline": "Stocks in the MSCI Indonesia index",
-          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOMGc5OGMxR0djVEtpcUUyUDVzWUdZNXZFUXdTVERqUkZaUWViV1d6TERCWGRkT1Yyd2p5YWgwdm5EdFo4bkY1NnhmNlJuWW5QamJQbFVwR1hMYllJUGdqcG1iNVR4YnhBTlVIOVpHR1ZFbkF4V2pOTHU5ZkxXTGVoRU9mNXFsWThlRjBtZHhIWmd2QQ?oc=5",
-          "published_unix": 1792492209,
-          "provider": "Reuters",
-          "region": "ASEAN",
-          "theme": "Markets"
-        },
-        {
           "headline": "USD To INR Forecast: Rupee Gains Test BofA And MUFG's 2027 Outlooks",
           "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQWDAzVXQtX1dNZmU2eUlMY01aQzJkN0pMRzVTU000OHBZZ1hSQ0NEV2wtWGdBc3BaU2RXMlNISjc5SmIteEpKR25oT1ZZWEVWbHJPS0dJSXlzOS1SMHRmd1NmSC1KdUh0Y0wtMXFkdVhIOE1RTVBSNWtNUmVEek15R2tPQ25GS1JPNldLT2pxYmdsQ3lfNERvb3NWaFNlZ210Y2liWjJUdVNsMTg3OGNjS2YzNlB1NjduWDljeFk2dzZ4Zw?oc=5",
           "published_unix": 1792492200,
@@ -5583,148 +5943,12 @@
           "theme": "ECB / rates"
         },
         {
-          "headline": "Danantara sees buying opportunity in Indonesia\u2019s stock market rout",
-          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxObXRudDlsWHZGd1ZJT1J6RTFRRDdtaDNfZkY1aDkzNmVoWjdSMU1yRzM4YUw5WkpTUU5WQW56QjJtelBSVnF3V1FZc05jTm13Mkx2M3V2N0RTNVNzVDkwUzREOG1ubzUtSUw1QmdlMWltUXc0N1hpWC1jUWdVWjF0ZTZlb2tiMXJzMXREUExWbGU1ZE5XVEltcXI0OFlHcmNCTU12MzVtNFEtZ2VzWTNGUDF1TEdfdG00am1XOERZbnByY0U?oc=5",
-          "published_unix": 1792491715,
-          "provider": "Indonesia Business Post",
-          "region": "ASEAN",
-          "theme": "Markets"
-        },
-        {
-          "headline": "The hidden risks behind Haji Isam\u2019s billion-dollar Bayan deal",
-          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQaTJOZXFGR3ZnVi13enBmWS1RTU15RVRsX0RiOUgyejZxNTItTHRNcjh3RnBpVzJHeUZpSG5vUm1wUjUwUVhJY2c5LU5RQXhmUXl3OGVNUTBlN0t4SktkZWdnS21jTU5qUVc2d0JRUlFLaHp1ak5FRld4dklZTHZyZF9tbDdNdFdiU19QZThoaFB3YU1abVBKVHBIMTZCcE51X2dyRmdDNGpmS2hVZGFjamNfb21pUXNFcnZCcw?oc=5",
-          "published_unix": 1792491714,
-          "provider": "Indonesia Business Post",
-          "region": "ASEAN",
-          "theme": "Markets"
-        },
-        {
-          "headline": "JCI rises 5.65% as IDX responds to MSCI threat",
-          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQUTZvVEpkSk5qdVRpSjRyU2tKRGRhZkxiYTVxT2hCT0VWZE1DTDZQUGhXZjZYbkY0LVFyeTFtNk0xQ0xfVzZwZUpiZ2c3QTAyd2RJaWVPcklXSlk0N1d5SklhU3d4dWx2VUVmTjZFaUxYSnp1bjc5NkZ6Qlo2RGZ4VGdCRlNaWDFwNEZ4SmtMSQ?oc=5",
-          "published_unix": 1792491600,
-          "provider": "IDNFinancials",
-          "region": "ASEAN",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Market Trading Guide: Federal Bank among 4 stock recommendations for Wednesday",
-          "link": "https://economictimes.indiatimes.com/markets/stocks/news/market-trading-guide-federal-bank-among-4-stock-recommendations-for-wednesday/slideshow/135067773.cms",
-          "published_unix": 1792491507,
-          "provider": "Economic Times Markets",
-          "region": "India",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Indonesia\u2019s market crackdown widens as 31 stocks flagged for potential violations",
-          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxORTVKZkJ5V3UwVWlzbUl6ODJlMl82b0pINnZPYmlOanhodUdyVy1aN3lxclRydHN1TkZwUHEzTzJPUnZCbE9RZ21YU2NiZlZMYXMzRlQ0R0hBQ2RXQXIydFpSUHRYWHRmYUl3NDVyWHUzOHFiNWVfRnJfUWl6STNFTUlxaEhRMkNSeVFLN21Ib0VqUVpwLURYQWM2NFVBakZvQy0xWHg0R0xLR3AzQUV6aUdfSkRFVGU2ZGxYeUtQNFhIV3BPcEVVVHRCMHdidEw5SE81TnZ1OA?oc=5",
-          "published_unix": 1792491483,
-          "provider": "Indonesia Business Post",
-          "region": "ASEAN",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Indonesian stocks recover as authorities move to address MSCI concerns",
-          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNbDl2WEVqeU53V1hLRnlyNlRtUmJucUZROEdxenZZWUtQRFJadkk3MHZGa3ZuMEw0MHVJdHhUZlNVX2wxVFhwREJfcFVSLVZGVzJpcDhXaFFBNTJoTUR6MFhUeHRWNHB1T1lnQzRPNHI1OGVZWDlzQ0xpTXUzcnRVLWhHcW1FT1lNVzg0ZFd0VXpRMl9NLW5aVXRyQWhMcFRhWnlBd2lWeFc4SVZmdHhhemRtQmFGUE9mYW9idDd6QzBiTV9BUVFjU0RieGhMdw?oc=5",
-          "published_unix": 1792491421,
-          "provider": "TradingView",
-          "region": "ASEAN",
-          "theme": "Markets"
-        },
-        {
           "headline": "Bhamashah Bhav Sthirta Kosh: scheme explainer",
           "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOYmpGVGZ6MW94cmEyUHN0TDNvbGw5M09qZlV0SklfaWc4bUlMSXVadjF6LXZuRHhjNjltZVdPeUlTbm8tcWtERHZ6bHFkamR1ZGRwSnpmdl9wYTduOTNyYWxaZ3NGaGt2T0xrRHQ4Q1RTQmhjSkdudEZNc2JkZlAxZlVJQkxFRmpqRDlDT2Z5dnpBNGJ0SGNqMUJHZEliLTg5QXJ5c2p0MUE1SXZLbnl4UXJZSFdNTVFwV3JaNTVhX0TSAcABQVVfeXFMTmJqRlRmejFveHJhMlBzdEwzb2xsOTNPamZVdEpJX2lnOG1JTEl1WnYxei12bkR4YzY5bWVXT3lJU25vLXFrRER2emxxZGpkdWRkcEp6ZnZfcGE3bjkzcmFsWmdzRmhrdk9Ma0R0OENUU0JoY0pHbnRGTXNiZGZQMWZVSUJMRUZqakQ5Q09meXZ6QTRidEhjajFCR2RJYi04OUFyeXNqdDFBNUl2S255eFFyWUhXTU1RcFdyWjU1YV9E?oc=5",
           "published_unix": 1792491240,
           "provider": "The Times of India",
           "region": "India",
           "theme": "Policy"
-        },
-        {
-          "headline": "Multibagger: Union Bank of India shares up 300% in 5 years; can rally accelerate after Q2 results? What Systematix say",
-          "link": "https://www.livemint.com/market/multibagger-union-bank-of-india-shares-up-300-in-5-years-can-rally-accelerate-after-q2-results-what-systematix-say-11792490511697.html",
-          "published_unix": 1792491198,
-          "provider": "Livemint Markets",
-          "region": "India",
-          "theme": "Markets"
-        },
-        {
-          "headline": "The Federal Reserve Just Warned More Rate Hikes Are Likely Coming. History Has Good and Bad News for Investors",
-          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPd3FBbTgwN0dFcEJLXzJZR19ZV0NnVkFLQmtwMVdNN2sxSzdOR3ZrYmlRN1EzUTdwbGxibWtqREg0bVJlQmlQYTRRYVdMU2hPejZtY1pMWlZpR09nZnEyQzQ0aHZfajVmamtubzVFeGNPV05PakdRY01laEF4VU1zWGl0R2ZHSFQxTVVWVmJfWGE4eUY4U3lWag?oc=5",
-          "published_unix": 1792490835,
-          "provider": "The Motley Fool",
-          "region": "US / World",
-          "theme": "Fed / rates"
-        },
-        {
-          "headline": "Fed Minutes Show Another Rate Hike Is Likely This Year as Kevin Warsh's FOMC Battles Persistent Inflation. Here's Why That Signal Matters for Stocks and Bonds Heading Into Year-End.",
-          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNOHY5QVRILW9reEFLcmw2eDYxZGhTaFRXV2kyQTMxYnRSQ1dyblRLQXQ0TTdkUklNLVJYQVBlLVZVUGM4MGstbzZveW53aEttemVaWXYxSnJXWE9aejVBYV9yT0NmM1ZRVTBaWmRmWW5yVlc5NFpjQURxSlk0YnFFd250dGxCeXdhNl96RUplNGZtMDhfR2FR?oc=5",
-          "published_unix": 1792490590,
-          "provider": "The Motley Fool",
-          "region": "US / World",
-          "theme": "Fed / rates"
-        },
-        {
-          "headline": "Can Wall Street\u2019s Selloff Convince the Fed to Hold Interest Rates?",
-          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPbWlzZ3Nfa0htQUkxLTBvdG9xZFJqZHJPQm84cTltTG84XzF5R3Qyb05SSDJueXdMOHJaSUFiVVlLSmhIVTF4YmtpWWlVTWdWMkZ1OTExTHJOaUdjMklKM2VkQmVDTkRNRnEtNURuOUdTWjBKeXpneFhMS1hKRC1MUjE2dVNYV2o2YWFDVzR3VF9VODRmTUNBTk1xUW1FLWJhN1BjUktn?oc=5",
-          "published_unix": 1792490586,
-          "provider": "Modern Diplomacy",
-          "region": "US / World",
-          "theme": "Fed / rates"
-        },
-        {
-          "headline": "As Indonesia faces MSCI downgrade threat, officials vow reforms to ease fears",
-          "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQVE1WbmNWLWNFNjAwZDJNaXJSZ1hiZ2VGcXg0dzE0cWtqY3M3ZEhDV3YzYWR2bFZjQ3BVUENuQ0YyS2szUzlyM013ajBPdEJ0YVV5M2FqUlRUYUpXaEdqZXZ1bUsxR2xyeXFGYXB5TlV3TnhaQ2RuUnpSeVBVMHRRbDN1Q3BpeDZ4emxodGRhWk1HUzFkOHVKYzhRM2EyOHg0QllPVnFLZE9EaHYzeXBfZW9lRlVhZUNyVnQ3NnJIbGZYRDQ5SVHSAcYBQVVfeXFMTmxkR1owVkREeHdtekI0SDNzMHdocTZPbUhqdjItdFhkRDg5ekJheWZ5TWZ1Q1J2WDFmX1R3cDFUYVdyMVFpMkF4RF8tQ05NQlFzYV93NWU1enhrcTZyY29kaUwyN2xqd09BZVBPTTFHR09lUTdnb1pWanAyX3NFZWFwc2lSUERhbDEwRGFoTnpwLXpyRllyUVNBd3ZncG5FajhDdG9oNExMMFNDT2lsVU1WRG53QTd0UE40VFVtSlJSRjZlcHFR?oc=5",
-          "published_unix": 1792490565,
-          "provider": "South China Morning Post",
-          "region": "ASEAN",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Multibagger stock announces 1:4 bonus shares: Up 550% in 5-Yrs with 1:5 stock split, dividend history; record date soon",
-          "link": "https://www.livemint.com/market/stock-market-news/multibagger-stock-announces-1-4-bonus-shares-up-550-in-5-yrs-with-1-5-stock-split-dividend-history-record-date-soon-11792487388023.html",
-          "published_unix": 1792490551,
-          "provider": "Livemint Markets",
-          "region": "India",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Top CD rates today, Oct. 20, 2026: Lock in up to up to 5.25%",
-          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9tRnBKRXNCT2hQcDZVeGoxY0VkWWxNQ20yNjdUbDRIdTVQNWNNRENucUEzVG50TGNKdTAtZHN2Wm4wWEtJSVdhNWktVktfeHV0TTUyMG55d3l1Zw?oc=5",
-          "published_unix": 1792490460,
-          "provider": "Fortune",
-          "region": "US / World",
-          "theme": "Fed / rates"
-        },
-        {
-          "headline": "JCI Rises 5.65% at Tuesday's Close: What Drives the Rebound?",
-          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNYV95N0xjMXYyQ0ZuYWJRWXdWMW9leHNFdzNmZnN6SURLOHo2OWo4QXZiRThEYmZOWm9TNU04Nk9JWGVVUEdjaXljTlQ0N2ZjXzFjRHVLS0prSGFfVHFhNWxUUllGaW9TbDdYN3puVmRwMzd1ak51R0gzR0hrUU5uejBJbFUyZUxtYmYwd1J0MWhaRUE?oc=5",
-          "published_unix": 1792490030,
-          "provider": "Tempo.co English",
-          "region": "ASEAN",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Brent hits five-month high as attacks on ships, Saudi sites fuel supply worries",
-          "link": "https://www.cnbc.com/2026/10/20/brent-crude-holds-near-five-month-high-middle-east-tension.html",
-          "published_unix": 1792489815,
-          "provider": "CNBC World Markets",
-          "region": "US / World",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Households chain six months on the rise in August and raise their Treasury bills to 22.500 million.",
-          "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQdlRMVG5lblgzYklJbXNtMVRYRVJ0YXQ4WnpLbTB6Y3VWVkR6Tm5TWVFxUXlEUC04RVNDQnBsTXdqQTNDNjdISDlpX0NhZGxMdEhKTmJtZzFacnlOdk5qaWtLNzBWU0Q1cDVUeV9nTEk5WGpIeEtjNHRPVnQzWldMWTJiendCNkdidEh4d2F3dTJzVU9wVkg3YWNSU2p6TXJjaGhiZWV6LUY1UW5lSGJ4dUMzcktrVVh3VjJKay1lZDZ3U3c5S2dGMmNfQWdackRpMkhCX0h30gHWAUFVX3lxTFB2VExUbmVuWDNiSUltc20xVFhFUnRhdDhaekttMHpjdVZWRHpOblNZUXFReURQLThFU0NCcGxNd2pBM0M2N0hIOWlfQ2FkbEx0SEpOYm1nMVpyeU52Tmppa0s3MFZTRDVwNVR5X2dMSTlYakh4S2M0dE9WdDNaV0xZMmJ6d0I2R2J0SHh3YXd1MnNVT3BWSDdhY1JTanpNcmNoaGJlZXotRjVRbmVIYnh1QzNyS2tVWHdWMkprLWVkNndTdzlLZ0YyY19BZ1pyRGkySEJfSHc?oc=5",
-          "published_unix": 1792489154,
-          "provider": "Dem\u00f3crata",
-          "region": "EU",
-          "theme": "ECB / rates"
-        },
-        {
-          "headline": "NVIDIA Corporation (NVD.DE) Stock Price, News, Quote & History",
-          "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1VT285Ni1pTkhtYzlmVHBWLXJZLWRZbkxyZVg3bUcyNkx2dU5pbXdFREcyZ3BNYlhNOWJtazFYNVBTTzFKUFd2M0IxWl9FM2dxMmVNQw?oc=5",
-          "published_unix": 1792488959,
-          "provider": "Yahoo! Finance Canada",
-          "region": "EU",
-          "theme": "Markets"
         },
         {
           "headline": "Sensex and Nifty Slip as Market Breadth Weakens; Financials Lead Declines",
@@ -5736,7 +5960,7 @@
         },
         {
           "headline": "Starlink vs Jio: India\u2019s Telecom Oligarchy Battle",
-          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPSWhmYW9BWm5MNXN6Y2c4aU1rZUxiRDliZGN2YmRfWG9aYm9rejdOZGgzUDRkS05GaDFRdWliRjQ5MkR5Q2VxMTk2WGV5ampWNU1tM0xCUXJKYVlEZ0NHZkszTy1uaE5LeWI4MUhPcWZQV0xHdmpzX1VkYVppSmhNdzJaWUdKVS0zemdIQ1Y5UmZQTEM2Z1VieHlIeWxDRm1kNENaYV9uM0hudkhwTk9LSElib3VPd9IBtgFBVV95cUxPSWhmYW9BWm5MNXN6Y2c4aU1rZUxiRDliZGN2YmRfWG9aYm9rejdOZGgzUDRkS05GaDFRdWliRjQ5MkR5Q2VxMTk2WGV5ampWNU1tM0xCUXJKYVlEZ0NHZkszTy1uaE5LeWI4MUhPcWZQV0xHdmpzX1VkYVppSmhNdzJaWUdKVS0zemdIQ1Y5UmZQTEM2Z1VieHlIeWxDRm1kNENaYV9uM0hudkhwTk9LSElib3VPdw?oc=5",
+          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOXzZpLWhqbXV1eW4tekJRQzNZSTVrSHYzYTc3eUZORTR3RzhNcGN5NU9RWklYS2xtZG5ZdlFYNzBrdkZnSVUtVUw2VlhQTTlBb2xYSlJmdUNMdmZvSl9LQXN5Z2UtX01iSkNNWEYtdGpRS3RjLTE3aXh6al9paEg0bG1YSU43Z2ZIc2lZSlQxR3VmMDhMcDRGTE1zTjU0dFJYZDZEcUNKcldBSjNBZkow0gG2AUFVX3lxTE9JaGZhb0Fabkw1c3pjZzhpTWtlTGJEOWJkY3ZiZF9Yb1pib2t6N05kaDNQNGRLTkZoMVF1aWJGNDkyRHlDZXExOTZYZXlqalY1TW0zTEJRckphWURnQ0dmSzNPLW5oTkt5YjgxSE9xZlBXTEd2anNfVWRhWmlKaE13MlpZR0pVLTN6Z0hDVjlSZlBMQzZnVWJ4eUh5bENGbWQ0Q1phX24zSG52SHBOT0tISWJvdU93?oc=5",
           "published_unix": 1792488424,
           "provider": "Frontline Magazine",
           "region": "India",
@@ -5751,43 +5975,11 @@
           "theme": "Markets"
         },
         {
-          "headline": "Greek Bonds Yield Less Than French Debt Amid Market Turmoil",
-          "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPUUpGV2I0VjJkbzV4UjVCaW85YlhaVDlzb1hHaXVLTC12R0FLeGJySlNTMFpCdzdocFlNMzltQWQ2dXlBaFkzSVlESjRVSGJhUTNib0k4ZVRySThZMEtsTkdDY1dYTEdRZ0g0Z1hfODFkTTJPZXUzdl8wbUxpSlJLQWtXMVAyQ0JfeVBieXczNm5SaVE0aHc?oc=5",
-          "published_unix": 1792488334,
-          "provider": "tovima.com",
-          "region": "EU",
-          "theme": "ECB / rates"
-        },
-        {
-          "headline": "Crash! KOSPI in free fall? South Korea stock market down another 5%, tanks 40% from record high- What\u2019s driving AI rout?",
-          "link": "https://www.livemint.com/market/stock-market-news/crash-kospi-in-free-fall-south-korea-stock-market-down-another-5-tanks-40-from-record-high-what-s-driving-ai-rout-11792483921193.html",
-          "published_unix": 1792488191,
-          "provider": "Livemint Markets",
-          "region": "India",
-          "theme": "Markets"
-        },
-        {
           "headline": "European Chip Stocks Fall More Than 4% as AI Investment Concerns Trigger Asian Sell-Off",
           "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQM0pUNXAwWUJSNDdleUVBYlh1Y2FHRl91UkR3LVpVSm5DUXloWUxTbmNBXzdRdFJmcTJzUi1YTDNXVjRqbVJ0bnY0V2ZBTThtWnRaTVpJSUZVOXUxLXlaeFVKUDBwM3RiaktDWHB0TVhXeXpBMFdBOG1POHkwMVpkSjVGVFFDZw?oc=5",
           "published_unix": 1792488174,
           "provider": "Yahoo Finance UK",
           "region": "EU",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Asian stocks fall as AI earnings and geopolitical tensions weigh on markets",
-          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNWVYyM1hhVkE5a0JKRHA3TThEcUhHN0tDSFBncVNXcldsbVctb0liYTFPVVpPQ1JLdFRTUU4xQlNTaTBlWGROQVk4TXVjRjJMdW1PWENRQXlvb3Yxc0hfVWNKNExNdlpLeldTRWRyYzRBSkJ3cG1oR0pBaHlKdVg4b1d5UERZZEg0VU1aZlMtcnJwSmRURUZZamxOVGJGeXc2YzJNeTRKRGdLWS1LMVdkbHlROTVuLWJzbWVadVY4cw?oc=5",
-          "published_unix": 1792488070,
-          "provider": "Profit by Pakistan Today",
-          "region": "Global",
-          "theme": "Geopolitics / oil"
-        },
-        {
-          "headline": "Next stock market holiday 2026: When is next weekday non-trading day at NSE, BSE? Check calendar - Oct or Nov?",
-          "link": "https://www.livemint.com/market/stock-market-news/next-stock-market-holiday-2026-when-is-next-weekday-non-trading-day-at-nse-bse-check-calendar-oct-or-nov-11792486748549.html",
-          "published_unix": 1792487937,
-          "provider": "Livemint Markets",
-          "region": "India",
           "theme": "Markets"
         },
         {
@@ -5799,28 +5991,12 @@
           "theme": "Policy"
         },
         {
-          "headline": "German mortgage rates hit highest level since 2009",
-          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOYl9sck84V1ZZYWZUNFV6dlZpQkd4WW5kYmVlVXQzUEQ0Yk9fN0tHUTE0NG5nQ3dkX0NtT0RWcldNdjhtbS1YWWJmU0twQ1gtWlpuTWc3X2Q2ZUxpWnp5emxuUkYzTy14YXpNT3RFTThxaGtGMFU3WVNMb203R2U0MTJxTlVZLWd4aHdERHZHOEd6QTNiT2xkZ0pSWFI3OWliYlVhZ0V6eWdUU1RZUXdXbnRubTB2OTE3X3M2SA?oc=5",
-          "published_unix": 1792487044,
-          "provider": "Euronews.com",
-          "region": "EU",
-          "theme": "ECB / rates"
-        },
-        {
           "headline": "UP\u2019s export story under Yogi government: From local strengths to global markets",
           "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQLUF3anUtOWlEVlNHUHlZNnQybFFvcy15eEtRRDJMN2VUWXZEb0dBaXhCejZZVUZVcGE2eVJ3OWhnbkFNUUN3dHl5bk9NdDBCb0hLc1pyUHlIYllmcEV4YmFyRkVsSWFCLS1DcHdMNnlUTTNMSkh0cE5PVXltZ3pWOUtNblNhTDZfMVVZdm1HWF9mWTdCNTQtWk5xamYyYkpxaUhNR2ozYW1KMWNxaHE4N3V6bS1vN1FnRmNVMEM4SnY4R201b1ZDRFc5NHVOVE01YW9aSkJPQmlFaWQtY2RVcDJ5ckJDNWvSAewBQVVfeXFMUGhoUGJxb1BmaUdVTmNmeGdSTDRhN0NpWXpxbHRBOGF6UVo2TmlIVWtqX2NaQWQxZVlRRHRzbEdvcU1wdVhVRmJDMm1fM21NUk1KRktUYjFSMjE3LVQzS0t0YnJESmR3Mmt6SU1fMm1laFFmV3QwUmRKOGVKcG1KOVVnSk8teHBza2hsOEEzdzYyZjhtOFViM2lqMTZ1R3RYc29LWXJOYlhDb055OW8yMEN2YV9VMTVXNTgtaEZuelM4MTAya0JRX2NzTjlNRDlrUjA3OHl2QzAwY3ZhVEhlRDEzbFZhWjcyb3FIUVM?oc=5",
           "published_unix": 1792486980,
           "provider": "The Times of India",
           "region": "India",
           "theme": "Policy"
-        },
-        {
-          "headline": "Market Open: Wickes Revenue Rises, Anglo American Copper Falls",
-          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNN3pSRm4zLW5VcFR1clpKRXd0cjlfOWNDazBaVWVqcG9iOWRtdklPWHJvWW9GbDg4WWM5TmMtekRWVzlJd2FlekpHSmxKQlJrTWh0MGFUNzNGM0Rla1pLYlRpLW1mMTE2cHlKNFdzVXFFSXEwSU5oN01zNjN5Ylc1MktYelVkTDdR?oc=5",
-          "published_unix": 1792486922,
-          "provider": "Yahoo Finance UK",
-          "region": "EU",
-          "theme": "Markets"
         },
         {
           "headline": "Brent crude climbs to $110 a barrel as Middle East attacks lift oil prices",
@@ -5831,12 +6007,12 @@
           "theme": "Geopolitics / oil"
         },
         {
-          "headline": "IPO bound Paras Healthcare raises Rs 652.50 crore from anchor investors as issue set to open on October 21",
-          "link": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-bound-paras-healthcare-raises-rs-652-50-crore-from-anchor-investors-as-issue-set-to-open-on-october-21/articleshow/135065506.cms",
-          "published_unix": 1792485846,
-          "provider": "Economic Times Markets",
+          "headline": "India\u2019s EV transition hinges on infrastructure, financing and policy support",
+          "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNc2JiWXRQb0hDb290dHB2SnlXN2I3QWptTnFxZmRaTUxKWVE0QU9hLXc2VEJjX3RPMG5qWmZtbWJDcXl6Ym1lNF9JMDQyVmpPczlmRFR5Y0VnaTV5UGJILWpjWmlvbTN1R0NSMjBQbHV2WDVnSk91aFBZWkRRcTFoamxGVFI3emhqRF9GNm9kVzNiUFRiVGRUQkVDNjJwS2N5RXN4V1cxM0FyWHlK?oc=5",
+          "published_unix": 1792486372,
+          "provider": "EV Infrastructure News",
           "region": "India",
-          "theme": "Markets"
+          "theme": "Policy"
         },
         {
           "headline": "Home loan of \u20b930 lakh, \u20b950 lakh or \u20b91 crore: Higher EMI or longer tenure\u2014Here's what works better. Calculation explained",
@@ -5863,44 +6039,12 @@
           "theme": "Markets"
         },
         {
-          "headline": "9am Markets Update",
-          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE8zaklLbmI2OC1vTWl0OFlaZkdjWGdLbm1kNjJIYWVrWDJ1SGJ4ZUMzV2NSYnUzaDBGZDVaemhaU0tsTGhNTi02VDQxVlZUcldV?oc=5",
-          "published_unix": 1792484682,
-          "provider": "RTE.ie",
-          "region": "EU",
-          "theme": "Markets"
-        },
-        {
-          "headline": "EAS Sarma IDBI disinvestment letter: What he wrote? IDBI Bank shares in focus after massive \u20b952,878 crore Fairfax deal",
-          "link": "https://news.google.com/rss/articles/CBMikwJBVV95cUxON1dkQTM0SmpJV3pLNDZzTXpDbXkzRTlyQldvYkx0RjJlY0ZHTHJKbkxlVXBzVWQtRDB6LWkwUC1Ja05uX1p0MGllMHBhbUdwMUNuV3gtaTZGMVcwYVZWdHRKcWZ6WmtnUTRaMlpQOVdxTGNWMUZ1ajhfLU1TTEtxemhrRzZ3MHNhMU83WnNGQWhYdm91THppNEMxZkNSUTJGY3haYVpIdnVwM3c0cTh4ZksyNlNJbU5VaXVVb252MkE5UWhEQndXa1hiX1BZVlphbnd4ZnF5M29nTkRqSzJRTDVuLV9jOVpkOHd0cm5keGtxQmppX25tUlo0Rkt5NWp6UUttTXdHdmYzbVRkM2FCbVhUY9IBmAJBVV95cUxObVdBNjJ1X1VSeTBaelZIb1paNVE0MFp1SFVaaFgzMksxZ0FScHZWa1NKbGY5LWRORzlYMm5NdGpPbkN6RlNoVHAyeGRPSWZOTDBibnNBbEFJRWdKOFBVNlcxbTF3Sy13NEJ0dHpPTHdqV09RaXdLZUR6OUROdzVSLWhCQWdGSzYyejlTYUUtVXhmUDd0Nk9YRXh2dWJPZFAwMHlPNkFVeHlLSzU4Q3dZTFZVRFQ4eXlnUWlVWXZ6bEVrUXNsaE92WllnQXFzT2RFWkdhQkNjOTU0N3RxZHNlT09TcFRjQzkxckpuSkp5UldLMmNXRFR5T19kMS1jYk8zb2c0bVZqRjFZU2ktaGQ0YVdUdGhJVmlG?oc=5",
-          "published_unix": 1792484364,
-          "provider": "Livemint",
-          "region": "India",
-          "theme": "Policy"
-        },
-        {
-          "headline": "U.S. bans DeepSeek from government agency systems amid AI rift with China",
-          "link": "https://www.cnbc.com/2026/10/20/us-deepseek-federal-agency-ban.html",
-          "published_unix": 1792484234,
-          "provider": "CNBC World Markets",
-          "region": "US / World",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Oil prices top $110 as traders weigh Middle East supply risks",
-          "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQMkVGVzZ5Qk5IdUZhcFBPVzR0Vmd0RnVjNW1JN19VV0xUSHFhbWRaUnM2RWljampNOFpjcDJ1Z0tFbHVTX2J6RWlyMmk3bjdxYXlNc054Um51aFBNUWlVY1U4d2U5T2o2UDhkbkFxLUNTZ1BUdmlSZklud3pIM2tyeA?oc=5",
-          "published_unix": 1792483609,
-          "provider": "Yahoo Finance UK",
-          "region": "EU",
-          "theme": "Markets"
-        },
-        {
-          "headline": "European stocks extend slide as French unrest triggers de-risking",
-          "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQTHpkeVI5TWM5aFZiMERLZXRwcGVXbjRKbEFVNzczYjJwQi1OSmp5VUh1N0JSOTZJVVZudHJHSnRPczhBZFZwR3V5aG03MFpnMlpQVUNCMDdOQ1hEbW9pZWNOc0VFVzJ3bU5kMUVmYmdwWE5vZ01rZWFnN3BCMTVQaVJLZ05hV3B6S2ZDcw?oc=5",
-          "published_unix": 1792482015,
-          "provider": "Yahoo Finance Australia",
-          "region": "EU",
-          "theme": "Markets"
+          "headline": "Oil Prices are Jumping and Markets Don't Care. That's Not Good.",
+          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPZVp5dFEzeUNUanRnYUZBemVYNVU4YzNQbV9YQlJZdXh2YVd2ckk5N3hEVHNmWEtTejRzQnhWSksxNDYwZWVKSTFDZVd5dExycGFrQTRCWUlmTnJtVzNBVXpWeHVERkhRNGZRUk1lUlAwQ2hEdzA2Rl9UbWZtTm96aGFyZmtOek1VVHlkMi1XTHREQU1HMjlLaVllczNUc3J0d080ZA?oc=5",
+          "published_unix": 1792484061,
+          "provider": "tastylive",
+          "region": "Global",
+          "theme": "Geopolitics / oil"
         },
         {
           "headline": "Sensex and Nifty Slip as Mega Caps Drag Market Lower; Financials Lead Declines",
@@ -5919,43 +6063,11 @@
           "theme": "RBI / rates"
         },
         {
-          "headline": "Global Economic Outlook: October 2026",
-          "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxONk5vSFQtOWVnQXVhVmw2M3plTkpITlFjUDJ4UjhnSWxfYmx1ay0wWTJJRi03RFJtWHZ0TFI1THF2SWRuNFBfZlEwQXdYN1BIRi1tZ3E3M2xYaVJrTElaZnFldXYxcDN4WHo0WVRyczgwZllmTzRLQW1jNG1YaGZLaDFVNA?oc=5",
-          "published_unix": 1792480800,
-          "provider": "Seeking Alpha",
-          "region": "EU",
-          "theme": "ECB / rates"
-        },
-        {
-          "headline": "Germany\u2019s DAX 40 Edges Up 0.15% to 25,298.61 as Rheinmetall and Pharma Gains Offset a 5% Slide in Siemens Energy",
-          "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPSGc2alhjOFFKTmlIRVphYUR2MVlRTURVY1ZIZ2lEYXZtS1JHRmVlTVh3SENQWndsWGpOT0dXVlpzanYzMkNuYzFoSndxeHNWY25nb0NDODZjU2dWOUxRaWRhQUJITVF1S000clhTWU92cVVTMmJBMmlWWjZiTkxOWkwxZEw2LXNFRzY3QklNSW0weTdibkRRalVDSU8xZG85d2NaNExGRW5oUnNDczhUdVNSMDJiY25TajNLdjd0VDNxNFJreV91dkJFS1g0UG9kWWo1TUgtak1Sb1ZQbEE?oc=5",
-          "published_unix": 1792480716,
-          "provider": "BBN Times",
-          "region": "EU",
-          "theme": "Markets"
-        },
-        {
-          "headline": "India\u2019s FTAs Open Export Opportunities for Rajasthan Businesses",
-          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOb0VKY3F6aGF6NHNOTVNHdTZZWFJjelI1c1c0Ynh0SDJXeFRuU0NKOTFLTjRwaExKdkZZck5hZDBkRjVMaElmR3RfdTRyZklETkpPWUE3ZUh2T05xTExEeXFNem1OUFVFcXhmbXB3NEhXWkJ3SDdtRkVWczFWX0JuSUUwSHNxZ0JPMXVzUlZrUDJZSWpWbXVnMkd6elZ4Rm1UTFHSAaIBQVVfeXFMTm9FSmNxemhhejRzTk1TR3U2WVhSY3pSNXNXNGJ4dEgyV3hUblNDSjkxS040cGhMSnZGWXJOYWQwZEY1TGhJZkd0X3U0cmZJRE5KT1lBN2VIdk9OcUxMRHlxTXptTlBVRXF4Zm1wdzRIV1pCd0g3bUZFVnMxVl9CbklFMEhzcWdCTzF1c1JWa1AyWUlqVm11ZzJHenpWeEZtVExR?oc=5",
-          "published_unix": 1792480597,
-          "provider": "SMEStreet",
-          "region": "India",
-          "theme": "Policy"
-        },
-        {
           "headline": "Sensex Falls 876 Pts, Nifty Below 22,900 on Bank Stocks, Oil Prices",
           "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxObF9rLU5NbGNKeWd1aWhoalFNbmduME4tNUE3REE2OE1wc2Y4R3ZRU1V5dVVkSk5vcENNRFVSSDFHVjJyWWVtSkhZY2NWejdfa0lNbmdOR29GRWYtYVphS3hUUUxobm1TNldkT3BoUUFlMldpN3U5QkwxMmoyeEhBNmF5UjcxV1BzSGVidnZEenZSSDY1RUpYUVhqZW1aZEZKMXk3dGZGem8yZkdialZXeDBYWkE2NnhHVHNqOUVudF9fajc1Wnh4LVVuU3AybnZRV3MwcTN1WV9zTmUtVjlYaUJPcDdFRTBUOUl6ZVI3Rk5vdw?oc=5",
           "published_unix": 1792479878,
           "provider": "Kalkine India",
           "region": "India",
-          "theme": "Markets"
-        },
-        {
-          "headline": "South Korea's Elice plunges 30% in market debut as investors reassess AI sector",
-          "link": "https://www.cnbc.com/2026/10/20/south-korea-elice-plunges-in-market-debut.html",
-          "published_unix": 1792479782,
-          "provider": "CNBC World Markets",
-          "region": "US / World",
           "theme": "Markets"
         },
         {
@@ -5965,86 +6077,6 @@
           "provider": "MarketsMojo",
           "region": "India",
           "theme": "Markets"
-        },
-        {
-          "headline": "German producer prices hit highest since March 2023 as energy costs soar, fueling inflation worries",
-          "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxON0RlQ3Bwd0daUi1ITkZnQjNxMzFrVkJIekNvZG1kVnEyOXJINzVyYkNscDVhX01SSE1vckNVdkhRQWE5QmVSREp6YXk4QVJHNnNtVWtKNnp4ektiWUROYmhtYUFKTngtMmhnRS03eWlpbzUtWGppNVlvN1Z3Zm40VWlod2pKZk9IazhYbkdSaC1LMXVEUmsxbnlJazl5X2dpMGtsVlpLemRKUEJQM0o0RWVGR0JoUVhKWW1TQzBjeGFqWEFlLXcySEZB?oc=5",
-          "published_unix": 1792477792,
-          "provider": "investingLive",
-          "region": "EU",
-          "theme": "ECB / rates"
-        },
-        {
-          "headline": "Germany September PPI +1.9% vs +1.5% m/m expected",
-          "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE44Z0dRQUk1VVVRNExoSXZvWjF5ZWxJdXRxYWl4Zk1sbDdZYUJtWWVmY2J1QmdMZUlmTjV3Qmh3STR6SURlZ1lxVVJTenc1RDFLZEZqT3IxYzlJczd5T1pwR25JSkpFLU5nNGhBcktyVG54WHdEUlBWdWh5ZHMwdw?oc=5",
-          "published_unix": 1792476112,
-          "provider": "investingLive",
-          "region": "EU",
-          "theme": "ECB / rates"
-        },
-        {
-          "headline": "Copper is outshining gold this year. Investors say the rally can survive an AI correction",
-          "link": "https://www.cnbc.com/2026/10/20/copper-prices-ai-spending-demand.html",
-          "published_unix": 1792475854,
-          "provider": "CNBC World Markets",
-          "region": "US / World",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Sensex and Nifty Slip as Financials Drag Market Amid Broad Sector Declines",
-          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPUUJZdkFhR1dDVVZXV3l2ckF5MzZSVnRTSWdpdGdKRUg0aUpLbVM4NUcyZS1pOVZFbGxMa0hSX01PZTBaUVgzYnl3bGNISWVNdzI4a1lHdmVNVFBZXzA0ak9sbHY1OVZRNy0yS1RySl9zXzYyVlFELWd5WmNYVUNnbjluMWNvV01BU183bnNWR2QxNXhCTmRmeWZlRGRTS0E5QWJmcjJJU3dvdVB5MkttblJrdnhieFI1aHNYR1BVYlRVNmxMX3dHNWFqRFlhUQ?oc=5",
-          "published_unix": 1792475746,
-          "provider": "MarketsMojo",
-          "region": "India",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Oil prices fall as markets assess U.S. move on Russian energy sanctions",
-          "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9zNnBQQVZfMk1wQXA5S1dvZ3ZhbFl2WXRZOHVYRkFQTDRtSFpwX3p4V0dDVlBaX0lSWHhySXJNQTRidG5GOVZXWE1vUV8?oc=5",
-          "published_unix": 1792475601,
-          "provider": "\u0633\u0627\u0646\u0627",
-          "region": "Global",
-          "theme": "Geopolitics / oil"
-        },
-        {
-          "headline": "Sensex rises 413.66 points, Nifty gains 149 points amid buying in IT stocks",
-          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPSl9neXZkT1JWc2FhZk5yWmlJX2REdVd1Q0ZlNHNEN2g2ejk0a0FueTFPTHNNa0Q3clJyR3laSXc4WHdESlRVTjR6REM4QmpzRUtLVUVPb1BHWjlhcWdZNkV5cTZ6dU9QWVZiVVZCQ2ZKUVhvaGptazg3dGZIcENWeVFEWElIN0FydEdUbGVvWjRHTzhWNTdDM3h5am1PamNoM0FaTzNpdk5EV0U3YV9EaXd0ckZ5OUF4Zmh1emtoWUptUQ?oc=5",
-          "published_unix": 1792474482,
-          "provider": "Mid-Day",
-          "region": "India",
-          "theme": "Markets"
-        },
-        {
-          "headline": "The world\u2019s finance chiefs see new risks \u2014 and less China angst",
-          "link": "https://www.cnbc.com/2026/10/20/imf-debt-yields-russia-china-takeaway-.html",
-          "published_unix": 1792474073,
-          "provider": "CNBC World Markets",
-          "region": "US / World",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Stock market closed today for Dussehra: No trading on NSE and BSE; Sensex closed 876 points lower, Nifty do...",
-          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOODBhNXktZW9Hbl9UTEVwd2JoczZlMkU4cTI0MUpyZlBqeTN3bjV5bUQxSHRQaVk2T2JJcFd1akRlM1FHclJvVjcwU3FTNllBaG81TXFFMFlxRm5oN3N6UEtXYlJ4aks3R2xCSnViQkpVZ1JwTzRrRXRoWXpTbDlzSW41UllZcW5UUmlyZ3VILVRjMHI1Q3VNZ19oX1lOTnY5TWlNaEpEckZTNFdLZFZJVENEeTlYbEt1VUVB0gHAAUFVX3lxTE53Qmgzb1ZicGpxUjVwZEN4WmRmXzNNQ3E0Q1Q2WGN4WXBRbTZ5RkxRUEZhVHZsaHA5WFZCbEpLNXRiMWMyRS1sM3JxN1d6Y0dhaWV4cVhjZ2I1MTlkajlmcGRyS2J0MlNQb0htOWtySjA2MUZqWWtzQVhRTklSN0lvb1ZudjdRSGRMVFlKTjhtNWdpc002RTh4NG14RG1nZ21raVR6OXpPTnRsWWlSSzJuZFpkSl81Yk1kWHhwUTZXbA?oc=5",
-          "published_unix": 1792473965,
-          "provider": "Bhaskar English",
-          "region": "India",
-          "theme": "Markets"
-        },
-        {
-          "headline": "'Cannot play hide and seek': Minister's warning over haze sends Singapore agricultural stocks lower",
-          "link": "https://www.cnbc.com/2026/10/20/singapore-haze-shanmugam-indonesia-malaysia.html",
-          "published_unix": 1792471732,
-          "provider": "CNBC World Markets",
-          "region": "US / World",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Oil Prices Mixed as Middle East Tensions Rattle Markets",
-          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNM19KX0FfZER4S3NHLVdTaHNKbmplaDdSNUNEX0p0UG9BUXhqZExDWmhkOHBYUFBiU2RVbkp1U29TUWhiRnRZOFAwRzhTb0I4c1RIVGVPZTNaSElzcXN4NlJlcGQtbDZteDZxNXdHLWJYbWxOTTF2OHFUd0JlZVBaYW1aR2J2NUFTVTAwbXRaQUdTZw?oc=5",
-          "published_unix": 1792471015,
-          "provider": "Business Post Nigeria",
-          "region": "Global",
-          "theme": "Geopolitics / oil"
         },
         {
           "headline": "RBI MAY NEED TO RAISE REPO RATE TO 6.25% AS INFLATION RISKS PERSIST: SBI MUTUAL FUND",
@@ -6063,22 +6095,6 @@
           "theme": "FII / DII flows"
         },
         {
-          "headline": "Oil Prices Ease as Markets Balance US Sanctions Waiver with Middle East Supply Risks",
-          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1EWEdpbGNRZVhJbHNGZlVCTktyNEU3U2trYi1iMXBZeWtrNThCSEN0WEdicUNPdVlicWVDNExIZVJhcXg5ZkJCQV9kcXJjbUFGWnhRTmNBa1dZV0cxWUducWhjb0hhbTJiV3I3dHpCdw?oc=5",
-          "published_unix": 1792468283,
-          "provider": "https://www.businesstimes-bd.com/",
-          "region": "Global",
-          "theme": "Geopolitics / oil"
-        },
-        {
-          "headline": "Oil Price Today (October 20): Crude oil nears $110 again as fresh attacks outweigh easing Russian sanctions. What are experts saying?",
-          "link": "https://news.google.com/rss/articles/CBMiuwJBVV95cUxQV3RrV0lWaVJ1NXVOYmt3c1pYN0tXVjJ0dUdGZ3pRZFF3N0I1MUFpVHd6Wm9iWk5iWDZfS1I2aktjeENEdExFb1NNaGNZVVNFTFJySC1TaGdrZW9UYm9UVGI4clJoaFkwanVxSkFIQTNwMVlPVGd2Y2x6bkZEcUlKb2NCOXJJMXlMeE9MSWZ0cjMzdC1BRVI2OFE4MVcwczhxQlRsT2xoY0pvOHRYMk9sY3laemN2M2tqeG5OdEhhNnJUYjJVeGRYR1NXa1VVeDhxT1dkN1gwalFNYlpLdVdJRW1lR0wzeVpuVjhyclI2VlE3RG1xV2JILUxJM21mVXk0NlZBdWY4RlctMkxqeFF1WVdBTXlMSjg1d1BRMjl2ckJaYVpxZmVqMkZHZE0xU1R2NzRlRWJDcnkxZ2s?oc=5",
-          "published_unix": 1792462853,
-          "provider": "The Economic Times",
-          "region": "Global",
-          "theme": "Geopolitics / oil"
-        },
-        {
           "headline": "Brent crude holds near 5-month high as W Asia tensions stoke supply fears",
           "link": "https://www.business-standard.com/markets/commodities/oil-prices-ease-as-russia-sanctions-relief-offsets-gulf-supply-risks-126102000063_1.html",
           "published_unix": 1792462764,
@@ -6095,12 +6111,12 @@
           "theme": "Markets"
         },
         {
-          "headline": "Crude Oil Prices At Five-Month High On Supply Concerns; Brent Oil Near $110 A Barrel",
-          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQTVR4MjJQS3hDQzZRX0dxa3J2eHl5UVg0cWRnWkx5YnZfQmVQOGs0WmVrSWpQRXotY3lKMmFGUENCN0FQTEZDcnl3cTQtcEFCX21fSlBTMFVKOHM2QktuX2xBUjNFMWlYanFCYUo3VHdVcVZqSUpTaDR5RWo2eGNod3Fma3dva0F6Z3VkX0RkcUdMc3BwOTVzdmtOdGs1MFNKUmNkaTMtTXp6aUVFbVAwNDRUY2w2b0lNUGlUOFptUzNQWEZF0gHMAUFVX3lxTE1tS0FVUzdBM3dRUlRkdmxQVWh1MFhlU3JwNWEzX1dpZUViSERXUnBFdG5SSVMzOVgzSDU2V3A1NEIzbE82c0dmLXExMHJFVVJsYTk4ZUt5SUlsdmo0N2VVeVI1Y2pFWnJCanJmNGM5VWQtVU9kUmwtcTRWaU1OOGdma2FLdGlQVXowWUVqa1Q4M1RxZFV2ckctUWNra1o3akd0ZmxjbTZTNld2YlVKbmExc1YwSlFKZlctTkxSZTMzTEE5TEFzQkprNDBwNw?oc=5",
-          "published_unix": 1792462419,
-          "provider": "NDTV Profit",
-          "region": "Global",
-          "theme": "Geopolitics / oil"
+          "headline": "Reliance Industries Share Price - Live NSE: RELIANCE Stock Price & Chart",
+          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFB6bHBYSldaWTEwM0pneWlBUVNlVjM0Njl2NFVCNGR3NTlneGlzM3VRa3Zha1RQWXJDRkxjUjR6V0hPTGsyN2FKTmFtak50X0pjUjNtQmhvMmRCTHJnNXdhYzI4c0lKU3hlVnB4cWRNbw?oc=5",
+          "published_unix": 1792461897,
+          "provider": "Upstox",
+          "region": "India",
+          "theme": "FII / DII flows"
         },
         {
           "headline": "Stock market holiday: BSE, NSE shut for trading today due to Dussehra",
@@ -6111,14 +6127,6 @@
           "theme": "Markets"
         },
         {
-          "headline": "Oil eases as markets assess potential waiver on Russian energy, Middle East supply risks",
-          "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxORXItdk11MVhzWmpBMlhoUU5McTh2M0YyTTBBclR3M2lxeWpHSXJ4QjZNLXFNdV9aQUdRWVQxQnhhTmZ1aWNKU20xZnFZZGd6TTZFQVUwT2JnNFJnVUdRdlNyN0duVDVsbUIyeTVSVUtqbTJja1J4Q2dkckJKYmxJMHBIdnRDb0NzUk9hdUZnamF6emU3eFUzVUZ3bkNxU19NMWF2dE1PV3EteDNRa1Z6UDF0OFk4UHZCc1lWeUIwNHVMUDhOVk5PUXNZNnF0Rkw1Vkp1TTNDcmJuLWx6Z3ZqY1lFdVduT0QxTERFOUhJQUNRanBxeXdxa29B0gH_AUFVX3lxTE5XbGZMYjJoenVVbDJqbGVYZDZ2UWRIRUZVV25XLUt5ZWRZLWdrSHc1RkhMSlN3RkQwYWNqNXJlN3hBWWFDb0RoNEtSeTVTcWpKNWVnVHZLekstNE5ndlF5OC0zRWMwMDZrN0ozMktPVHk0QjVKeUJHLW0xYl9oYTJTWlZucGVZLXVQMW5nNFVzTlVlTmFBcllpeWpXWGZIaGFhX0trTXdiTWFuek82NTZ2R011MWh4ek9WMFNONjNGekpSVUZuVW14ZzBidVlMaDdpYTJZMVR1T1k4U0s3dExBa2NEM2t5bVdhaUgzdm9yTHJoeDJjdkFWNTZPTVRBdw?oc=5",
-          "published_unix": 1792459593,
-          "provider": "The Economic Times",
-          "region": "Global",
-          "theme": "Geopolitics / oil"
-        },
-        {
           "headline": "How RBI\u2019s rupee defence creates fresh costs for banks, importers and borrowers",
           "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNSWdSUHJRWjcwbGN5VEl3dlg3LTM1eklpMGstQ0labzZnakVEYXpfMk5feWcwdGpoMThla21HckJRSm9XU09rV0FHMUJ2MnU3NTl0amtvdjMwYXNieUJOSDZYZWpmSHNLWVV2OVJwd09uWlZBQW5jT1VaaU1GcTREd01pRFRDVEdrUEZ5V0Zva2EyNEVuNUFRUXRyUUNKS2U5SDAtUTdOUVRhSzRSRElvSk5NSE9ReDBLRkJzWk9adVZUemNOZjlvNVpVZnN0TTFCcmZv0gHYAUFVX3lxTE5rUW5uLV9HaGREMm00TXZjckhmakJqSnozbDlOa01HTmloTGZGSmZtWGVQdlhwMEFNSWdqaS0wRTJqR0FVUnFVRTk1d21pT1pQZkFlbnRpeW5DZTVlTU1zbWNUaDBpNTFqTHJpaE1Kd1dTcEZzSzRLTi1pS3FERk96UkZJR2N6Um5TZk4xV2wxOVhnT25FR0V1YXlhTHp0UnBZOFhoXzZ5eUNwY25pV3BvbWdNLVpZVzJ2bGFQc2ZJd1ptcTBoTnNTNHZ2SDE0ZnZLcExfT1lpNw?oc=5",
           "published_unix": 1792455346,
@@ -6127,17 +6135,9 @@
           "theme": "RBI / rates"
         },
         {
-          "headline": "Oil Prices Top $100 Again... This Time, the \"Oil Route\" Is Key [Click e-Market]",
-          "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE0zdURwLXY5ZW9ET3dwWXp5eEN2RG1TSm5Qa2hVMGhPeEFOMkgtTzVyaUhFMnZaczQyZ053QzdPRGxDUFVxeF9FM3o3TnA3cktWSzljNG5DSWpMeUFwU0tZYVhoU21PMXVCMXNNNHdSdXhFdw?oc=5",
-          "published_unix": 1792447200,
-          "provider": "\uc544\uc2dc\uc544\uacbd\uc81c",
-          "region": "Global",
-          "theme": "Geopolitics / oil"
-        },
-        {
           "headline": "RBI injects Rs 1 lakh crore as liquidity tightens before festive season",
-          "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPcXJNUm5PcngwSF80RmZlay1KSnE1eTNfUkZ0NnBpTU1mQkN5QXVqYTg3RGZLTzZiRVp6TUtKLUtoaS00cHpZNHVZa29UeXhsNUF6eWg0YjF5dDdldm5pVDg0RTVkZElPUkMxendwTWhPVlpaZ2VsQWZIWVpwaWJlazhKSjBuV1EtNFlYOXQ0b1JIM1dDUVktUzJfZXZfTk1uQzctbGFvaTFTMG55UnhCTlVyS3RaZmtUeDRiekIxNTI1NWJLbnhVdFc0VzYwOVJsUGJNS1d2eDE0cFQyLUHSAeQBQVVfeXFMTXRhVHpWaEtwWlh1R1N4QmxiejkyaXhRdERIYzk4X2NxbDV4LWExOXNsQ0lWd1hycGJfTTZaNzk3dXhTc1pZQVU3ZmwxN20xUTUzRmk4RDNfNDBqc2JUdmE4YnMtdi1WNXJJZWg4alM3QXBfWmtxU21LWnFLczhJWnh4U2J5d21reW5VSHFZR3VEcE1hb0FYeFJDYmhTRVVQRm1qc0dSNWZOZTNXNVNXNVpiMFktb04yZmV1R2hQZTNJQjhvaGVWX2NCU2VHWlNDbEM4LVhNRmJ0MXd1ZkxfZHJtRnox?oc=5",
-          "published_unix": 1792439220,
+          "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOUE1Zc0c3R3gxY1hOTC1wbkF4RDliLTlzbUc2RzlLLU10em54bHFsVHk2ZmJvYXZvdGJ3VXU4R2NHNzBrUVdfM1FFcUN3czE2cF9GZUdFT2RNWEFnZkNLNldNM01rcmtQelBSOFlSdjV1Nmp6anNLcmc1STJBSi1HbmlOS3J2U0d1QXc1ZEVKekgzd3NxcUZhOTZCUUZ2a1VGX19Wa1g5MnFSMU83ZkQzMFVKcDBzcUlhUjlEX0c4SWg2MGhUaDQ0eHpTT1VZSnAtUnZjNGhuZ25Pd1h2cmZR0gHkAUFVX3lxTE10YVR6VmhLcFpYdUdTeEJsYno5Mml4UXRESGM5OF9jcWw1eC1hMTlzbENJVndYcnBiX002Wjc5N3V4U3NaWUFVN2ZsMTdtMVE1M0ZpOEQzXzQwanNiVHZhOGJzLXYtVjVySWVoOGpTN0FwX1prcVNtS1pxS3M4SVp4eFNieXdta3luVUhxWUd1RHBNYW9BWHhSQ2JoU0VVUEZtanNHUjVmTmUzVzVTVzVaYjBZLW9OMmZldUdoUGUzSUI4b2hlVl9jQlNlR1pTQ2xDOC1YTUZidDF3dWZMX2RybUZ6MQ?oc=5",
+          "published_unix": 1792439243,
           "provider": "The Economic Times",
           "region": "India",
           "theme": "RBI / rates"
@@ -6159,14 +6159,6 @@
           "theme": "Markets"
         },
         {
-          "headline": "Reliance Industries Share Price - Live NSE: RELIANCE Stock Price & Chart",
-          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFB6bHBYSldaWTEwM0pneWlBUVNlVjM0Njl2NFVCNGR3NTlneGlzM3VRa3Zha1RQWXJDRkxjUjR6V0hPTGsyN2FKTmFtak50X0pjUjNtQmhvMmRCTHJnNXdhYzI4c0lKU3hlVnB4cWRNbw?oc=5",
-          "published_unix": 1792433396,
-          "provider": "Upstox",
-          "region": "India",
-          "theme": "FII / DII flows"
-        },
-        {
           "headline": "Tonbo Imaging India IPO subscribed nearly 136 times, led by QIB demand",
           "link": "https://www.business-standard.com/markets/news/tonbo-imaging-india-ipo-subscribed-nearly-136-times-led-by-qib-demand-126101901284_1.html",
           "published_unix": 1792430976,
@@ -6179,14 +6171,6 @@
           "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOUk85bEJ6Y00wcjQ1bWd3bXhFVWwzREJzYm9FT2NmWFpFblZuUERtQUhRaE1yMzZMYzk4REkxdUtiakp4bTdKUEphWmdob1NpLUI4elp4R05YWDBRaXZuT2Z6aGIxZkdGbG16TmMtbjJqcGpvTVBfS2RSaHBqOGxTeDBFTTlidHk4M2ZWMno1QlUxS256QzdaWG5pYzdzREotNUZaQ2hJdVg?oc=5",
           "published_unix": 1792430351,
           "provider": "BW Businessworld",
-          "region": "India",
-          "theme": "RBI / rates"
-        },
-        {
-          "headline": "Confronting economic trade-offs",
-          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOeXZEMVFHa2hfMjBWT2dzbmFabkoyc0tocll2UzFBQl83bVBhdG5mcmVxQ0ZCbi1mbTVCbGJVQVVaVUQzYkZBS2trZVZMakgtOUxvZ3pYdm9GbUY5eHdZUmxTcmFJXzkxcXJfanJNS2tnNEs2OFNQRGFheVJ5cFkwVkUwUUNxM0RkcjYzYlhVSW1fbEJYSWIzQ05QeV81V3daZmx30gGoAUFVX3lxTFBzdGpJZTVTb3NxUXA3d09Bd25IQTBQU3JVaHdQcUNjMDc2YjBMMWpXWkRucU1uUGFwNGJ4ZTBnal8xWDRxek9Nei00U1h5T2FjdmFESWxLTG50QUZzTHd5MjlxZEJQcXlyX244WHcxZXFMM2RteFkwd2I1UF9tdnczejBiT1hVVUNQbkFWdHdUWHpzZWQzQ3RYMjlHTUJCMllDQndHM25YeA?oc=5",
-          "published_unix": 1792427171,
-          "provider": "Business Standard",
           "region": "India",
           "theme": "RBI / rates"
         },
@@ -6205,30 +6189,6 @@
           "provider": "Upstox",
           "region": "India",
           "theme": "FII / DII flows"
-        },
-        {
-          "headline": "FIIs sold 1149 cr, DIIs bought 3201 cr \u2013 Big Breaking Wire",
-          "link": "https://news.google.com/rss/articles/CBMiO0FVX3lxTFB5QW5oTHF4Y05NRFY0bmZUY25ZVnZkNk56Y1FPMWRHZEdySHhYQ2hUa2lqcWRBOE5hMXVF?oc=5",
-          "published_unix": 1792425717,
-          "provider": "Howl.link",
-          "region": "India",
-          "theme": "FII / DII flows"
-        },
-        {
-          "headline": "Indian Bond Yields Touch Three-Year High On Oil, RBI Tightening",
-          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQMnl6bG1LVm12OG5sN0gyQU5JTHc3UUFTVE9FSjlfVnJvVVRoUVZEY0ZibTQ2dTFxeWoyM1JRMUszcGpnM3VxLTlNMUo4aVRROHJtMFlqRHV5b2tydzM2M3laQ3J2QllNMC1vT0VndEM4RGZhOXF5QUlwTzgzRmk1VmZNUlU0aVRZeUxQb0tzb0p6ZENvczJEUklXQXRpbFVYb3B5VXp3RDRwUQ?oc=5",
-          "published_unix": 1792422823,
-          "provider": "BW Businessworld",
-          "region": "India",
-          "theme": "RBI / rates"
-        },
-        {
-          "headline": "Can monetary policy address inflation arising from supply-side disruption?",
-          "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQQUQwVkR0YXRvbUZxTm9ZS2xKUnFQS295MG1FSTExYzdRdFNPVmdjVzk4dnRjdGdhaDd0enVKMWtOUWxkWlZFUjhIY0ZGY0IxVGJmNl9TaEV2S1NvMHlmWTVrYkJlMjVVNmxibktxNUhfcU9JLVdQUlVJYnI4cVMwM2ZTaGJRZ0IxcXd5UjFmcy1lZ3R4TmxSUm4yYmFqOTRmVnJyT3NvXzdLUzNxcW9HaGdMVkFjYjZWejFYOVZ0RTc5MFhxemt5cXl6WVlFcl9BdUxONVhmLTVFU1UwYnB3RThuN2JiTVk4MEHSAfABQVVfeXFMTk40N2FqU1Y2aTFtTUVmY3FLRk9FOXR6TFc5dXB5SENIZnNHbjJuVTlPcnVNVm9EOS1tUUFRR24xUzJGN1A0S0JzWGlxREt1V1pNNE1tdUhsNHJjQnhnLTNyTTV0UmFzZVJkYVdPcGpGdGxYdTRWZkZZMm56Vlo5WEY5UUlmb0liTE1NeVYzYVZRUlRNeWstQTNVZElQT3hnMWtMWDZYWDdLc1dJWXRBM0hFR2pDa0FMemYyX3BoTHgyaVdmbW12YWFxYUVhSl9BNTFpRlJHUEJmSWltb1kxeTBOYzBzVWdCeHIxb0tRZ2hL?oc=5",
-          "published_unix": 1792418585,
-          "provider": "The Indian Express",
-          "region": "India",
-          "theme": "RBI / rates"
         },
         {
           "headline": "Zomato Share Price - Live NSE: ETERNAL Stock Price & Chart",
@@ -6295,10 +6255,18 @@
           "theme": "FII / DII flows"
         },
         {
-          "headline": "Lypsa Gems Cash Flow, Financial Statements",
-          "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPZEZKVlFmSmdmamlxT2ZnTjdmNXFaSzk3YUlHS2tteU5aNEJMMzgwX2ZCUDR3TlF4eXh3M3VscjkzV1ZtSXBxTmNMZFFPakVERjJ2MDRaQmxtNDZ4MHljZ01nVzhoR3ljeG94STIwaGN0dDJsbXRNb1VmUTN5S2NXWEwxQjU0dGc?oc=5",
-          "published_unix": 1792391851,
-          "provider": "The Economic Times",
+          "headline": "INDO-MIM LIMITED Share Price",
+          "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE0zX2xoLUxFV0F5V1dPUnFqUXB2UGZQcDlrZkZST2R5ZEotRFdkX3BsdnJWcHE5SDBWT1ROSDlSd0ptUnlmVm14b3MwSEhQd0VwQWE4Qkg5RTJsNTAxYTF0azBPN2tlZw?oc=5",
+          "published_unix": 1792393200,
+          "provider": "Upstox",
+          "region": "India",
+          "theme": "FII / DII flows"
+        },
+        {
+          "headline": "Milky Mist Dairy Food Limited Share Price",
+          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBXZXgtZjU3dWl1RnQ3TDhTSmUySkl2V0tHSFdYRUx3VDM2UmtNbnlRMEZueEJlRDNYZV9qd3dhODZ6YlVMWDcwZkpwdkVVcXlMZENPMUlNUzZQSjNlMEFJRnhjc3V3YTlyczhOaDRSVQ?oc=5",
+          "published_unix": 1792393200,
+          "provider": "Upstox",
           "region": "India",
           "theme": "FII / DII flows"
         }
@@ -6466,9 +6434,16 @@
         {
           "symbol": "GALLANTT",
           "headline": "Gallantt Ispat Q2: Profit falls 32% to \u20b960.5 crore despite 13% revenue growth",
-          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPbjJIcHEyT1AxU3AzMjRRaTl6ZVdzWWNtUVFvM082Q0tTTFBSM1NQcThtWWdOblNBc0ppcHRrM2t2c3JMLUFlX1I0SkZneVRQbHBSVXMwc09rX29GZjJrYUQ4R3JvTEZxOTdaWE5pTXBtcHIyaDVUdGZ1WEx4eGdwY0pmc2VLY0kzcVY4aXpUNzlmNGJlc1dfbW1jRmpJVmQteFM4MC1nYmVWWTR6VTc4QkZVd19GODVXUXpCNXJaRmRXd9IBwgFBVV95cUxPbjJIcHEyT1AxU3AzMjRRaTl6ZVdzWWNtUVFvM082Q0tTTFBSM1NQcThtWWdOblNBc0ppcHRrM2t2c3JMLUFlX1I0SkZneVRQbHBSVXMwc09rX29GZjJrYUQ4R3JvTEZxOTdaWE5pTXBtcHIyaDVUdGZ1WEx4eGdwY0pmc2VLY0kzcVY4aXpUNzlmNGJlc1dfbW1jRmpJVmQteFM4MC1nYmVWWTR6VTc4QkZVd19GODVXUXpCNXJaRmRXdw?oc=5",
+          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNcWI2Z2JhMmNGYnVLMUc1UHhuLVpfQlUxMGFkMzZvdE9lWEdxZ252Xzg5TW5tRTEySHBaX05ISFlTTUlNeVlnNjFpUmkzcndiRkZnYndDRHdFbHhyMTNleklKZ1lLUlhnLTJxVGpTQTBHbjNGZDd2bVNudzIzMWExclVyNm5jZ0ltb2xQaXJrMmFtTmZZc1hlRVNMcU1uMHI2eU1NUTQtcG5BNXRsOW13SE92aVpZQ0RUWEdWc9IBwgFBVV95cUxPbjJIcHEyT1AxU3AzMjRRaTl6ZVdzWWNtUVFvM082Q0tTTFBSM1NQcThtWWdOblNBc0ppcHRrM2t2c3JMLUFlX1I0SkZneVRQbHBSVXMwc09rX29GZjJrYUQ4R3JvTEZxOTdaWE5pTXBtcHIyaDVUdGZ1WEx4eGdwY0pmc2VLY0kzcVY4aXpUNzlmNGJlc1dfbW1jRmpJVmQteFM4MC1nYmVWWTR6VTc4QkZVd19GODVXUXpCNXJaRmRXdw?oc=5",
           "published_unix": 1792490246,
           "provider": "CNBC TV18"
+        },
+        {
+          "symbol": "GALLANTT",
+          "headline": "News by CNBC TV18 on TradingView, 2026-10-20 \u2014 cnbctv:5e0d93105094b:0",
+          "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9XaGg1OU5TOXZ6TnJub2FGWEJhaHhWOFZRenNjRTE3cEIzMTlkLVpxSUt3OEM1cmxVRENQUmZuTFFmTGFLMVBCSkJmUG5YdTJoeEt4Y0taSkNpRVdhOFdONGhVSEx0V2M?oc=5",
+          "published_unix": 1792490246,
+          "provider": "TradingView"
         },
         {
           "symbol": "GALLANTT",
@@ -6483,13 +6458,6 @@
           "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPOVlSOG1DdmkwYkdiQXptbW1SUS1ORFFvTDVZRFVmMUVpWUtDdU1NVXRjQkJQQ2d5RGI0bWdJcjZPbTd3cjJVWVhtSXBIVnlOQ2RMa2wyaURRUEpaQl9kMHJIcGxUMDJHN0U5YzJnRUFDWFBDT1RodFloQS1wTHNiZlNPTi1lcnBBai1qNkJadDhUZDlZYWpyY2dKSURFSHV1VmZVQU1BUDEwaVRFWkRxdTFYdEpQR0hkY0RDUUNkQlZtcW9qVFB0cFd1Y2pZOVhjTWdQMURGcw?oc=5",
           "published_unix": 1792476720,
           "provider": "Kalkine India"
-        },
-        {
-          "symbol": "GALLANTT",
-          "headline": "REC Limited: Secures No Objection Letters for Merger with PFC",
-          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNOGdlRGx6MU5PZG02b013akg3SWxxMDFNVnNTX29pcWFZNjhXZDl0MVMwU25ybkJ0b0dHZ3RFVWIxRC1KUmpDWHJCTGFkWTBSNkFRY2FjY3lnRFljazgzYnpIRE1LandfWFVFTV9wSG5XVWFRclctSFMtendKSW5XR0NNQXJfUTFOODBEaldlSXA?oc=5",
-          "published_unix": 1792473959,
-          "provider": "InvestyWise"
         },
         {
           "symbol": "CGCL",
@@ -6598,13 +6566,6 @@
         },
         {
           "symbol": "FEDERALBNK",
-          "headline": "Buy Dr Reddy's Lab at Rs 1243 - Market Trading Guide: Federal Bank among 4 stock recommendations for Wednesday",
-          "link": "https://news.google.com/rss/articles/CBMiigJBVV95cUxPN3BaY3dnM0xtMlVWMzlnMEpER3AxdDVjMGlxUmtWNDI0SXJEdENQbHFpUkdlbE51NmxvWU5Rb0liSzVadmk3VVV1bHlfT3ZCYlBhbHBqU3JYSVhPRVhSa0M0MDR3cjItNE9JX2o4ZTJtamtEMnNnSVhFYTBfNDBUNWxObTNXemtOWURKRy10UFlVQ3VDU0pxNHdLQUlnaTMxeXluR2hKRDY5MEVXVHQzX0JmT2pWNVBucUNaNEwyV3JOX3NpSlVIMi1BWVptSTZvczg0V3lNbzhZRW5JWlR4ZUdnZTlMY3djQjhhTWNuWFk2bDhyeHdMblVBR2h6Q0JUT0FQU3VYcnJBZw?oc=5",
-          "published_unix": 1792492058,
-          "provider": "The Economic Times"
-        },
-        {
-          "symbol": "FEDERALBNK",
           "headline": "Market Trading Guide: Federal Bank among 4 stock recommendations for Wednesday",
           "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxNOXVtdmtVX1BPVW5wTnFyZjZHMVFZUTFRODUwaFB5dVRQRFJ5OE9GSFdRWVFTM2JkRkFjRXFpcXJuZWtGTzYyQ0xGZE5KNm5vd3ZxX0V6NWNCUEVyb2NTckwxZXFkU3lLUF9UejNkWWpFUGVsVVVndjhHZmdkdlJzU09ISWFIcktILWg2V2lfSFRqQ2xXdC1iUlVNbzY4N2I0QnFaTzRMQ0t3R2NaQXA0UDdmdlFzNFI0c0d5a1JHWHlLM0htdDNtSlJsUmxZeGczTUM0UGQ1ODRQWlhWVDhnc2pEQ2NuVkJVUFBVcE41WQ?oc=5",
           "published_unix": 1792491705,
@@ -6632,11 +6593,32 @@
           "provider": "Investment Guru India"
         },
         {
+          "symbol": "FEDERALBNK",
+          "headline": "Emkay raises Federal Bank target from INR 400 to INR 420 for Federal Bank stock",
+          "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQb2dSYmJ6RW9FQXdzSm1oanEwZjNGTkNjV3FESDZDTG9mSkFIZHJtbnRYSEZPWVhFVTRPNGluR0QwYlhvSHA0NlhTUHpTX1lSWlptZHp2VUlOdVJTYUFiY2hrODJLQld5aF9BMk5rQW84UGpqZ285ZFltUEtqRW5ZN0tERTNIeDAxMjdTX3RVWHZ0eE9MZU1CYlpiWlRaU21LTlZKbWswbnpUTGsxOEZPNnRuVTZJVUZBQ0M1MnZvR3ZERWVnUG9seGdtSzJvdVhoeFBYdg?oc=5",
+          "published_unix": 1792459296,
+          "provider": "ad-hoc-news.de"
+        },
+        {
+          "symbol": "UNIONBANK",
+          "headline": "Ahead of Market: 10 things that will decide stock market action on Wednesday",
+          "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxOdlNKZ0dZSm4wUUw3SzlWVTVHN2tTeUsxbkFickxxX09SazY5UWwwNEh2MnV3R2lISGlnNDRFUW1iV0piWGJBU0ItNGNhSWk3WkZKZVIwZDRkUERfRzAzT2hYUTkxb0ktTVVBME1BV2twZlB3SktzS3J5RHBCMkRwWmNBeXJFcS03anpCWUllc2xNUEcyRGVVdXZKSzZBekJqcTkzQkx6cVB2R0EzQmRxVmZhUnhST3pMbGpHd2FqTDRMTnpaNXV4cUhmRk92cmhvMlpBSGEzaHdBYjZZVkFEQVJiWWZTYXNf0gHoAUFVX3lxTE52U0pnR1lKbjBRTDdLOVZVNUc3a1N5SzFuQWJyTHFfT1JrNjlRbDA0SHYydXdHaUhIaWc0NEVRbWJXSmJYYkFTQi00Y2FJaTdaRkplUjBkNGRQRF9HMDNPaFhROTFvSS1NVUEwTUFXa3BmUHdKS3NLcnlEcEIyRHBaY0F5ckVxLTdqekJZSWVzbE1QRzJEZVV1dkpLNkF6QmpxOTNCTHpxUHZHQTNCZHFWZmFSeFJPekxsakd3YWpMNExOelo1dXhxSGZGT3ZyaG8yWkFIYTNod0FiNllWQURBUmJZZlNhc18?oc=5",
+          "published_unix": 1792509120,
+          "provider": "The Economic Times"
+        },
+        {
           "symbol": "UNIONBANK",
           "headline": "Multibagger: Union Bank of India shares up 300% in 5 years; can rally accelerate after Q2 results? What Systematix say",
           "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxOLVk5aklMT0Riai1SanpHV1pUYVRkNG9fVW92ckI0aUhoeGVrclo2QXJobjY1OUZ6MVNqYzBUQXpPTm5RaEd5d0tsZEJFV29nNHROdTZrQkVkM3lmZDcycWF2X0QwUlU5dlVSNUdtYWxtWDJHb3VsR0U1U3kzeS0yNzk1TTRwNzRyenJaNVl1TGMyYU5EQ2hJVjFkTDlHLXJlbEdMWXRoT21BcjUtOW16X3VPRmh3VjJlZTBpeWdKOEFJeXJlWDFQOElmTjhHMS1EN2wyWHJjTEhVOU5FSUNlN2pJR25VRVFsODNGaG1leUpIZHBGWUxrMEh30gH_AUFVX3lxTE00QTdEY0dHc2djc0oyNVdWaGZsdFF1dlBaVWtHbWNlWUY5VjJGckJnMTdHT3N6aGM5OVVCN2d4bnJIeWZIRjNYVXVfUVB2b1BRdVBpNkR1MjJ3a2ZtWnlmcEtWT0UyMFlvRXlzcXotS1lVQlVZS2U4MUFQd054b1lfT2NTU2RvSi1sWVF4SzlaUTRtZXNBaVU0ektVcng1QlZfZDhTTEd4ZGNwdVk3NWhUQTlpOTRra2JQYkMwMnBETXJWVzdpTEtXcm1KWFpQcVMtbDBVMTRsaEg1dTNXaWpQOVprVGdZS2czT1J6QkFoTGx5eUNPV05PcS1pUTMwOA?oc=5",
           "published_unix": 1792491198,
           "provider": "Livemint"
+        },
+        {
+          "symbol": "UNIONBANK",
+          "headline": "Nifty Bank Today: Closes 0.64% Lower at 55,488",
+          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBkUlQ3WWN6dlBUM2pRT1FmM2N0Qm5MbC1RLTg2ajZJSnVwQnF3dWFieVBkWmRTWmZtbV9aNzkta3NpdFdPd3Qyc2JVV2FxbFlleEVnZG0wOUx3Q1kxVEpiQkZxU1RjRVNpTm1j?oc=5",
+          "published_unix": 1792486314,
+          "provider": "Univest"
         },
         {
           "symbol": "UNIONBANK",
@@ -6651,20 +6633,6 @@
           "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNOHI3LUZ3X3ppZzQ0YldJaUVURUdmX1RiV3NGTEY3NXNpYkJ4NGJibGJfckdBX3RLXzhsVVYyMWFGWmtrMVdJVlYtMnR6V3NiZWNGZ2pvZkZKbE50cDc4NVJhSnJYemlobERaMjRMcFl6alZqTS15YUQ1NTJqNXZkVWNXU2tqdzNnSkxScTBSbzY0ZFBSTFNIYnhFYk92TkRTZTZzWjVQSTI0ZXBxMnU5bzRRa1dpdkgwcEN5d28tbFJqM1ZoNWJqQW1XZkJQeC1VT1FNd1FZMVZSNGdBcnJLbXBfT08tT1c0M3c?oc=5",
           "published_unix": 1792479720,
           "provider": "Kalkine India"
-        },
-        {
-          "symbol": "UNIONBANK",
-          "headline": "Union Bank Q2 net profit up 30% as margins improve",
-          "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxObFZfQWxvbUM1allJa3AyNlRWZWN1RHg0MVgxRW1WSGFpMnlDcHowbi1LNmhYNEpWQ3lsT2ZuN1hPUVBOQVRqc1N2eGZfczVmNzJkbDZyUnY2ajBfYjNLX2ZBZDdQTzZCajBoRGJtTW1IZlpVbnM4Yy1UeTMtVjRsN1VqN2IxdDRnUmhIZ1labE95c1FtZWFLZ005QjN0cXdsU1dabkZySTlkSkU5dmRUS1EyVnd4TlBGTmt5WmRpVFI1SlA2MEHSAcsBQVVfeXFMTWVvSjlkakJKTnl5VE41MWJJbVZfdXVwZGY4dEYySkNLTUNWeUdBOUJXRmZuSGpNbzJYT0p0WkNHZG84NmlsT0tERGh1ZGVxNXRIRkNZTDFyVlJHSy0xTHE0bHN3ZThmMlJhMWJjVkx5LWFQZm9yUEVaQnV3Qm0zcUhaMXphUXFRdFhpWHV0MERnQzl6cGtZYmR4T0Z5N1RxX0JkSEoyWmpULUwyT2tuT3VMUDZxckdKRkFwZkljTUg3eXpQSkEyeGZuaVU?oc=5",
-          "published_unix": 1792457083,
-          "provider": "The Economic Times"
-        },
-        {
-          "symbol": "UNIONBANK",
-          "headline": "Analyst Concall: Union Bank working on digital overhaul of credit systems",
-          "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNejVrZ3VzWFI5RGJHZEZCdk13SmZWdmxHZkxqdFNvVGtzempBR0NwMldpSHZhTmJnWHEybElfa3JpQ29PRXpVYVFHWHBNZXloRlZ0bm5ZNEF1WHZBdmNBaEU4YU1FS0dhNENYMFFIeGZya2Q3ZnpVUkJqUDVYNzV4d1RTLTF6V3o5ZXhqek9kaFptNkJlcUhwY3NMdzQ5SWRGcGVtRWhscWdmVFJRNDVsWHdBWUo0MDQ?oc=5",
-          "published_unix": 1792433179,
-          "provider": "Informist"
         },
         {
           "symbol": "HBLENGINE",
@@ -6717,6 +6685,13 @@
         },
         {
           "symbol": "SJVN",
+          "headline": "Canara Robeco AMC Yearly results, Financial Summary",
+          "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNNFJNVGFaeDZmN3dJNExtRDh6Z0ZvdWtvZ1h2STJrR2VqcGpIMWdGNWlmeHE5YllOaHZhZkJRLTZHNmtaQ3B4Q2JiUlRTa1ZsWm8xVXAzUkRaMktpdzZ3aFhvdTRzV2ZGYy1ERTFLWnFsdTdtWFBlSDZDT21KZU94aDFMQXFHMEt5SFBlQ3lsXzhfcmFWSS1YM2d5RGxDQTRNbnNKTDFOT0Rtb00?oc=5",
+          "published_unix": 1792406396,
+          "provider": "The Economic Times"
+        },
+        {
+          "symbol": "SJVN",
           "headline": "Juniper Green Energy Commissions Additional 65.4 MW Wind Capacity",
           "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPQ2I1OGVBd3pzU0x3RHd3RXg0eDFtTVdtQ0V6SlRKLXdwclN1a2MxazAyZlR6dE0tdmxyUkhQc1dCdWNjQnBzamFtSktJN0l4blFWQmJXVF9NalpQLU55bW1CZzFTSVp1dVJTcVRaRnA2SkpkWDMtRmd2M1ltamxSNV9NaTh4RWNLdXNDRzhGSjUtRHFWemQxVE5SVW9tc0tIdlhZbw?oc=5",
           "published_unix": 1792404681,
@@ -6730,11 +6705,11 @@
           "provider": "Simply Wall Street"
         },
         {
-          "symbol": "SJVN",
-          "headline": "Juniper Green Energy commissions additional 65.4 MW of wind capacity under SJVN project",
-          "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxOdGhQb2VRT0Z2T2ZndlRnSmlSUHF5VVNJVVhtR21mSVlFRGhmSzc3Yk9FLWYtTDQyeGRteUlzOGE1UnZWbGl1b3R3Um9DQmhhQk9YcERuNnRkcjlRR1ZQLTNId0xJSlhFWHBONW1pN1FYMEtEUXgxR05RVHZjYWU0UGhfZ2RLeVl2VjVMLWJpN0owWGdZLTZwMlZHblRFZjhpc0tubklRX0xHeVZqS3prSVZ6UE9rQ0t2RlFWdXlUVDlMSTJaZnBqZ3dpQk0tTlRDWGVrMTRrYzBrcE1ZRWR2cFIyZndBX1M3VnpaRtIB8gFBVV95cUxPMXZpd0VMVDhlTlgyQnJtREx5MF84TXZLckhBZXAyOVpuN1Jib3YtbHl1aG55dkU0aVdhdEdHMkpBMFgtY0l1MnIxQWs0dmV5Y0V0ZF9jd2tVTUlGOGl2S01jVnZMVFI0WE0wQzNKcHY0dE5qeUZoZTcwUXNNWGl4UkZ5enlSTHVGQ3gxYk5RWHJzejRNdFVmd0s1TnZxeC1zS3ZrcGZsaVhEX0E3cGhIX3o0QjFOZkhfQzhucHpQajZINWZPR0pGcEEtUnVxMGYxSWRGWlNGVnVJTGtxQ2JzVURWME1FZlAwcVBiRlFiSnlTdw?oc=5",
-          "published_unix": 1792400990,
-          "provider": "ET EnergyWorld"
+          "symbol": "HDBFS",
+          "headline": "HDB Financial Services Q2 FY27 Profit Jumps 34% YoY as Disbursements Rise 18%",
+          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOWW84V0tKTUZlbUpneE5TMVNRYzFEU201cXdGbGhOV3FEdk5TRGx2Q3FUaE5aLVRZUWRJVjZiSGI4S2VnZ00taUZ3Zy1GaVQ3NEF3dHhHeHFEWXoxaGJibDVyaFVlSTVpLTlrRXRESEhIOWdSS19PS0lfeHd4OG5DVnd5SjRhdzlDUERYT2J6NlhIQkdZblVneVoyOG9zY0xmNExJ?oc=5",
+          "published_unix": 1792502759,
+          "provider": "Sahi"
         },
         {
           "symbol": "HDBFS",
@@ -6765,20 +6740,6 @@
           "provider": "CNBC TV18"
         },
         {
-          "symbol": "HDBFS",
-          "headline": "Hitachi Energy, Karur Vysya Bank, HDB Financial: Stocks to trade \u2014 Key levels, targets & stop loss",
-          "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxNZ2NIWXBCZVhFRW9WdGJZa1JRdHlQa1FmeHNwYkRRS3Zja0ZhbUJCVUpILTlFUXpSVTB4QlY5aTFPNzNJUlJtMnhRdklYWmZQdS1hdndOX0RTMEtGblJxRmx4SEdQTkFHZ0xQRTBLZTc0SDRuV2RMUG1lRHJOZ0tiWE5mazNHQmNxN2RSN0JoTEc2bUlXLWozdDZQUHNpWHIzNUhDak9qS0dMUHZFMkI1djFXaUt0VnBRUWdYdDlDZ2NZX3Y5X0ZJczNMYmxLS1NsLWhpQ3FvT2FyWTNTYmtncFdLRERINVJZSHJlLUt5QdIB9AFBVV95cUxQcEZlQVBjXzhjR2JUdWFqQk1EcWQ2YndZcWhnUmhsUVNoel94eHJiQkxZYURnQ21UVWcwaDcxRC1LcjVDYnZ5ell6bk9icDNUY0tMYlpvaWJCTlZvd3RaRWNyUEZybDdjQ0ZwbUc1WmNZRzVMMkNjdjJtb2h5UG10ZVdqZWQtSVUtcFdrSjVGcXpyQWZHajJ1c0RQZEZhV3lHaXZNX2xhMHZ3Rm9RRW1WYzM3d1AzRHBrMGgzb205UlZSRjJhTHBUdWV2NmFnczgxMlIxbVpRVzROOUp2aHNCLWVUelp6c2dRQ3JLVVk4RnFxU3dL?oc=5",
-          "published_unix": 1792379475,
-          "provider": "Business Today"
-        },
-        {
-          "symbol": "YESBANK",
-          "headline": "Top banking share to buy after Q2 results 2026? HDFC Bank vs Axis Bank vs ICICI Bank vs Yes Bank vs IDBI Bank - Details",
-          "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxQSnJDYmV0UmoxZDZKVzVCYXdtUzltY0hDSVNpWjVHUldKV0w0S09fa0Y1SjU4U3JKdlNqS21BTURWRHM5ektDbW5PUkh0Q1l1b25JVVdjRFJrdTN1UVdGM0hzTWRPX1V4WFhoWFNGMFZYTjY4Uk5iOW9rLUtFNWlabERXcE5xNGpzMlMwV01tU0IyYlNBWUVNdGJqX2FzTEhsakx4ZkNVajlrR0VWWlRBOXNYSWZiUkE0R2pTYl9mYnZ6dThwek9FSzdBUHFQV09kNmhPeXJSQlBUOG9KSHNwc3pIcFoxSlVnVmpBMWFtekFSVWx3ZDFqQ1lJUGZFelBocmNn?oc=5",
-          "published_unix": 1792478940,
-          "provider": "TradingView"
-        },
-        {
           "symbol": "YESBANK",
           "headline": "'Yes Bank Faces Pressure on Core Equity Capital, but could Absorb it'",
           "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPeFJZTEVhRkN5STRlSnBsbTY2X2R0VVBfYU5aZG5mZTFWVElzRUJOaEtmajk3Y3BSRTVIWXJ3MWhQQnZaa2FJQ1pmQVM2TWFYUEQ4elQ5NTJxQ1VkQTNzdkxwbnJ1WjlOQVYxZjNLMHRGYXVLSkJCUzZjdjE2ZVA4aFBWZmx4dzM0MkJ1ZTJkM2FWMk9GUzR4QVNlekMwanNlSER0MnpwNGs2NUNYcEdwaVMtZ1R6MV9ZOVdiWnM1VWo?oc=5",
@@ -6807,18 +6768,32 @@
           "provider": "The Economic Times"
         },
         {
-          "symbol": "ULTRACEMCO",
-          "headline": "UltraTech Cement Q2 FY27: Price Hikes Amid Fuel Costs",
-          "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQdWh1SGhvbFl4bFh0bjlDWkF2cG9ZTW12a0xUTVFnYzJwOUpPemJzUm1qR0swbDItMldBU192QVo2SVRiVnpNZzNzT3BscXRRMlhCSmU4Y2V6MXZXSHM4dUhIcEJwLXpQejYxYzJkSGVuMVN2cE9HSUJBbWNGbEsyTGhIeEk0Ni1ZU3ZnNDA2RF9ZQm9jN0JJMENlMGlETTg5eFZzM3NjZldMMlE2MEUzM0o4WHljNTYySGhxU094VGZobGZWLUpqdGVOMA?oc=5",
-          "published_unix": 1792493340,
-          "provider": "Kalkine India"
+          "symbol": "YESBANK",
+          "headline": "AT-1 bonds back in news after Yes Bank case: Why banks issue them, how investors earn returns | Don'ts to avoid losses",
+          "link": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxPN01uODNQWVhKTlhfUGdHNkFIQ1pibVZ6UC1EME9ELXJ4ZmtaalAwUjJsQjJOQkhOSC1lOFlOZFBXdkRyZ1dYRG94WFVWTDNvblJaYWt6bk5zaWthd3RCSFYxYjhpSHZxanlZeUV5c2lfaHFvamlBampCTV91anlnRXV1VFNINF9zaFY0cjlVclVoSU44c1ZZWmtld0FvY3J3YmpGZlFzN2dSc0VxaTh2eF9HUkw0TktiQm1ZdElTVERDcjhEeGhzaFZBWFgxMHVhSGxfXzRmNGtocXRJcDhrZXBBZHFVVi00SHB1WlhvMEU5dFVfU3fSAfsBQVVfeXFMTmxub3J2NVVRQnMtWWpIYzBLMVNabk5pcFpWdEs3VnNUX19kTjRGaDFEbFQ4VXNWNzFjMGtnZlI1c3hpZTFyZEJ6bGI2ZkRBQ1FWWHpuOHlTSFpmN2RvYkgwbm9zNlBVSGJkTGUxY19MMVRBWUY5b2lzS0NValJubFhXcnc5VkJGSmhnNmtUZC1rMG5VdE1nbnVmd3l2Q3RDbUl5VlVYNEQ2R0YwcG52ZGpGVDhGQjh6WUpVVngxNUQ1UTQyXzJmVzZOTWRJdGJ3QmpIUDJ2b2xaUXN1V3V2UkFHeGllYk84Mks1bUU4eGZFYUpsR3BMMXhLOEE?oc=5",
+          "published_unix": 1792434555,
+          "provider": "Livemint"
         },
         {
           "symbol": "ULTRACEMCO",
           "headline": "KC Jhanwar to take UltraTech Cement Vice-Chairman role as Maheshwari steps down",
           "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPbnR0UXBYUS1UaVJrU2pxVkZfWGxnLWtIZ0UtVlBFbWNZbllLaE9KQ3JoTmxiMXo0Q2szNUlJS3o0b2I5Y2FEVnNScEN2dE5iU2pOY2RJalFISHZ1bDdaWjhkdUo3S0VXLVV5ejFvbWpWeEFmU25lRmdUTTVubHZiR3Vob3FKazhZY0EzVll6UXdEUTExRVJzc2x3ZVBNVjNWdlBySzJ4VFpSeUdqZ2lfZ200elAyakJ3SkE?oc=5",
-          "published_unix": 1792490802,
+          "published_unix": 1792512736,
           "provider": "Whispers in the Corridors"
+        },
+        {
+          "symbol": "ULTRACEMCO",
+          "headline": "UltraTech Cement Opens \u20b92,650-Crore Plant in Andhra Pradesh",
+          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOMFlPZTVsbXRvSmNTSGJibE93aUJFSjluaWZNeng5NVcxd05nbDNmSnlnNjBHQ0I1dkF4V3FmMTFkekh2RHRpRTFJODduUlJycTJEem9KSk9pUlZEeUVUaWk2T213blFHYXRMTFNNbDhNSEVKMm0xTHR3cFhqbkJScGUxVlctSHNRUHJjdkdwMWxUMDg?oc=5",
+          "published_unix": 1792503088,
+          "provider": "Urban Acres"
+        },
+        {
+          "symbol": "ULTRACEMCO",
+          "headline": "UltraTech Cement Q2 FY27: Price Hikes Amid Fuel Costs",
+          "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQdWh1SGhvbFl4bFh0bjlDWkF2cG9ZTW12a0xUTVFnYzJwOUpPemJzUm1qR0swbDItMldBU192QVo2SVRiVnpNZzNzT3BscXRRMlhCSmU4Y2V6MXZXSHM4dUhIcEJwLXpQejYxYzJkSGVuMVN2cE9HSUJBbWNGbEsyTGhIeEk0Ni1ZU3ZnNDA2RF9ZQm9jN0JJMENlMGlETTg5eFZzM3NjZldMMlE2MEUzM0o4WHljNTYySGhxU094VGZobGZWLUpqdGVOMA?oc=5",
+          "published_unix": 1792493340,
+          "provider": "Kalkine India"
         },
         {
           "symbol": "ULTRACEMCO",
@@ -6829,17 +6804,10 @@
         },
         {
           "symbol": "ULTRACEMCO",
-          "headline": "Buy UltraTech Cement Ltd for the Target Rs.13,220 by Motilal Oswal Financial Services Ltd",
-          "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQMmJFd3k2aURRa0tkTF9oQVBzVVNBWTd2cF9LUS1haThKcE9EMG5iQ1BtajFDWFREcUhFVy1UWElYdVEzYm1KTjN0b1hpa1ZfQThSbkQ3M1RXdEM5bnFFRVJ6N0RkcmNWNXdjMk1ZNDNhTG1mOWJlOFdmd3p1UGJaNEk4emlhUU9CNEFhRkQtNUJUZWFUOVAtbzEtSm9Ia3F0aW9QamNFaTU3M1ZLaUdwUXBXc2g5TExFZVcwV085NzlnQUZES204bm5qcjFHNmNZcV91YQ?oc=5",
-          "published_unix": 1792485345,
-          "provider": "Investment Guru India"
-        },
-        {
-          "symbol": "ULTRACEMCO",
-          "headline": "UltraTech Cement posts 21.3 percent profit growth: what it means for UltraTech Cement stock",
-          "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPRkItQjBjWm5LN1h6R0R6U282NWZqZHhsenotWThqZTBYNGV6UkJSYndvSS1QdTJqdUYxNktzZ2hZM2diMGxkV1l2YmdwN2tEMFM0b2lXbHRoNXFHLVo1cmJDTmxxS3JkMFlDNnBzUzJ1bWc1b2FpbHo5Rm52S1JZaDRsT0U3cWJYb3lpTFA5SmIwZFVWc3NYaHB3T2NhWXB6OVcxaEZBbWhDVk13cEdWTEMwNzNGZmlzN1pZUnhpc05pMG1kWklMYkNn?oc=5",
-          "published_unix": 1792483715,
-          "provider": "ad-hoc-news.de"
+          "headline": "UltraTech cement sales rise 13.8 per cent in 2Q26-27",
+          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPUERqQjdxckw1ZGlGcnNTNmM2dnNYbGgzUHVRQ0NwXzdFNzJsZUdfamR2VWVBUjh3V2p4SHMtNVpUMlZIRTBybjg1TE9DYzV0c0hYd2dZdXR5a1FLVzBNQTI2MTBvSTBDS1U0WVZ4NWt1WkcyUGhXVmRuWk1MMDY3Qlp3dXlsSHc3RFp4WXpWdE04di1NT3lXZ2x4TjdZMmM?oc=5",
+          "published_unix": 1792485405,
+          "provider": "CemNet.com"
         }
       ]
     }
@@ -14295,7 +14263,7 @@
       "last_price_time_unix": 1792403993,
       "daily_change_pct": -1.16,
       "screening_close": 739.95,
-      "pe_trailing": 93.43,
+      "pe_trailing": 94.5,
       "pe_forward": 47.43,
       "price_to_book": 12.45,
       "ev_to_ebitda": 40.14,
@@ -20276,7 +20244,7 @@
       "last_price_time_unix": 1792403998,
       "daily_change_pct": 0.31,
       "screening_close": 245.11,
-      "pe_trailing": 63.34,
+      "pe_trailing": 63.17,
       "pe_forward": 16.73,
       "price_to_book": 1.65,
       "ev_to_ebitda": 11.41,
@@ -32246,9 +32214,9 @@
       "last_price_time_unix": 1792403978,
       "daily_change_pct": -4.19,
       "screening_close": 1236.0,
-      "pe_trailing": 13.9,
-      "pe_forward": 10.24,
-      "price_to_book": 1.79,
+      "pe_trailing": 12.9,
+      "pe_forward": 10.56,
+      "price_to_book": 1.66,
       "ev_to_ebitda": null,
       "market_cap": 3848623620096,
       "roe_pct": 13.88,
@@ -34291,9 +34259,9 @@
       "last_price_time_unix": 1792403978,
       "daily_change_pct": -2.52,
       "screening_close": 957.35,
-      "pe_trailing": 29.39,
-      "pe_forward": 19.02,
-      "price_to_book": 5.22,
+      "pe_trailing": 27.49,
+      "pe_forward": 18.99,
+      "price_to_book": 4.84,
       "ev_to_ebitda": null,
       "market_cap": 5958453952512,
       "roe_pct": 19.03,
@@ -39707,7 +39675,7 @@
       "screening_close": 427.35,
       "pe_trailing": 51.67,
       "pe_forward": 26.48,
-      "price_to_book": 5.69,
+      "price_to_book": 5.56,
       "ev_to_ebitda": 43.55,
       "market_cap": 1488059760640,
       "roe_pct": 11.25,
@@ -42757,8 +42725,8 @@
       "ownership": {
         "promoter_pct": 50.55,
         "public_pct": 49.45,
-        "as_of_quarter_end": "30-JUN-2026",
-        "submission_date": "21-JUL-2026",
+        "as_of_quarter_end": "30-SEP-2026",
+        "submission_date": "20-OCT-2026",
         "history": [
           {
             "date": "30-Jun-2025",
@@ -42779,16 +42747,20 @@
           {
             "date": "30-Jun-2026",
             "promoter_pct": 50.55
+          },
+          {
+            "date": "30-Sep-2026",
+            "promoter_pct": 50.55
           }
         ],
         "promoter_pct_3m_ago": 50.55,
-        "promoter_pct_3m_ago_date": "31-Mar-2026",
+        "promoter_pct_3m_ago_date": "30-Jun-2026",
         "promoter_change_3m_pts": 0.0,
         "promoter_pct_6m_ago": 50.55,
-        "promoter_pct_6m_ago_date": "30-Sep-2025",
+        "promoter_pct_6m_ago_date": "31-Mar-2026",
         "promoter_change_6m_pts": 0.0,
         "promoter_pct_1y_ago": 50.55,
-        "promoter_pct_1y_ago_date": "30-Jun-2025",
+        "promoter_pct_1y_ago_date": "30-Sep-2025",
         "promoter_change_1y_pts": 0.0
       },
       "pledge_data_available": true,
@@ -49107,7 +49079,7 @@
       "last_price_time_unix": 1792403998,
       "daily_change_pct": -0.89,
       "screening_close": 842.7,
-      "pe_trailing": 34.65,
+      "pe_trailing": 34.97,
       "pe_forward": 26.77,
       "price_to_book": 4.99,
       "ev_to_ebitda": 19.15,
@@ -54746,7 +54718,7 @@
       "last_price_time_unix": 1792403994,
       "daily_change_pct": -3.97,
       "screening_close": 1285.8,
-      "pe_trailing": 42.53,
+      "pe_trailing": 44.29,
       "pe_forward": 30.2,
       "price_to_book": 6.67,
       "ev_to_ebitda": 32.34,
@@ -56792,7 +56764,7 @@
       "daily_change_pct": -3.27,
       "screening_close": 208.45,
       "pe_trailing": null,
-      "pe_forward": 18.93,
+      "pe_forward": 18.92,
       "price_to_book": 4.43,
       "ev_to_ebitda": 16.28,
       "market_cap": 134224052224,
@@ -71458,7 +71430,7 @@
       "daily_change_pct": 2.57,
       "screening_close": 1486.1,
       "pe_trailing": 76.96,
-      "pe_forward": 36.73,
+      "pe_forward": 36.51,
       "price_to_book": 15.62,
       "ev_to_ebitda": 58.26,
       "market_cap": 284787605504,
@@ -77222,7 +77194,7 @@
       "last_price_time_unix": 1792403990,
       "daily_change_pct": -2.07,
       "screening_close": 207.22,
-      "pe_trailing": 15.93,
+      "pe_trailing": 16.27,
       "pe_forward": 9.21,
       "price_to_book": 2.19,
       "ev_to_ebitda": 9.59,
@@ -82983,7 +82955,7 @@
       "daily_change_pct": -1.36,
       "screening_close": 545.5,
       "pe_trailing": 57.6,
-      "pe_forward": 46.46,
+      "pe_forward": 46.59,
       "price_to_book": 6.25,
       "ev_to_ebitda": 48.77,
       "market_cap": 1184852869120,
@@ -83930,7 +83902,7 @@
       "last_price_time_unix": 1792403996,
       "daily_change_pct": -1.45,
       "screening_close": 574.3,
-      "pe_trailing": 25.96,
+      "pe_trailing": 26.34,
       "pe_forward": 20.94,
       "price_to_book": 5.22,
       "ev_to_ebitda": 14.62,
@@ -91207,7 +91179,7 @@
       "last_price_time_unix": 1792404001,
       "daily_change_pct": -0.36,
       "screening_close": 142.54,
-      "pe_trailing": 15.58,
+      "pe_trailing": 15.63,
       "pe_forward": 10.13,
       "price_to_book": 1.73,
       "ev_to_ebitda": 9.61,
@@ -93082,7 +93054,7 @@
       "daily_change_pct": -2.63,
       "screening_close": 294.35,
       "pe_trailing": 74.52,
-      "pe_forward": 17.52,
+      "pe_forward": 20.02,
       "price_to_book": 0.9,
       "ev_to_ebitda": 20.88,
       "market_cap": 136827543552,
@@ -93968,7 +93940,7 @@
       "daily_change_pct": 0.32,
       "screening_close": 856.85,
       "pe_trailing": 8.73,
-      "pe_forward": 7.52,
+      "pe_forward": 7.48,
       "price_to_book": 1.33,
       "ev_to_ebitda": null,
       "market_cap": 1154146107392,
@@ -100388,7 +100360,7 @@
       "last_price_time_unix": 1792404001,
       "daily_change_pct": 3.74,
       "screening_close": 139.35,
-      "pe_trailing": 6.91,
+      "pe_trailing": 6.66,
       "pe_forward": 5.53,
       "price_to_book": 0.9,
       "ev_to_ebitda": null,
@@ -103379,7 +103351,7 @@
       "last_price_time_unix": 1792404001,
       "daily_change_pct": -3.41,
       "screening_close": 117.24,
-      "pe_trailing": 10.42,
+      "pe_trailing": 10.79,
       "pe_forward": 7.82,
       "price_to_book": 1.05,
       "ev_to_ebitda": null,
@@ -104842,8 +104814,8 @@
       "free_cashflow": null,
       "total_debt": 791000000,
       "total_cash": 3096999936,
-      "held_pct_insiders": 62.22,
-      "held_pct_institutions": 28.48,
+      "held_pct_insiders": null,
+      "held_pct_institutions": null,
       "fifty_two_week_high": 3745.0,
       "fifty_two_week_low": 2658.7,
       "beta": 0.19,
@@ -106704,9 +106676,9 @@
       "tv_research": null,
       "ownership": {
         "promoter_pct": 45.22,
-        "public_pct": 53.79,
-        "as_of_quarter_end": "30-JUN-2026",
-        "submission_date": "15-JUL-2026",
+        "public_pct": 53.82,
+        "as_of_quarter_end": "30-SEP-2026",
+        "submission_date": "20-OCT-2026",
         "history": [
           {
             "date": "30-Jun-2025",
@@ -106727,16 +106699,20 @@
           {
             "date": "30-Jun-2026",
             "promoter_pct": 45.22
+          },
+          {
+            "date": "30-Sep-2026",
+            "promoter_pct": 45.22
           }
         ],
         "promoter_pct_3m_ago": 45.22,
-        "promoter_pct_3m_ago_date": "31-Mar-2026",
+        "promoter_pct_3m_ago_date": "30-Jun-2026",
         "promoter_change_3m_pts": 0.0,
         "promoter_pct_6m_ago": 45.22,
-        "promoter_pct_6m_ago_date": "30-Sep-2025",
+        "promoter_pct_6m_ago_date": "31-Mar-2026",
         "promoter_change_6m_pts": 0.0,
         "promoter_pct_1y_ago": 45.22,
-        "promoter_pct_1y_ago_date": "30-Jun-2025",
+        "promoter_pct_1y_ago_date": "30-Sep-2025",
         "promoter_change_1y_pts": 0.0
       },
       "pledge_data_available": true,
@@ -111127,7 +111103,7 @@
       "last_price_time_unix": 1792404001,
       "daily_change_pct": -2.59,
       "screening_close": 1973.2,
-      "pe_trailing": 51.28,
+      "pe_trailing": 52.65,
       "pe_forward": 34.59,
       "price_to_book": 7.92,
       "ev_to_ebitda": 23.98,
@@ -114970,7 +114946,7 @@
       "last_price_time_unix": 1792403991,
       "daily_change_pct": -1.01,
       "screening_close": 639.95,
-      "pe_trailing": 171.11,
+      "pe_trailing": 172.96,
       "pe_forward": 89.07,
       "price_to_book": 12.72,
       "ev_to_ebitda": 85.01,
@@ -117712,7 +117688,7 @@
       "last_price_time_unix": 1792403978,
       "daily_change_pct": -2.85,
       "screening_close": 4264.9,
-      "pe_trailing": 23.52,
+      "pe_trailing": 24.21,
       "pe_forward": 18.53,
       "price_to_book": 4.89,
       "ev_to_ebitda": 14.94,
@@ -118152,7 +118128,7 @@
       "daily_change_pct": -2.78,
       "screening_close": 3611.3,
       "pe_trailing": 28.33,
-      "pe_forward": 22.0,
+      "pe_forward": 21.98,
       "price_to_book": 5.91,
       "ev_to_ebitda": 19.17,
       "market_cap": 383109365760,
@@ -127278,10 +127254,10 @@
       "rsi_discrepancy": false,
       "tv_research": null,
       "ownership": {
-        "promoter_pct": 71.8,
-        "public_pct": 28.2,
-        "as_of_quarter_end": "30-JUN-2026",
-        "submission_date": "20-JUL-2026",
+        "promoter_pct": 71.72,
+        "public_pct": 28.28,
+        "as_of_quarter_end": "30-SEP-2026",
+        "submission_date": "20-OCT-2026",
         "history": [
           {
             "date": "30-Jun-2025",
@@ -127302,17 +127278,21 @@
           {
             "date": "30-Jun-2026",
             "promoter_pct": 71.8
+          },
+          {
+            "date": "30-Sep-2026",
+            "promoter_pct": 71.72
           }
         ],
-        "promoter_pct_3m_ago": 71.93,
-        "promoter_pct_3m_ago_date": "31-Mar-2026",
-        "promoter_change_3m_pts": -0.13,
-        "promoter_pct_6m_ago": 72.1,
-        "promoter_pct_6m_ago_date": "30-Sep-2025",
-        "promoter_change_6m_pts": -0.3,
-        "promoter_pct_1y_ago": 72.25,
-        "promoter_pct_1y_ago_date": "30-Jun-2025",
-        "promoter_change_1y_pts": -0.45
+        "promoter_pct_3m_ago": 71.8,
+        "promoter_pct_3m_ago_date": "30-Jun-2026",
+        "promoter_change_3m_pts": -0.08,
+        "promoter_pct_6m_ago": 71.93,
+        "promoter_pct_6m_ago_date": "31-Mar-2026",
+        "promoter_change_6m_pts": -0.21,
+        "promoter_pct_1y_ago": 72.1,
+        "promoter_pct_1y_ago_date": "30-Sep-2025",
+        "promoter_change_1y_pts": -0.38
       },
       "pledge_data_available": true,
       "pledge": null,
@@ -135301,7 +135281,7 @@
       "daily_change_pct": -2.42,
       "screening_close": 336.65,
       "pe_trailing": 378.26,
-      "pe_forward": 115.59,
+      "pe_forward": 116.62,
       "price_to_book": 67.04,
       "ev_to_ebitda": 158.5,
       "market_cap": 964725309440,
@@ -135337,10 +135317,10 @@
       "rsi_discrepancy": false,
       "tv_research": null,
       "ownership": {
-        "promoter_pct": 52.08,
-        "public_pct": 47.92,
-        "as_of_quarter_end": "30-JUN-2026",
-        "submission_date": "20-JUL-2026",
+        "promoter_pct": 52.07,
+        "public_pct": 47.93,
+        "as_of_quarter_end": "30-SEP-2026",
+        "submission_date": "20-OCT-2026",
         "history": [
           {
             "date": "30-Jun-2025",
@@ -135361,17 +135341,21 @@
           {
             "date": "30-Jun-2026",
             "promoter_pct": 52.08
+          },
+          {
+            "date": "30-Sep-2026",
+            "promoter_pct": 52.07
           }
         ],
-        "promoter_pct_3m_ago": 52.09,
-        "promoter_pct_3m_ago_date": "31-Mar-2026",
+        "promoter_pct_3m_ago": 52.08,
+        "promoter_pct_3m_ago_date": "30-Jun-2026",
         "promoter_change_3m_pts": -0.01,
-        "promoter_pct_6m_ago": 52.12,
-        "promoter_pct_6m_ago_date": "30-Sep-2025",
-        "promoter_change_6m_pts": -0.04,
-        "promoter_pct_1y_ago": 52.14,
-        "promoter_pct_1y_ago_date": "30-Jun-2025",
-        "promoter_change_1y_pts": -0.06
+        "promoter_pct_6m_ago": 52.09,
+        "promoter_pct_6m_ago_date": "31-Mar-2026",
+        "promoter_change_6m_pts": -0.02,
+        "promoter_pct_1y_ago": 52.12,
+        "promoter_pct_1y_ago_date": "30-Sep-2025",
+        "promoter_change_1y_pts": -0.05
       },
       "pledge_data_available": true,
       "pledge": null,
@@ -135740,7 +135724,7 @@
       "daily_change_pct": -1.56,
       "screening_close": 1676.4,
       "pe_trailing": 23.17,
-      "pe_forward": 15.78,
+      "pe_forward": 15.79,
       "price_to_book": 3.19,
       "ev_to_ebitda": 17.01,
       "market_cap": 609542799360,
@@ -135778,8 +135762,8 @@
       "ownership": {
         "promoter_pct": 67.7,
         "public_pct": 32.3,
-        "as_of_quarter_end": "30-JUN-2026",
-        "submission_date": "13-JUL-2026",
+        "as_of_quarter_end": "30-SEP-2026",
+        "submission_date": "20-OCT-2026",
         "history": [
           {
             "date": "30-Jun-2025",
@@ -135800,16 +135784,20 @@
           {
             "date": "30-Jun-2026",
             "promoter_pct": 67.7
+          },
+          {
+            "date": "30-Sep-2026",
+            "promoter_pct": 67.7
           }
         ],
         "promoter_pct_3m_ago": 67.7,
-        "promoter_pct_3m_ago_date": "31-Mar-2026",
+        "promoter_pct_3m_ago_date": "30-Jun-2026",
         "promoter_change_3m_pts": 0.0,
         "promoter_pct_6m_ago": 67.7,
-        "promoter_pct_6m_ago_date": "30-Sep-2025",
+        "promoter_pct_6m_ago_date": "31-Mar-2026",
         "promoter_change_6m_pts": 0.0,
         "promoter_pct_1y_ago": 67.7,
-        "promoter_pct_1y_ago_date": "30-Jun-2025",
+        "promoter_pct_1y_ago_date": "30-Sep-2025",
         "promoter_change_1y_pts": 0.0
       },
       "pledge_data_available": true,
@@ -142218,7 +142206,7 @@
       "last_price_time_unix": 1792403983,
       "daily_change_pct": -0.68,
       "screening_close": 1884.0,
-      "pe_trailing": 52.12,
+      "pe_trailing": 52.48,
       "pe_forward": 37.99,
       "price_to_book": 6.13,
       "ev_to_ebitda": 27.62,
@@ -143990,7 +143978,7 @@
       "pe_forward": 12.86,
       "price_to_book": 1.53,
       "ev_to_ebitda": null,
-      "market_cap": 460178030592,
+      "market_cap": 460922519552,
       "roe_pct": 6.04,
       "roa_pct": null,
       "debt_to_equity": 286.78,
@@ -144190,7 +144178,7 @@
       "last_price_time_unix": 1792403978,
       "daily_change_pct": -1.7,
       "screening_close": 1147.9,
-      "pe_trailing": 12.73,
+      "pe_trailing": 12.95,
       "pe_forward": 10.89,
       "price_to_book": 1.56,
       "ev_to_ebitda": null,
@@ -158947,7 +158935,7 @@
       "last_price_time_unix": 1792404000,
       "daily_change_pct": 2.34,
       "screening_close": 1226.6,
-      "pe_trailing": 31.32,
+      "pe_trailing": 30.6,
       "pe_forward": 17.99,
       "price_to_book": 3.03,
       "ev_to_ebitda": 14.12,
@@ -160501,7 +160489,7 @@
       "daily_change_pct": -1.04,
       "screening_close": 1176.0,
       "pe_trailing": 65.85,
-      "pe_forward": 16.26,
+      "pe_forward": 16.54,
       "price_to_book": 2.66,
       "ev_to_ebitda": 34.41,
       "market_cap": 125777707008,
@@ -171320,7 +171308,7 @@
       "daily_change_pct": -0.61,
       "screening_close": 1779.1,
       "pe_trailing": 28.59,
-      "pe_forward": 19.95,
+      "pe_forward": 19.94,
       "price_to_book": 5.31,
       "ev_to_ebitda": 15.34,
       "market_cap": 1576146436096,
@@ -177842,9 +177830,9 @@
       "last_price_time_unix": 1792403978,
       "daily_change_pct": -2.36,
       "screening_close": 10650.0,
-      "pe_trailing": 36.71,
-      "pe_forward": 25.07,
-      "price_to_book": 4.09,
+      "pe_trailing": 35.61,
+      "pe_forward": 25.49,
+      "price_to_book": 4.26,
       "ev_to_ebitda": 19.05,
       "market_cap": 3131787968512,
       "roe_pct": 11.5,
@@ -178285,9 +178273,9 @@
       "last_price_time_unix": 1792403978,
       "daily_change_pct": 5.25,
       "screening_close": 180.7,
-      "pe_trailing": 6.68,
-      "pe_forward": 6.63,
-      "price_to_book": 0.99,
+      "pe_trailing": 6.27,
+      "pe_forward": 6.56,
+      "price_to_book": 0.97,
       "ev_to_ebitda": null,
       "market_cap": 1379392552960,
       "roe_pct": 16.29,
@@ -179001,7 +178989,7 @@
       "last_price_time_unix": 1792403985,
       "daily_change_pct": -1.86,
       "screening_close": 1087.4,
-      "pe_trailing": 51.29,
+      "pe_trailing": 52.25,
       "pe_forward": 34.7,
       "price_to_book": 9.19,
       "ev_to_ebitda": 29.59,
@@ -187361,7 +187349,7 @@
       "last_price_time_unix": 1792403982,
       "daily_change_pct": -0.81,
       "screening_close": 1113.9,
-      "pe_trailing": 24.62,
+      "pe_trailing": 24.83,
       "pe_forward": 22.59,
       "price_to_book": 4.13,
       "ev_to_ebitda": 17.94,
@@ -188300,68 +188288,68 @@
       "available": true,
       "rows": [
         {
-          "symbol": "HINDZINC",
-          "company": "Hindustan Zinc Limited",
-          "subject": "Copy of Newspaper Publication",
-          "details": "Hindustan Zinc Limited has informed the Exchange about Copy of Newspaper Publication",
-          "announced_at": "20-Oct-2026 17:41:23",
-          "attachment_url": "https://nsearchives.nseindia.com/corporate/HINDZINCNSE_20102026174101_SEIntimation20102026.pdf"
+          "symbol": "CANHLIFE",
+          "company": "Canara HSBC Life Insurance Company Limited",
+          "subject": "Shareholders meeting",
+          "details": "Canara HSBC Life Insurance Company Limited has submitted the Exchange a copy Srutinizers report of  Postal Ballot. Further, the company has informed the Exchange regarding voting results.",
+          "announced_at": "20-Oct-2026 23:05:12",
+          "attachment_url": "https://nsearchives.nseindia.com/corporate/CANARAHSBCLIFE_20102026230440_Voting_Results-_October_2026.pdf"
         },
         {
-          "symbol": "SUNPHARMA",
-          "company": "Sun Pharmaceutical Industries Limited",
-          "subject": "Press Release",
-          "details": "Sun Pharmaceutical Industries Limited has informed the Exchange regarding a press release dated October 20, 2026.",
-          "announced_at": "20-Oct-2026 17:35:31",
-          "attachment_url": "https://nsearchives.nseindia.com/corporate/SUNSEC_20102026173321_SE_Intimation_of_Press_Release_on_NCCN_Gudelines_Update.pdf"
-        },
-        {
-          "symbol": "BSOFT",
-          "company": "BIRLASOFT LIMITED",
+          "symbol": "HEXT",
+          "company": "Hexaware Technologies Limited",
           "subject": "Record Date",
-          "details": "BIRLASOFT LIMITED has informed the Exchange that Record date for the purpose of Dividend  is 05-Nov-2026.",
-          "announced_at": "20-Oct-2026 17:32:20",
-          "attachment_url": "https://nsearchives.nseindia.com/corporate/BSOFT_20102026172834_SEIntimation.pdf"
+          "details": "Hexaware Technologies Limited has informed the Exchange that Record date for the purpose of Dividend  is 26-Oct-2026.",
+          "announced_at": "20-Oct-2026 21:12:44",
+          "attachment_url": "https://nsearchives.nseindia.com/corporate/HEXAWARETECH_20102026211219_2nd_Intimation_-_dividend.pdf"
         },
         {
-          "symbol": "INDIAMART",
-          "company": "Indiamart Intermesh Limited",
+          "symbol": "HEXT",
+          "company": "Hexaware Technologies Limited",
+          "subject": "General Updates",
+          "details": "Hexaware Technologies Limited has informed the Exchange about 2nd Interim Dividend",
+          "announced_at": "20-Oct-2026 21:08:47",
+          "attachment_url": "https://nsearchives.nseindia.com/corporate/HEXAWARETECH_20102026210834_2nd_Intimation_-_dividend.pdf"
+        },
+        {
+          "symbol": "BPCL",
+          "company": "Bharat Petroleum Corporation Limited",
           "subject": "Analysts/Institutional Investor Meet/Con. Call Updates",
-          "details": "Please find enclosed herewith the intimation of Schedule of Earnings Conference Call on results and developments for the quarter ended September 30, 2026",
-          "announced_at": "20-Oct-2026 17:23:41",
-          "attachment_url": "https://nsearchives.nseindia.com/corporate/INDIAMART_20102026172324_SE_Intimation_of_Investor_Call_2026.pdf"
+          "details": "Bharat Petroleum Corporation Limited has informed the Exchange about Schedule of meet",
+          "announced_at": "20-Oct-2026 21:00:09",
+          "attachment_url": "https://nsearchives.nseindia.com/corporate/BPCL26_20102026205949_stexconcall201026s.pdf"
         },
         {
-          "symbol": "NETWEB",
-          "company": "Netweb Technologies India Limited",
-          "subject": "Analysts/Institutional Investor Meet/Con. Call Updates",
-          "details": "Netweb Technologies India Limited has informed the Exchange about Schedule of meet",
-          "announced_at": "20-Oct-2026 16:53:58",
-          "attachment_url": "https://nsearchives.nseindia.com/corporate/NETWEB1234_20102026165340_Intimation_of_Earning_Call_Q2FY27.pdf"
+          "symbol": "TVSMOTOR",
+          "company": "TVS Motor Company Limited",
+          "subject": "Credit Rating",
+          "details": "TVS Motor Company Limited has informed the Exchange about Credit Rating",
+          "announced_at": "20-Oct-2026 19:08:54",
+          "attachment_url": "https://nsearchives.nseindia.com/corporate/TVSMOTOR_20102026190843_NSEBSEIntimation_sgd.pdf"
         },
         {
-          "symbol": "ICICIPRULI",
-          "company": "ICICI Prudential Life Insurance Company Limited",
-          "subject": "Action(s) taken or orders passed",
-          "details": "ICICI Life Insurance Limited has informed the Exchange about Action(s) taken or orders passed",
-          "announced_at": "20-Oct-2026 16:50:11",
-          "attachment_url": "https://nsearchives.nseindia.com/corporate/ICICIPRULI_20102026165000_Disclosure_tax_order_dated_October_20_2026.pdf"
+          "symbol": "FSL",
+          "company": "Firstsource Solutions Limited",
+          "subject": "Press Release",
+          "details": "Firstsource Solutions Limited has informed the Exchange regarding a press release dated October 20, 2026, titled \"This is to inform that a Press Release titled    Firstsource named Horizon 3 Market Leader in HFS Horizons: Customer Experience Services, 2026  is attached along with this letter.\".",
+          "announced_at": "20-Oct-2026 18:51:06",
+          "attachment_url": "https://nsearchives.nseindia.com/corporate/FSL_20102026185049_Cover_letter_PressRelease_Horizon_signed.pdf"
         },
         {
-          "symbol": "RAILTEL",
-          "company": "Railtel Corporation Of India Limited",
-          "subject": "Bagging/Receiving of orders/contracts",
-          "details": "Railtel Corporation Of India Limited has informed the Exchange about Bagging/Receiving of orders/contracts",
-          "announced_at": "20-Oct-2026 16:49:39",
-          "attachment_url": "https://nsearchives.nseindia.com/corporate/RAILTEL_20102026164928_Railtel_Order_Book_Company_Rep_201026.pdf"
+          "symbol": "NTPC",
+          "company": "NTPC Limited",
+          "subject": "Updates",
+          "details": "NTPC Limited has informed the Exchange regarding ''Clarification on the news item published on the website of AD HOC NEWS dated 20th October 2026 captioned \"NTPC Posts 7.43 Percent Profit Growth; Buyback Sets Date for NTPC stock\".",
+          "announced_at": "20-Oct-2026 18:36:10",
+          "attachment_url": "https://nsearchives.nseindia.com/corporate/NTPC_20102026183417_20261020_NEWSCLARIFICATION_STEX.pdf"
         },
         {
-          "symbol": "LTTS",
-          "company": "L&T Technology Services Limited",
-          "subject": "Copy of Newspaper Publication",
-          "details": "L&T Technology Services Limited has informed the Exchange about Copy of Newspaper Clippings relating to the Unaudited Consolidated and Standalone financial results of the Company for the quarter and half year ended September 30, 2026.",
-          "announced_at": "20-Oct-2026 16:47:43",
-          "attachment_url": "https://nsearchives.nseindia.com/corporate/LTTS_20102026164715_LTTS_Newspaperadv_19-10-2026sd.pdf"
+          "symbol": "SCHAEFFLER",
+          "company": "Schaeffler India Limited",
+          "subject": "General Updates",
+          "details": "Schaeffler India Limited has informed the Exchange about General Updates",
+          "announced_at": "20-Oct-2026 18:31:45",
+          "attachment_url": "https://nsearchives.nseindia.com/corporate/SCHAEFFLERUSER1_20102026183024_Reg_30_Intimation.pdf"
         }
       ],
       "source": "nseindia.com official corporate-announcements API \u2014 latest market-wide batch, filtered to this project's universe"
@@ -190661,7 +190649,7 @@
     }
   },
   "global_markets": {
-    "as_of_ist": "2026-10-20T18:19:23.726672+05:30",
+    "as_of_ist": "2026-10-20T23:32:57.940758+05:30",
     "regional_indices": {
       "India": {
         "name": "NIFTY 50",
@@ -190678,45 +190666,45 @@
         "name": "S&P 500",
         "ticker": "^GSPC",
         "available": true,
-        "last": 7690.72998046875,
-        "last_date": "2026-10-19",
-        "1d_change_pct": 0.4085160181666714,
-        "ret_1w_pct": -1.4923359651885626,
-        "ret_1m_pct": 0.52584772849813,
-        "ret_6m_pct": 8.180874656642168
+        "last": 7720.259765625,
+        "last_date": "2026-10-20",
+        "1d_change_pct": 0.3839659594244482,
+        "ret_1w_pct": -1.0914223722631733,
+        "ret_1m_pct": -0.5723392863813181,
+        "ret_6m_pct": 9.290049444629233
       },
       "China": {
         "name": "Hang Seng",
         "ticker": "^HSI",
         "available": true,
-        "last": 23867.740234375,
-        "last_date": "2026-10-20",
-        "1d_change_pct": -1.3192710360114157,
-        "ret_1w_pct": -1.6622952196911678,
-        "ret_1m_pct": -2.993578990451673,
-        "ret_6m_pct": -8.763612067980143
+        "last": 24186.830078125,
+        "last_date": "2026-10-16",
+        "1d_change_pct": 0.5157744900553984,
+        "ret_1w_pct": -0.10127288088271902,
+        "ret_1m_pct": -2.1322081597476727,
+        "ret_6m_pct": -8.363294546244038
       },
       "Japan": {
         "name": "Nikkei 225",
         "ticker": "^N225",
         "available": true,
-        "last": 64075.421875,
-        "last_date": "2026-10-20",
-        "1d_change_pct": -1.2959336409190225,
-        "ret_1w_pct": -5.4621375564332,
-        "ret_1m_pct": 0.9314462959168601,
-        "ret_6m_pct": 13.402267546481571
+        "last": 64916.69921875,
+        "last_date": "2026-10-19",
+        "1d_change_pct": -0.6239483806092849,
+        "ret_1w_pct": -5.959970610996567,
+        "ret_1m_pct": 2.2423120663237706,
+        "ret_6m_pct": 14.040781544946213
       },
       "Germany": {
         "name": "DAX",
         "ticker": "^GDAXI",
         "available": true,
-        "last": 25113.98046875,
+        "last": 25304.419921875,
         "last_date": "2026-10-20",
-        "1d_change_pct": -0.8127604093947749,
-        "ret_1w_pct": -0.5776741777222427,
-        "ret_1m_pct": -1.8026554089322855,
-        "ret_6m_pct": 4.082228013221267
+        "1d_change_pct": -0.060623021690842105,
+        "ret_1w_pct": 0.17624587017976978,
+        "ret_1m_pct": -1.0580244004977701,
+        "ret_6m_pct": 4.87148412527143
       },
       "Australia": {
         "name": "ASX 200",
@@ -190734,52 +190722,52 @@
       "Gold": {
         "ticker": "GC=F",
         "available": true,
-        "last": 4144.39990234375,
+        "last": 4141.7001953125,
         "last_date": "2026-10-20",
-        "1d_change_pct": -0.3773994602039865,
-        "ret_1w_pct": -0.7875877691812305,
-        "ret_1m_pct": -5.4631721831047475,
-        "ret_6m_pct": -12.187477400853176
+        "1d_change_pct": -0.4422947023346002,
+        "ret_1w_pct": -0.8522158101999855,
+        "ret_1m_pct": -5.524754497742146,
+        "ret_6m_pct": -12.24467943016474
       },
       "Brent Crude Oil": {
         "ticker": "BZ=F",
         "available": true,
-        "last": 109.77999877929688,
+        "last": 108.66000366210938,
         "last_date": "2026-10-20",
-        "1d_change_pct": 0.20994588875584697,
-        "ret_1w_pct": 3.869804374503727,
-        "ret_1m_pct": 9.408015533125447,
-        "ret_6m_pct": 11.474406008504356
+        "1d_change_pct": -0.8124138428621919,
+        "ret_1w_pct": 2.8101061141990957,
+        "ret_1m_pct": 8.291815455326002,
+        "ret_6m_pct": 10.337124246715469
       },
       "USD/INR": {
         "ticker": "INR=X",
         "available": true,
-        "last": 94.93000030517578,
+        "last": 94.91500091552734,
         "last_date": "2026-10-20",
-        "1d_change_pct": -0.050221236112346634,
-        "ret_1w_pct": -0.8832091093993522,
-        "ret_1m_pct": -1.1280745741491516,
-        "ret_6m_pct": 0.7211677591304477
+        "1d_change_pct": -0.06601377453154811,
+        "ret_1w_pct": -0.8988700317894449,
+        "ret_1m_pct": -1.1436968066360964,
+        "ret_6m_pct": 0.7052533375966119
       },
       "Silver": {
         "ticker": "SI=F",
         "available": true,
-        "last": 57.32500076293945,
+        "last": 58.01499938964844,
         "last_date": "2026-10-20",
-        "1d_change_pct": 0.6160735520031935,
-        "ret_1w_pct": -3.1033933789812562,
-        "ret_1m_pct": -12.913021768897659,
-        "ret_6m_pct": -24.978081130122053
+        "1d_change_pct": 1.827149900049485,
+        "ret_1w_pct": -1.9370868004999209,
+        "ret_1m_pct": -11.864789852910596,
+        "ret_6m_pct": -24.075071617617095
       },
       "Copper": {
         "ticker": "HG=F",
         "available": true,
-        "last": 6.585999965667725,
+        "last": 6.616499900817871,
         "last_date": "2026-10-20",
-        "1d_change_pct": 0.7341672999698012,
-        "ret_1w_pct": -1.3776581011870181,
-        "ret_1m_pct": -1.5030300713697486,
-        "ret_6m_pct": 9.739228915042354
+        "1d_change_pct": 1.2006698183526066,
+        "ret_1w_pct": -0.9209355005265651,
+        "ret_1m_pct": -1.0468880715262197,
+        "ret_6m_pct": 10.247434105261544
       }
     },
     "source": "yfinance \u2014 same provider as the Nifty 500 universe. 1D/1W/1M/6M are approximated as 1/5/21/126-session returns (trading-session counts, not calendar days) on each instrument's own close series."
