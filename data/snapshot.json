@@ -1,10 +1,10 @@
 {
-  "generated_at_ist": "2026-10-25T21:50:00.201479+05:30",
+  "generated_at_ist": "2026-10-25T22:04:39.519962+05:30",
   "market_status": {
     "status": "CLOSED",
     "is_trading_day": false,
     "holiday_reason": null,
-    "as_of_ist": "2026-10-25T21:50:00.201479+05:30",
+    "as_of_ist": "2026-10-25T22:04:39.519962+05:30",
     "last_completed_trading_day": "2026-10-23"
   },
   "screening_close_session": "2026-10-23",
@@ -20,11 +20,11 @@
   },
   "counts": {
     "scanned": 501,
-    "data_unavailable": 3,
-    "eligible_for_screening": 498,
+    "data_unavailable": 2,
+    "eligible_for_screening": 499,
     "pe_filtered_out": 184,
-    "matched_total": 65,
-    "matched_price_volume": 11,
+    "matched_total": 66,
+    "matched_price_volume": 12,
     "matched_rsi_based": 49,
     "matched_both": 5
   },
@@ -597,6 +597,43 @@
       "tv_close": 235.79,
       "tv_volume": 2196738,
       "tv_change_pct": 1.7125355879561723,
+      "rsi_discrepancy": false
+    },
+    {
+      "symbol": "CYIENT",
+      "company": "Cyient Ltd.",
+      "sector": "Information Technology",
+      "in_nifty500": true,
+      "fo_eligible": false,
+      "pe": 36.22,
+      "logic_matched": "Price_Volume",
+      "volume": {
+        "available": true,
+        "signal_session_volume": 19888724.0,
+        "prior_avg_volume": 731739.216,
+        "volume_multiple": 27.180071212692802
+      },
+      "breakout": {
+        "available": true,
+        "prior_125_session_high": 1195.4000244140625,
+        "last_close": 1233.0,
+        "breakout_pct": 3.145388557639306
+      },
+      "rsi_daily": 66.7,
+      "rsi_1h": 63.3,
+      "last_price": 1233.0,
+      "last_price_time_unix": 1792749599,
+      "daily_change_pct": 7.8079963,
+      "screening_close": 1233.0,
+      "tv_available": true,
+      "tv_rsi_daily": 59.8,
+      "tv_sma20": 1066.830000000003,
+      "tv_sma50": 940.1979999999987,
+      "tv_ema20": 1047.0165209789775,
+      "tv_ema50": 979.7898759159236,
+      "tv_close": 1073.3,
+      "tv_volume": 668011,
+      "tv_change_pct": 0.8740601503759357,
       "rsi_discrepancy": false
     },
     {
@@ -2469,16 +2506,16 @@
       },
       {
         "sector": "Information Technology",
-        "score": 86.5,
-        "ret_1d": -2.24,
-        "ret_5d": -1.73,
-        "ret_20d": 2.15,
-        "rel_ret_1d": -1.85,
-        "rel_ret_5d": -0.0,
-        "rel_ret_20d": 5.76,
-        "pct_above_20dma": 61.5,
-        "pct_above_50dma": 50.0,
-        "constituents_scored": 26,
+        "score": 91.25,
+        "ret_1d": -1.87,
+        "ret_5d": -1.53,
+        "ret_20d": 2.62,
+        "rel_ret_1d": -1.48,
+        "rel_ret_5d": 0.2,
+        "rel_ret_20d": 6.23,
+        "pct_above_20dma": 63.0,
+        "pct_above_50dma": 51.9,
+        "constituents_scored": 27,
         "constituents_total": 27,
         "rank": 2
       },
@@ -2499,7 +2536,7 @@
       },
       {
         "sector": "Telecommunication",
-        "score": 80.75,
+        "score": 79.0,
         "ret_1d": -2.15,
         "ret_5d": -3.74,
         "ret_20d": -5.19,
@@ -2574,7 +2611,7 @@
       },
       {
         "sector": "Automobile and Auto Components",
-        "score": 54.5,
+        "score": 53.0,
         "ret_1d": -2.13,
         "ret_5d": -5.54,
         "ret_20d": -11.29,
@@ -2586,21 +2623,6 @@
         "constituents_scored": 38,
         "constituents_total": 38,
         "rank": 9
-      },
-      {
-        "sector": "Fast Moving Consumer Goods",
-        "score": 53.0,
-        "ret_1d": -1.9,
-        "ret_5d": -6.54,
-        "ret_20d": -9.61,
-        "rel_ret_1d": -1.51,
-        "rel_ret_5d": -4.82,
-        "rel_ret_20d": -6.0,
-        "pct_above_20dma": 3.6,
-        "pct_above_50dma": 3.6,
-        "constituents_scored": 28,
-        "constituents_total": 28,
-        "rank": 10
       },
       {
         "sector": "Consumer Services",
@@ -2615,6 +2637,21 @@
         "pct_above_50dma": 10.3,
         "constituents_scored": 29,
         "constituents_total": 29,
+        "rank": 10
+      },
+      {
+        "sector": "Fast Moving Consumer Goods",
+        "score": 51.5,
+        "ret_1d": -1.9,
+        "ret_5d": -6.54,
+        "ret_20d": -9.61,
+        "rel_ret_1d": -1.51,
+        "rel_ret_5d": -4.82,
+        "rel_ret_20d": -6.0,
+        "pct_above_20dma": 3.6,
+        "pct_above_50dma": 3.6,
+        "constituents_scored": 28,
+        "constituents_total": 28,
         "rank": 11
       },
       {
@@ -2813,7 +2850,7 @@
       },
       "Information Technology": {
         "constituents_total": 27,
-        "constituents_with_data": 26
+        "constituents_with_data": 27
       },
       "Consumer Durables": {
         "constituents_total": 16,
@@ -3247,12 +3284,12 @@
       "bull_daily": {
         "dmi": 13,
         "rsi": 18,
-        "wma": 51
+        "wma": 52
       },
       "bull_weekly": {
         "dmi": 7,
         "rsi": 1,
-        "wma": 127
+        "wma": 128
       },
       "bear_daily": {
         "dmi": 87,
@@ -3266,12 +3303,12 @@
       }
     },
     "available": {
-      "daily": 498,
-      "weekly": 464
+      "daily": 499,
+      "weekly": 465
     },
     "unavailable": {
-      "daily": 3,
-      "weekly": 37
+      "daily": 2,
+      "weekly": 36
     },
     "scanned": 501,
     "as_of": {
@@ -3297,7 +3334,7 @@
   },
   "news": {
     "available": true,
-    "generated_at_ist": "2026-10-25T21:50:00.201479+05:30",
+    "generated_at_ist": "2026-10-25T22:04:39.519962+05:30",
     "source_note": "Fetched automatically every refresh: 10 Google News topic searches + 5 publisher RSS feeds (15/15 OK this run), headlines from the last 48h, duplicates removed. Per-stock news: Google News search per Price_Volume/Both-logic matched company, last 7 days. Region/theme tags come from which search or feed surfaced the headline, not from reading the article.",
     "macro_news": {
       "items": [
@@ -3308,6 +3345,14 @@
           "provider": "RBI press releases",
           "region": "India",
           "theme": "RBI official"
+        },
+        {
+          "headline": "Audi defends plans for a $4 billion Georgia plant amid VW restructuring, tariffs",
+          "link": "https://www.cnbc.com/2026/10/25/audi-georgia-us-plant-tariffs-volkswagen.html",
+          "published_unix": 1792946562,
+          "provider": "CNBC World Markets",
+          "region": "US / World",
+          "theme": "Markets"
         },
         {
           "headline": "US Stock Market Prediction: Dow Jones Futures Slide, S&P 500 Futures Dip & Nasdaq Futures Edge Lower Ahead of Wall Street Opening; Check Monday\u2019s Market Outlook & Key Things To Watch",
@@ -3326,11 +3371,11 @@
           "theme": "Markets"
         },
         {
-          "headline": "Audi defends plans for a $4 billion Georgia plant amid VW restructuring, tariffs",
-          "link": "https://www.cnbc.com/2026/10/25/audi-georgia-us-plant-tariffs-volkswagen.html",
-          "published_unix": 1792944176,
-          "provider": "CNBC World Markets",
-          "region": "US / World",
+          "headline": "FTSE 100 (^FTSE) Closes Week In Red As Oil Surges Past $115 And AI Spending Fears Mount",
+          "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQNHc2aU9lT2MzTk05d2hRck9xUzNpc2FtcS1iR3pIbm9zckNUNmhBb2x2YXhDSkpoTVBjSHZrM3IzcUtoQXA4UEVYQ0h0enNoZm1lbS1jNEtPQ2FBenpubU9BdGRvb3BBeXJNbW5fNnpuZ3NCR0M2THJTVWMwYjZUNGkxSVFhV3dHTFBJQ2U5aHBIMjFrRk9JU2hDYTJUUVg1RFhEUXRFX2hudWNqM1YyY2RR?oc=5",
+          "published_unix": 1792943709,
+          "provider": "London Insider",
+          "region": "EU",
           "theme": "Markets"
         },
         {
@@ -3374,14 +3419,6 @@
           "theme": "Markets"
         },
         {
-          "headline": "Fed, ECB Expected To Hold Rates Next Week, But December Hikes Still In Play",
-          "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQWGc2YXBjX2J0T21OSlJDS2x3eWM0UU9RT3hzd3ZGS2NSRUVtMmJheVJxTXVnYXNvSXJTVmZCWEhNN2pSQXFDMGpndUxTYlFkdHVLNm5iQVhOY2JQVHpIMDBMN0VuTnFiWEJWeDg2ckVRUEw0Rk9jcVRlTS1xRmlpdVVTQm1sRV9Icl9zMUFnUmRtaWVQZ3RhS0l1WVVnM1FaN0ZVTExJaW1FZkE2anVGdGdSNF9oRm1lTWswNkZMcDdjZ3IyU29ST3RWb00?oc=5",
-          "published_unix": 1792942212,
-          "provider": "Benzinga",
-          "region": "EU",
-          "theme": "ECB / rates"
-        },
-        {
           "headline": "IT stocks dividend record date this week: Cyient, LT Tech, Hexaware, Hypersoft, Sagility - Who pays most? Amount, return",
           "link": "https://www.livemint.com/market/stock-market-news/it-stocks-dividend-record-date-this-week-cyient-lt-tech-hexaware-hypersoft-sagility-who-pays-most-amount-return-11792938159348.html",
           "published_unix": 1792942188,
@@ -3406,6 +3443,14 @@
           "theme": "Markets"
         },
         {
+          "headline": "Oil Futures Rise as Attacks on Saudi Arabia, U.S.-Iran Risks Persist",
+          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQYjRlQlhGVEJPT2JaeEpGWkxTZFVEdnpuMUxLRUZhUU1EY09ZcnJMaFlZNmdUbHkwdlBpcURmeHpZXzl1c1Z4WW94YmtMNTJ2N0paSlQtNXJ2eGVfam4tdW5NekpScjdYLU1RSzVGRTJqN3hCT3NOWnNmNGZpYjEwemo3ejBfOTU2ODFoMWtFX1hWS3RHZU9lcm93anl4UUczODQyd1hrUVc4VHQ5ZEpPay1SWGhWbW9YdFFPVmZWd3ZwNmhV?oc=5",
+          "published_unix": 1792941082,
+          "provider": "WSJ",
+          "region": "Global",
+          "theme": "Geopolitics / oil"
+        },
+        {
           "headline": "Indian Bank hikes interest rates on special-tenure fixed deposits \u2014 check how much 555-day and 777-day FDs are offering",
           "link": "https://news.google.com/rss/articles/CBMikwJBVV95cUxPZC11NDNNNlBfbDZDbzYwU3Nma0pSZWViSk96TVJfVTZBRk9oSElKdHdBTUtvSlhjc290Y3ZhVHJGN20yRTllMjlWZWg0bW84NTJycUhScTJRb056ZUtQdHFDSkprZ3J3VHBxQzU1NDZ2NjV0TUQ3dlhTYXpuUkYwUGFZUEtHZ1RoUkxvZWhwcDlyeTJEUnI2U1RkUFRhZEJWbXdTOC15cjFMTGRPOElxR3YtbnBLN1RKWTJrVzJNV3lBMHo1eHExVW1hX3cxM3lISGlOSzc5Ukg2RUdjZXR1UWF0SXBDZ3pGRV9XYjFNVTNoYmJJenZGQWtsem40Q2ZkaGZLYVFrN3BGb1Q1U0lRb3U5SdIBmAJBVV95cUxPQ2hKYVhrMGZpS2hiNkhuNFo1NmdCTE9QbVBWTVJqbWZySWNwNk0tUGtUM2FSZHRNcjFVMmZDWi1pUmZCQXR3Ri1hc0hQYkdoOHlrV0pfMlVDX1VzMENYM2NnSjJvMlg4VW1hTmtNa293UnpfN1d2VmxDbDg3eG5fOGtHRnpYMW92MjdIUDNiajNSZERuRkN0cnJyRzlfVHJHVmQzcEJFUVo3YTAwWDJnOXZpOW5KRldsclVKNHlTUXdjV2ZnSm0za2lIT0xrRXRtQnlSdXotaktFd0ZyamU5TmpkTFFZRzFGclBJS1RYMEpqSmxFcHZseDBraUJTaXFQelM3Z2JrbE9LeEpocUhkcDZHeGY1cmFp?oc=5",
           "published_unix": 1792940381,
@@ -3418,6 +3463,14 @@
           "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPcG1oYmtBUGg5eDZJanJfRHhZQmswR2QxY3JYVVhJMi1JMHA4YnZHWVd1OUpfczR0MjNEdFBaenV4YTg5OS1oNGw5RXMwZzlzV0pTc3UtU0pLVjdhZmRhd0RoelZ5SjRlcjdpZWppZ2FMNTZ4aVFrLVlRRlZESUlCU1pNUUl3RjBJanJqS2JhdUxsdG16TDhn?oc=5",
           "published_unix": 1792939740,
           "provider": "CryptoPotato",
+          "region": "US / World",
+          "theme": "Fed / rates"
+        },
+        {
+          "headline": "Gold price today: Gold rate, silver price predictions by experts are out. Check here",
+          "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxOM3NSU2tXNDlDSE5IZjA1bVYybjdMeXVpeHEwOFg1emhwWkZBeU0wTkZlcmU1aHp0SWtKdlZ0d1hyRmFtb1ViTm5adl9qSEU1bk5rWlNGWG90SXREZDQ1bzN1NHU0WGNpemN5YmpvXzZ0ZmloNl92eUlYRVVaMDZhMFllcWExXzRuY2NKQ0tDUm9zbS01S0lDT0VBVXBfZXhBUGpzbkZ5dU1yTHJ5TE05UFh1VTUxVm1TeF94eS1OOVVGOTZQaW40TkJWSlNUdDBycC1XYWtMVzlHeFpYQzNuaDh5RXByS3MzMXRwaV9B0gHzAUFVX3lxTE5jeEl6Z1dfMTJKMk1oSEhMRWdSNTFnN2VvMTJjUFcxLXlXM1ZfV1VOZFBONHozZlJ1OVp2dTFMMFl3VWNTUDB6Nnp2MWRHMy1yWm9JMFQtU1MwdzBvSE9Od1FmYkh4UVhuX3pKNGgtMXE2NjVEQUpfdndERTQ0Q21zQm5tS3BTcWdjUFJjcnFWR2pfMmlMREZ4VjIwNlRWVGtFVm1CU2ZVdlNDV2dER2UzcnNzUEgwaEp4V2hUUVJzQjFuT2E4NjZaWjNzNGZwY0ZOb2Q3eVNrREQyV3VGcnV6WEpRLTRnQ0xRZ0dGUFgtUF9zOA?oc=5",
+          "published_unix": 1792939583,
+          "provider": "The Economic Times",
           "region": "US / World",
           "theme": "Fed / rates"
         },
@@ -3510,14 +3563,6 @@
           "theme": "Markets"
         },
         {
-          "headline": "Sensex, Nifty decline for third straight session amid rising crude oil prices",
-          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNM0FUYzMwVlFfS2VhODNra1FmbHZXdmdoekJzNnB3am9KYUIzTnZyb3Nvd3ppb0Z1dkI4U2dQZ29iSkdBcFZHb2xST0xnUjBfR3JWTC1yX2I0MHJoOFRFQTFZR29OT2xScVJwM0dKT2VkTmd0UjhVRnk1cjQxamh3Wm44R0ZXQlJiNzhDVDdsbnVLQjQtVXJyVmotdVNlcV9kZEhybDhNeEIwT1RtQ1oxY2VuSVFMT1hVN01j?oc=5",
-          "published_unix": 1792935525,
-          "provider": "Mid-Day",
-          "region": "India",
-          "theme": "Markets"
-        },
-        {
           "headline": "Trade Setup for October 26: Top 15 things to know before the opening bell",
           "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOdXZEQlZlRC1IRzFzZG04M2FJQ3ZhUmNIYXNlZm9pOThUQVVBUzhOcTNDWEtRdW1ZMEpCWTVIZmhmMzlJcTloRnVKUXFQa09yemllUGFSeVlLeDVLMXA4cGx3TnVYdDl2aUg4RTN5d2h5YkRmNzA3ME50V3JMNkpJaVpJSkMtMXVwZ0lyRFk1MTBIREctQ1YzTnBYa2ZuVE9DajRoMWc5eXg2STZiTmo1OWszVXlNMjhaWF9qV29QNFVjVEFRNENlV0lYNjBMeHhJTHR30gHYAUFVX3lxTFAxdDkzaTc0dWtmcXNnMHBQaDgyUVI3MHdqUkNVY0hzNjFGa1VTR3RGY1JKM1ZVTE12akVGSTQzWDg0MWlDZWpDRUVSOUtGRks2VTFBZEFlOXVzTFlwa1I3eGNFWjMxYXFfeVdyNGJ1MnQzODg1WENYTFBJQ0F6X1BNMEpCWGJybkNFS2lRcElXNzdCV3ZGMFJxazBJaEJrdEVCV1VEekJpVG81elVOZ2pjQ2N4bi1WbzRrQ05BNEoyMThCd2ZjdkZrWHBOZ3NQMFRGckdGaUg4eQ?oc=5",
           "published_unix": 1792935370,
@@ -3527,17 +3572,9 @@
         },
         {
           "headline": "Stock market prediction for Monday Oct 26: Sensex, Nifty levels, top stocks to watch - Will bulls dance again?",
-          "link": "https://news.google.com/rss/articles/CBMiigJBVV95cUxPcjN0WW44UXliRDk0NTdkSE1FMWFWRkhRV1FxME5Cd09fOENzOEpaQzNIbnpDQm9pMzljT0R5OEFDRENYdjJ6d1diaU1yZXpBZFU1R0pKaG5GMHB4d1R3UGJsSm5kU1lUNkxDdWJMQ043ZkRVMGdDNk92b01OWWZRNVJzOWlzd0tPTFNVYUxaQTFSV1Z0YUZVSVNWV2JfVkY4NXl4ODBXQ3dvU2ZSTXpJVzZoSUNiaVB3MzJPaFFBSTgzRTNma0FFQW53MmFQRGJ4eVhib041RHgwSkVKMUU5ZjJWWDZuYk5wRTVpTWF1ZTloREtDUmhqc3lqMGg5bGwxTzVldWJqcVBKUdIBigJBVV95cUxPcjN0WW44UXliRDk0NTdkSE1FMWFWRkhRV1FxME5Cd09fOENzOEpaQzNIbnpDQm9pMzljT0R5OEFDRENYdjJ6d1diaU1yZXpBZFU1R0pKaG5GMHB4d1R3UGJsSm5kU1lUNkxDdWJMQ043ZkRVMGdDNk92b01OWWZRNVJzOWlzd0tPTFNVYUxaQTFSV1Z0YUZVSVNWV2JfVkY4NXl4ODBXQ3dvU2ZSTXpJVzZoSUNiaVB3MzJPaFFBSTgzRTNma0FFQW53MmFQRGJ4eVhib041RHgwSkVKMUU5ZjJWWDZuYk5wRTVpTWF1ZTloREtDUmhqc3lqMGg5bGwxTzVldWJqcVBKUQ?oc=5",
+          "link": "https://news.google.com/rss/articles/CBMihAJBVV95cUxQaHZfM1JrUmdkdXRQb0dHTU1SVlM4UnAyUEhndFZ4bTNmbkM1d2x5ZWhqMHMxcE1JdnQwWEUySjRESnVVRDFoMGhYSHZtb2VYcFJGRDVSV2F2NGQybFR2azhYSGlaZzR6dUNoNFJKenkyQ1E1aF90ZHlqQUV4QjBtdU5HNWRXbDEwVmRWNkVIRUg4RVRESE83YkpRTjVvc1Uxb0tURTg2bjVTenNXanVmUXBsYy1Jd0luS0RNd2VEV3hsTHMxekZpUFV6RG42bUlnd3g4XzFHbmFjUWJZamRIdVFnU24wNEFUS2xHN0MyaktkZWkzbkpwR3FiZ0tJS1BNWnhDUNIBigJBVV95cUxPcjN0WW44UXliRDk0NTdkSE1FMWFWRkhRV1FxME5Cd09fOENzOEpaQzNIbnpDQm9pMzljT0R5OEFDRENYdjJ6d1diaU1yZXpBZFU1R0pKaG5GMHB4d1R3UGJsSm5kU1lUNkxDdWJMQ043ZkRVMGdDNk92b01OWWZRNVJzOWlzd0tPTFNVYUxaQTFSV1Z0YUZVSVNWV2JfVkY4NXl4ODBXQ3dvU2ZSTXpJVzZoSUNiaVB3MzJPaFFBSTgzRTNma0FFQW53MmFQRGJ4eVhib041RHgwSkVKMUU5ZjJWWDZuYk5wRTVpTWF1ZTloREtDUmhqc3lqMGg5bGwxTzVldWJqcVBKUQ?oc=5",
           "published_unix": 1792935125,
           "provider": "Livemint",
-          "region": "India",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Bank Nifty tumbles nearly 3%, slips below 55k: More selling pressure ahead for banking stocks? Check key levels to watch",
-          "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxNRDZQNy1qN1lqZ3cwUjVka3UzQktydDJmN2FvVnQ3ckdBeWhIV01xWUFyTHFKT2hRTFQ3THpVLVdLQ1Y2ZzdWR09IaE1hd253ejNQT3RDdVhrOVVleWR1VXJkaXVZa2w3cElqYXVXb3VXLW9kYV95QUg4V290SjduUXdzamZiaGthbFhMODExc29IdmQ5anRvbTM0VW1XUHkwR050dnRMQ1FKdG1YU1dIUnAtTzIxdFBjcEZXWUtHSDFuNWwtUVpuLW9nTkVjZjZ6WTY2Q0VLRGhzbVQwaVZMdGJ5SG55U2Z3TXBSMTlqbnpNYmVWLURfNVBtaWg3cEhwVkxv?oc=5",
-          "published_unix": 1792935110,
-          "provider": "TradingView",
           "region": "India",
           "theme": "Markets"
         },
@@ -3558,6 +3595,14 @@
           "theme": "Markets"
         },
         {
+          "headline": "More Oil Is Now Coming Out of the Persian Gulf Than Before the Iran War",
+          "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOQ25MSXRodmt6X1ZwZFZ1b01nR01ZTE1PWDU0SGVaWTRKMXJLdl9FbXVHSnZTMGxiV1pMbGtOZTVUMjZER01kVHQ1TmtIczlGZ3Z3X2djQng0b0RrOEQtZkk4REEtYTE2U1JxVlpLMzAtUnNycVhiQXVqV3BET09SZDZLbWtfZGp3NFl6eDZPakRzeDk4N3VydmJucDB6SlgwNmNNWVlrVTVRdGQ2RTVVOUpqTXBJa3RWaXc?oc=5",
+          "published_unix": 1792934228,
+          "provider": "WSJ",
+          "region": "Global",
+          "theme": "Geopolitics / oil"
+        },
+        {
           "headline": "Fed Signals Rate Pause Ahead of US Midterm Elections",
           "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFAyVkRCa1NtQTBJY2pXLWoxMlc1aUlkNWxwQ3FKclF4NUcwbktxcjF1VlQxQTBHM0FzOV9vUEdkR2x6Z2FEZkpXZHVjeXFuYVVwWmI0UjNQU3VhWEZLQ1k3QlFiU2t6NXhW?oc=5",
           "published_unix": 1792932462,
@@ -3572,14 +3617,6 @@
           "provider": "Sada Elbalad English",
           "region": "US / World",
           "theme": "Fed / rates"
-        },
-        {
-          "headline": "What Happened to Oil Prices Amid the War on Iran?",
-          "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPXzZiUXpOaHIzTHRLQ3hnSGhkQlAxUHdISmNZaGJEMGhTR3NfVmdjMUF4ZndXXzhYSER5UzJJRk13bUU2c0dIeXQydUkxa3JkYlVHeXFRUy16Yl8xazVFemlCOHdIYl83TGoydUEzR2ZwcDR0VjM1ZzZiVWJmald4Ujd3U2FJZEVzb2ZJ?oc=5",
-          "published_unix": 1792930920,
-          "provider": "\u0646\u0648\u0631\u0646\u06cc\u0648\u0632",
-          "region": "Global",
-          "theme": "Geopolitics / oil"
         },
         {
           "headline": "Dividend, stock split, resolution plans record date Oct 26: Hexaware, Midaas, Talwalkars Better Value, Ashapura Fashion",
@@ -3604,14 +3641,6 @@
           "provider": "Norada Real Estate Investments",
           "region": "US / World",
           "theme": "Fed / rates"
-        },
-        {
-          "headline": "Will the Fed drop any hints on rate rises?",
-          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNakZWTzB3NVNya0JlTHJlZlgwQjREeHRhWjFja0xROGtfdmxSZ2M1aE9fMkpUN0hJOFd2QktlYUw2LXpYQzZDZzNXLTI4ckJrbnhCNlZEY2pwZUl2d3U2LUxfUkxEMGh1bEotTlJNdWxQb3NjVFg4al8teTBaSUFid1hNQWE?oc=5",
-          "published_unix": 1792929603,
-          "provider": "Financial Times",
-          "region": "EU",
-          "theme": "ECB / rates"
         },
         {
           "headline": "IPO GMP, subscription race: Reliance Jio Platforms vs Paras Healthcare - Grey market premium, QIB, NII, Retail details",
@@ -3678,14 +3707,6 @@
           "theme": "RBI / rates"
         },
         {
-          "headline": "Earnings reports, Fed decision to dominate busy week for markets | Daily Sabah",
-          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOc1BQMEdHOUJTR1FVMTB6TUdIVmtSel84OElXWDNqWFlEcFVnOHd5ZndJdU9kNTNTNkotcTBJdEpsSXpMZnZGYlhrdW4yYnNCSEdaSTY5NTNRZTRxN0xjTnJQdUVDVk55NVJGWEE1c3liWXU1d0dPVEkyWGdGX0k2SGZOd2cwRHNZZDRad183cjVXZ0tZaGhsWWhMZGtMa1NXa2hXRmVLYzI0RE95bTZvX9IBsAFBVV95cUxOc1BQMEdHOUJTR1FVMTB6TUdIVmtSel84OElXWDNqWFlEcFVnOHd5ZndJdU9kNTNTNkotcTBJdEpsSXpMZnZGYlhrdW4yYnNCSEdaSTY5NTNRZTRxN0xjTnJQdUVDVk55NVJGWEE1c3liWXU1d0dPVEkyWGdGX0k2SGZOd2cwRHNZZDRad183cjVXZ0tZaGhsWWhMZGtMa1NXa2hXRmVLYzI0RE95bTZvXw?oc=5",
-          "published_unix": 1792925747,
-          "provider": "Daily Sabah",
-          "region": "US / World",
-          "theme": "Fed / rates"
-        },
-        {
           "headline": "E.ON SE (EOAN.DE) stock price, news, quote and history",
           "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE8wd2xqNGtUTEFpcVhnRjkxR1BhUjdWWUs1RDBWTDJTVWx0RTd3NzJIRlhiVGxmWGViTDRXSVRhVHcwYnY5R3NDczRFRFFEd3VOZkt1dDBR?oc=5",
           "published_unix": 1792925610,
@@ -3750,6 +3771,14 @@
           "theme": "ECB / rates"
         },
         {
+          "headline": "Bank Nifty tumbles nearly 3%, slips below 55k: More selling pressure ahead for banking stocks? Check key levels to watch",
+          "link": "https://news.google.com/rss/articles/CBMilAJBVV95cUxQclBNMkZCWHBDUEE4T19jd3NLWHFjUmpwVW92NUFfQVBnUEdjRGpleTlhVVhhSmFsb3FDY0xOMkRGeTdKeWFrVEp4OXBXMDdDWjB1Qy1PdklqLW0zalJXUVZxZnU4cjlQZV9XMTdLcF9qMWs0UXpreFBXdm9pX3kzRFNDclh0QUdULUNSZWtTQ0FFVFMwbUVsQ0hXY1FEc3V2b0ZvV3hoSzdTcEdLWEdUNUVMN2l2RDF6WHBJVUo5ZGptWGRIcTQ3RVQtYV8zNk4xVFBwNmlocHhZbDRWTFdTUXh1ZXZuWVU1QlktOVNBT3gycVNQc1JhU1lLT0VQdlkwbTd2bHU5OF9ham1mZ285TElvbVrSAZoCQVVfeXFMTnBCR2x0LUZ0U1gxeE0zYmptcWxjek8wQ2d0UUhObjdHYkJhS2xOblA4R3VnMFN3ZEFkNXpwWWFjSFA3STVtV2wteXZGWF90YXN2OU85TWZNazhkWjUtSUdVTkNMM0VoYjI5aFMxTDMybXR5UUNKcVdzUHBzV2V4QUtLU1ZIOE9OLVpiaXJ4dDV5WTdYUk9tUGtwLXVHLTdmUmw5QnBhVTE3TExwLURaamlMT0hDZUZXM1Q4bTl3VFFzUXVQM29zV2RJSWtFT0dGZWpFX1lKT2pyMHVxOEhlLTRseUFzMTdrWkwyUTB6UldKUmRtV1Z2d0Zfd2x1XzVwRW56T2Nick5oS19yWWR3b0tBRHFmcjZIYXJR?oc=5",
+          "published_unix": 1792922898,
+          "provider": "Livemint",
+          "region": "India",
+          "theme": "Markets"
+        },
+        {
           "headline": "Peter Lynch on stock picking: 'You shouldn't own a stock if you can't\u2026'",
           "link": "https://economictimes.indiatimes.com/markets/stocks/news/peter-lynch-on-stock-picking-you-shouldnt-own-a-stock-if-you-cant/articleshow/135188450.cms",
           "published_unix": 1792922571,
@@ -3766,12 +3795,12 @@
           "theme": "RBI / rates"
         },
         {
-          "headline": "AI Is Rewriting Europe's Banking Rules as Smaller Firms Challenge Market Leaders, ECB Study Finds",
-          "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOV24tM3B6OXB4X2tUeFNKMmlnSTkwd0phZWV5NnpHVTRPWDhnX3YxbDhrSFRETS0tSjg3N3ZwTUd6SkZLOTRRNG9xMVlxZmYxYUVObmUxZ2FnM1hhZktRUEY1SFUzTjFiUTh4TE1SV3JkY21mOURXUklOTktqMjhsRmhJdmlBc2d4ZTBBN0Z0eE9qblM5d0hleDEyYnNhMDZjWTVkRkdQM3pEZmF1ZXpMRVRGenhZdDVSQnI3Q3JMdTd6SThleWgybUlCMUN3cVRnQ1dadFhUV0tMd1Ztb3pYVTNaMEXSAeQBQVVfeXFMTlduLTNwejlweF9rVHhTSjJpZ0k5MHdKYWVleTZ6R1U0T1g4Z192MWw4a0hURE0tLUo4Nzd2cE1HekpGSzk0UTRvcTFZcWZmMWFFTm5lMWdhZzNYYWZLUVBGNUhVM04xYlE4eExNUldyZGNtZjlEV1JJTk5LajI4bEZoSXZpQXNneGUwQTdGdHhPam5TOXdIZXgxMmJzYTA2Y1k1ZEZHUDN6RGZhdWV6TEVURnp4WXQ1UkJyN0NyTHU3ekk4ZXloMm1JQjFDd3FUZ0NXWnRYVFdLTHdWbW96WFUzWjBF?oc=5",
-          "published_unix": 1792921394,
-          "provider": "Devdiscourse",
-          "region": "EU",
-          "theme": "ECB / rates"
+          "headline": "Top 10 firms lose Rs 1.56 lakh crore in market value last week",
+          "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPcS1tdURBbHNLcVN1ZWVGYVB0RmdzWjhoTzhmYWd0dE5WSFZZWUVPZU1XVGk4TVlaclo2MHNnNUItRTdmdzN2eGNIOHBoN25KTm1yTDF6dlo3OUJYZDlTR3gxcHdOSm5YNVg4RHR1OG9VY1JELWVIcWFzWGN5MGg4NjRGMWZIYkplUU11eEluZFZUZVQ4elhKOHd30gGfAUFVX3lxTE1vQkE5TGlIV0JOVDY2ZmVUcHYyY1JYRE1ZekNCYVo0cGlGb2tuM2E1SXEtcE5DMVhXajkzbklVcnZpbldxN1p6S1c5NU9BR3l6aWw0a29Vak1Cdm9qT1dVdmZhZk5YT1RNRG5PaXhqMkQxb3MwNHE2QWdqczgyYzN4WWhCZEd6b2psQTI3dWhKbkpjbnVzOWVtVWpKLTgwaw?oc=5",
+          "published_unix": 1792920618,
+          "provider": "The Siasat Daily",
+          "region": "India",
+          "theme": "Markets"
         },
         {
           "headline": "3 Financial Stocks For Investors Looking Beyond The UK",
@@ -3782,27 +3811,11 @@
           "theme": "Markets"
         },
         {
-          "headline": "Gold prices face significant risk next week.",
-          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBUVHVXb0MyQU5KRnhUdWVjT2VnYy1BdVcwOTllQy14bXJrVzROUTFpUzBiTnVsVk5iNERrYkxRMk9CS3ZhZEg2S3JUWVBjaFRmOTFrNzZCUUJpMUNXY0NlTElQZGhkYlJXeWZZaGdhQnNNRmd2OUE?oc=5",
-          "published_unix": 1792918406,
-          "provider": "Vietnam.vn",
-          "region": "EU",
-          "theme": "ECB / rates"
-        },
-        {
           "headline": "Top 10 firms lose \u20b91.55  trillion in mcap as HDFC Bank, Bajaj Finance fall",
           "link": "https://www.business-standard.com/markets/news/top-10-firms-lose-1-55-trillion-in-mcap-as-hdfc-bank-bajaj-finance-fall-126102500268_1.html",
           "published_unix": 1792918401,
           "provider": "Business Standard Markets",
           "region": "India",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Fresnillo plc (FRES.L) latest stock news and headlines",
-          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE44ZXZKQU5xX0VGcUROcTZUVHZ6WEpSNDV5UEM5c0gwUlpLOXBWS1BlWjEtalZYTlF5X1ZsU0VlUm1JN1pWTXJGY3gwcm1JczVzbWxWMzVGQllzd0E?oc=5",
-          "published_unix": 1792918383,
-          "provider": "Yahoo Finance UK",
-          "region": "EU",
           "theme": "Markets"
         },
         {
@@ -3819,14 +3832,6 @@
           "published_unix": 1792916833,
           "provider": "Economic Times Markets",
           "region": "India",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Volkswagen AG (VOW3.DE) Stock Price, News, Quote & History",
-          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1NSnd6c1E0dkQxbUxySzJEQmJsT0NJNHNEX2RwM2pGTS1FQnFSUnd4eWNuYkUwT3p3V1d2b3ZtTHVReEJ4U3Rja2JDRjQ0NU9SV1BJQVBB?oc=5",
-          "published_unix": 1792916773,
-          "provider": "Yahoo! Finance Canada",
-          "region": "EU",
           "theme": "Markets"
         },
         {
@@ -3876,14 +3881,6 @@
           "provider": "Spherical Insights",
           "region": "India",
           "theme": "Policy"
-        },
-        {
-          "headline": "RBI Finalizes Capital Leverage Ratio Mandates for Commercial Banks",
-          "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOTGVqQnpoSVZMaXpmbGRmUUR6QTZ6Zi14bkZlN3dtcjF6b2tpWGVVbzZUclo5alNWeVM4WU5zZEZjYTRqaUZVNXVoU2VBSWxYUUcxV2FyTFJNRFA4VWcwTVFXMUxVSHotWXl0REV0WWFnLTB0WHZ5c2k5SlFmbGo1djhiQW1iVUdpbWxTdy1nMG5kekt3SWk3WGYzRFlZSW5kRnJRZnFwUmhNNllwN3ZoUXVfZlVSRGlyQlHSAboBQVVfeXFMTkxlakJ6aElWTGl6ZmxkZlFEekE2emYteG5GZTd3bXIxem9raVhlVW82VHJaOWpTVnlTOFlOc2RGY2E0amlGVTV1aFNlQUlsWFFHMVdhckxSTURQOFVnME1RVzFMVUh6LVl5dERFdFlhZy0wdFh2eXNpOUpRZmxqNXY4YkFtYlVHaW1sU3ctZzBuZHpLd0lpN1hmM0RZWUluZEZyUWZxcFJoTTZZcDd2aFF1X2ZVUkRpckJR?oc=5",
-          "published_unix": 1792912613,
-          "provider": "PSU India",
-          "region": "India",
-          "theme": "RBI / rates"
         },
         {
           "headline": "Trump hints at an Iran attack or deal! Impact on India stock market, Sensex, Nifty, gold decoded; top 10 stocks to watch",
@@ -4014,14 +4011,6 @@
           "theme": "Geopolitics / oil"
         },
         {
-          "headline": "Defensive Investment Strategy Ahead Of The \"Big Three\" Events",
-          "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOc3I2S3lxT093YndOLXJkcDhIZHFJeVY3amp3VVJpb2UtVnMyRnB6UEpsZkZpLTFsWk42V3pxV29kQmJ5bEpmUjhOR3NzQTFpeF9Xb3JSU3lrcVZUTjlQbllyS3dISU5jdEhJNDdKWnBuNlRXWUtGb3lRVkNfN3NnNG0xQkNZZGl5NUNTOVFfc2RNN25MQUw0TGk2c0ktN1VOVkRKLVJ3RQ?oc=5",
-          "published_unix": 1792901698,
-          "provider": "BusinessToday Malaysia",
-          "region": "EU",
-          "theme": "ECB / rates"
-        },
-        {
           "headline": "36% Undervalued? Penguin Solutions (PENG) Following Axe Compute Partnership And Q3 Beat",
           "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPOVp0LXk1QlEzTmlPdlpNZFRRcHBrRVVxbWdxcERYMEQ1dXBtVkEzRWlYTlFMMkZFTHRBYUVtWUxwVmhCalY3RHFMRTBBekt4dXg1WXB1YnowZFMyVzh2aDZmRkhTV0JsYWwxV1hiTWNqWWQyNERVTEhzVXhRUlNsOFJoUnJpOXd2VE5WMkE0UENZZXdqbkhVNExaTGxFMGg4MlhaQ1NDMjZzMkg3Qk5TcW9XR0FZVFczcFRnMXIwQTN1aUZEWWp1bUVFSWxoajBlWTV0Vm5NNXLSAd4BQVVfeXFMTTQ4RkpkRkF0c0dlTFd4R25ha3E3TElhUUZVSXU0bWRHTEg2SjR6a3d5Z29XOUJOdXg3cW16NUJ3bmR6d2VLbUFYcnpIZ3psYW5yUFUwSGJ2dzYzT0hiV01MUWFwU3dNWlJidEY4dDBfaENpbWZzdFlnRWhtMXFvT0RCVjY3TkdZdS1VOUJQVWNmMmd2elptcThGR1hIeXlQNXNMYURMWWVLdUtIVXllUVNjQ0hsTHZQYlI2dklnQ0E4NE5ZTEVOSUJrd2FmQWwyTUxYNm5FUWppT0l4ZHBn?oc=5",
           "published_unix": 1792897600,
@@ -4102,11 +4091,11 @@
           "theme": "RBI / rates"
         },
         {
-          "headline": "3 LNG Stocks For Europe\u2019s Gas Squeeze",
-          "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOdmsxVlFmTlp0OC1VbDRSMXlhalhXVF9UXzZ2YTU2T18wdGczV1BRaTYzYVZDS00xQm9STmo3cE5WSWw1NHNIbUdMZG5tb0xPOGdfNE9wSHlJRlE0Qm9Pa1lQOXRZeUhHak4wY1hrQzFFVGVJWl9lNTNWODdNY1NmS0MtZXE4QUE?oc=5",
-          "published_unix": 1792883643,
-          "provider": "Yahoo Finance",
-          "region": "EU",
+          "headline": "Smart Reads of the Week: Singapore Bank Stocks, High-Yield REITs, Next 50 Winners, and New ETFs",
+          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOcmpLWVJEajNGQzBEallEWWFha2NwYTI5N0R1Q1RRSkVCTnVGQzFWdmtuclgyV3hFazdsVzVzdUpESFVnY2ZES1F0NTNhQUhzYWxMZXQtbDg2R3NRNk56UkphNDdGZ0FST194ZFRVdjdobW1vOXNDa19hTnViY1E3UVJpR0VWaFRwMnBxYnd5SDZPT3BMeVFEdnczY0RFUXREX0RTOHduZmtPd2xhLS1jcFlzdEdCVXFLYnozUWZnS2xuZw?oc=5",
+          "published_unix": 1792884600,
+          "provider": "The Smart Investor",
+          "region": "ASEAN",
           "theme": "Markets"
         },
         {
@@ -4114,14 +4103,6 @@
           "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNR3o3c0hDYXQ4cEV2WDdoV0J1R1BsUWtPNl9xNGNoWWthQTNGNFA4WXA4MkUxLTQwb1Z2emVmeVJlQWNMYjE2bmRvUG83TUxvRUZZTDZQUXpNdXBhTE9JWnRMQ0JmS2hycWNUYW9tcFhqQi15MV9JdkdKWGdBNlVIOVc0OV9lWmtULXhmRXVKRVExcnhud1BtRzNPQnAzMnIweWcxUXA0eFUwV0lSRVJ5Xy03MjFmcWtISUNSUVpHYUg5NzFsUnR2S0xyYmZDWVU0eWs3cXpnUE1vVGNRVmc?oc=5",
           "published_unix": 1792882116,
           "provider": "ad-hoc-news.de",
-          "region": "ASEAN",
-          "theme": "Markets"
-        },
-        {
-          "headline": "CapitaLand Investment Limited (9CI.SI) stock price, news, quote and history",
-          "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9oMjhFMjJvOFo4eW42WVczMjk2NTJFcHR5LTl5ZlQ4M2FHdGROaDQtYkx3T3YzNnRWcExtT2JBSmZFS0Z0VV9VcEpJUnRzLXFGaXNMTw?oc=5",
-          "published_unix": 1792880612,
-          "provider": "Yahoo Finance Singapore",
           "region": "ASEAN",
           "theme": "Markets"
         },
@@ -4142,14 +4123,6 @@
           "theme": "Markets"
         },
         {
-          "headline": "Lloyds Banking Group plc (LLOY.L) stock price, news, quote and history",
-          "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9UeG1jMWpocEM2bVFpbkVtZkdEdmMwb21iOW1STm9FZU1PUmM0bGM4SUNveEg4U2JMQkFaOHVmeHZHNV9MLW9mUFhCT1pnVzFzcEl4WVJQVXdvbnNIdi1Ibm9GY3Y?oc=5",
-          "published_unix": 1792871204,
-          "provider": "Yahoo Finance UK",
-          "region": "EU",
-          "theme": "Markets"
-        },
-        {
           "headline": "Biotech stocks are surging. How investors can play the new drug innovation boom",
           "link": "https://www.cnbc.com/2026/10/24/biotech-stocks-drug-innovation-rally.html",
           "published_unix": 1792868189,
@@ -4158,18 +4131,10 @@
           "theme": "Markets"
         },
         {
-          "headline": "New generation of bad loans, amounting to \u20ac1.7 bln",
-          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNblB1UkhvNS1SaEd6bjJwa1BBNktCLW5XeHN6Qlh5U25FM2ZCZlI2UXI5RU5zYXRPWEVxN05aZzZuUERuSmdnT1Nxcm85dGhpQXVqS0hYVnU1c2FtLTVqR3JTRFZvWDBzRi12eDBoZ05fUTJKX2wwU01uOF9xUGtCTmd5NXRBMEYwRnlZUTR4NUU2MjNxeVNFalpPMA?oc=5",
-          "published_unix": 1792863010,
-          "provider": "eKathimerini.com",
-          "region": "EU",
-          "theme": "ECB / rates"
-        },
-        {
           "headline": "German mortgage rates climb to highest since 2009 as Iran war stokes inflation fears",
-          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPcDYtX1ltLXFHbTByVHhfdi1GZUlCRWR2VmxWWFgwSTk2SG5DazdLX3NXbS1HVXp0TktZZGJtRm56Nl8tU0RqSV9tRm1OS3lYSHR6bTlLZVE4M3pGTXl5YXlhU1htd3FWSDU5dm9BdjZNU2o2T1BUZHpPWXE5bHpFZ1J5alhkcFpDNzctdnMzYk5XdmxmMGx0U2NQV2xMUQ?oc=5",
+          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNQTB3N2Y5Ql9KYzlWSEllMXVIY2NUVnk5NFJ3TmM1VElVaU96eHoySWk5V2hJMTFzRlJ6aldQSjdmcXF0WFBTakZ0UWtBZE1uS3NVbk5fVENWbHZkZ0N5OHpWWGxTXzZfSjN4Y0hsQWw1NkZSLVBHNlljNjVWTmZvc0M1ZHRuMlVU?oc=5",
           "published_unix": 1792862725,
-          "provider": "Yahoo Finance",
+          "provider": "AOL.co.uk",
           "region": "EU",
           "theme": "ECB / rates"
         },
@@ -4193,14 +4158,6 @@
           "headline": "3 EV Supply Chain Stocks Facing The China Threat In US Manufacturing",
           "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNUG9zeEZkRnJhRXdEUm1hMHEtbFk3Uno2bXkxb3BhQWowN2tOTEtIQW1oSVo4bkh6R252Qm9Zd3AyY0l2cmh1WDNtSmFPanZzVk9jQkxIRS03LWRqUXVjUFJ6OXBoRlVGUkw2SkxJMWtrazdhRXNSTDZTZThVcXhhTlZUczZzWXVDRXRJbkVqeVRoOE0?oc=5",
           "published_unix": 1792858354,
-          "provider": "Yahoo Finance",
-          "region": "EU",
-          "theme": "Markets"
-        },
-        {
-          "headline": "Evolution (OM:EVO) Q3 Earnings Reinforce Margin Strength As Europe Lags",
-          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOOXprbnZESEExRktMWTdsYU5DbXZoTWN2RDM1d3NYQVczTzk1Y2JYNXlaZUdjSnVkbDhMdWU2UFZ0cWxYSjc2QmZHMDlwUVh0OUNEMUhZN3M0SW5EemlaODRFaXVVRUZaaXFFeDlPdWx4VVBLYXZWQm52NmFNUGp5dThoWlBGYnF2NnQzTTdBN0lYaHhHWXM0TQ?oc=5",
-          "published_unix": 1792858323,
           "provider": "Yahoo Finance",
           "region": "EU",
           "theme": "Markets"
@@ -4238,14 +4195,6 @@
           "theme": "Geopolitics / oil"
         },
         {
-          "headline": "Trump\u2019s War on Iran Has Broken the Oil Market",
-          "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNc2FHOUtteVFFQzA0YVgwQ0xqcnRjVjktRWZFeml4djJyUzUwWVZvcmJtM0lnQ0lSVDlES1h4U3RNcEhNNkJTeGNpUG9rOGM2Nk1Mc2pEazlRSlVydktrbkREN0wzYjJzMTV2dFk2SzVuWm5QWGNObEloZERLSUhMeWt6Mi1LeThvd1E?oc=5",
-          "published_unix": 1792851706,
-          "provider": "CleanTechnica",
-          "region": "Global",
-          "theme": "Geopolitics / oil"
-        },
-        {
           "headline": "Kotak Bank sees margins stabilizing as FCNR drag offsets repo gains",
           "link": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxPZWYtV3F2ZnRfSG9QUUJJcmkzS3RfNnNVdUFzSnY3aDhyOUhsZ3ZncjR3OEpoQnZnNVl5OVhCME1xdjd1U0ZWY1FnTVduZVpGbHE4YzhMNEtpS3I1SnpudkM5NzlXdWIyOXg4M0hUSGhFeW8wMzFiZlVvVXFrLXNPMjlIcWd2a3hBUlVmUVJPMGhRelpCWHpsY1F5TENvamtKZVBjdWhveW56c0xuLTB0emZTUExsS0ZyMFZjang5Y3VIQ3pWTUdFdzhVVU1RUUl6TVVtd2VNcUtLeGRsWDFLVG9WYjFxTy1mcEVweVBkc292QlF5NVhj0gH8AUFVX3lxTE5NbnBjb2tOMG95elpSU08zVWZNRGRUT3V1SGpDdGhHdEVZRWs4UzZRdzFBclVHYk9rcy1aM01idlZzODB2ZzVCYzNtcWV4OTBaUVFCbGdjQ0FtdXUtVF9QSmJmQ216VU1EM011NmxiWFVVb2IzcWlOQWZfd0pwSUhaTkpiSlVzNjU4d0dnb2tHQ094SG5DWjlWaGdwTktBSTB1Y1c0WTViRU5ldWQ0elJETzc5aUZaR213U3dpOWY1cTd2TGtNUklqMTdLOVNEY1lxMThVX1BDVTFlYWxXd3E0bmVLbEpKUGM5eFp1b2RLckdwaUVVTUhyUXh6Qg?oc=5",
           "published_unix": 1792850164,
@@ -4270,18 +4219,42 @@
           "theme": "Markets"
         },
         {
-          "headline": "TMGM Daily Market Breakfast: 24 October 2026",
-          "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE00ME56UDZaSmUzTlVpLUNZLU5zNHdhQ3U1allNaEZLdU1CVDNtM245YlpSLUk0WGZVblpIcjRGMTJvR0VjTXREQWhITEF2dHRGbld3TVMtWVVMNHQyVUhrUkowQXg1NDBYSE94NmUxMmJJVENFcTBZcXB1UzA?oc=5",
-          "published_unix": 1792845182,
-          "provider": "www.tmgm.com",
+          "headline": "Infineon Technologies AG (IFX.DE) stock price, news, quote and history",
+          "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5lSDcydVloelhuOUM0VFloN2k3NFdkS1NqQ2ZMS1FGN2k3VGdfWmtBOFlaV3ZCSkxycjBaX013TlEzTkZES2lKSzh1a0NnY2VfQk43Sw?oc=5",
+          "published_unix": 1792845726,
+          "provider": "Yahoo Finance Singapore",
           "region": "EU",
-          "theme": "ECB / rates"
+          "theme": "Markets"
         },
         {
           "headline": "Weekly FII and DII Commentary for 24th October 2026 by Pabitro Mukherjee, Deputy Vice President-Research, Bajaj Broking",
           "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNTXZEcjhVUDlncnZLQ1hRa0VXUHNOS2NwX2pLOXBYSDMyQlc1Um1JUWhyck9rRGo0R3BBSWRuMDJKMmtjUV9fekdhWXB6aWNjUDZHWXVwdExjcDJid1hIUFJoM1NqU3VZX1pFVGtjS0ZVVzR2V0wxSkNHZmhJX05yYXh0aDdmR3BoMDdTa2hJRGpWZDByVWRYQnBwd3puNEtRUXM0bExONFFMaHB1eXNLY0RyeVlwckU5eVhpQWR4XzQtMGg2YjgtZmVjVDRUSVlPMjZOeEwyUi1pTkUtZWE5RDRvck9HYXlZYjVBVHB3RUtQb0dKUHZUbDhaVUNzZTA?oc=5",
           "published_unix": 1792843590,
           "provider": "Investment Guru India",
+          "region": "India",
+          "theme": "FII / DII flows"
+        },
+        {
+          "headline": "France's bond drama takes centre stage ahead of ECB rate decision",
+          "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNMlZGVHdhS0lhT3VITFdzbm56WXEtcVo4NF9Fa0pSNHl0RXBYZ2dNWXBzWVJHRHdqRzJTN2ZmNDFCdndxOHBrb1ZzWDNBWlNKQjJCbnVxc1NaSmZxWmhqREV5X2FxSXhJbHdiX1lGejYxYXZBVm9UclNNTEdqMGlTVDNtV1pGYXM?oc=5",
+          "published_unix": 1792839656,
+          "provider": "Yahoo! Finance Canada",
+          "region": "EU",
+          "theme": "ECB / rates"
+        },
+        {
+          "headline": "Sensex Falls 429 Points, Nifty Slips Below 22,650 After RBI Rate Hike",
+          "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNMUJWN3liR1RkX0l1RFY0ZjBGSFRVaE1YeHdRQmhIclRXTDR2N285ZUh2Vmx1RUtUaTZEYTdfZk81bGNxOFJzeHRwTFlRZXdxVUM0bUNjcFFtMF9xVmQyWGdpX2F4THZFNmFTZ1l5d3dPQ0hIcm9LYlZuVWpBZzlfX0I4QXF2dVhhd3ZrZlZyRmkxcjJ4LS1EbEZGSDM?oc=5",
+          "published_unix": 1792839416,
+          "provider": "INDIA New England News",
+          "region": "India",
+          "theme": "RBI / rates"
+        },
+        {
+          "headline": "AMIR CHAND JAG KUM (E) L Share Price",
+          "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9rNTdlbWlIUk9Jel9jX2FpMUdEaW9fX2thbUhtSGFYZ1FRdzVaMGtFQmx0MFB1QS1UUzNOZnotcFMxNlo0T2FTOWFxdFJzeG9RcS1wc2Y1Wk4xMktfd1FqS1FwX3FzUFlzYm0tVE1R?oc=5",
+          "published_unix": 1792838971,
+          "provider": "Upstox",
           "region": "India",
           "theme": "FII / DII flows"
         },
@@ -4300,6 +4273,38 @@
           "provider": "Business Standard Markets",
           "region": "India",
           "theme": "Markets"
+        },
+        {
+          "headline": "Cadence Design Systems (CDNS) Debuts Europe\u2019s First Sovereign AI Platform",
+          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOMUNaOExSSWtNa1Q2UU5UT25hWlRWLXBSX0xwSE8taWVBV0paNkRIbTE5RFNVWlZCRWVDdVVGMUE0RkZPZ2lybkczS1d6SG1RZ1FLYXc0aHp4UUhWTTZPOHZGS2VfSGp4WHJ1TXlVOWJwUlJ4QW5UZ2FVblE4Vk5YSHdjaUNKcFhoVy1Jb3ZuWHhpNTE0WEpsdHRfYXNYZFU?oc=5",
+          "published_unix": 1792833426,
+          "provider": "Yahoo Finance",
+          "region": "EU",
+          "theme": "Markets"
+        },
+        {
+          "headline": "LVMH, Kering and Herm\u00e8s shares fall as France riots damage 3,000 shops and bond yields surge to 2002 highs",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOVVhfTkd1UzBZWGxSOVRKTDN6TUJqYmc4TlllcUJMQnd2OHFHT1VSWjlueEtkSEdINmwxRG9aMVVYME5XeXNYNjBtelhySVdVUlBhVXZYQnVHWFpRM3BQbERXR0ZkaC1Vc3F2Y0Zac1RSLWFHSlhxUzdqcnZfeG1fU2VFaXdEZGNGZHJBbXF2WlUxYzVpNHA0NQ?oc=5",
+          "published_unix": 1792833300,
+          "provider": "Yahoo Finance",
+          "region": "EU",
+          "theme": "Markets"
+        },
+        {
+          "headline": "EURO STOXX 50 I (^STOXX50E) charts, data and news",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE93R0hQbERpMXhQN0FlbnpKdFktVjFtNVRONFpnZ2NYWEIwNlloOWdmQU9mREVYNWhSQk1ZVVhma2JNeWRULW9PUTh6a2ZIcGVQbHRfSVJneTJsYTQ?oc=5",
+          "published_unix": 1792832522,
+          "provider": "Yahoo Finance Singapore",
+          "region": "EU",
+          "theme": "Markets"
+        },
+        {
+          "headline": "GAJA ALT ASSET MGT LTD Share Price",
+          "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE81am5CNmYtN2h1eWQyU3licy0xM25BLWFzOWxTN3NJNUlQN080NDItLTJxZ3VRLVlveXoxQkw0REp0LXdGV3B6dHZXbnQxbk5rcXA1cmZreGU5SnFheHdBUEpsQ3FGbkRUcGtwV0lB?oc=5",
+          "published_unix": 1792832151,
+          "provider": "Upstox",
+          "region": "India",
+          "theme": "FII / DII flows"
         },
         {
           "headline": "YES Bank Share Price - Live NSE: YESBANK Stock Price & Chart",
@@ -4326,6 +4331,22 @@
           "theme": "Markets"
         },
         {
+          "headline": "Five key factors shaping the ECB\u2019s rate decision",
+          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNaXUxaDlGWVBHRGZaWGRmYTkzWjdBZi1kWEpYZ1JYMkN5Qk1sTDBWRi1udGZESFYzN3c0TzF3Sk5VZ3dHQU1YMmU2X28xX1RsTGh1TXJrZFpnanljZlpRTElfTUZxZVVVbU16VTluOFRrVjMwbjdRZU1BMENYYWFtdV92a2JTVzJqUlFpaUl2aDQyUQ?oc=5",
+          "published_unix": 1792825200,
+          "provider": "IDNFinancials",
+          "region": "EU",
+          "theme": "ECB / rates"
+        },
+        {
+          "headline": "Apollo Hospitals Share Price - Live NSE: APOLLOHOSP Stock Price & Chart",
+          "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9tOGU1TFY5eEZXQ0hKeFR0MUNSYkdVX0VGLXhlSHFtNzRZd1UyTHVQNUI5cmI4cjFOdFMtTlNsd2h4WUFEak1BTTRWZ3V5Ymt6d1pqRVlKR212TDJWN2VFWi1rSzE0andENTNsMldmVFU?oc=5",
+          "published_unix": 1792824940,
+          "provider": "Upstox",
+          "region": "India",
+          "theme": "FII / DII flows"
+        },
+        {
           "headline": "FII selling eases but continues for 10th week amid rising crude, geopolitical tensions",
           "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQYUxVckFXZDZVWlVOcGxuclJKMm1zOXNLS2pyZ1RhanFIckNYekN5eEp5QzZSMk0zLWFjNGlnMGNnR0Z0a21LcXR6OW9YMFZXVjMyOEU5SHZ1dmsweWJLZUc2VlB0YVF3YlFMTU1oQl85QW1OcTBLdHF4SmRWY3I4Tm9Sd3NFdlhGcU5Sci1FTnl0eERueVpLVDlIamw4SWs3M3BCbWpHMWhMejdxR2x0bkh3MTlENFY2VXhwbHZUVVhVZEtfZjVHSUIxNkk0bEdBbzUyTVVzXzNJbmQwOFI0?oc=5",
           "published_unix": 1792823360,
@@ -4334,20 +4355,28 @@
           "theme": "FII / DII flows"
         },
         {
-          "headline": "JIO Finance Share Price - Live NSE: JIOFIN Stock Price & Chart",
-          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9qYXVSUmFnb2dUb1VxaWNpb3JwZDJ2VDAxZUVybWJkODdPRlk1bnNuTTI3RmZ0ZFEza3ZfV1hxYnZLaVg0cVotZG9FVnZnWHEyeXFhV0Nmd0lHTjZTMG5NREl1ZVlhakg4WWNR?oc=5",
-          "published_unix": 1792821440,
-          "provider": "Upstox",
+          "headline": "FII Selling Continues For 10th Straight Week Despite Sharp Decline In Outflows, Nifty Falls 2.4% As Crude Oil",
+          "link": "https://news.google.com/rss/articles/CBMikgJBVV95cUxNOVRFUG5VcUFNUFlRNW1BWTEwLUVvemw1NGQzRnZuejZMRmZyd2Q0bkI3aVJndUZaSVdIOFBQc2hhQ0k1cU96NTNDRnhLZVBORHUyVnQ0TWpnaVhKSURrWFFiOHV2dGQyRlFEUkpzTVJlaHByVVNYNHVyYUtma1NUc1hXbFhuR21QTzlfSHZSOHVTUV9wdGtDYW14cFhxdnE0Rm94NnVJTk5uY2ZOT2tRaWJjajJWb2dzVUJwY2tlNU1xZGhQMDdxY0pneGlPano3dTZCdVFmemFiMHJBRnpKNkpfSUo2U2dqWXVSUjllMzRvVTk4VHBhVWtnQVRfbHZLZ0p1V01SbWZYeTJ0UWo2LVpB0gGXAkFVX3lxTFBpODV6M01yT195RXIxMUstTU1fWVE5ZjVxRkhWTjlIQVNKaUlqdi1tN3BhVDJ1VTZsQURGWUpzaGIxbFhmeUt4TkR6YXRwUjg2U1Vkbm1uY3lmdGZfdG40eUJPZE9HS2s3eGZaTzVTVjFlZzJEdTJhc2R2eTZpamtMdnlwTW9uZlNOdk0zdnlOZmVCQTA0dFVjclROcGh5T0dvWFJJbEdXVm9pMGkydHJxcDNmVFkyTVlpb205WXBjaV90UEVud3czZi04OVlKRGlHWExsUThNMHR6dnBEQTVVdVQwem52SkxFOEZZcWgzeTJEdXZ3RDBaUkhOQk9XdkNMMV9SeXYxSTdjRkZQeWw3WVh1Q25PVQ?oc=5",
+          "published_unix": 1792822510,
+          "provider": "Free Press Journal",
           "region": "India",
           "theme": "FII / DII flows"
         },
         {
-          "headline": "FIIs Turn Buyers on Friday, but October Selling Still Tops \u20b951,000 Crore",
-          "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPekZBRTFIbGRheXBQalRmV3ZqQmI2ZHZMWlBZWnVTUC00QmkwUDBTWDZPZkpfVVlXMmp2ZFRJNnl2cmh3ZmlXWUF5NV9iSkpYOVNwQk10ZUxwZjc0UjFhdkxEQTRRWVFzYUJNNk9yRktWbjNBSk5FQWRRY3pGMjRJag?oc=5",
-          "published_unix": 1792815410,
-          "provider": "NiftyTrader",
-          "region": "India",
-          "theme": "FII / DII flows"
+          "headline": "ECB Rate Decision: What to Expect on Thursday",
+          "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQclBBSTNoaHJwUHBPdC10Wm93YkNUenhzZ1FROHNJYUhEWEtNUGswdG1jUG1IckQybjk0YUFTcXZvY21Va0llWHZOdTk0eUNVQnB5UmR3cG5NWW1WWGg3YXUwSFk2cUxNOHZacUpZTkdXZGwwb2tWd1h5T1N3dEpGVkNJZzdFMVBfR2l2cFd3?oc=5",
+          "published_unix": 1792818649,
+          "provider": "Morningstar",
+          "region": "EU",
+          "theme": "ECB / rates"
+        },
+        {
+          "headline": "European Central Bank: Will one further hike be followed by a prolonged rate hold? \u2013 Commerzbank",
+          "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOM2Z1ZG1hcHBHUHdlRlQ3dEkyUHN5NTZIRFJUYWJTUXNkSktGQUZQT2dSdzFqdGdjeVBleGVVZUFLXzJrWFdBV0h6Z0VHY00yekZydjRBR2VlWHlfVk56NnU0WVo1YVR4cmpKSEVvVzBJQ25qNFBXUkhQU2M2LWhTRE4tTlFwTEVlTDdCeGhaZDAyeFFoVFYzbzBSUmVqYnRQVU4tYlZCQUVvTHJSNHZjWEFHNDFLaXlScEZuaV9Ta2FQOXVQSTk2R3hneEl3Y0k4VDlKVA?oc=5",
+          "published_unix": 1792799941,
+          "provider": "www.tmgm.com",
+          "region": "EU",
+          "theme": "ECB / rates"
         },
         {
           "headline": "Moody's holds steady on France's credit rating as country grapples with turmoil and higher yields",
@@ -4366,20 +4395,20 @@
           "theme": "Markets"
         },
         {
+          "headline": "Ready for a French test?: Five questions for the ECB | Gulf Times",
+          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPUlh3QURONmx1S0ZEQXhvZlhBQWlXTmExY2RMcF9xUFpua0c4ajdCX0U3VmI5dVQ4OVFNODBJSGhMbm9HMDRnV0tHQ2xHOWtVWWlnQ0I5RjRBcWJhbWlkVHY5b3BXREdtSGotaW9xT1JUaWhoRm0zeFcxY0xfRXFpYzRldGRZY0kzejRzNzRyQUNzZ3F0ZnJzcVE1dHNEREtfUFpj0gGoAUFVX3lxTFBQTEtwUXc3SXY3cGtJVXNKZkNpQ3JyQkRRTThHendIZWJrVFI4bHFsYUpSOURXZUlRZVh2ZFdRdzlmMHpfVE5Lb1pXNFpTNV9xaXlxVVY2WDB1bmpIbHVqdGlfZlJRUlBaeTE3V1ladFNac0hwZ0J0TFh6Yi02aFZDMV9aY1FqNXlBT2U5aU5GdWJnNXI1NEJ1aEN1Z1NDeXlITnJjVGNBdw?oc=5",
+          "published_unix": 1792789200,
+          "provider": "Gulf Times",
+          "region": "EU",
+          "theme": "ECB / rates"
+        },
+        {
           "headline": "Dow tumbles more than 600 points as oil prices rise and market sell-off hits most sectors",
           "link": "https://www.cnbc.com/2026/10/22/stock-market-today-live-update.html",
           "published_unix": 1792786614,
           "provider": "CNBC World Markets",
           "region": "US / World",
           "theme": "Markets"
-        },
-        {
-          "headline": "Groww Share Price",
-          "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE1BTUlLMDBUd3d1LTR1MnptREhXalo0N0ZvRmltUEZVandlaEx2NVVZM01OT01SRnktU01wbms3Y2prOVVXdFcxZklJb0xqQ3BWOUNZcndXWTJkMkgtRU1oQW1fYVZWSTNqZlU4bVBtejNCUQ?oc=5",
-          "published_unix": 1792783570,
-          "provider": "Upstox",
-          "region": "India",
-          "theme": "FII / DII flows"
         },
         {
           "headline": "Meta shares are down 9% this week. Here's why Mike Khouw is buying now",
@@ -4398,12 +4427,20 @@
           "theme": "RBI official"
         },
         {
-          "headline": "Stock Market Weekly Round-Up; Sensex Sheds 1,600 Pts in Turbulent Week Oct 19-23",
-          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaHZzUno4VnlfSHVVdWI0VWhaVnN3LW5JcFo5MDdhQWs4SzM1eXUwdURfZ243czJrMW84TGFPZUdEbmtXUnA4X2RhTEliWW1oSU1tbGJjRVlkSDVQeThTVzlKOHhST2VBQVdreXd6WGVnX3pEWWx2Q0pURzB3anVwYjhsZldwOEFyWEJTRDdpQlRvb0U4U2xCdFBCX092S3R3QzdDTFF1c2pXQQ?oc=5",
-          "published_unix": 1792780140,
-          "provider": "The Indian Awaaz",
-          "region": "India",
-          "theme": "FII / DII flows"
+          "headline": "EUR/USD Price Forecast: 200-week SMA offers last line of defense",
+          "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNMWFLTl9veWdnUGxYS2xDWm1TNWNsVXI5cHBWemp0LVF3X0lKVkFzQUxHUHRpMjhhYW1mb3NzZ0xoZlAwZ3FfU1pSSXdsSUlLdWt4NC1FNlh6ZC1ZdW5HUFBfUjV5bUt6bzRacVEtUlZyOHV6aWF2SHNJYTJtc0tHbmpSZmM0b2gzRzhDN3ZWanZpcXU2YnNpUkJTNzktMWRWdjV0eFpnLXViV010Q0gteWJxTTFDd1FaNXJjbjZ5SFZFcG1yeVZz?oc=5",
+          "published_unix": 1792778497,
+          "provider": "FXStreet",
+          "region": "EU",
+          "theme": "ECB / rates"
+        },
+        {
+          "headline": "Fed And ECB: A Pause Before Further Tightening",
+          "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPbEVZLUxxYW5IWV8zbU1TYWtPeVppQXQxamZnUkZrV3g4VjkyekM2NDRLa2M2TnpDTWlQNGRoOFhkc2VJblQ5bmczOHo0TklFWVVlOHFLMjFvWDFWbmc4eG9QRGZUcFB2TWEyNExqWWZnQXJDcTNhWWxuYjUwZTNzMkhzN2ZoaEk?oc=5",
+          "published_unix": 1792777800,
+          "provider": "Seeking Alpha",
+          "region": "EU",
+          "theme": "ECB / rates"
         }
       ],
       "feeds": [
@@ -4534,6 +4571,7 @@
       "symbols_attempted": [
         "IGIL",
         "TTML",
+        "CYIENT",
         "CREDITACC",
         "SAGILITY",
         "J&KBANK",
@@ -4552,6 +4590,7 @@
       "symbols_covered": [
         "IGIL",
         "TTML",
+        "CYIENT",
         "CREDITACC",
         "SAGILITY",
         "J&KBANK",
@@ -4639,6 +4678,41 @@
           "provider": "Free Press Journal"
         },
         {
+          "symbol": "CYIENT",
+          "headline": "Crisil, Hexaware Tech, Cyient, Shriram Finance: Dividend stocks, stock splits, buybacks in focus this week; check list",
+          "link": "https://news.google.com/rss/articles/CBMinAJBVV95cUxPSEJPck9qRnc5MjRNX0x6eGNmSG1Oc3lTMTIzQnZUUFdKQnV3b2dCMmlPZW0xcGRjdTA5Z29MREpTN2lJYWFLX1hXMFBlY2dTdVN6UjZpZWR0YnR0d3dwNDhnYmF2eHhMWGxwejVlM2pjWVlTYmVyanNJQm9hUnVXM3FOeGIzWXQyUDR5czRhTWFmOVVxRWpuZGRiUTN6QW1LX0JWSTlGTktrVGJDbUptdEd1N2ZUVGhBNXdBb0JaRDNyRm9TS3d2WjVQVk9yWkxJbHVabzJ0alNDWW1SUnVkcC05dHlJSzRkXzJaR082Vkgxbm83WFFBajZoY0VwaEF6U3VwcHdjYWxkb3BYQ0VuZDBHanF5d1k4TGo3eQ?oc=5",
+          "published_unix": 1792935931,
+          "provider": "Dailyhunt"
+        },
+        {
+          "symbol": "CYIENT",
+          "headline": "Corporate Actions This Week: Hexaware Technologies, L&T Technology Services, Cyient And CRISIL",
+          "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOcmFObFhaem9zN2VmMFdSTEdwZUJjeFFXMllNUkI0RFd3MUZ6ajBGY1pjYWlSaHk1MERJd3VGajdYWUJKbVYzemxqRkhfWVRyUDZPRF92TTZHZjVYM3A5YVY1czJGdkxCa2d6V2phbFFEUlJ2bVdZWEFlYjFYMXdMWFJKcWZvLVhuUW9rb1ZDY3lzNmV2NUlhMnF6NzBGYVdtcTJoWnQzSXR2eXNvYXBMMlB0dXFXOEdxVWh5Vk1MeVd2cndwbmYwbU5zelVaWl9N0gHYAUFVX3lxTE8yMkN4d1MxTEdKMVdPaXVrNm4wNkVFNFotem1Tbkhpc09NWHJ6ODZEd05BdldTRXpQRm9YaG5vRVFLRHJuVy11WEdPUFk5WkxuZ2VBQ3VkRTU2LU54dGhBOXJTSGRLZTBfWURXRlAwUXA3eEU2MlkwMEtMUjFieUxJZjF4NUZpZ1ZFZWdtU1JpQ0lVVWxpdVl0QnpDWUpmY05MX3NhcERMREVGWmhvUlkzc2ZBRDNRM0NwM1IzYzBkY3Y0T3FUZEhGS3o3T0NnTHRiR3JrQzBUWQ?oc=5",
+          "published_unix": 1792929318,
+          "provider": "NDTV Profit"
+        },
+        {
+          "symbol": "CYIENT",
+          "headline": "Cyient Limited Just Missed EPS By 17%: Here's What Analysts Think Will Happen Next",
+          "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxObEZPR3lFamhsYUJmaDZudmxFcnhMR2Rqa091eWlCZ2FrVHJVOWJpWUtEQlZaNzlyOTRkZlBibDhyWWtoVHBvZ0lfTzl4VVJTRUhHU0Y3UFo1ZmQ0eUZ6VlJ0RkR2WVAxYklXVXVLcENTREhMR3ZYX0hGVDkyRnpLbnZwNUlzenNKTFJCeld0UWgwSkdheG9sRUpfTjlQY2pJVDI4LTZBVnZDa2dHeE1GZ1JEOHBoODNuNmxPNFhVc0lxWmctakQ0N3phTdIB0AFBVV95cUxQN3FjbXhzalByR1RPaUpDSklXZ3NnZXpWT1FlV3BxOVZFODE2X3RGaHUwNFh5N0lqandMLTJYNUpQdXF1UUZ0c2RUcjJON0Zka2pqLVVGdUZZN2xPdnNiRDFWVW1lV1dpZzVHalQtX2otZGgtanRHa0pqNFB2VmltLThTcHlzZDg5bmNmNHRWYWlnUnRrWEJRdG85QW51c3h6VzVtV3lINDhoQnhOeEEzWG9nZE9iLUpkQnlickdjNmRJb3psSjZTZEIwbFQ2bkx2?oc=5",
+          "published_unix": 1792902368,
+          "provider": "Simply Wall Street"
+        },
+        {
+          "symbol": "CYIENT",
+          "headline": "Cyient DLM Q2FY27: Revenue up 26.5%; EBITDA margin falls to 8.7%",
+          "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPQW5DRkpzeDllWTZBdS1CbUhJSW01b0x4V1E5ZkQyTktWMjd6aDRWcGdZRkZaOFFSVDVLZ3JtR2t6Snc2NnZoTDZQaEp0RXVNTVlMZDNsM2ZrRFdxcEJoODJUZkJNRTBTWFZXN1ZWQk5RM2VzYWUxSTdQb2swajdNcDRnTHFFUFNtVklhMVpPS3ZQb25SMWNNcnUzemdrTW9DVlhrWEMtaF91aWxRcGNuRnhyd3pnRk0?oc=5",
+          "published_unix": 1792901296,
+          "provider": "scanx.trade"
+        },
+        {
+          "symbol": "CYIENT",
+          "headline": "Dividend Stocks This Week: Chennai Petroleum, L&T Tech, Cyient, Nippon Life AMC, Among 15 Companies In Focus",
+          "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNSHp3S29qRDBkNG52Yng0WUxaNUotdGh1dXNiblo5Z19SeDhBVkMzbmJUejB4QlJHQnpZeWhHUHFraEhndFlsSkxrakUzVEZ0TVMzbjlyOHB1WTRzbjU3RVJYbHJLcEdzVHRUNEliMlRjVGhaNGY0V1dRdE81VDU0c0ExeDRDRGN5SjMtdVVXUW9VUjNUQUUyQmIzenJWQ29jR2k1XzFaYkxqOWlDWXQtcHRiaURuVE8yMjhVT0JwanZyVkNaVE1ucGpQTHRqSHNiV201U0VxZE5LS3E0NnNDb9IB6AFBVV95cUxOZ21DblM3LVpLVXRDOGViVEdLcmxRVzhLN3I2N2xDU1owY1pBOW9fOGpCRlByREplYTZ6cUpxTmFMNEs0UTFjYml2aU1rZzlLdXl4YVMwZFNpU2d1RmJnLVE3cWZpZmxZNnE0UnJmR2JSSXkyWGw3elppdmREMWxrOXRFeWlGMUtMeEh1RzFKU2JETG5Ba1NMQ3VYajhaNFlsUmdtZlVkNkJDYjRaOFFHMVBMdi1PMzNwa2NKYkhUREF0ZHJfdFdBQmw5SFo1M3lHbTNmaFpvLU5fUE9feWNMcTBjRUU2akhP?oc=5",
+          "published_unix": 1792885664,
+          "provider": "NDTV Profit"
+        },
+        {
           "symbol": "CREDITACC",
           "headline": "CreditAccess Grameen - Concurrent Losers: 13 stocks decline for 5 consecutive sessions",
           "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPbmg2ajBINmhHR292eVZJMFFTbWx6enN1QU9DelBjbm5GMThONEVOMWpvOGN6MEJ4cnlPSUNEeGZPNEFoUF85SldpcHVEWnZfdWlqSE5MclpZTUNpbHpMaEMzcnJvdzFaMFo2RTdSb0lBSVNrcnNYVU5RSnZ6NXowbWhuQTlkWEN4SVVoQ25JUXkyNGZqOWpQeDZ1Y3lxX29wVFRGdzV5cUxwV21vVW0zUjRfN1RXZndscFZETWlTRlh6MVppZmVzc0JnTEVQZVJZZ0t0NDJGdmVUNXZuSVdXSDJWbGgwLVQydlFB?oc=5",
@@ -4675,13 +4749,6 @@
         },
         {
           "symbol": "SAGILITY",
-          "headline": "IT stocks dividend record date this week: Cyient, LT Tech, Hexaware, Hypersoft, Sagility - Who pays most? Amount, return",
-          "link": "https://news.google.com/rss/articles/CBMikwJBVV95cUxPQkZ5TzEtZC1RbzRNREJLejBxMVZFX1kzVkxpYWtFdkpxVDYtUS13QzNWZWYyOUdRWm1MbWdTcUUtMXA1dDZLdmxQY1NtYnJlRkM2ZHdoN28teU1yUlpnd0dFajdJbnJ6X2k1c2Jxc2EwTjRmUzBfUDFCa2JaTjV6bkhMMjZDXzJaR0ozbG1ITEt2ZERqbUlVcHpwbTFmTUpwTGNqa2toY2xGZDNLV3VqNjZJRTFCQVFEc3pfT2xlYmdfTHVuc1hUTGJUOEJ6X05SSlhmZk0xQ25ta1BWSUZBbVJLZlpMNnZPQ2ZNUnFZVlJLTHFBUTllQk4wWTRSUy1OdlgxUEdDS25JaGoyU0JYZ0FFWdIBkwJBVV95cUxPQkZ5TzEtZC1RbzRNREJLejBxMVZFX1kzVkxpYWtFdkpxVDYtUS13QzNWZWYyOUdRWm1MbWdTcUUtMXA1dDZLdmxQY1NtYnJlRkM2ZHdoN28teU1yUlpnd0dFajdJbnJ6X2k1c2Jxc2EwTjRmUzBfUDFCa2JaTjV6bkhMMjZDXzJaR0ozbG1ITEt2ZERqbUlVcHpwbTFmTUpwTGNqa2toY2xGZDNLV3VqNjZJRTFCQVFEc3pfT2xlYmdfTHVuc1hUTGJUOEJ6X05SSlhmZk0xQ25ta1BWSUZBbVJLZlpMNnZPQ2ZNUnFZVlJLTHFBUTllQk4wWTRSUy1OdlgxUEdDS25JaGoyU0JYZ0FFWQ?oc=5",
-          "published_unix": 1792942188,
-          "provider": "Livemint"
-        },
-        {
-          "symbol": "SAGILITY",
           "headline": "Sagility Q2FY27 net profit up 13.1% to \u20b92,842 crore; declares dividend",
           "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQYjlmSHE5d3Jybzc4VG9rMWNDSVJ5c2N5eWpHd0lCTFFMZ19yQW9fcG4zblpsRk12YWhfRDdJZlV5NjdGU3I2WjdnU2cyUnpsUVhqQzBnZEZhakR1QjJCckJ2Z01RUGdsWlpUQmxxMEV1NWFabkkwY3NfYWN5WHVYdUV6VEN6OHRTWVVzZnhXa0NFdmJNdzRwWUhCSFVLRTBsNE5NNEQwd0N1c18xb2h1djlFdV8?oc=5",
           "published_unix": 1792926505,
@@ -4707,6 +4774,13 @@
           "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOb2lqcVpuUU1NVmhYWllDMW94ME9KT0s5T21oaXBva292WHc4TkFlZk5OYXVxWXVWelduYWlTQXlTUVpxdy1yODVkUllUSkN0NzdDbUM1ZmdSZGZiemJoRWVGXzFFdUFtSFY4S1ZjQXZBV091TUZzWlEtd2F2aVp3MURfakNlRG9WTWVvNTEyRjB6NzlnYUNUbjhVRTdkTzJ2cFpZYnNIdEZ0c1hhLVRybTY5VHJYY0oxMXFOU0R3?oc=5",
           "published_unix": 1792848900,
           "provider": "Kalkine India"
+        },
+        {
+          "symbol": "SAGILITY",
+          "headline": "Dividend, split, rights issue, buyback next week: Hexaware Tech, Cyient, RailTel to Sagility - Check record dates",
+          "link": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNeFBRamNRdHA0U3drSFdUdUt3dmF2RnZYZWhWNWFTUldTTkQ5XzRULTFORzJybER6TDg4TUZUbTNwNFNFX1pMRVRFbmVZOEhDdWJfR3FIMFAxV1Q1NFNYNXZ6d1Vxb3NmaXpGX2R6NFdLWnM3RUpFX0NpRHlyT3VDbFpPWm9mMDViam94RDkyRE5LS2toMWdFcHJGdjA2ajBYN294azFlQkJUUkxsbnZqc01rcmF6OWdzZktybFBiNExSU1dmY19LSUlTNEVaajFXSFdHUUFyR0xsVmJZUndrcnkwNG9mdDhUWjAtRVRYNnktWk8yVGJwNk1UVkplaUdmakxuaVZR0gGLAkFVX3lxTFBmS1d5VmN0Rnl6V3MyaGdCZ1gwSE9QSld5Y0VNbVMwRy1FbEdoWWJpLW13MHEwWXJ5cEdXWWY0bkpqQndrcGdmUkNVYXdpNV9UXzg3Q2lTTnR4dGJNWlk2OWJDTkNyOEs2V3g4NlhoQ0twZkpaeklHSGpaTFJaeklUdkFGYU9ySW84S2YtRE00SmZUYVNVcFpHNmxpaGZJaG5wV19RbU8wYVBBYnRmTkNUYjctdXRMcnRVQjBsTWN4WlFkN0xsWUY4X04wMVVtbTltMUZ0TjVvb21xTzN0MUdaVjVDX2I4UHFVTUxFTzZQbHZtVDVSeGpfMTdqVlV3RzRVNTc1bXY1OXRubw?oc=5",
+          "published_unix": 1792829613,
+          "provider": "Livemint"
         },
         {
           "symbol": "J&KBANK",
@@ -4886,7 +4960,7 @@
         {
           "symbol": "LTTS",
           "headline": "IT stocks dividend record date this week: Cyient, LT Tech, Hexaware, Hypersoft, Sagility - Who pays most? Amount, return",
-          "link": "https://news.google.com/rss/articles/CBMikwJBVV95cUxPQkZ5TzEtZC1RbzRNREJLejBxMVZFX1kzVkxpYWtFdkpxVDYtUS13QzNWZWYyOUdRWm1MbWdTcUUtMXA1dDZLdmxQY1NtYnJlRkM2ZHdoN28teU1yUlpnd0dFajdJbnJ6X2k1c2Jxc2EwTjRmUzBfUDFCa2JaTjV6bkhMMjZDXzJaR0ozbG1ITEt2ZERqbUlVcHpwbTFmTUpwTGNqa2toY2xGZDNLV3VqNjZJRTFCQVFEc3pfT2xlYmdfTHVuc1hUTGJUOEJ6X05SSlhmZk0xQ25ta1BWSUZBbVJLZlpMNnZPQ2ZNUnFZVlJLTHFBUTllQk4wWTRSUy1OdlgxUEdDS25JaGoyU0JYZ0FFWdIBkwJBVV95cUxPQkZ5TzEtZC1RbzRNREJLejBxMVZFX1kzVkxpYWtFdkpxVDYtUS13QzNWZWYyOUdRWm1MbWdTcUUtMXA1dDZLdmxQY1NtYnJlRkM2ZHdoN28teU1yUlpnd0dFajdJbnJ6X2k1c2Jxc2EwTjRmUzBfUDFCa2JaTjV6bkhMMjZDXzJaR0ozbG1ITEt2ZERqbUlVcHpwbTFmTUpwTGNqa2toY2xGZDNLV3VqNjZJRTFCQVFEc3pfT2xlYmdfTHVuc1hUTGJUOEJ6X05SSlhmZk0xQ25ta1BWSUZBbVJLZlpMNnZPQ2ZNUnFZVlJLTHFBUTllQk4wWTRSUy1OdlgxUEdDS25JaGoyU0JYZ0FFWQ?oc=5",
+          "link": "https://news.google.com/rss/articles/CBMijgJBVV95cUxPS3BiNmxaeGY0UVU1Z2RtUlhQLUJOdTJRSVExR3lFM0gwRmtmSVh0SWtMOWVyYndiY19lR3ZCb0xqbFhBbXNSakQ3aVJNY1libWlvcWVCVmFDQl9QZUlFazJFemZfbXJKNDZoWWVBZWtxMi1selFXa3dnQ0dzVGRWUTdQNVJBeUdsaUhmY1JoTXJ5dmpWWklpUTVYMlV4SUpqbnhiTGJJT0dQVm84MnVfbUx5UGZXQ0VJSE04bHNiR1daMm5CNVYyNzRneHo4Q0ItaXNSd2hEbDFyM2Jic0RDbDNlN01wWDA1QlcweTJIZ25uQk5ZYzh2U0I1aGpFR21tWVpfbVZKSWZUVl9DMEHSAZMCQVVfeXFMT0JGeU8xLWQtUW80TURCS3owcTFWRV9ZM1ZMaWFrRXZKcVQ2LVEtd0MzVmVmMjlHUVptTG1nU3FFLTFwNXQ2S3ZsUGNTbWJyZUZDNmR3aDdvLXlNclJaZ3dHRWo3SW5yel9pNXNicXNhME40ZlMwX1AxQmtiWk41em5ITDI2Q18yWkdKM2xtSExLdmREam1JVXB6cG0xZk1KcExjamtraGNsRmQzS1d1ajY2SUUxQkFRRHN6X09sZWJnX0x1bnNYVExiVDhCel9OUkpYZmZNMUNubWtQVklGQW1SS2ZaTDZ2T0NmTVJxWVZSS0xxQVE5ZUJOMFk0UlMtTnZYMVBHQ0tuSWhqMlNCWGdBRVk?oc=5",
           "published_unix": 1792942188,
           "provider": "Livemint"
         },
@@ -5025,13 +5099,6 @@
         },
         {
           "symbol": "BALKRISIND",
-          "headline": "Weekly News Wrap: Festive Sales Surge, Citroen Eyes India EV Production, BKT-Pirelli Plan JV",
-          "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNWWM1Ylk0dmhtQ0VBdmxoNjZlMXpxYmlmMXlpUzBReXdqZGx5VmxZRGJaMElwcTRGb005eTFsaU9lbnhmVU9XcnBsb3FKX0Fkb0FOV1ZRMDNOZGM0NzA0QjJwVnZxX05uUVZWZnozOFVpUGt0bFd6VlFTTVNNZExVSktULVkwYTY2Qjkza1A3UlN4VFlSQzdRdTYtb1lIS3hGVFFfOWMtUENfMXpjZkpzQzhVS1RQbWdNdDRSYUZKX0tPOGdvU1HSAc4BQVVfeXFMUDVoTWwwMm9ZbFNSeGNjVkZlZkhDUTVwZ2VacUxaTkZWODlYTG1QUFR1MTNjejFGQ1YyZnhOQ29WSFFzSkQtTkR5eXc0Q1Q0Rkxyc2N5WHZIaHFKV1JQYWNPbExpbVctLWl0YnYxUGZMNnJoUDJDZ29mUzFlYlVoMkVvc1JYVFQyX0pFNDgzMGZ2dlhXUGxlcDZHZHN1MnRBU09tdER1S3NMb2JlMVh5YVBpbndlVTBoTXVfUTBNczc4aHJqRGdOeE9aR09INnc?oc=5",
-          "published_unix": 1792931542,
-          "provider": "Autocar Professional"
-        },
-        {
-          "symbol": "BALKRISIND",
           "headline": "Balkrishna Industries (NSE:BALKRISIND) and Pirelli Outline 50 50 Tyre Venture",
           "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNZ2dWdHhKRXh3aUhxeXNPclROVkV1T1ZTRkw3Nl9mdWFISDdFUnkwZzA3T1BzOW1IOFNLVldJWHBMZmk1U3NnSmx6SDhrdzZWSmRGZmlCMVdONFh1NkQ3QmJsSGRYeENkd0k4cnFWenI5enFwY2lyUl9Fc0JwU2U5ZVhLTnFpUEFJYW91ZTVyVm5VZHJESmhRbFZUZmVqWTVsLVBqVlFnQU5TYVBwTkhfaEFVRkVuOFk?oc=5",
           "published_unix": 1792810800,
@@ -5046,17 +5113,24 @@
         },
         {
           "symbol": "BALKRISIND",
-          "headline": "JK Tyre to hike prices by 4-5% in Q3 as raw material costs stay elevated",
-          "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPamt1TTJoVkthQ0ZkXzU4aVk3dVVvYzhoMjg3MmFOa2hwbzVuLUVPa3pvS0gyRm1vS0ZNYkVOSUN2aUUzWVhKUnBCN1JVdE10QXBZb3FOcjRrbnZnSWhZNVRYRUlqaGlSdzV3LUl3TVVXYjBMYTJzT3lPLVZlUnpQTmFXSzlUeG1ZSmJ0cGp3VlgtQXNCd0hWMk45QjN5MEZfUFVhdG1qU2kwaXh0M2tnRHhYSTRmQ1dWVUpxR0ZLRHZ2eS1JU3FiZHJJR1hxWW9FYWszd0t1Q0tFSXJjWXfSAeMBQVVfeXFMTTkyNkF6aFJaY3RZOF96Q1ItWkJMal9FaHhielJaVG13a0dQQVNiZXdKeTd5ZWlpbnk2aXFzVXFUYk5IU0pBekJOdlFESVdDNUZ5MkhMMXo1eXdnNTVlYkdXLUlmXzh0QXNIMldNRlUzc1RJaE9Ga2ZvM2xtdWxEbnNTM1QzSXJMeVVGM0xFQjVDQ1BYQ0t1YVJGa2UxN0JOZ2FJMWZUUHBQcnF1MTZVOXVvaTl5OTMwc3A4VEtiUE1DLWhyV2dlZTVKbktFZnBfYmhwR09xZG4zSUhBSUZmVVBCLUk?oc=5",
-          "published_unix": 1792768847,
-          "provider": "The Economic Times"
-        },
-        {
-          "symbol": "BALKRISIND",
           "headline": "Italy's Pirelli inks JV with Balkrishna Industries | Financial Express Mumbai - newspaper",
           "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQR1JUSUJJbWVaMzBkUnUtc3VHT3B6Um5WU0FVbTAyVkNlNFktZUFINmJYdmNLTklYXzBGekIxNV9aRFZSa21DNVlwd3JSeVhWNE5tWWMzZDFhbE5NZVhNY3dKaEFtdnRRZzJ4RncxTWM3ZWlGQTBOOGVWT0VraFZyUnFVUm9sQzRTTGZaNWhocVFQSlNWd2RyT0k2X2dzZ0U5ZVczU0VsUFVWc29tTnJOaXl6VGpzMEtzSzVra2xzWXY?oc=5",
           "published_unix": 1792767959,
           "provider": "Magzter"
+        },
+        {
+          "symbol": "BALKRISIND",
+          "headline": "Buy Balkrishna Industries; target of Rs 2675: ICICI Securities",
+          "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOWWQ5a2JnLV9mNzVPWExlTFF6dUlHSHUxZmRrVEluRzhNSjg1eW91U1NaeDFzRFlibWktVkRGekRyZjZKazBNUE5KaVhQQjRkWHB1LW9XdkVRSmN3WFFyUGRwUWtfRGxhN2NmdlEwa2hmWXJYelplaFgtNTc3Y1J2QmRfRDd4Wk1BQkVfQUNMa05mR2Myb2tvU0VNcmlCZVQxa2pQT25aSl9WdFB4VlZhZ3VPRWFPREUzQ29mbnBPdFc?oc=5",
+          "published_unix": 1792749701,
+          "provider": "TradingView"
+        },
+        {
+          "symbol": "BALKRISIND",
+          "headline": "Pirelli partners with BKT to manufacture car tyres in India",
+          "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9lRXFWZFI2Wnk0QWNDaDVUTktzdTJxVmNjcFd3R05HS0pkZmg5NGhpUGd5NlNkRWMxZ1hEdlpIRE1Ranc5UnNqWkJyTjk5NWpCM1cxSXp0OTlYa2F4d3RBYVVVR24yanVuZTBR?oc=5",
+          "published_unix": 1792748444,
+          "provider": "Just Auto"
         },
         {
           "symbol": "INFY",
@@ -5096,7 +5170,7 @@
         {
           "symbol": "CHOLAFIN",
           "headline": "Chola Foundation To Bring One Of Indias Strongest Open Chess Tournaments To Chennai",
-          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPbmlFZkltZ25QWTh3QS1rLUt3OGp4YzZ5T0t2ckZBdWF6UEE3UXZpQUI1QlRud3dYTWFlUlMtUGpHSXpyZ3FrOS04VHZDcnBydHppUmhLMk02bHBPc0theGE3aTdtWFpGdVpabkcyTWdkOEdoMnNhRkJrdlRNR0tjRG1xaWJ1bmEwa29iQ0dKRDdfeERwMVhYOVc1cGZMcmlyM1RLeS1yc2laTm52SXlicm1zWnR2cnRnUGxiWFdqVdIBxAFBVV95cUxOMjBCLVh1VzdOSDRvVkpnWXR6MEREMnFWQjFEaVZQREVycEVpNFlVV0hZSUNoMC16UkZkcDZzYU1OOHgwa0FpOUNzN3p4c2dnekp1ZGxZZnoyVjVCNE1CbGNXVU1OTHBRT0lUOWk4ZnRMS2Y3TkZFZlZ1dXRiMTkySHpzU0JGRVZ4LWlyY210NnQ5R3JVVWRESmIxcWxmYXNxbkpSd0txcW5zbFdtUGJZVHZLcUI1NTM5Q2hBVERfTXZQbmNj?oc=5",
+          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOMjBCLVh1VzdOSDRvVkpnWXR6MEREMnFWQjFEaVZQREVycEVpNFlVV0hZSUNoMC16UkZkcDZzYU1OOHgwa0FpOUNzN3p4c2dnekp1ZGxZZnoyVjVCNE1CbGNXVU1OTHBRT0lUOWk4ZnRMS2Y3TkZFZlZ1dXRiMTkySHpzU0JGRVZ4LWlyY210NnQ5R3JVVWRESmIxcWxmYXNxbkpSd0txcW5zbFdtUGJZVHZLcUI1NTM5Q2hBVERfTXZQbmNj0gHEAUFVX3lxTE4yMEItWHVXN05ING9WSmdZdHowREQycVZCMURpVlBERXJwRWk0WVVXSFlJQ2gwLXpSRmRwNnNhTU44eDBrQWk5Q3M3enhzZ2d6SnVkbFlmejJWNUI0TUJsY1dVTU5McFFPSVQ5aThmdExLZjdORkVmVnV1dGIxOTJIenNTQkZFVngtaXJjbXQ2dDlHclVVZERKYjFxbGZhc3FuSlJ3S3FxbnNsV21QYllUdktxQjU1MzlDaEFURF9NdlBuY2M?oc=5",
           "published_unix": 1792936645,
           "provider": "Free Press Journal"
         },
@@ -56312,7 +56386,7 @@
       "last_price": 1233.0,
       "last_price_time_unix": 1792749599,
       "daily_change_pct": 7.81,
-      "screening_close": null,
+      "screening_close": 1233.0,
       "pe_trailing": 36.22,
       "pe_forward": 16.92,
       "price_to_book": 2.4,
@@ -56335,8 +56409,8 @@
       "fifty_two_week_high": 1268.0,
       "fifty_two_week_low": 750.3,
       "beta": 0.7,
-      "rsi_daily": null,
-      "logic_matched": null,
+      "rsi_daily": 66.7,
+      "logic_matched": "Price_Volume",
       "data_note": "yfinance fields not returned by Yahoo for this ticker are shown as unavailable, not zero.",
       "tv_available": true,
       "tv_rsi_daily": 59.8,
@@ -56739,8 +56813,11 @@
         }
       ],
       "money_flow": {
-        "available": false,
-        "reason": "no OHLCV data"
+        "available": true,
+        "net_money_flow_volume": 1933838.0,
+        "pct_of_traded_volume": 5.48,
+        "classification": "Neutral",
+        "sessions_used": 20
       }
     },
     "DABUR": {
@@ -154515,7 +154592,7 @@
       "daily_change_pct": -3.66,
       "screening_close": 545.55,
       "pe_trailing": 19.91,
-      "pe_forward": 15.24,
+      "pe_forward": 15.29,
       "price_to_book": 3.3,
       "ev_to_ebitda": null,
       "market_cap": 519169245184,
@@ -189170,7 +189247,7 @@
     }
   },
   "global_markets": {
-    "as_of_ist": "2026-10-25T21:50:00.201479+05:30",
+    "as_of_ist": "2026-10-25T22:04:39.519962+05:30",
     "regional_indices": {
       "India": {
         "name": "NIFTY 50",
