@@ -651,6 +651,7 @@
         ${key === "Price_Volume" ? "Includes rows also tagged Both (they satisfy this condition too)." : ""}
         ${key === "RSI_Based" ? "Includes rows also tagged Both (they satisfy this condition too)." : ""}
       </div>
+      <div class="banner info">${dmiNote()}</div>
       ${key === "Both" ? `<div class="banner info">${optionStrikeNote()}</div>` : ""}
       ${rows.length === 0 ? `<div class="banner warn">No stocks match this logic in the current snapshot — thresholds were not relaxed to force a result.</div>` : screenerTable(rows, containerId, sectors, key === "Both")}
     `;
@@ -679,6 +680,7 @@
             <th class="num" data-key="liquidity" data-numeric="1">Liquidity (Avg turnover)</th>
             <th class="num" data-key="rsi_daily" data-numeric="1">RSI(14) d</th><th class="num" data-key="rsi_1h" data-numeric="1">RSI(14) 1h</th>
             <th class="num" data-key="pe" data-numeric="1">P/E</th>
+            ${dmiHeaders()}
             ${withOptions ? optionStrikeHeaders() : ""}
           </tr></thead>
           <tbody>
@@ -728,6 +730,75 @@
       call or put strike with the highest traded contracts / open interest. "—" = not F&amp;O eligible.`;
   }
 
+  /* DMI / RSI / WMA columns (same indicators and crossover logic as the DMI_RSI_WMA tab, from
+     dmi_rsi_wma.by_symbol): latest values plus, for each condition, which side it is on now and how many
+     sessions ago it crossed there (0 = latest session; "≥" = has held since the indicator first exists). */
+  const DMI_STATES = [
+    ["di", "+DI vs −DI", "+DI above −DI", "+DI below −DI"],
+    ["di_adx", "+DI vs ADX", "+DI above ADX", "+DI below ADX"],
+    ["rsi", "RSI vs 50", "RSI above 50", "RSI below 50"],
+    ["wma", "Price vs WMA", "close above WMA(100)", "close below WMA(100)"],
+  ];
+
+  function dmiRecord(symbol, tf = "daily") {
+    return STATE.snapshot?.dmi_rsi_wma?.by_symbol?.[symbol]?.[tf] || null;
+  }
+
+  function dmiHeaders() {
+    const unit = "trading sessions since it crossed to its current side (0 = latest session)";
+    return `<th class="num" data-numeric="1">WMA(100)</th><th class="num" data-numeric="1">+DI</th><th class="num" data-numeric="1">−DI</th>
+      <th class="num" data-numeric="1">ADX</th><th class="num" data-numeric="1">RSI</th>
+      ${DMI_STATES.map(([, label]) => `<th class="num" data-numeric="1" title="▲/▼ = current side; number = ${unit}">${label}</th>`).join("")}
+      <th title="Whether the stock passes the full DMI_RSI_WMA screen on the daily (D) and weekly (W) timeframe">DMI signal</th>`;
+  }
+
+  function dmiStateCell(st, upText, downText) {
+    if (!st) return `<td class="num" data-sort="-1e15"><span class="na">n/a</span></td>`;
+    const [above, bars, exact] = st;
+    const when = `${exact ? "" : "≥"}${bars}d`;
+    const title = `${above ? upText : downText} — ${exact ? `crossed ${bars} session${bars === 1 ? "" : "s"} ago` : `for at least ${bars} sessions`}`;
+    return `<td class="num ${above ? "up" : "down"}" data-sort="${above ? 10000 - bars : bars - 10000}" title="${title}">${above ? "▲" : "▼"} ${when}</td>`;
+  }
+
+  function dmiSignalTags(symbol) {
+    const tag = (tf, letter) => {
+      const sig = dmiRecord(symbol, tf)?.signal;
+      return sig ? `<span class="tag ${sig === "Bullish" ? "rsi" : "none"}" style="${sig === "Bearish" ? "color:var(--neg)" : ""}">${letter} ${sig === "Bullish" ? "▲" : "▼"}</span>` : "";
+    };
+    return [tag("daily", "D"), tag("weekly", "W")].filter(Boolean).join(" ") || '<span class="na">—</span>';
+  }
+
+  function dmiCells(symbol) {
+    const r = dmiRecord(symbol);
+    if (!r) return `<td class="num" data-sort="-1e15"><span class="na" title="Not enough price history for WMA(100)/DMI">n/a</span></td>`.repeat(9) + `<td>${dmiSignalTags(symbol)}</td>`;
+    return `<td class="num" data-sort="${r.wma}">${fmt.num(r.wma)}</td><td class="num">${fmt.num(r.plus_di)}</td><td class="num">${fmt.num(r.minus_di)}</td>
+      <td class="num">${fmt.num(r.adx)}</td><td class="num">${fmt.num(r.rsi, 1)}</td>
+      ${DMI_STATES.map(([k, , up, down]) => dmiStateCell(r.states?.[k], up, down)).join("")}
+      <td>${dmiSignalTags(symbol)}</td>`;
+  }
+
+  function dmiNote() {
+    return `DMI / RSI / WMA columns use the same indicators as the DMI_RSI_WMA tab (14-period DMI and RSI, WMA(100), daily
+      bars): ▲/▼ shows which side each condition is on now, and the number is how many trading sessions ago it crossed there
+      (0 = latest session). "DMI signal" shows whether the stock passes the full DMI_RSI_WMA screen on the daily (D) or weekly (W) timeframe.`;
+  }
+
+  function dmiDetailTable(symbol) {
+    const rows = [["Daily", "daily"], ["Weekly", "weekly"]].map(([label, tf]) => {
+      const r = dmiRecord(symbol, tf);
+      if (!r) return `<tr><td class="txt"><b>${label}</b></td><td colspan="10" class="na">Not enough price history</td></tr>`;
+      return `<tr><td class="txt"><b>${label}</b></td><td class="num">${fmt.num(r.wma)}</td><td class="num">${fmt.num(r.plus_di)}</td>
+        <td class="num">${fmt.num(r.minus_di)}</td><td class="num">${fmt.num(r.adx)}</td><td class="num">${fmt.num(r.rsi, 1)}</td>
+        ${DMI_STATES.map(([k, , up, down]) => dmiStateCell(r.states?.[k], up, down).replace(/(\d+)d</, tf === "weekly" ? "$1w<" : "$1d<")).join("")}
+        <td>${r.signal ? `<span class="tag ${r.signal === "Bullish" ? "rsi" : "none"}"${r.signal === "Bearish" ? ' style="color:var(--neg)"' : ""}>${r.signal}</span>` : '<span class="na">—</span>'}</td></tr>`;
+    }).join("");
+    return `<div class="table-wrap" style="margin-top:8px"><table data-no-sort="1">
+      <thead><tr><th class="txt">Timeframe</th><th class="num">WMA(100)</th><th class="num">+DI</th><th class="num">−DI</th><th class="num">ADX</th><th class="num">RSI</th>
+        ${DMI_STATES.map(([, label]) => `<th class="num">${label}</th>`).join("")}<th>Signal</th></tr></thead>
+      <tbody>${rows}</tbody></table></div>
+      <div class="stat-sub" style="margin-top:4px">▲/▼ = current side; d / w = sessions / weeks since it crossed there (0 = latest bar). Signal = passes the full DMI_RSI_WMA screen.</div>`;
+  }
+
   function screenerRow(w, withOptions) {
     const v = w.volume || {}, b = w.breakout || {};
     const NA = -1e15; // sentinel so "n/a" rows sort to the bottom, never silently as zero
@@ -754,6 +825,7 @@
       <td class="num" data-sort="${w.rsi_daily ?? NA}">${w.rsi_daily ?? '<span class="na">n/a</span>'}</td>
       <td class="num" data-sort="${w.rsi_1h ?? NA}">${w.rsi_1h ?? '<span class="na">n/a</span>'}</td>
       <td class="num" data-sort="${w.pe ?? NA}">${w.pe ?? '<span class="na">n/a</span>'}</td>
+      ${dmiCells(w.symbol)}
       ${withOptions ? optionStrikeCells(w.symbol, w.fo_eligible) : ""}
     </tr>`;
   }
@@ -1217,6 +1289,8 @@
 
       <h4 style="margin:14px 0 2px">Moving averages</h4>
       ${maReadHtml(r.moving_averages)}
+
+      ${!isIndex ? `<h4 style="margin:14px 0 2px">DMI / RSI / WMA (same logic as the DMI_RSI_WMA tab)</h4>${dmiDetailTable(name)}` : ""}
 
       ${isIndex ? `<button class="btn" style="margin-top:10px" data-toggle-option-chain="${esc(name)}">${expanded ? "Hide" : "Show"} full nearest-expiry chain (${r.num_strikes} strikes)</button>
       ${expanded ? optionChainStrikesTable(name, r.strikes || []) : ""}` : ""}
